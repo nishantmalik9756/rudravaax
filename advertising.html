@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RudraVX — Advertising</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #050505;
+            --black-light: #0d0d0d;
+            --card: #121212;
+            --white: #ffffff;
+            --grey: #a5a5a5;
+            --orange: #ff7a18;
+            --green: #20d46b;
+            --blue: #4285f4;
+            --border: rgba(255,255,255,0.09);
+            --red: #ff5c5c;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5,5,5,0.94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .dashboard {
+            color: var(--grey);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .dashboard:hover {
+            color: var(--white);
+        }
+
+        .hero {
+            max-width: 1000px;
+            margin: auto;
+            padding: 85px 25px 55px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            color: var(--orange);
+            border: 1px solid rgba(255,122,24,0.35);
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            color: var(--grey);
+            font-size: 17px;
+        }
+
+        .eligibility {
+            max-width: 950px;
+            margin: 0 auto 45px;
+            padding: 0 25px;
+        }
+
+        .eligibility-box {
+            background: rgba(255,122,24,0.07);
+            border: 1px solid rgba(255,122,24,0.25);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .eligibility-box strong {
+            color: var(--orange);
+        }
+
+        .eligibility-box p {
+            color: #d2d2d2;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .fee-section {
+            max-width: 950px;
+            margin: 0 auto 60px;
+            padding: 0 25px;
+        }
+
+        .fee-card {
+            background: linear-gradient(145deg, #101510, #080808);
+            border: 1px solid rgba(32,212,107,0.25);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .fee-card .zero {
+            font-size: 50px;
+            font-weight: 900;
+            color: var(--green);
+        }
+
+        .fee-card h2 {
+            margin-bottom: 5px;
+        }
+
+        .fee-card p {
+            color: var(--grey);
+            max-width: 700px;
+            margin: auto;
+            font-size: 14px;
+        }
+
+        .budget-section {
+            max-width: 950px;
+            margin: 0 auto 65px;
+            padding: 0 25px;
+        }
+
+        .budget-box {
+            background: var(--black-light);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .budget-box h2 {
+            margin-bottom: 12px;
+        }
+
+        .budget-box p {
+            color: var(--grey);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .budget-box strong {
+            color: var(--white);
+        }
+
+        .platforms {
+            max-width: 1100px;
+            margin: 0 auto 70px;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .platform {
+            background: linear-gradient(145deg, #151515, #0a0a0a);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .platform:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,122,24,0.35);
+        }
+
+        .platform-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #1b1b1b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .google .platform-icon {
+            color: var(--blue);
+        }
+
+        .youtube .platform-icon {
+            color: #ff3333;
+        }
+
+        .meta .platform-icon {
+            color: #648cff;
+        }
+
+        .platform h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .platform p {
+            color: var(--grey);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .platform ul {
+            list-style: none;
+        }
+
+        .platform li {
+            color: #ccc;
+            font-size: 13px;
+            padding: 6px 0;
+        }
+
+        .platform li::before {
+            content: "✓";
+            color: var(--green);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .form-section {
+            max-width: 950px;
+            margin: auto;
+            padding: 0 25px 80px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .heading h2 {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: var(--grey);
+            font-size: 14px;
+        }
+
+        form {
+            background: var(--black-light);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 35px;
+        }
+
+        .form-section-block {
+            margin-bottom: 28px;
+        }
+
+        .form-section-block h3 {
+            font-size: 18px;
+            margin-bottom: 17px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            color: #ddd;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            background: #080808;
+            border: 1px solid var(--border);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 13px 14px;
+            outline: none;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(255,122,24,0.08);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        select option {
+            background: #111111;
+        }
+
+        .campaign-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .campaign-option {
+            position: relative;
+        }
+
+        .campaign-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .campaign-option label {
+            display: block;
+            background: #080808;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .campaign-option label strong {
+            display: block;
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .campaign-option label span {
+            color: var(--grey);
+            font-size: 13px;
+        }
+
+        .campaign-option input:checked + label {
+            border-color: var(--orange);
+            background: rgba(255,122,24,0.08);
+        }
+
+        .terms {
+            background: #080808;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .check:last-child {
+            margin-bottom: 0;
+        }
+
+        .check input {
+            width: 16px;
+            height: 16px;
+            margin-top: 3px;
+            accent-color: var(--orange);
+            flex-shrink: 0;
+        }
+
+        .check label {
+            color: #bbb;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--orange), #ff9b42);
+            color: #000;
+            font-weight: 900;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,122,24,0.2);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--green);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--grey);
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        footer a {
+            color: var(--orange);
+        }
+
+        @media (max-width: 800px) {
+            .platforms {
+                grid-template-columns: 1fr;
+            }
+
+            .grid,
+            .campaign-options {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                padding: 25px 18px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero {
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero,
+            .eligibility,
+            .fee-section,
+            .budget-section,
+            .platforms,
+            .form-section {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .fee-card,
+            .budget-box,
+            .platform {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+       
+         
+        </a>
+
+        <a href="index.html" class="dashboard">
+            Dashboard
+        </a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="badge">RudraVX Advertising</div>
+
+    <h1>Take Your Music <span>Further.</span></h1>
+
+    <p>
+        Promote your music, videos and projects through Google Ads,
+        YouTube Ads and Meta Ads with campaign planning and advertising support.
+    </p>
+</section>
+
+<section class="eligibility">
+    <div class="eligibility-box">
+        <strong>Who Can Use RudraVX Advertising?</strong>
+
+        <p>
+            This advertising service is currently available only to artists
+            under RudraVX Label Partnership and artists whose music has been
+            distributed through RudraVX.
+        </p>
+    </div>
+</section>
+
+<section class="fee-section">
+    <div class="fee-card">
+        <div class="zero">0%</div>
+
+        <h2>Additional RudraVX Advertising Fee</h2>
+
+        <p>
+            RudraVX does not charge an additional percentage-based fee on your
+            advertising spend. Your advertising budget is paid according to
+            the selected platform and campaign setup.
+        </p>
+    </div>
+</section>
+
+<section class="budget-section">
+    <div class="budget-box">
+        <h2>Advertising Budget</h2>
+
+        <p>
+            There is <strong>no universal fixed maximum advertising budget</strong>
+            across these platforms.
+        </p>
+
+        <p>
+            Google Ads officially has no minimum spending commitment, and
+            advertisers can set their own budget. Campaign budget controls
+            can also vary depending on the campaign type and account.
+        </p>
+
+        <p>
+            For YouTube Ads and Meta Ads, available minimums, spending controls
+            and campaign limits may vary by platform, campaign type, account
+            and other factors.
+        </p>
+
+        <p>
+            Your actual advertising budget will therefore be decided by you
+            and configured according to the platform and campaign requirements.
+        </p>
+    </div>
+</section>
+
+<section class="platforms">
+
+    <div class="platform google">
+        <div class="platform-icon">G</div>
+
+        <h3>Google Ads</h3>
+
+        <p>
+            Promote your music, website, releases or campaigns across Google's
+            advertising ecosystem.
+        </p>
+
+        <ul>
+            <li>Search campaigns</li>
+            <li>Display campaigns</li>
+            <li>Performance Max</li>
+            <li>Audience targeting</li>
+            <li>Campaign planning</li>
+        </ul>
+    </div>
+
+    <div class="platform youtube">
+        <div class="platform-icon">YT</div>
+
+        <h3>YouTube Ads</h3>
+
+        <p>
+            Put your music videos, releases and artist content in front of
+            relevant YouTube audiences.
+        </p>
+
+        <ul>
+            <li>Video advertising</li>
+            <li>Music promotion</li>
+            <li>Audience targeting</li>
+            <li>Campaign planning</li>
+            <li>Performance tracking</li>
+        </ul>
+    </div>
+
+    <div class="platform meta">
+        <div class="platform-icon">M</div>
+
+        <h3>Meta Ads</h3>
+
+        <p>
+            Promote your music and content across Instagram and Facebook
+            through targeted advertising campaigns.
+        </p>
+
+        <ul>
+            <li>Instagram Ads</li>
+            <li>Facebook Ads</li>
+            <li>Reels campaigns</li>
+            <li>Feed and Story campaigns</li>
+            <li>Audience targeting</li>
+        </ul>
+    </div>
+
+</section>
+
+<section class="form-section">
+
+    <div class="heading">
+        <h2>Advertising Application</h2>
+
+        <p>
+            Select your platform and submit your campaign requirements.
+        </p>
+    </div>
+
+    <form id="advertisingForm">
+
+        <input
+            type="hidden"
+            name="form_type"
+            value="RudraVX Advertising Application"
+        >
+
+        <input
+            type="hidden"
+            name="official_contact"
+            value="rudravaax@gmail.com"
+        >
+
+        <input
+            type="hidden"
+            name="selected_platform"
+            id="selectedPlatform"
+        >
+
+        <div class="form-section-block">
+
+            <h3>1. Select Advertising Platform</h3>
+
+            <div class="campaign-options">
+
+                <div class="campaign-option">
+                    <input
+                        type="radio"
+                        id="googleAds"
+                        name="advertising_platform"
+                        value="Google Ads"
+                        required
+                    >
+
+                    <label for="googleAds">
+                        <strong>Google Ads</strong>
+                        <span>
+                            Google advertising campaigns and audience targeting.
+                        </span>
+                    </label>
+                </div>
+
+                <div class="campaign-option">
+                    <input
+                        type="radio"
+                        id="youtubeAds"
+                        name="advertising_platform"
+                        value="YouTube Ads"
+                    >
+
+                    <label for="youtubeAds">
+                        <strong>YouTube Ads</strong>
+                        <span>
+                            Promote your music and videos on YouTube.
+                        </span>
+                    </label>
+                </div>
+
+                <div class="campaign-option">
+                    <input
+                        type="radio"
+                        id="metaAds"
+                        name="advertising_platform"
+                        value="Meta Ads"
+                    >
+
+                    <label for="metaAds">
+                        <strong>Meta Ads</strong>
+                        <span>
+                            Instagram and Facebook advertising campaigns.
+                        </span>
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section-block">
+
+            <h3>2. Artist / Account Details</h3>
+
+            <div class="grid">
+
+                <div class="field">
+                    <label for="artistName">Artist / Label Name *</label>
+                    <input
+                        type="text"
+                        id="artistName"
+                        name="artist_name"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="legalName">Legal / Full Name *</label>
+                    <input
+                        type="text"
+                        id="legalName"
+                        name="legal_name"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="email">Email *</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="mobile">Mobile / WhatsApp *</label>
+                    <input
+                        type="tel"
+                        id="mobile"
+                        name="mobile"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="country">Country / Region *</label>
+                    <input
+                        type="text"
+                        id="country"
+                        name="country"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="city">City</label>
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section-block">
+
+            <h3>3. Project Details</h3>
+
+            <div class="grid">
+
+                <div class="field">
+                    <label for="projectName">Song / Project Name *</label>
+                    <input
+                        type="text"
+                        id="projectName"
+                        name="project_name"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="projectType">Project Type *</label>
+
+                    <select
+                        id="projectType"
+                        name="project_type"
+                        required
+                    >
+                        <option value="">Select</option>
+                        <option value="Single">Single</option>
+                        <option value="EP">EP</option>
+                        <option value="Album">Album</option>
+                        <option value="Music Video">Music Video</option>
+                        <option value="Artist Profile">Artist Profile</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="field full">
+                    <label for="projectLink">
+                        Project / Song / Video Link *
+                    </label>
+
+                    <input
+                        type="url"
+                        id="projectLink"
+                        name="project_link"
+                        placeholder="https://..."
+                        required
+                    >
+                </div>
+
+                <div class="field full">
+                    <label for="objective">
+                        What do you want to achieve? *
+                    </label>
+
+                    <textarea
+                        id="objective"
+                        name="campaign_objective"
+                        placeholder="Example: Increase YouTube views, promote a new single, reach new listeners..."
+                        required
+                    ></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section-block">
+
+            <h3>4. Target Audience</h3>
+
+            <div class="grid">
+
+                <div class="field">
+                    <label for="targetCountry">
+                        Target Country / Region *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="targetCountry"
+                        name="target_country"
+                        placeholder="India, USA, Worldwide..."
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="targetAge">
+                        Target Age Group
+                    </label>
+
+                    <select
+                        id="targetAge"
+                        name="target_age"
+                    >
+                        <option value="">Select</option>
+                        <option value="13-17">13-17</option>
+                        <option value="18-24">18-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-44">35-44</option>
+                        <option value="45+">45+</option>
+                        <option value="All">All</option>
+                    </select>
+                </div>
+
+                <div class="field full">
+                    <label for="targetAudience">
+                        Describe Your Target Audience
+                    </label>
+
+                    <textarea
+                        id="targetAudience"
+                        name="target_audience"
+                        placeholder="Tell us about the audience you want to reach..."
+                    ></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section-block">
+
+            <h3>5. Campaign Budget & Duration</h3>
+
+            <div class="grid">
+
+                <div class="field">
+                    <label for="budget">
+                        Planned Advertising Budget *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="budget"
+                        name="advertising_budget"
+                        placeholder="Example: ₹5,000 / $100"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="duration">
+                        Campaign Duration *
+                    </label>
+
+                    <select
+                        id="duration"
+                        name="campaign_duration"
+                        required
+                    >
+                        <option value="">Select</option>
+                        <option value="Less than 7 days">Less than 7 days</option>
+                        <option value="7 days">7 days</option>
+                        <option value="14 days">14 days</option>
+                        <option value="30 days">30 days</option>
+                        <option value="More than 30 days">More than 30 days</option>
+                        <option value="Not decided">Not decided</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="startDate">
+                        Preferred Start Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="startDate"
+                        name="preferred_start_date"
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="endDate">
+                        Preferred End Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="endDate"
+                        name="preferred_end_date"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section-block">
+
+            <h3>6. Advertising Material</h3>
+
+            <div class="grid">
+
+                <div class="field full">
+                    <label for="creativeLink">
+                        Ad Creative / Video / Image Link
+                    </label>
+
+                    <input
+                        type="url"
+                        id="creativeLink"
+                        name="creative_link"
+                        placeholder="Google Drive, YouTube, website or other link"
+                    >
+                </div>
+
+                <div class="field full">
+                    <label for="additionalNotes">
+                        Additional Notes
+                    </label>
+
+                    <textarea
+                        id="additionalNotes"
+                        name="additional_notes"
+                        placeholder="Anything else about your campaign..."
+                    ></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-section-block">
+
+            <h3>7. Confirmation</h3>
+
+            <div class="terms">
+
+                <div class="check">
+                    <input
+                        type="checkbox"
+                        id="eligibilityCheck"
+                        name="eligibility_confirmation"
+                        value="Confirmed"
+                        required
+                    >
+
+                    <label for="eligibilityCheck">
+                        I confirm that I am eligible for RudraVX Advertising
+                        services through Label Partnership or RudraVX music
+                        distribution.
+                    </label>
+                </div>
+
+                <div class="check">
+                    <input
+                        type="checkbox"
+                        id="budgetCheck"
+                        name="budget_confirmation"
+                        value="Confirmed"
+                        required
+                    >
+
+                    <label for="budgetCheck">
+                        I understand that my advertising budget is separate
+                        from any platform charges and that platform minimums,
+                        controls and campaign limits may vary.
+                    </label>
+                </div>
+
+                <div class="check">
+                    <input
+                        type="checkbox"
+                        id="feeCheck"
+                        name="fee_confirmation"
+                        value="Confirmed"
+                        required
+                    >
+
+                    <label for="feeCheck">
+                        I understand that RudraVX charges 0% additional
+                        percentage-based fee on the advertising spend.
+                    </label>
+                </div>
+
+                <div class="check">
+                    <input
+                        type="checkbox"
+                        id="rightsCheck"
+                        name="rights_confirmation"
+                        value="Confirmed"
+                        required
+                    >
+
+                    <label for="rightsCheck">
+                        I confirm that I have the necessary rights and
+                        permissions for the content I am asking to advertise.
+                    </label>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button type="submit" id="submitButton">
+            Submit Advertising Application
+        </button>
+
+        <div class="status" id="status"></div>
+
+    </form>
+
+</section>
+
+<footer>
+    <p>
+        © 2026 <strong>RudraVX</strong> · Rudravaax
+    </p>
+
+    <p>
+        Official Contact:
+        <a href="mailto:rudravaax@gmail.com">
+            rudravaax@gmail.com
+        </a>
+    </p>
+</footer>
+
+<script>
+    const form = document.getElementById("advertisingForm");
+    const submitButton = document.getElementById("submitButton");
+    const status = document.getElementById("status");
+    const selectedPlatform = document.getElementById("selectedPlatform");
+
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const platform = document.querySelector(
+            'input[name="advertising_platform"]:checked'
+        );
+
+        if (!platform) {
+            alert("Please select an advertising platform.");
+            return;
+        }
+
+        selectedPlatform.value = platform.value;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting...";
+
+        const formData = new FormData(form);
+
+        formData.append(
+            "access_key",
+            "1887c1a2-4f71-4e66-91e2-5b8872960792"
+        );
+
+        formData.append(
+            "subject",
+            "New RudraVX Advertising Application"
+        );
+
+        formData.append(
+            "from_name",
+            "RudraVX Advertising"
+        );
+
+        try {
+            await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            window.location.href = "dashboard.html";
+
+        } catch (error) {
+            window.location.href = "dashboard.html";
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RudraVX — Audio Distribution</title>
+
+<style>
+
+/* =========================================================
+   RUDRAVX AUDIO DISTRIBUTION — COMPLETE CSS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #050505;
+    --black-light: #0c0c0c;
+    --black-card: #111111;
+    --black-card-2: #151515;
+
+    --white: #ffffff;
+    --grey: #a7a7a7;
+    --grey-light: #d0d0d0;
+    --border: rgba(255,255,255,0.09);
+
+    --green: #20d46b;
+    --green-dark: #0da94d;
+
+    --orange: #ff7a18;
+    --orange-light: #ff9b4a;
+
+    --red: #ff5555;
+
+    --radius: 18px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(32,212,107,0.06),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at top left,
+            rgba(255,122,24,0.05),
+            transparent 28%
+        ),
+        var(--black);
+
+    color: var(--white);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(5,5,5,0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+header .container {
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--green)
+        );
+
+    color: #050505;
+    font-size: 22px;
+    font-weight: 900;
+
+    box-shadow:
+        0 0 25px rgba(32,212,107,0.12);
+}
+
+.brand strong {
+    display: block;
+
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+.brand span {
+    display: block;
+
+    margin-top: 1px;
+
+    color: var(--grey);
+    font-size: 12px;
+}
+
+.back {
+    color: var(--white);
+    text-decoration: none;
+
+    padding: 10px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.035);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.back:hover {
+    border-color: rgba(32,212,107,0.45);
+    color: var(--green);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    padding: 55px 0 35px;
+}
+
+.hero .container {
+    position: relative;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 13px;
+
+    border-radius: 999px;
+
+    background: rgba(32,212,107,0.08);
+    border: 1px solid rgba(32,212,107,0.25);
+
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin-top: 20px;
+
+    max-width: 850px;
+
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            var(--green),
+            var(--orange)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.hero > .container > p {
+    max-width: 720px;
+
+    margin-top: 22px;
+
+    color: var(--grey);
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   ROYALTY NOTICE
+========================================================= */
+
+.royalty-notice {
+    position: relative;
+
+    margin-bottom: 40px;
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,122,24,0.07),
+            rgba(32,212,107,0.045)
+        );
+
+    border: 1px solid rgba(255,122,24,0.22);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+}
+
+.royalty-notice::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+
+    width: 3px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            var(--orange),
+            var(--green)
+        );
+}
+
+.royalty-badge {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    margin-bottom: 12px;
+
+    border-radius: 7px;
+
+    background: rgba(255,122,24,0.12);
+    border: 1px solid rgba(255,122,24,0.25);
+
+    color: var(--orange-light);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.royalty-notice h2 {
+    margin-bottom: 12px;
+
+    font-size: 24px;
+}
+
+.royalty-notice p {
+    color: var(--grey);
+    font-size: 14px;
+
+    margin-top: 10px;
+}
+
+.royalty-notice strong {
+    color: var(--white);
+}
+
+.royalty-final {
+    padding-top: 12px;
+
+    color: var(--orange-light) !important;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   INFO CARDS
+========================================================= */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+}
+
+.info-card {
+    padding: 24px;
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.018)
+        );
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(32,212,107,0.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(32,212,107,0.055),
+            rgba(255,255,255,0.018)
+        );
+}
+
+.info-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.055);
+
+    font-size: 21px;
+}
+
+.info-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 17px;
+}
+
+.info-card p {
+    color: var(--grey);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FORM BOX
+========================================================= */
+
+.form-box {
+    margin-bottom: 60px;
+
+    padding: clamp(18px, 4vw, 35px);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.015)
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.25);
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+    padding: 30px 0;
+
+    border-bottom: 1px solid
+        rgba(255,255,255,0.06);
+}
+
+.section:first-child {
+    padding-top: 5px;
+}
+
+.section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 22px;
+}
+
+.section-title .number {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(32,212,107,0.16),
+            rgba(255,122,24,0.11)
+        );
+
+    border: 1px solid
+        rgba(32,212,107,0.22);
+
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.section-title h2 {
+    font-size: 21px;
+    letter-spacing: -0.3px;
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    color: var(--grey-light);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.field input,
+.field select {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    border-radius: 11px;
+
+    border: 1px solid var(--border);
+
+    background: #0b0b0b;
+
+    color: var(--white);
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.field input::placeholder {
+    color: #656565;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color:
+        rgba(32,212,107,0.55);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(32,212,107,0.08);
+}
+
+.field select option {
+    background: #111;
+    color: #fff;
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+========================================================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+.project-card,
+.distribution-card,
+.delivery-card {
+    position: relative;
+}
+
+.project-card input,
+.distribution-card input,
+.delivery-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.project-card label,
+.distribution-card label,
+.delivery-card label {
+    display: block;
+
+    height: 100%;
+
+    padding: 22px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.025);
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.project-card label:hover,
+.distribution-card label:hover,
+.delivery-card label:hover {
+    border-color:
+        rgba(255,255,255,0.18);
+
+    transform: translateY(-2px);
+}
+
+.project-card input:checked + label,
+.distribution-card input:checked + label,
+.delivery-card input:checked + label {
+    border-color:
+        rgba(32,212,107,0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(32,212,107,0.09),
+            rgba(255,122,24,0.035)
+        );
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(32,212,107,0.08),
+        0 12px 35px rgba(0,0,0,0.2);
+}
+
+.project-name {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.project-desc {
+    margin-top: 6px;
+
+    color: var(--grey);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SONG OPTIONS
+========================================================= */
+
+.song-count-box {
+    margin-top: 18px;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.022);
+
+    border: 1px solid var(--border);
+}
+
+.count-title {
+    margin-bottom: 13px;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.song-options {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.song-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.song-option label {
+    width: 42px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 9px;
+
+    border: 1px solid var(--border);
+
+    background: #0a0a0a;
+
+    color: var(--grey);
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: 0.2s ease;
+}
+
+.song-option label:hover {
+    border-color:
+        rgba(32,212,107,0.35);
+}
+
+.song-option input:checked + label {
+    background: var(--green);
+    border-color: var(--green);
+
+    color: #031009;
+
+    box-shadow:
+        0 5px 18px
+        rgba(32,212,107,0.18);
+}
+
+.song-note {
+    margin-top: 13px;
+
+    color: var(--grey);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   DISTRIBUTION
+========================================================= */
+
+.distribution-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+.distribution-title {
+    font-size: 17px;
+    font-weight: 850;
+}
+
+.distribution-price {
+    margin-top: 9px;
+
+    color: var(--green);
+
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.distribution-desc {
+    margin-top: 12px;
+
+    color: var(--grey);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.popular {
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    background: rgba(255,122,24,0.12);
+
+    color: var(--orange);
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice {
+    margin-bottom: 18px;
+
+    padding: 18px;
+
+    border-radius: 13px;
+
+    border: 1px solid
+        rgba(32,212,107,0.15);
+
+    background:
+        rgba(32,212,107,0.035);
+
+    color: var(--grey);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.notice strong {
+    color: var(--white);
+}
+
+.notice.warning {
+    border-color:
+        rgba(255,122,24,0.2);
+
+    background:
+        rgba(255,122,24,0.04);
+}
+
+.notice.warning strong {
+    color: var(--orange-light);
+}
+
+.official {
+    color: var(--green);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PLATFORM BOX
+========================================================= */
+
+.platform-box {
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.022);
+
+    border: 1px solid var(--border);
+}
+
+.platform-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 17px;
+}
+
+.platform-header h3 {
+    font-size: 15px;
+}
+
+.platform-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.platform-count {
+    color: var(--grey);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.select-all-btn {
+    border: 1px solid
+        rgba(32,212,107,0.3);
+
+    background:
+        rgba(32,212,107,0.07);
+
+    color: var(--green);
+
+    padding: 8px 11px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    transition: 0.2s ease;
+}
+
+.select-all-btn:hover:not(:disabled) {
+    background:
+        rgba(32,212,107,0.14);
+}
+
+.select-all-btn:disabled {
+    cursor: not-allowed;
+}
+
+.platform-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 8px;
+}
+
+.platform {
+    min-height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 11px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: #0b0b0b;
+
+    color: var(--grey);
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    transition: 0.2s ease;
+}
+
+.platform:hover {
+    border-color:
+        rgba(255,255,255,0.18);
+}
+
+.platform input {
+    accent-color: var(--green);
+}
+
+.platform:has(input:checked) {
+    border-color:
+        rgba(32,212,107,0.3);
+
+    color: var(--white);
+
+    background:
+        rgba(32,212,107,0.045);
+}
+
+.platform.locked {
+    cursor: default;
+    opacity: 0.9;
+}
+
+.platform-lock {
+    margin-left: auto;
+
+    padding: 3px 5px;
+
+    border-radius: 4px;
+
+    background: rgba(255,255,255,0.06);
+
+    color: #777;
+
+    font-size: 7px;
+    font-weight: 900;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   OPTIONAL SERVICES
+========================================================= */
+
+.option-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.option {
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    background: rgba(255,255,255,0.022);
+
+    transition: 0.2s ease;
+}
+
+.option:hover {
+    border-color:
+        rgba(255,255,255,0.16);
+}
+
+.option label {
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    cursor: pointer;
+}
+
+.option input {
+    width: 17px;
+    height: 17px;
+
+    flex-shrink: 0;
+
+    accent-color: var(--green);
+}
+
+.option span {
+    color: var(--grey);
+
+    font-size: 12px;
+}
+
+.option strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--white);
+
+    font-size: 13px;
+}
+
+.option input:disabled + span {
+    opacity: 0.45;
+}
+
+
+/* =========================================================
+   DELIVERY
+========================================================= */
+
+.delivery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+.delivery-title {
+    font-size: 17px;
+    font-weight: 850;
+}
+
+.delivery-price {
+    margin-top: 8px;
+
+    color: var(--green);
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.delivery-desc {
+    margin-top: 11px;
+
+    color: var(--grey);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BILL
+========================================================= */
+
+.bill {
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #0b0b0b
+        );
+}
+
+.bill-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 19px 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.bill-head h3 {
+    font-size: 15px;
+}
+
+.bill-head span {
+    padding: 5px 8px;
+
+    border-radius: 5px;
+
+    background: rgba(32,212,107,0.08);
+
+    color: var(--green);
+
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: 0.7px;
+}
+
+.bill-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 13px 20px;
+
+    border-bottom: 1px solid
+        rgba(255,255,255,0.045);
+}
+
+.bill-row span {
+    color: var(--grey);
+
+    font-size: 12px;
+}
+
+.bill-row strong {
+    color: var(--white);
+
+    font-size: 12px;
+
+    text-align: right;
+}
+
+.bill-row .extra {
+    color: var(--orange);
+}
+
+.bill-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(32,212,107,0.08),
+            rgba(255,122,24,0.05)
+        );
+}
+
+.bill-total span {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.bill-total strong {
+    color: var(--green);
+
+    font-size: 24px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   CONFIRMATION
+========================================================= */
+
+.check-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.check {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(255,255,255,0.02);
+
+    cursor: pointer;
+
+    color: var(--grey);
+
+    font-size: 12px;
+
+    transition: 0.2s ease;
+}
+
+.check:hover {
+    border-color:
+        rgba(32,212,107,0.2);
+}
+
+.check input {
+    width: 17px;
+    height: 17px;
+
+    margin-top: 1px;
+
+    flex-shrink: 0;
+
+    accent-color: var(--green);
+}
+
+.check strong {
+    color: var(--white);
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.submit-btn {
+    width: 100%;
+
+    min-height: 58px;
+
+    margin-top: 30px;
+
+    border: none;
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--green),
+            #37e97d
+        );
+
+    color: #031009;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    letter-spacing: 0.2px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(32,212,107,0.14);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 40px
+        rgba(32,212,107,0.22);
+}
+
+.submit-btn:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.submit-status {
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    background: rgba(32,212,107,0.06);
+
+    border: 1px solid
+        rgba(32,212,107,0.15);
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 35px 0 45px;
+
+    border-top: 1px solid var(--border);
+
+    color: #707070;
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+footer .official {
+    color: var(--green);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #292929;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b3b3b;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(32,212,107,0.25);
+    color: #fff;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid,
+    .distribution-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: min(100% - 22px, 1180px);
+    }
+
+    header .container {
+        min-height: 68px;
+    }
+
+    .logo {
+        width: 39px;
+        height: 39px;
+
+        border-radius: 11px;
+        font-size: 19px;
+    }
+
+    .brand strong {
+        font-size: 16px;
+    }
+
+    .brand span {
+        font-size: 10px;
+    }
+
+    .back {
+        padding: 8px 11px;
+
+        font-size: 11px;
+    }
+
+    .hero {
+        padding: 35px 0 25px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+        letter-spacing: -2px;
+    }
+
+    .hero > .container > p {
+        font-size: 13px;
+    }
+
+    .royalty-notice {
+        padding: 20px;
+    }
+
+    .royalty-notice h2 {
+        font-size: 20px;
+    }
+
+    .royalty-notice p {
+        font-size: 12px;
+    }
+
+    .form-box {
+        padding: 16px;
+
+        border-radius: 18px;
+    }
+
+    .grid,
+    .option-grid,
+    .delivery {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .platform-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .section {
+        padding: 25px 0;
+    }
+
+    .section-title h2 {
+        font-size: 18px;
+    }
+
+    .section-title .number {
+        width: 34px;
+        height: 34px;
+    }
+
+    .bill-row {
+        align-items: flex-start;
+    }
+
+    .bill-row strong {
+        max-width: 52%;
+    }
+
+    .bill-total strong {
+        font-size: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .royalty-notice {
+        padding: 17px;
+    }
+
+    .form-box {
+        padding: 13px;
+    }
+
+    .project-card label,
+    .distribution-card label,
+    .delivery-card label {
+        padding: 17px;
+    }
+
+    .bill-row,
+    .bill-total {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+<div class="container">
+
+   
+    <a href="index.html" class="back">
+        Dashboard
+    </a>
+
+</div>
+</header>
+
+
+<main>
+
+<section class="hero">
+<div class="container">
+
+    <div class="royalty-notice">
+
+        <div class="royalty-badge">
+            IMPORTANT ROYALTY NOTICE
+        </div>
+
+        <h2>
+            RudraVX Royalty Share — 15%
+        </h2>
+
+        <p>
+            RudraVX will retain a
+            <strong>15% royalty share</strong>
+            from the revenue generated by distributed music,
+            regardless of whether the artist chooses
+            <strong>Free Distribution</strong> or
+            <strong>Paid Distribution</strong>.
+        </p>
+
+        <p>
+            The remaining <strong>85%</strong> will belong to the artist,
+            subject to applicable deductions, taxes, platform fees,
+            or other charges where applicable.
+        </p>
+
+        <p class="royalty-final">
+            This 15% royalty share applies to all releases distributed
+            through RudraVX under both Free Distribution and Paid
+            Distribution plans.
+        </p>
+
+    </div>
+
+
+    <div class="badge">
+        RudraVX Audio Distribution
+    </div>
+
+    <h1>
+        Release Your Music
+        <span>Worldwide.</span>
+    </h1>
+
+    <p>
+        Submit your release information, choose your distribution plan,
+        select your platforms and add optional services according to
+        your requirements.
+    </p>
+
+</div>
+</section>
+
+
+<section class="container">
+
+<div class="info-grid">
+
+    <div class="info-card">
+
+        <div class="info-icon">🌎</div>
+
+        <h3>Global Distribution</h3>
+
+        <p>
+            Distribute music across major DSPs and digital music
+            platforms according to your selected plan.
+        </p>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="info-icon">⚡</div>
+
+        <h3>Multiple Release Speeds</h3>
+
+        <p>
+            Free, paid, accelerated DSW submission and 24-hour
+            release options are available.
+        </p>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <div class="info-icon">🎧</div>
+
+        <h3>Quality First</h3>
+
+        <p>
+            WAV or FLAC files are strongly recommended for professional
+            distribution.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="form-box">
+
+<form
+    id="distributionForm"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+>
+
+<input
+    type="hidden"
+    name="access_key"
+    value="1887c1a2-4f71-4e66-91e2-5b8872960792"
+>
+
+<input
+    type="hidden"
+    name="subject"
+    value="New RudraVX Audio Distribution Request"
+>
+
+<input
+    type="hidden"
+    name="from_name"
+    value="RudraVX Audio Distribution"
+>
+
+<input
+    type="hidden"
+    name="royalty_share"
+    value="RudraVX retains 15% royalty share on revenue from distributed music under Free Distribution and Paid Distribution."
+>
+
+<input
+    type="hidden"
+    name="artist_revenue_share"
+    value="85% before applicable deductions, taxes, platform fees or other applicable charges."
+>
+
+<input
+    type="hidden"
+    name="estimated_total"
+    id="estimatedTotal"
+>
+
+<input
+    type="hidden"
+    name="billing_details"
+    id="billingDetails"
+>
+
+<input
+    type="hidden"
+    name="selected_platforms"
+    id="selectedPlatforms"
+>
+
+<input
+    type="hidden"
+    name="distribution_reference_note"
+    value="Artist will receive a Distribution Reference ID and should use the same email thread to submit audio files."
+>
+
+
+<!-- 01 DETAILS -->
+
+<div class="section">
+
+<div class="section-title">
+    <div class="number">01</div>
+    <h2>Your Details</h2>
+</div>
+
+
+<div class="grid">
+
+<div class="field">
+
+<label>Artist Name *</label>
+
+<input
+    type="text"
+    name="artist_name"
+    placeholder="Enter artist name"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Mobile Number *</label>
+
+<input
+    type="tel"
+    name="mobile"
+    placeholder="Enter mobile number"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Email Address *</label>
+
+<input
+    type="email"
+    name="email"
+    placeholder="Enter your email"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Song Type *</label>
+
+<select name="song_type" required>
+
+<option value="">
+    Select song type
+</option>
+
+<option>Hip-Hop</option>
+<option>Rap</option>
+<option>Pop</option>
+<option>Trap</option>
+<option>EDM</option>
+<option>R&B</option>
+<option>Rock</option>
+<option>Reggaeton</option>
+<option>Indie</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>Average Song Duration *</label>
+
+<input
+    type="text"
+    name="duration"
+    placeholder="Example: 3:25"
+    required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>Label / Artist Brand</label>
+
+<input
+    type="text"
+    name="label_name"
+    placeholder="Optional"
+>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- 02 PROJECT -->
+
+<div class="section">
+
+<div class="section-title">
+
+    <div class="number">02</div>
+
+    <h2>Choose Your Release</h2>
+
+</div>
+
+
+<div class="project-grid">
+
+
+<div class="project-card">
+
+<input
+    type="radio"
+    name="project_type"
+    id="single"
+    value="Single"
+    checked
+>
+
+<label for="single">
+
+<div class="project-name">
+    Single
+</div>
+
+<div class="project-desc">
+    Exactly 1 song
+</div>
+
+</label>
+
+</div>
+
+
+<div class="project-card">
+
+<input
+    type="radio"
+    name="project_type"
+    id="ep"
+    value="EP"
+>
+
+<label for="ep">
+
+<div class="project-name">
+    EP
+</div>
+
+<div class="project-desc">
+    2–7 songs · may take ~7 extra days
+</div>
+
+</label>
+
+</div>
+
+
+<div class="project-card">
+
+<input
+    type="radio"
+    name="project_type"
+    id="album"
+    value="Album"
+>
+
+<label for="album">
+
+<div class="project-name">
+    Album
+</div>
+
+<div class="project-desc">
+    8+ songs · may take ~7 extra days
+</div>
+
+</label>
+
+</div>
+
+
+</div>
+
+
+<div class="song-count-box">
+
+<div class="count-title">
+    Number of Songs
+</div>
+
+<div
+    class="song-options"
+    id="songOptions"
+></div>
+
+<div
+    class="song-note"
+    id="songNote"
+></div>
+
+</div>
+
+</div>
+
+
+<!-- 03 DISTRIBUTION PLAN -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    03
+</div>
+
+<h2>
+    Distribution Plan
+</h2>
+
+</div>
+
+
+<div class="distribution-grid">
+
+
+<div class="distribution-card">
+
+<input
+    type="radio"
+    name="distribution_plan"
+    id="free"
+    value="Free Distribution"
+    checked
+>
+
+<label for="free">
+
+<div class="distribution-title">
+    Free Distribution
+</div>
+
+<div class="distribution-price">
+    $0.00
+</div>
+
+<div class="distribution-desc">
+
+Singles only.<br>
+Maximum 10 songs overall.<br>
+5 main platforms.<br>
+Approximately 21 days.
+
+</div>
+
+</label>
+
+</div>
+
+
+<div class="distribution-card">
+
+<input
+    type="radio"
+    name="distribution_plan"
+    id="paid"
+    value="Paid Distribution"
+>
+
+<label for="paid">
+
+<div class="popular">
+    RECOMMENDED
+</div>
+
+<div class="distribution-title">
+    Paid Distribution
+</div>
+
+<div class="distribution-price">
+    $0.19 / song
+</div>
+
+<div class="distribution-desc">
+
+Additional distribution network.<br>
+Approximately 14 days for Singles.<br>
+EP/Album may take ~7 extra days.
+
+</div>
+
+</label>
+
+</div>
+
+
+<div class="distribution-card">
+
+<input
+    type="radio"
+    name="distribution_plan"
+    id="fastdsw"
+    value="Accelerated DSW Submission"
+>
+
+<label for="fastdsw">
+
+<div class="distribution-title">
+    DSW Fast Submission
+</div>
+
+<div class="distribution-price">
+    $0.99 / song
+</div>
+
+<div class="distribution-desc">
+
+Release is sent to DSW within approximately
+5 days.
+
+</div>
+
+</label>
+
+</div>
+
+
+</div>
+</div>
+
+
+<!-- 04 PLATFORMS -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    04
+</div>
+
+<h2>
+    Distribution Platforms
+</h2>
+
+</div>
+
+
+<div
+    class="notice"
+    id="platformNotice"
+>
+
+<strong>
+    Free Distribution:
+</strong>
+
+Only YouTube Music, Spotify, Amazon Music,
+Apple Music and JioSaavn are included.
+
+<br><br>
+
+<strong>
+    Paid Distribution:
+</strong>
+
+The extended platform network is available.
+
+</div>
+
+
+<div class="platform-box">
+
+<div class="platform-header">
+
+<h3>
+    Select Platforms
+</h3>
+
+
+<div class="platform-actions">
+
+<div
+    class="platform-count"
+    id="platformCount"
+>
+    0 selected
+</div>
+
+
+<button
+    type="button"
+    class="select-all-btn"
+    id="selectAllBtn"
+>
+    Select All
+</button>
+
+</div>
+
+</div>
+
+
+<div
+    class="platform-grid"
+    id="platformGrid"
+></div>
+
+</div>
+
+</div>
+
+
+<!-- 05 ADDONS -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    05
+</div>
+
+<h2>
+    Optional Services
+</h2>
+
+</div>
+
+
+<div class="option-grid">
+
+
+<div class="option">
+
+<label>
+
+<input
+    type="checkbox"
+    name="addon_meta_tiktok"
+    value="Meta + TikTok Content ID — $0.49/song"
+    data-price="0.49"
+    class="song-addon"
+>
+
+<span>
+
+<strong>
+    Meta + TikTok Content ID
+</strong>
+
+$0.49 per song
+
+</span>
+
+</label>
+
+</div>
+
+
+<div class="option">
+
+<label>
+
+<input
+    type="checkbox"
+    name="addon_youtube_content_id"
+    value="YouTube Content ID — $0.99/song"
+    data-price="0.99"
+    class="song-addon"
+>
+
+<span>
+
+<strong>
+    YouTube Content ID
+</strong>
+
+$0.99 per song
+
+</span>
+
+</label>
+
+</div>
+
+
+<div class="option">
+
+<label>
+
+<input
+    type="checkbox"
+    name="addon_oac"
+    value="Official Artist Channel — $9.99"
+    data-price="9.99"
+    class="flat-addon"
+>
+
+<span>
+
+<strong>
+    Official Artist Channel
+</strong>
+
+$9.99
+
+</span>
+
+</label>
+
+</div>
+
+
+<div class="option">
+
+<label>
+
+<input
+    type="checkbox"
+    name="addon_audio_licensing"
+    value="Audible Magic Licensing"
+    class="paid-only-feature"
+>
+
+<span>
+
+<strong>
+    Audible Magic Licensing
+</strong>
+
+Included with eligible paid distribution.
+
+</span>
+
+</label>
+
+</div>
+
+
+<div class="option">
+
+<label>
+
+<input
+    type="checkbox"
+    name="addon_fingerprinting"
+    value="Audible Magic Fingerprinting"
+    class="paid-only-feature"
+>
+
+<span>
+
+<strong>
+    Audible Magic Fingerprinting
+</strong>
+
+Included with eligible paid distribution.
+
+</span>
+
+</label>
+
+</div>
+
+
+</div>
+</div>
+
+
+<!-- 06 RELEASE SPEED -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    06
+</div>
+
+<h2>
+    Release Speed
+</h2>
+
+</div>
+
+
+<div class="delivery">
+
+
+<div class="delivery-card">
+
+<input
+    type="radio"
+    name="release_speed"
+    id="normal"
+    value="Standard Release"
+    checked
+>
+
+<label for="normal">
+
+<div class="delivery-title">
+    Standard Release
+</div>
+
+<div class="delivery-price">
+    Included
+</div>
+
+<div class="delivery-desc">
+
+Free: approximately 21 days.<br>
+Paid: approximately 14 days.<br>
+EP/Album may take approximately 7 additional days.
+
+</div>
+
+</label>
+
+</div>
+
+
+<div class="delivery-card">
+
+<input
+    type="radio"
+    name="release_speed"
+    id="fast24"
+    value="24 Hour Release — $7.99/song"
+>
+
+<label for="fast24">
+
+<div class="delivery-title">
+    24H Release
+</div>
+
+<div class="delivery-price">
+    $7.99 / song
+</div>
+
+<div class="delivery-desc">
+
+24-hour distribution processing option.
+Valid submission is required for the release guarantee.
+
+</div>
+
+</label>
+
+</div>
+
+
+</div>
+</div>
+
+
+<!-- 07 AUDIO -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    07
+</div>
+
+<h2>
+    Audio Submission
+</h2>
+
+</div>
+
+
+<div class="notice">
+
+<strong>
+    Do not upload audio files on this page.
+</strong>
+
+<br><br>
+
+After submitting this form, you will receive a
+<strong>Distribution Reference ID</strong>.
+
+<br><br>
+
+Use the same email thread/reply to send your
+audio files to the RudraVX team.
+
+<br><br>
+
+<strong>
+    WAV or FLAC files are strongly recommended.
+</strong>
+
+<br><br>
+
+The number of audio files submitted must match
+the selected number of songs.
+
+<br><br>
+
+<strong>
+    Official Email:
+</strong>
+
+<br>
+
+<span class="official">
+    rudravaax@gmail.com
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 08 POLICY -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    08
+</div>
+
+<h2>
+    Distribution Policy
+</h2>
+
+</div>
+
+
+<div class="notice warning">
+
+<strong>
+    Important — Submission does not automatically guarantee acceptance.
+</strong>
+
+<br><br>
+
+Your release is reviewed for metadata,
+artist information, audio and other requirements.
+
+<br><br>
+
+If there is an artist-name, metadata or similar
+correctable issue, you may be given an opportunity
+to make corrections.
+
+<br><br>
+
+If copyrighted, unauthorized, fraudulent or otherwise
+violating content belonging to another party is identified,
+the release may be rejected.
+
+<br><br>
+
+In such cases, payments are
+<strong>non-refundable</strong> and the applicable
+<strong>$99 fraud/violation fee</strong> will be mandatory
+where the violation policy applies.
+
+<br><br>
+
+By submitting this form, you acknowledge and accept
+these conditions.
+
+</div>
+
+</div>
+
+
+<!-- 09 BILL -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    09
+</div>
+
+<h2>
+    Your Bill
+</h2>
+
+</div>
+
+
+<div class="bill">
+
+<div class="bill-head">
+
+<h3>
+    RudraVX Distribution Bill
+</h3>
+
+<span>
+    LIVE CALCULATION
+</span>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Project
+</span>
+
+<strong id="billProject">
+    Single
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Songs
+</span>
+
+<strong id="billSongs">
+    1
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Distribution
+</span>
+
+<strong id="billDistribution">
+    Free Distribution
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Distribution Price
+</span>
+
+<strong id="billDistributionPrice">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    18+ Song Charge
+</span>
+
+<strong
+    id="billAdultCharge"
+    class="extra"
+>
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Song-based Add-ons
+</span>
+
+<strong id="billSongAddons">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Flat Add-ons
+</span>
+
+<strong id="billFlatAddons">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Release Speed
+</span>
+
+<strong id="billSpeed">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    RudraVX Royalty Share
+</span>
+
+<strong>
+    15% of revenue
+</strong>
+
+</div>
+
+
+<div class="bill-row">
+
+<span>
+    Artist Revenue Share
+</span>
+
+<strong>
+    85% of revenue*
+</strong>
+
+</div>
+
+
+<div class="bill-total">
+
+<span>
+    Total Payable
+</span>
+
+<strong id="billTotal">
+    $0.00
+</strong>
+
+</div>
+
+
+<p style="margin:12px 20px 20px;font-size:12px;opacity:.7;">
+
+    *Royalty share applies to revenue generated by distributed
+    music and is separate from the distribution service charges.
+    Applicable deductions, taxes, platform fees or other charges
+    may apply where applicable.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 10 CONFIRMATION -->
+
+<div class="section">
+
+<div class="section-title">
+
+<div class="number">
+    10
+</div>
+
+<h2>
+    Confirmation
+</h2>
+
+</div>
+
+
+<div class="check-list">
+
+
+<label class="check">
+
+<input
+    type="checkbox"
+    name="audio_confirmation"
+    value="Confirmed: WAV/FLAC preferred and audio will be submitted by email"
+    required
+>
+
+<span>
+
+I understand that audio files are submitted separately
+through the Distribution Reference ID email and that
+WAV or FLAC is strongly recommended.
+
+</span>
+
+</label>
+
+
+<label class="check">
+
+<input
+    type="checkbox"
+    name="song_count_confirmation"
+    value="Confirmed: selected song count matches submitted audio files"
+    required
+>
+
+<span>
+
+I confirm that the number of songs selected on this form
+will match the number of audio files I submit.
+
+</span>
+
+</label>
+
+
+<label class="check">
+
+<input
+    type="checkbox"
+    name="policy_confirmation"
+    value="Accepted distribution policy and applicable violation terms"
+    required
+>
+
+<span>
+
+I have read and understood the distribution policy,
+including rejection conditions, non-refundable payments
+and the applicable mandatory $99 fraud/violation fee.
+
+</span>
+
+</label>
+
+
+<label class="check">
+
+<input
+    type="checkbox"
+    name="royalty_confirmation"
+    value="Accepted RudraVX 15% royalty share for Free Distribution and Paid Distribution"
+    required
+>
+
+<span>
+
+I understand and accept that RudraVX will retain a
+<strong>15% royalty share</strong> from revenue generated
+by music distributed through RudraVX, whether I choose
+Free Distribution or Paid Distribution.
+
+</span>
+
+</label>
+
+
+<label class="check">
+
+<input
+    type="checkbox"
+    name="official_email_confirmation"
+    value="Confirmed official Rudravaax email"
+    required
+>
+
+<span>
+
+I understand that official communication should be
+trusted only from <strong>rudravaax@gmail.com</strong>.
+
+</span>
+
+</label>
+
+
+</div>
+
+</div>
+
+
+<button
+    type="submit"
+    class="submit-btn"
+    id="submitBtn"
+>
+    Submit Distribution Request →
+</button>
+
+
+<div
+    class="submit-status"
+    id="submitStatus"
+>
+    Submitting your distribution request…
+</div>
+
+
+</form>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+© 2026 RudraVX · Rudravaax
+
+<br><br>
+
+Official Email:
+
+<span class="official">
+    rudravaax@gmail.com
+</span>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   PLATFORM DATA
+========================================================= */
+
+const mainFreePlatforms = [
+
+    "YouTube Music",
+    "Spotify",
+    "Amazon Music",
+    "iTunes / Apple Music",
+    "JioSaavn"
+
+];
+
+
+const paidPlatforms = [
+
+    "Amazon Music",
+    "Anghami",
+    "Audible Magic Fingerprinting",
+    "Audible Magic Licensing",
+    "AWA",
+    "Beatport",
+    "Boomplay",
+    "Claro música",
+    "Deezer",
+    "DouYin (TikTok China)",
+    "Flo",
+    "iHeart",
+    "iTunes / Apple Music",
+    "JioSaavn",
+    "JOOX",
+    "Kanjian",
+    "KDigital Media",
+    "Kkbox",
+    "Lickd",
+    "Lissen",
+    "Luna aka Qishui Yinyue (Soda Music)",
+    "Massive Music",
+    "Melon",
+    "META",
+    "MixCloud",
+    "NetEase Cloud Music",
+    "Pandora",
+    "Peloton",
+    "Qobuz",
+    "Soundcloud",
+    "Soundexchange",
+    "Spotify",
+    "Taobao",
+    "Tencent",
+    "Tidal",
+    "TikTok",
+    "Trebel",
+    "Tuned Global",
+    "Yango Play",
+    "YouTube Audio Content ID",
+    "YouTube Music"
+
+];
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const form =
+    document.getElementById("distributionForm");
+
+const songOptions =
+    document.getElementById("songOptions");
+
+const songNote =
+    document.getElementById("songNote");
+
+const platformGrid =
+    document.getElementById("platformGrid");
+
+const platformCount =
+    document.getElementById("platformCount");
+
+const selectAllBtn =
+    document.getElementById("selectAllBtn");
+
+let selectedSongs = 1;
+
+
+/* =========================================================
+   PROJECT
+========================================================= */
+
+function getProject() {
+
+    const checked =
+        document.querySelector(
+            'input[name="project_type"]:checked'
+        );
+
+    return checked
+        ? checked.value
+        : "Single";
+
+}
+
+
+/* =========================================================
+   DISTRIBUTION PLAN
+========================================================= */
+
+function getDistributionPlan() {
+
+    return document.querySelector(
+        'input[name="distribution_plan"]:checked'
+    )?.value || "Free Distribution";
+
+}
+
+
+/* =========================================================
+   SONG OPTIONS
+========================================================= */
+
+function renderSongOptions() {
+
+    const project =
+        getProject();
+
+    songOptions.innerHTML = "";
+
+    let min = 1;
+    let max = 1;
+
+
+    if (project === "Single") {
+
+        min = 1;
+        max = 1;
+
+        selectedSongs = 1;
+
+        songNote.textContent =
+            "Single release contains exactly 1 song.";
+
+    }
+
+
+    else if (project === "EP") {
+
+        min = 2;
+        max = 7;
+
+        if (selectedSongs < 2 || selectedSongs > 7) {
+            selectedSongs = 2;
+        }
+
+        songNote.textContent =
+            "EP: 2–7 songs. EP releases may take approximately 7 additional days.";
+
+    }
+
+
+    else if (project === "Album") {
+
+        min = 8;
+        max = 100;
+
+        if (selectedSongs < 8) {
+            selectedSongs = 8;
+        }
+
+        songNote.textContent =
+            "Album: 8+ songs. Albums may take approximately 7 additional days.";
+
+    }
+
+
+    for (let i = min; i <= max; i++) {
+
+        const wrapper =
+            document.createElement("div");
+
+        wrapper.className =
+            "song-option";
+
+        const id =
+            "song_" + i;
+
+        wrapper.innerHTML = `
+
+            <input
+                type="radio"
+                name="song_count"
+                id="${id}"
+                value="${i}"
+                ${i === selectedSongs ? "checked" : ""}
+            >
+
+            <label for="${id}">
+                ${i}
+            </label>
+
+        `;
+
+        songOptions.appendChild(wrapper);
+
+    }
+
+
+    document
+        .querySelectorAll(
+            'input[name="song_count"]'
+        )
+        .forEach(input => {
+
+            input.addEventListener(
+                "change",
+                function () {
+
+                    selectedSongs =
+                        Number(this.value);
+
+                    enforceFreeDistributionRules();
+
+                    calculateBill();
+
+                }
+            );
+
+        });
+
+}
+
+
+/* =========================================================
+   PLATFORM RENDER
+========================================================= */
+
+function renderPlatforms() {
+
+    platformGrid.innerHTML = "";
+
+    const plan =
+        getDistributionPlan();
+
+    const list =
+        plan === "Free Distribution"
+            ? mainFreePlatforms
+            : paidPlatforms;
+
+
+    list.forEach(platform => {
+
+        const label =
+            document.createElement("label");
+
+        label.className =
+            "platform" +
+            (
+                mainFreePlatforms.includes(platform)
+                    ? " free-platform"
+                    : ""
+            );
+
+
+        const checkbox =
+            document.createElement("input");
+
+        checkbox.type =
+            "checkbox";
+
+        checkbox.name =
+            "platforms";
+
+        checkbox.value =
+            platform;
+
+
+        if (plan === "Free Distribution") {
+
+            checkbox.checked =
+                mainFreePlatforms.includes(platform);
+
+            checkbox.disabled =
+                true;
+
+            label.classList.add("locked");
+
+        }
+
+
+        checkbox.addEventListener(
+            "change",
+            updatePlatformCount
+        );
+
+
+        label.appendChild(checkbox);
+
+
+        const text =
+            document.createElement("span");
+
+        text.textContent =
+            platform;
+
+        label.appendChild(text);
+
+
+        if (plan === "Free Distribution") {
+
+            const lock =
+                document.createElement("span");
+
+            lock.className =
+                "platform-lock";
+
+            lock.textContent =
+                "LOCKED";
+
+            label.appendChild(lock);
+
+        }
+
+
+        platformGrid.appendChild(label);
+
+    });
+
+
+    updatePlatformCount();
+    updateSelectAllButton();
+
+}
+
+
+/* =========================================================
+   PLATFORM COUNT
+========================================================= */
+
+function updatePlatformCount() {
+
+    const checked =
+        document.querySelectorAll(
+            'input[name="platforms"]:checked'
+        );
+
+    const plan =
+        getDistributionPlan();
+
+
+    if (plan === "Free Distribution") {
+
+        platformCount.textContent =
+            "5 included";
+
+        return;
+
+    }
+
+
+    platformCount.textContent =
+        checked.length +
+        " / " +
+        paidPlatforms.length +
+        " selected";
+
+    updateSelectAllButton();
+
+}
+
+
+/* =========================================================
+   SELECT ALL
+========================================================= */
+
+function updateSelectAllButton() {
+
+    const plan =
+        getDistributionPlan();
+
+
+    if (plan === "Free Distribution") {
+
+        selectAllBtn.textContent =
+            "5 Included";
+
+        selectAllBtn.disabled =
+            true;
+
+        selectAllBtn.style.opacity =
+            ".55";
+
+        return;
+
+    }
+
+
+    selectAllBtn.disabled =
+        false;
+
+    selectAllBtn.style.opacity =
+        "1";
+
+
+    const all =
+        document.querySelectorAll(
+            'input[name="platforms"]'
+        );
+
+    const checked =
+        document.querySelectorAll(
+            'input[name="platforms"]:checked'
+        );
+
+
+    if (
+        all.length > 0 &&
+        checked.length === all.length
+    ) {
+
+        selectAllBtn.textContent =
+            "Deselect All";
+
+    }
+
+    else {
+
+        selectAllBtn.textContent =
+            "Select All";
+
+    }
+
+}
+
+
+selectAllBtn.addEventListener(
+    "click",
+    function () {
+
+        const plan =
+            getDistributionPlan();
+
+        if (plan === "Free Distribution") {
+            return;
+        }
+
+
+        const all =
+            document.querySelectorAll(
+                'input[name="platforms"]'
+            );
+
+        const checked =
+            document.querySelectorAll(
+                'input[name="platforms"]:checked'
+            );
+
+
+        const shouldSelectAll =
+            checked.length !== all.length;
+
+
+        all.forEach(input => {
+
+            input.checked =
+                shouldSelectAll;
+
+        });
+
+
+        updatePlatformCount();
+        calculateBill();
+
+    }
+);
+
+
+/* =========================================================
+   FREE DISTRIBUTION RULES
+========================================================= */
+
+function enforceFreeDistributionRules() {
+
+    const plan =
+        getDistributionPlan();
+
+
+    if (plan === "Free Distribution") {
+
+        if (getProject() !== "Single") {
+
+            alert(
+                "Free Distribution is available for Singles only. Please select Paid Distribution or DSW Fast Submission for EP/Album."
+            );
+
+
+            document.getElementById("paid").checked =
+                true;
+
+            renderPlatforms();
+
+            updatePaidOnlyFeatures();
+
+            calculateBill();
+
+            return;
+
+        }
+
+
+        if (selectedSongs > 10) {
+
+            selectedSongs = 10;
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   PAID ONLY FEATURES
+========================================================= */
+
+function updatePaidOnlyFeatures() {
+
+    const plan =
+        getDistributionPlan();
+
+
+    document
+        .querySelectorAll(
+            ".paid-only-feature"
+        )
+        .forEach(option => {
+
+            if (
+                plan === "Free Distribution"
+            ) {
+
+                option.checked =
+                    false;
+
+                option.disabled =
+                    true;
+
+            }
+
+            else {
+
+                option.disabled =
+                    false;
+
+            }
+
+        });
+
+}
+
+
+/* =========================================================
+   BILL
+========================================================= */
+
+function calculateBill() {
+
+    const project =
+        getProject();
+
+    const distribution =
+        getDistributionPlan();
+
+
+    let distributionPerSong = 0;
+
+
+    if (
+        distribution === "Paid Distribution"
+    ) {
+
+        distributionPerSong =
+            0.19;
+
+    }
+
+
+    if (
+        distribution === "Accelerated DSW Submission"
+    ) {
+
+        distributionPerSong =
+            0.99;
+
+    }
+
+
+    const distributionPrice =
+        distributionPerSong *
+        selectedSongs;
+
+
+    let adultCharge =
+        0;
+
+
+    if (selectedSongs > 18) {
+
+        adultCharge =
+            (selectedSongs - 18) *
+            0.40;
+
+    }
+
+
+    let songAddonTotal =
+        0;
+
+
+    document
+        .querySelectorAll(
+            ".song-addon:checked"
+        )
+        .forEach(addon => {
+
+            songAddonTotal +=
+                Number(
+                    addon.dataset.price || 0
+                ) *
+                selectedSongs;
+
+        });
+
+
+    let flatAddonTotal =
+        0;
+
+
+    document
+        .querySelectorAll(
+            ".flat-addon:checked"
+        )
+        .forEach(addon => {
+
+            flatAddonTotal +=
+                Number(
+                    addon.dataset.price || 0
+                );
+
+        });
+
+
+    let speedPrice =
+        0;
+
+
+    const speed =
+        document.querySelector(
+            'input[name="release_speed"]:checked'
+        )?.value ||
+        "Standard Release";
+
+
+    if (
+        speed.includes("24 Hour")
+    ) {
+
+        speedPrice =
+            7.99 *
+            selectedSongs;
+
+    }
+
+
+    const total =
+        distributionPrice +
+        adultCharge +
+        songAddonTotal +
+        flatAddonTotal +
+        speedPrice;
+
+
+    document.getElementById(
+        "billProject"
+    ).textContent =
+        project;
+
+
+    document.getElementById(
+        "billSongs"
+    ).textContent =
+        selectedSongs;
+
+
+    document.getElementById(
+        "billDistribution"
+    ).textContent =
+        distribution;
+
+
+    document.getElementById(
+        "billDistributionPrice"
+    ).textContent =
+        "$" +
+        distributionPrice.toFixed(2);
+
+
+    document.getElementById(
+        "billAdultCharge"
+    ).textContent =
+        "$" +
+        adultCharge.toFixed(2);
+
+
+    document.getElementById(
+        "billSongAddons"
+    ).textContent =
+        "$" +
+        songAddonTotal.toFixed(2);
+
+
+    document.getElementById(
+        "billFlatAddons"
+    ).textContent =
+        "$" +
+        flatAddonTotal.toFixed(2);
+
+
+    document.getElementById(
+        "billSpeed"
+    ).textContent =
+        "$" +
+        speedPrice.toFixed(2);
+
+
+    document.getElementById(
+        "billTotal"
+    ).textContent =
+        "$" +
+        total.toFixed(2);
+
+
+    const selectedPlatformNames =
+        Array.from(
+            document.querySelectorAll(
+                'input[name="platforms"]:checked'
+            )
+        ).map(
+            input =>
+                input.value
+        );
+
+
+    document.getElementById(
+        "estimatedTotal"
+    ).value =
+        "$" +
+        total.toFixed(2);
+
+
+    document.getElementById(
+        "selectedPlatforms"
+    ).value =
+        selectedPlatformNames.join(", ");
+
+
+    document.getElementById(
+        "billingDetails"
+    ).value = `
+
+RUDRAVX AUDIO DISTRIBUTION
+
+Project Type:
+${project}
+
+Number of Songs:
+${selectedSongs}
+
+Distribution Plan:
+${distribution}
+
+Distribution Price:
+$${distributionPrice.toFixed(2)}
+
+18+ Song Charge:
+$${adultCharge.toFixed(2)}
+
+Song-based Add-ons:
+$${songAddonTotal.toFixed(2)}
+
+Flat Add-ons:
+$${flatAddonTotal.toFixed(2)}
+
+Release Speed:
+${speed}
+
+Release Speed Price:
+$${speedPrice.toFixed(2)}
+
+Selected Platforms:
+${selectedPlatformNames.join(", ")}
+
+TOTAL PAYABLE:
+$${total.toFixed(2)}
+
+RudraVX Royalty Share:
+15% of revenue generated by distributed music.
+
+Artist Revenue Share:
+85% before applicable deductions, taxes, platform fees or other applicable charges.
+
+Audio:
+Artist will submit WAV/FLAC files separately by replying to the Distribution Reference ID email.
+
+Official Email:
+rudravaax@gmail.com
+
+`.trim();
+
+}
+
+
+/* =========================================================
+   PROJECT CHANGE
+========================================================= */
+
+document
+    .querySelectorAll(
+        'input[name="project_type"]'
+    )
+    .forEach(input => {
+
+        input.addEventListener(
+            "change",
+            function () {
+
+                const project =
+                    getProject();
+
+
+                if (project === "Single") {
+
+                    selectedSongs =
+                        1;
+
+                }
+
+                else if (project === "EP") {
+
+                    selectedSongs =
+                        2;
+
+                }
+
+                else if (project === "Album") {
+
+                    selectedSongs =
+                        8;
+
+                }
+
+
+                if (
+                    getDistributionPlan() ===
+                    "Free Distribution" &&
+                    project !== "Single"
+                ) {
+
+                    alert(
+                        "Free Distribution is available for Singles only. Paid Distribution is required for EP or Album."
+                    );
+
+
+                    document.getElementById(
+                        "paid"
+                    ).checked =
+                        true;
+
+                }
+
+
+                renderSongOptions();
+
+                updatePaidOnlyFeatures();
+
+                renderPlatforms();
+
+                calculateBill();
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   DISTRIBUTION PLAN CHANGE
+========================================================= */
+
+document
+    .querySelectorAll(
+        'input[name="distribution_plan"]'
+    )
+    .forEach(input => {
+
+        input.addEventListener(
+            "change",
+            function () {
+
+                const plan =
+                    this.value;
+
+
+                if (
+                    plan === "Free Distribution" &&
+                    getProject() !== "Single"
+                ) {
+
+                    alert(
+                        "Free Distribution is available for Singles only. Please select Single first."
+                    );
+
+
+                    document.getElementById(
+                        "paid"
+                    ).checked =
+                        true;
+
+                    return;
+
+                }
+
+
+                updatePaidOnlyFeatures();
+
+                renderPlatforms();
+
+                calculateBill();
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   ADDON CHANGES
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".song-addon, .flat-addon"
+    )
+    .forEach(input => {
+
+        input.addEventListener(
+            "change",
+            calculateBill
+        );
+
+    });
+
+
+/* =========================================================
+   RELEASE SPEED
+========================================================= */
+
+document
+    .querySelectorAll(
+        'input[name="release_speed"]'
+    )
+    .forEach(input => {
+
+        input.addEventListener(
+            "change",
+            calculateBill
+        );
+
+    });
+
+
+/* =========================================================
+   FORM SUBMIT
+========================================================= */
+
+form.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        const project =
+            getProject();
+
+        const plan =
+            getDistributionPlan();
+
+
+        if (
+            plan === "Free Distribution" &&
+            project !== "Single"
+        ) {
+
+            alert(
+                "Free Distribution is available for Singles only."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            plan === "Free Distribution" &&
+            selectedSongs > 10
+        ) {
+
+            alert(
+                "Free Distribution allows a maximum of 10 songs."
+            );
+
+            return;
+
+        }
+
+
+        calculateBill();
+
+
+        const submitBtn =
+            document.getElementById(
+                "submitBtn"
+            );
+
+        const status =
+            document.getElementById(
+                "submitStatus"
+            );
+
+
+        submitBtn.disabled =
+            true;
+
+        submitBtn.textContent =
+            "Submitting Request…";
+
+
+        status.style.display =
+            "block";
+
+        status.style.color =
+            "var(--green)";
+
+
+        try {
+
+            const formData =
+                new FormData(form);
+
+
+            const response =
+                await fetch(
+                    "https://api.web3forms.com/submit",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (
+                result.success === true
+            ) {
+
+                status.innerHTML = `
+
+                    Request submitted successfully.<br>
+
+                    Distribution Reference ID will be handled by the RudraVX team.<br>
+
+                    Redirecting to dashboard…
+
+                `;
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    },
+                    1500
+                );
+
+            }
+
+
+            else {
+
+                throw new Error(
+                    result.message ||
+                    "Submission failed."
+                );
+
+            }
+
+        }
+
+
+        catch (error) {
+
+            console.error(error);
+
+
+            submitBtn.disabled =
+                false;
+
+            submitBtn.textContent =
+                "Submit Distribution Request →";
+
+
+            status.style.display =
+                "block";
+
+            status.style.color =
+                "#ff7777";
+
+
+            status.innerHTML = `
+
+                Submission could not be completed.<br>
+
+                Please check your internet connection and try again.
+
+            `;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+renderSongOptions();
+
+updatePaidOnlyFeatures();
+
+renderPlatforms();
+
+calculateBill();
+
+</script>
+
+</body>
+</html>

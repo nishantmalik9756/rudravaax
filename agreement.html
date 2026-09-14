@@ -5,12 +5,17 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>TrendZ — Artist Partnership</title>
+    <title>RudraVX — Artist Partnership</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="agreement.css"
+    >
 
 </head>
 
@@ -18,104 +23,120 @@
 <body>
 
 
-<!-- =========================
+<!-- =========================================
      NAVBAR
-========================= -->
+========================================= -->
 
 <header class="navbar">
 
-    <div class="logo">
-        Trend<span>Z</span>
-    </div>
+   
+
+       
+
+    </a>
+
 
     <nav>
 
-        <a href="index.html">Home</a>
+       
 
-        <a href="index.html#music">
-            Music
+        <a href="#partnership">
+            Partnership
         </a>
 
-        <a href="index.html#artists">
-            Artists
-        </a>
-
-        <a href="index.html#videos">
-            Videos
-        </a>
-
-        <a href="index.html#about">
-            About
-        </a>
-
-        <a href="agreement.html">
-            Artist Partnership
-        </a>
-
-        <a href="index.html#contact">
-            Contact
+        <a href="#terms">
+            Terms
         </a>
 
     </nav>
+
+
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Dashboard
+    </a>
 
 </header>
 
 
 
-<!-- =========================
-     PAGE HEADER
-========================= -->
+<!-- =========================================
+     HERO
+========================================= -->
 
 <main class="partnership-page">
 
 
-<section class="partnership-header">
+<section class="hero">
 
-    <p class="partnership-label">
-        TRENDZ — ARTIST PARTNERSHIP
+    <div class="hero-glow"></div>
+
+
+    <p class="hero-label">
+        RUDRAVX — ARTIST PARTNERSHIP
     </p>
 
 
     <h1>
 
-        Your Music.<br>
+        Your Music.
+        <br>
 
         <span>Your Journey.</span>
 
     </h1>
 
 
-    <p class="partnership-description">
+    <p class="hero-description">
 
-        TrendZ is built for independent artists who want
+        RudraVX is built for independent artists who want
         to release, distribute and grow their music while
         keeping ownership of their creative work.
 
     </p>
 
+
+    <div class="hero-meta">
+
+        <span>
+            INDEPENDENT ARTISTS
+        </span>
+
+        <span>
+            •
+        </span>
+
+        <span>
+            MUSIC &amp; DISTRIBUTION
+        </span>
+
+        <span>
+            •
+        </span>
+
+        <span>
+            RUDRAVAAX
+        </span>
+
+    </div>
+
 </section>
 
 
 
-<!-- =========================
+<!-- =========================================
      PARTNERSHIP FORM
-========================= -->
+========================================= -->
 
-<form
-    id="partnershipForm"
-    class="partnership-form"
-    action="https://formspree.io/f/xjybdzyy"
-    method="POST"
->
-
-<input
-    type="hidden"
-    name="subject"
-    value="New TrendZ Artist Partnership Request"
+<section
+    class="partnership-section"
+    id="partnership"
 >
 
 
-<div class="form-intro">
+<div class="section-intro">
 
     <p class="small-title">
         START YOUR JOURNEY
@@ -123,15 +144,13 @@
 
 
     <h2>
-        Artist Partnership Request
+        Artist Partnership
     </h2>
 
 
     <p>
-
-        Fill in your details below. Our team will review
-        your request and contact you through Instagram.
-
+        Tell us about yourself, your music and what
+        you want to build with RudraVX.
     </p>
 
 </div>
@@ -140,31 +159,376 @@
 
 <form
     id="partnershipForm"
-    class="partnership-form"
+    action="https://api.web3forms.com/submit"
+    method="POST"
 >
 
 
+    <!-- WEB3FORMS ACCESS KEY -->
 
-<!-- =========================
-     ARTIST DETAILS
-========================= -->
+    <input
+        type="hidden"
+        name="access_key"
+        value="1887c1a2-4f71-4e66-91e2-5b8872960792"
+    >
 
-<div class="form-card">
 
-    <div class="form-card-header">
+    <!-- EMAIL SUBJECT -->
 
-        <span>
-            01
-        </span>
+    <input
+        type="hidden"
+        name="subject"
+        value="New RudraVX Artist Partnership Request"
+    >
+
+
+    <!-- =====================================
+         ARTIST DETAILS
+    ====================================== -->
+
+    <div class="form-card">
+
+        <div class="form-card-header">
+
+            <span class="section-number">
+                01
+            </span>
+
+            <div>
+
+                <h3>
+                    Artist Details
+                </h3>
+
+                <p>
+                    Tell us about yourself.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="form-field">
+
+                <label for="artistName">
+                    Artist Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="artistName"
+                    name="artistName"
+                    placeholder="Your artist name"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label for="legalName">
+                    Legal Name *
+                </label>
+
+                <input
+                    type="text"
+                    id="legalName"
+                    name="legalName"
+                    placeholder="Your full legal name"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label for="email">
+                    Email Address *
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+91 XXXXX XXXXX"
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label for="country">
+                    Country / Region *
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    placeholder="India"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label for="spotify">
+                    Spotify Profile / URL
+                </label>
+
+                <input
+                    type="url"
+                    id="spotify"
+                    name="spotify"
+                    placeholder="https://open.spotify.com/..."
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         MUSIC DETAILS
+    ====================================== -->
+
+    <div class="form-card">
+
+        <div class="form-card-header">
+
+            <span class="section-number">
+                02
+            </span>
+
+            <div>
+
+                <h3>
+                    Music Details
+                </h3>
+
+                <p>
+                    Tell us about your release.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="form-field">
+
+                <label for="musicType">
+                    Release Type *
+                </label>
+
+                <select
+                    id="musicType"
+                    name="musicType"
+                    required
+                >
+
+                    <option value="">
+                        Select release type
+                    </option>
+
+                    <option value="Single">
+                        Single
+                    </option>
+
+                    <option value="EP">
+                        EP
+                    </option>
+
+                    <option value="Album">
+                        Album
+                    </option>
+
+                    <option value="Music Video">
+                        Music Video
+                    </option>
+
+                    <option value="Content ID">
+                        Content ID
+                    </option>
+
+                    <option value="Multiple Services">
+                        Multiple Services
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label for="releaseCount">
+                    Number of Releases
+                </label>
+
+                <input
+                    type="number"
+                    id="releaseCount"
+                    name="releaseCount"
+                    min="1"
+                    placeholder="e.g. 1"
+                >
+
+            </div>
+
+
+
+            <div class="form-field full-field">
+
+                <label for="musicDetails">
+                    Tell us about your music
+                </label>
+
+                <textarea
+                    id="musicDetails"
+                    name="musicDetails"
+                    rows="6"
+                    placeholder="Genre, upcoming release, plans, goals, etc."
+                ></textarea>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         SOCIAL DETAILS
+    ====================================== -->
+
+    <div class="form-card">
+
+        <div class="form-card-header">
+
+            <span class="section-number">
+                03
+            </span>
+
+            <div>
+
+                <h3>
+                    Social Presence
+                </h3>
+
+                <p>
+                    This is how we'll reach you.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="form-field full-field">
+
+                <label for="instagram">
+                    Instagram ID *
+                </label>
+
+                <input
+                    type="text"
+                    id="instagram"
+                    name="instagram"
+                    placeholder="@yourusername"
+                    required
+                >
+
+                <small>
+                    Please enter an active Instagram account.
+                    Our team will contact you there.
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         IMPORTANT NOTE
+    ====================================== -->
+
+    <div class="notice-box">
+
+        <div class="notice-icon">
+            !
+        </div>
+
 
         <div>
 
+            <p class="notice-title">
+                BEFORE YOU SUBMIT
+            </p>
+
             <h3>
-                Artist Details
+                Keep a screenshot
             </h3>
 
             <p>
-                Tell us about yourself.
+
+                Please take a screenshot of this page/form
+                before submitting your request.
+
+                You may need to send the screenshot to
+
+                <strong>
+                    rudravaax@gmail.com
+                </strong>
+
+                for submission confirmation.
+
             </p>
 
         </div>
@@ -173,825 +537,370 @@
 
 
 
-    <div class="form-grid">
+    <!-- =====================================
+         TERMS
+    ====================================== -->
 
+    <section
+        class="terms-section"
+        id="terms"
+    >
 
-        <div class="form-field">
+        <div class="terms-header">
 
-            <label for="artistName">
-                Artist Name *
-            </label>
+            <p class="small-title">
+                PLEASE READ
+            </p>
 
-            <input
-                type="text"
-                id="artistName"
-                name="artistName"
-                placeholder="Your artist name"
-                required
-            >
-
-        </div>
-
-
-
-        <div class="form-field">
-
-            <label for="legalName">
-                Legal Name *
-            </label>
-
-            <input
-                type="text"
-                id="legalName"
-                name="legalName"
-                placeholder="Your full legal name"
-                required
-            >
-
-        </div>
-
-
-
-        <div class="form-field">
-
-            <label for="email">
-                Email Address *
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-            >
-
-        </div>
-
-
-
-        <div class="form-field">
-
-            <label for="phone">
-                Phone Number
-            </label>
-
-            <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="+91 XXXXX XXXXX"
-            >
-
-        </div>
-
-
-
-        <div class="form-field">
-
-            <label for="country">
-                Country / Region *
-            </label>
-
-            <input
-                type="text"
-                id="country"
-                name="country"
-                placeholder="India"
-                required
-            >
-
-        </div>
-
-
-
-        <div class="form-field">
-
-            <label for="spotify">
-                Spotify Profile / URL
-            </label>
-
-            <input
-                type="url"
-                id="spotify"
-                name="spotify"
-                placeholder="https://open.spotify.com/..."
-            >
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     MUSIC DETAILS
-========================= -->
-
-<div class="form-card">
-
-    <div class="form-card-header">
-
-        <span>
-            02
-        </span>
-
-        <div>
-
-            <h3>
-                Music Details
-            </h3>
+            <h2>
+                Partnership Terms
+            </h2>
 
             <p>
-                Tell us about your release.
+                Please review these terms before submitting
+                your partnership request.
             </p>
 
         </div>
 
-    </div>
+
+
+        <div class="terms-list">
+
+
+            <div class="term-item">
+
+                <span>
+                    01
+                </span>
+
+                <div>
+
+                    <h3>
+                        Artist Ownership
+                    </h3>
+
+                    <p>
+                        The Artist retains ownership of their
+                        music, master recordings, compositions,
+                        lyrics, artwork and other intellectual
+                        property.
+                    </p>
+
+                </div>
+
+            </div>
 
 
 
-    <div class="form-grid">
+            <div class="term-item">
+
+                <span>
+                    02
+                </span>
+
+                <div>
+
+                    <h3>
+                        Distribution
+                    </h3>
+
+                    <p>
+                        RudraVX may receive the necessary
+                        non-exclusive rights required to
+                        distribute and administer submitted
+                        content.
+                    </p>
+
+                </div>
+
+            </div>
 
 
-        <div class="form-field">
 
-            <label for="musicType">
-                Release Type *
-            </label>
+            <div class="term-item">
 
-            <select
-                id="musicType"
-                name="musicType"
+                <span>
+                    03
+                </span>
+
+                <div>
+
+                    <h3>
+                        Artist Responsibility
+                    </h3>
+
+                    <p>
+                        The Artist must have the necessary
+                        rights and permissions for all content
+                        submitted to RudraVX.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    04
+                </span>
+
+                <div>
+
+                    <h3>
+                        Accurate Information
+                    </h3>
+
+                    <p>
+                        The Artist agrees to provide accurate
+                        and complete information when submitting
+                        a partnership request.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    05
+                </span>
+
+                <div>
+
+                    <h3>
+                        Artificial Streaming
+                    </h3>
+
+                    <p>
+                        Artificial streams, bots, manipulated
+                        downloads and fraudulent activity are
+                        prohibited.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    06
+                </span>
+
+                <div>
+
+                    <h3>
+                        Distribution Partners
+                    </h3>
+
+                    <p>
+                        RudraVX may work with third-party
+                        distribution, rights-management and
+                        technology partners.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    07
+                </span>
+
+                <div>
+
+                    <h3>
+                        Revenue &amp; Fees
+                    </h3>
+
+                    <p>
+                        Applicable fees, royalties and revenue
+                        arrangements may depend on the Artist,
+                        release and service selected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    08
+                </span>
+
+                <div>
+
+                    <h3>
+                        Taxes
+                    </h3>
+
+                    <p>
+                        Applicable taxes, GST, VAT or withholding
+                        requirements remain subject to the
+                        relevant jurisdiction.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    09
+                </span>
+
+                <div>
+
+                    <h3>
+                        Future Terms
+                    </h3>
+
+                    <p>
+                        RudraVX may update its policies, pricing
+                        and operational procedures in the future.
+                        New submissions may be governed by the
+                        terms applicable at that time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    10
+                </span>
+
+                <div>
+
+                    <h3>
+                        Request Confirmation
+                    </h3>
+
+                    <p>
+                        After submitting the request, the Artist
+                        may be asked to provide the requested
+                        screenshot to
+                        <strong>
+                            rudravaax@gmail.com
+                        </strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="term-item">
+
+                <span>
+                    11
+                </span>
+
+                <div>
+
+                    <h3>
+                        Partnership Request
+                    </h3>
+
+                    <p>
+                        Submission of this form is a request for
+                        partnership consideration and does not
+                        itself create a legally binding agreement.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         ACCEPTANCE
+    ====================================== -->
+
+    <div class="acceptance">
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="acceptTerms"
+                name="termsAccepted"
+                value="Yes"
                 required
             >
 
-                <option value="">
-                    Select release type
-                </option>
+            <span>
+                I have read and understood the information above
+                and confirm that the information provided in this
+                request is accurate.
+            </span>
 
-                <option value="Single">
-                    Single
-                </option>
-
-                <option value="EP">
-                    EP
-                </option>
-
-                <option value="Album">
-                    Album
-                </option>
-
-                <option value="Music Video">
-                    Music Video
-                </option>
-
-                <option value="Content ID">
-                    Content ID
-                </option>
-
-                <option value="Multiple Services">
-                    Multiple Services
-                </option>
-
-            </select>
-
-        </div>
-
-
-
-        <div class="form-field">
-
-            <label for="releaseCount">
-                Number of Releases
-            </label>
-
-            <input
-                type="number"
-                id="releaseCount"
-                name="releaseCount"
-                min="1"
-                placeholder="e.g. 1"
-            >
-
-        </div>
-
-
-
-        <div class="form-field full-field">
-
-            <label for="musicDetails">
-                Tell us about your music
-            </label>
-
-            <textarea
-                id="musicDetails"
-                name="musicDetails"
-                rows="5"
-                placeholder="Genre, upcoming release, plans, etc."
-            ></textarea>
-
-        </div>
+        </label>
 
     </div>
 
-</div>
 
 
+    <!-- =====================================
+         SUBMIT
+    ====================================== -->
 
-<!-- =========================
-     SOCIAL DETAILS
-========================= -->
-
-<div class="form-card">
-
-    <div class="form-card-header">
+    <button
+        type="submit"
+        class="partnership-submit"
+        id="submitButton"
+    >
 
         <span>
-            03
+            Send Partnership Request
         </span>
-
-        <div>
-
-            <h3>
-                Social Presence
-            </h3>
-
-            <p>
-                This is how we'll reach you.
-            </p>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="form-grid">
-
-
-        <div class="form-field full-field">
-
-            <label for="instagram">
-                Instagram ID *
-            </label>
-
-            <input
-                type="text"
-                id="instagram"
-                name="instagram"
-                placeholder="@yourusername"
-                required
-            >
-
-            <small>
-
-                Please enter an active Instagram account.
-                Our team will contact you there.
-
-            </small>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     IMPORTANT NOTE
-========================= -->
-
-<div class="screenshot-reminder">
-
-    <div class="reminder-icon">
-        📸
-    </div>
-
-
-    <div>
-
-        <h3>
-            Before You Submit
-        </h3>
-
-
-        <p>
-
-            Please take a screenshot of this page/form
-            before submitting your request.
-
-            You may need to send this screenshot to
-            <strong>rudravaax@gmail.com</strong>
-            for the submission confirmation process.
-
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     TERMS
-========================= -->
-
-<div class="terms-section">
-
-
-    <div class="terms-header">
-
-        <p class="small-title">
-            PLEASE READ
-        </p>
-
-
-        <h2>
-            Partnership Terms
-        </h2>
-
-
-        <p>
-
-            Please review these terms before submitting
-            your partnership request.
-
-        </p>
-
-    </div>
-
-
-
-    <div class="terms-list">
-
-
-        <div class="term-item">
-
-            <span>01</span>
-
-            <div>
-
-                <h3>
-                    Artist Ownership
-                </h3>
-
-                <p>
-
-                    The Artist retains ownership of their
-                    music, master recordings, compositions,
-                    lyrics, artwork and other intellectual
-                    property.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>02</span>
-
-            <div>
-
-                <h3>
-                    Distribution
-                </h3>
-
-                <p>
-
-                    TrendZ may receive the necessary
-                    non-exclusive rights required to
-                    distribute and administer submitted
-                    content.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>03</span>
-
-            <div>
-
-                <h3>
-                    Artist Responsibility
-                </h3>
-
-                <p>
-
-                    The Artist must have the necessary
-                    rights and permissions for all content
-                    submitted to TrendZ.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>04</span>
-
-            <div>
-
-                <h3>
-                    Accurate Information
-                </h3>
-
-                <p>
-
-                    The Artist agrees to provide accurate
-                    and complete information when submitting
-                    a partnership request.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>05</span>
-
-            <div>
-
-                <h3>
-                    Artificial Streaming
-                </h3>
-
-                <p>
-
-                    Artificial streams, bots, manipulated
-                    downloads and fraudulent activity are
-                    prohibited.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>06</span>
-
-            <div>
-
-                <h3>
-                    Distribution Partners
-                </h3>
-
-                <p>
-
-                    TrendZ may work with third-party
-                    distribution, rights-management and
-                    technology partners.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>07</span>
-
-            <div>
-
-                <h3>
-                    Revenue & Fees
-                </h3>
-
-                <p>
-
-                    Applicable fees, royalties and revenue
-                    arrangements may depend on the Artist,
-                    release and service selected.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>08</span>
-
-            <div>
-
-                <h3>
-                    Taxes
-                </h3>
-
-                <p>
-
-                    Applicable taxes, GST, VAT or withholding
-                    requirements remain subject to the
-                    relevant jurisdiction.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>09</span>
-
-            <div>
-
-                <h3>
-                    Future Terms
-                </h3>
-
-                <p>
-
-                    TrendZ may update its policies, pricing
-                    and operational procedures in the future.
-                    New submissions may be governed by the
-                    terms applicable at that time.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>10</span>
-
-            <div>
-
-                <h3>
-                    Request Confirmation
-                </h3>
-
-                <p>
-
-                    After submitting the request, the Artist
-                    may be asked to provide the requested
-                    screenshot to
-                    <strong>rudravaax@gmail.com</strong>.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="term-item">
-
-            <span>11</span>
-
-            <div>
-
-                <h3>
-                    Partnership Request
-                </h3>
-
-                <p>
-
-                    Submission of this form is a request for
-                    partnership consideration and does not
-                    itself create a legally binding agreement.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     ACCEPTANCE
-========================= -->
-
-<div class="request-acceptance">
-
-    <label class="checkbox-label">
-
-        <input
-            type="checkbox"
-            id="acceptTerms"
-            required
-        >
-
 
         <span>
-
-            I have read and understood the information above
-            and confirm that the information provided in this
-            request is accurate.
-
+            →
         </span>
 
-    </label>
-
-</div>
+    </button>
 
 
+    <p class="form-note">
 
-<!-- =========================
-     SUBMIT BUTTON
-========================= -->
+        By submitting this request, you are requesting
+        partnership consideration from RudraVX.
 
-<button
-    type="submit"
-    class="partnership-submit"
->
-
-    <span>
-        Send Partnership Request
-    </span>
-
-    <span class="submit-arrow">
-        →
-    </span>
-
-</button>
-
-
-
-<p class="form-note">
-
-    By submitting this request, you are requesting
-    partnership consideration from TrendZ.
-
-</p>
+    </p>
 
 
 </form>
-
-</section>
-
-
-
-<!-- =========================
-     SUCCESS
-========================= -->
-
-<section
-    class="request-success"
-    id="requestSuccess"
-    style="display:none;"
->
-
-
-    <div class="success-icon">
-        ✓
-    </div>
-
-
-    <p class="success-label">
-        REQUEST RECEIVED
-    </p>
-
-
-    <h2>
-
-        Thank You<br>
-
-        <span>
-            For Your Request.
-        </span>
-
-    </h2>
-
-
-    <p class="success-text">
-
-        We have received your Artist Partnership Request.
-
-        We will reach out to you through your Instagram
-        account within <strong>72 hours</strong>.
-
-    </p>
-
-
-
-    <div class="confirmation-box">
-
-        <div class="confirmation-icon">
-            📩
-        </div>
-
-
-        <div>
-
-            <h3>
-                Final Confirmation
-            </h3>
-
-
-            <p>
-
-                Please send the screenshot you took before
-                submitting this form to:
-
-            </p>
-
-
-            <a
-                href="mailto:rudravaax@gmail.com"
-                class="confirmation-email"
-            >
-                rudravaax@gmail.com
-            </a>
-
-
-            <p class="confirmation-note">
-
-                Please send it from the email address
-                entered in this form.
-
-            </p>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="instagram-request">
-
-        <label>
-            Your Instagram ID
-        </label>
-
-
-        <input
-            type="text"
-            id="successInstagram"
-            readonly
-        >
-
-    </div>
-
-
-
-    <div class="success-actions">
-
-        <button
-            type="button"
-            id="requestAgain"
-            class="secondary-action"
-        >
-            Request Again
-        </button>
-
-
-        <button
-            type="button"
-            id="doneButton"
-            class="primary-action"
-        >
-            Done
-        </button>
-
-    </div>
-
 
 </section>
 
@@ -1000,89 +909,149 @@
 
 
 
-<!-- =========================
-     FINAL POPUP
-========================= -->
-
-<div
-    class="final-popup-overlay"
-    id="finalPopup"
-    style="display:none;"
->
-
-
-    <div class="final-popup">
-
-        <div class="popup-icon">
-            🎵
-        </div>
-
-
-        <p class="popup-label">
-            TRENDZ
-        </p>
-
-
-        <h2>
-            Whoo!
-        </h2>
-
-
-        <h3>
-
-            We Have Received<br>
-            Your Request.
-
-        </h3>
-
-
-        <p>
-
-            Your Artist Partnership Request has been
-            successfully received.
-
-            Please make sure you have sent your screenshot
-            to <strong>rudravaax@gmail.com</strong>.
-
-        </p>
-
-
-        <button
-            type="button"
-            class="popup-done"
-            id="popupDone"
-        >
-            Continue
-        </button>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
 
     <div class="footer-logo">
-        Trend<span>Z</span>
+
+        <span>
+            RVX
+        </span>
+
+        RudraVX
+
     </div>
 
 
     <p>
-        © 2026 TrendZ. All Rights Reserved.
+        © 2026 RudraVX. All Rights Reserved.
     </p>
 
 
     <p>
-        A Rudravaax Brand
+        An independent platform by Rudravaax.
     </p>
 
 </footer>
 
 
 
-<script src="script.js"></script>
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+const partnershipForm =
+    document.getElementById("partnershipForm");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+
+partnershipForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        /*
+            Button ko disable kar rahe hain
+            taaki double submission na ho.
+        */
+
+        submitButton.disabled = true;
+
+        submitButton.querySelector("span:first-child").textContent =
+            "Submitting...";
+
+
+        try {
+
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+
+                    body: new FormData(partnershipForm),
+
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+
+            const result = await response.json();
+
+
+            if (response.ok && result.success) {
+
+                submitButton.querySelector(
+                    "span:first-child"
+                ).textContent = "Submitted ✓";
+
+
+                /*
+                    Form successfully submit ho gaya.
+                    Ab website ke dashboard par return.
+                */
+
+                setTimeout(function() {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }, 500);
+
+            }
+
+            else {
+
+                submitButton.disabled = false;
+
+                submitButton.querySelector(
+                    "span:first-child"
+                ).textContent =
+                    "Send Partnership Request";
+
+
+                alert(
+                    "Request submit nahi ho payi. Please try again."
+                );
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            submitButton.disabled = false;
+
+            submitButton.querySelector(
+                "span:first-child"
+            ).textContent =
+                "Send Partnership Request";
+
+
+            alert(
+                "Internet connection ya server issue hai. Please try again."
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

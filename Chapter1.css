@@ -1,0 +1,661 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #050505;
+    --black2: #090909;
+    --card: #101010;
+
+    --orange: #ff6a00;
+    --orange2: #ff8a2a;
+
+    --green: #19d66b;
+    --green2: #0d9b4d;
+
+    --white: #ffffff;
+    --muted: #999999;
+
+    --border: rgba(255,255,255,0.09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 85% 5%,
+            rgba(255,106,0,0.13),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 5% 55%,
+            rgba(25,214,107,0.08),
+            transparent 30%
+        ),
+        var(--black);
+
+    color: var(--white);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 74px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(5,5,5,0.88);
+
+    backdrop-filter: blur(16px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo span {
+    color: var(--orange);
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.nav-logo strong {
+    color: var(--white);
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.navbar nav a {
+    color: #999;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+.navbar nav a:hover {
+    color: var(--orange);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    padding: 100px 8% 85px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+/* subtle background grid */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+
+/* orange glow */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -150px;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,106,0,0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+.hero-label {
+    position: relative;
+    z-index: 1;
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 1;
+
+    font-size:
+        clamp(65px, 12vw, 150px);
+
+    line-height: 0.82;
+
+    letter-spacing: -7px;
+
+    font-weight: 950;
+}
+
+.hero h1 span {
+    color: transparent;
+
+    -webkit-text-stroke:
+        2px var(--orange);
+}
+
+.hero p {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 35px;
+
+    color: #999;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   TRACK CONTAINER
+========================= */
+
+.tracks-container {
+    width: min(1050px, 90%);
+
+    margin: 80px auto;
+}
+
+
+/* =========================
+   RELEASE HEADER
+========================= */
+
+.release-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-bottom: 28px;
+
+    margin-bottom: 20px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.release-header > div:first-child > span {
+    color: var(--green);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.release-header h2 {
+    margin-top: 8px;
+
+    font-size: 38px;
+
+    line-height: 1.1;
+
+    letter-spacing: -1px;
+}
+
+.release-date {
+    text-align: right;
+
+    color: #777;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.release-date strong {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    color: var(--orange);
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   TRACKLIST
+========================= */
+
+.tracklist {
+    border-top:
+        1px solid rgba(255,255,255,0.04);
+}
+
+.track {
+    min-height: 100px;
+
+    padding: 22px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.018),
+            transparent
+        );
+
+    border-bottom:
+        1px solid var(--border);
+
+    transition:
+        0.25s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* left orange line */
+
+.track::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--orange),
+            var(--green)
+        );
+
+    transition:
+        width 0.25s ease;
+}
+
+.track:hover {
+    padding-left: 32px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,106,0,0.07),
+            rgba(25,214,107,0.025),
+            transparent
+        );
+}
+
+.track:hover::before {
+    width: 3px;
+}
+
+
+/* track number */
+
+.track > span {
+    min-width: 35px;
+
+    color: var(--green);
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* track info */
+
+.track div {
+    flex: 1;
+}
+
+.track h3 {
+    color: var(--white);
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.2px;
+}
+
+.track p {
+    margin-top: 4px;
+
+    color: #707070;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   FIRST TRACK HIGHLIGHT
+========================= */
+
+.track:first-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,106,0,0.10),
+            rgba(255,255,255,0.018),
+            transparent
+        );
+
+    border-top:
+        1px solid rgba(255,106,0,0.22);
+}
+
+.track:first-child > span {
+    color: var(--orange);
+}
+
+.track:first-child p {
+    color: var(--orange2);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 100px;
+
+    padding: 45px 7%;
+
+    border-top:
+        1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+footer strong {
+    color: var(--orange);
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+footer p {
+    color: #666;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: 68px;
+
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 13px;
+    }
+
+    .navbar nav a {
+        font-size: 10px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 420px;
+
+        padding:
+            75px 6%
+            60px;
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(58px, 17vw, 100px);
+
+        letter-spacing: -4px;
+    }
+
+    .hero h1 span {
+        -webkit-text-stroke:
+            1px var(--orange);
+    }
+
+
+    /* TRACKS */
+
+    .tracks-container {
+        width: 88%;
+
+        margin:
+            55px auto;
+    }
+
+
+    /* RELEASE HEADER */
+
+    .release-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .release-header h2 {
+        font-size: 28px;
+    }
+
+    .release-date {
+        text-align: left;
+    }
+
+
+    /* TRACK */
+
+    .track {
+        min-height: 92px;
+
+        padding:
+            20px 16px;
+
+        gap: 15px;
+    }
+
+    .track:hover {
+        padding-left: 20px;
+    }
+
+    .track > span {
+        min-width: 25px;
+
+        font-size: 10px;
+    }
+
+    .track h3 {
+        font-size: 16px;
+    }
+
+    .track p {
+        font-size: 10px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================
+   VERY SMALL SCREEN
+========================= */
+
+@media (max-width: 400px) {
+
+    .navbar nav {
+        gap: 9px;
+    }
+
+    .navbar nav a {
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        font-size: 56px;
+    }
+
+    .release-header h2 {
+        font-size: 25px;
+    }
+
+    .track {
+        gap: 10px;
+    }
+
+    .track h3 {
+        font-size: 15px;
+    }
+}

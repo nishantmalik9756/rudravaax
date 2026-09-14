@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RudraVX - Video Distribution</title>
+
+<style>
+:root {
+    --bg: #050505;
+    --bg2: #0b0b0b;
+    --card: #101010;
+    --card2: #151515;
+    --line: #292929;
+    --white: #fff;
+    --muted: #999;
+    --orange: #ff7a18;
+    --orange2: #ff9b42;
+    --green: #20d46b;
+    --red: #ff4d4d;
+    --blue: #4da3ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 90% 0%, rgba(255,122,24,.14), transparent 30%),
+        radial-gradient(circle at 10% 70%, rgba(77,163,255,.06), transparent 30%),
+        var(--bg);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5,5,5,.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.nav {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+.back {
+    text-decoration: none;
+    color: #ddd;
+    border: 1px solid #333;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.back:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 0 50px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 50px;
+    background: rgba(255,122,24,.08);
+    border: 1px solid rgba(255,122,24,.25);
+    color: var(--orange2);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin-top: 20px;
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: .95;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: var(--orange);
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 22px auto 0;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 15px;
+}
+
+.price-card {
+    width: min(650px, 100%);
+    margin: 35px auto 0;
+    padding: 28px;
+    border: 1px solid rgba(255,122,24,.35);
+    border-radius: 22px;
+    background:
+        linear-gradient(145deg, rgba(255,122,24,.1), rgba(255,122,24,.025)),
+        #0b0b0b;
+    box-shadow: 0 20px 70px rgba(255,122,24,.08);
+}
+
+.price-label {
+    color: #aaa;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.price {
+    margin-top: 8px;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--orange2);
+}
+
+.price small {
+    font-size: 15px;
+    color: #aaa;
+    font-weight: 700;
+}
+
+.price-note {
+    margin-top: 8px;
+    color: #888;
+    font-size: 12px;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 35px;
+}
+
+.benefit {
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: linear-gradient(145deg, #121212, #0a0a0a);
+}
+
+.benefit-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.benefit h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.benefit p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.included-box {
+    margin-bottom: 35px;
+    padding: 28px;
+    border: 1px solid #292929;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #111, #090909);
+}
+
+.included-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.included-head h2 {
+    font-size: 21px;
+}
+
+.included-tag {
+    padding: 7px 10px;
+    border-radius: 8px;
+    color: #001b0b;
+    background: var(--green);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+}
+
+.feature {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+    padding: 14px;
+    border: 1px solid #252525;
+    border-radius: 12px;
+    background: #090909;
+}
+
+.feature-check {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: rgba(32,212,107,.12);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.feature span {
+    color: #ddd;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.form-box {
+    padding: clamp(20px, 4vw, 40px);
+    background: linear-gradient(145deg, #111, #090909);
+    border: 1px solid #252525;
+    border-radius: 25px;
+    margin-bottom: 60px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.35);
+}
+
+.section {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #222;
+}
+
+.section:last-child {
+    border-bottom: 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.number {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,122,24,.1);
+    color: var(--orange);
+    border: 1px solid rgba(255,122,24,.25);
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.section-title h2 {
+    font-size: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 17px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: #ddd;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    background: #080808;
+    color: #fff;
+    border: 1px solid #2b2b2b;
+    border-radius: 11px;
+    outline: none;
+    font-size: 14px;
+    transition: .2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(255,122,24,.08);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.choice input {
+    display: none;
+}
+
+.choice label {
+    display: block;
+    cursor: pointer;
+    padding: 21px;
+    border: 1px solid #292929;
+    border-radius: 16px;
+    background: #0a0a0a;
+    transition: .2s;
+}
+
+.choice label:hover {
+    border-color: #555;
+    transform: translateY(-2px);
+}
+
+.choice input:checked + label {
+    border-color: var(--orange);
+    background: rgba(255,122,24,.08);
+}
+
+.choice-title {
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.choice-desc {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.video-note {
+    margin-top: 15px;
+    padding: 17px;
+    border-radius: 14px;
+    background: rgba(77,163,255,.05);
+    border: 1px solid rgba(77,163,255,.2);
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.notice {
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,122,24,.22);
+    background: rgba(255,122,24,.05);
+    color: #bbb;
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.notice strong {
+    color: #fff;
+}
+
+.warning {
+    border-color: rgba(255,77,77,.3);
+    background: rgba(255,77,77,.05);
+}
+
+.warning strong {
+    color: #ff7777;
+}
+
+.bill {
+    overflow: hidden;
+    border: 1px solid #292929;
+    border-radius: 18px;
+    background: #080808;
+}
+
+.bill-head {
+    padding: 19px 21px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #242424;
+}
+
+.bill-head h3 {
+    font-size: 16px;
+}
+
+.bill-head span {
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 13px 21px;
+    color: #999;
+    font-size: 13px;
+}
+
+.bill-row strong {
+    color: #fff;
+    text-align: right;
+}
+
+.bill-total {
+    border-top: 1px solid #292929;
+    padding: 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bill-total span {
+    color: #aaa;
+}
+
+.bill-total strong {
+    color: var(--orange);
+    font-size: 29px;
+}
+
+.check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.check {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.55;
+    cursor: pointer;
+}
+
+.check input {
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+    accent-color: var(--green);
+    flex-shrink: 0;
+}
+
+.submit-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 13px;
+    padding: 18px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, var(--orange), var(--orange2));
+    color: #070707;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(255,122,24,.18);
+}
+
+.submit-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submit-status {
+    display: none;
+    margin-top: 14px;
+    text-align: center;
+    color: var(--green);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+footer {
+    border-top: 1px solid #1d1d1d;
+    padding: 30px 0;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
+.official {
+    color: var(--orange2);
+    font-weight: 900;
+}
+
+@media (max-width: 900px) {
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .grid,
+    .choice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .form-box {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .price {
+        font-size: 40px;
+    }
+
+    .included-box {
+        padding: 20px;
+    }
+
+    .bill-row {
+        padding: 12px 15px;
+    }
+
+    .bill-total {
+        padding: 18px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+       
+
+        <a href="index.html" class="back">
+            Dashboard
+        </a>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+
+        <div class="badge">
+            RudraVX Video Distribution
+        </div>
+
+        <h1>
+            Take Your Video
+            <span>Worldwide.</span>
+        </h1>
+
+        <p>
+            Apply for RudraVX Video Distribution and access a professional
+            distribution and artist-support package designed for selected
+            artists and creators.
+        </p>
+
+        <div class="price-card">
+            <div class="price-label">
+                Video Distribution Package
+            </div>
+
+            <div class="price">
+                $79.99
+                <small>/ 6 Months</small>
+            </div>
+
+            <div class="price-note">
+                One package · Six-month access
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="container">
+
+<div class="benefits">
+
+    <div class="benefit">
+        <div class="benefit-icon">Video</div>
+        <h3>VEVO Distribution</h3>
+        <p>
+            Submit eligible music videos for VEVO distribution
+            through the RudraVX video distribution program.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">Priority</div>
+        <h3>Priority Scheduling</h3>
+        <p>
+            Priority release scheduling with releases targeted
+            for processing under 72 hours.
+        </p>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">Support</div>
+        <h3>Artist Support</h3>
+        <p>
+            Dedicated account management, live chat and
+            24/7 support included with the package.
+        </p>
+    </div>
+
+</div>
+
+<div class="included-box">
+
+    <div class="included-head">
+        <h2>Everything Included</h2>
+
+        <div class="included-tag">
+            $79.99 / 6 MONTHS
+        </div>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Free Official Artist Channel</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Facebook Whitelist</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Bulk Distribution</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>WARM Radio Tracking - 20% off</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Dedicated Account Manager</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>CMS Service - Selected Users</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Record Label Platform on YouTube</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Artist Promotion</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Playlist Pitching Service</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Priority Release Scheduling - under 72 hours</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Custom Marketing Campaign Report</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Ultra-Fast Payouts</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>Live Chat Support</span>
+        </div>
+
+        <div class="feature">
+            <div class="feature-check">✓</div>
+            <span>24/7 Support</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="form-box">
+
+<form
+    id="videoDistributionForm"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+>
+
+<input
+    type="hidden"
+    name="access_key"
+    value="1887c1a2-4f71-4e66-91e2-5b8872960792"
+>
+
+<input
+    type="hidden"
+    name="subject"
+    value="New RudraVX Video Distribution Application"
+>
+
+<input
+    type="hidden"
+    name="from_name"
+    value="RudraVX Video Distribution"
+>
+
+<input
+    type="hidden"
+    name="package"
+    value="VEVO Video Distribution - $79.99 / 6 Months"
+>
+
+<input
+    type="hidden"
+    name="package_price"
+    value="$79.99"
+>
+
+<input
+    type="hidden"
+    name="package_duration"
+    value="6 Months"
+>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">01</div>
+        <h2>Artist Details</h2>
+    </div>
+
+    <div class="grid">
+
+        <div class="field">
+            <label>Artist Name *</label>
+            <input
+                type="text"
+                name="artist_name"
+                placeholder="Enter your artist name"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>Legal / Full Name *</label>
+            <input
+                type="text"
+                name="legal_name"
+                placeholder="Enter your full name"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>Email Address *</label>
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>Mobile / WhatsApp *</label>
+            <input
+                type="tel"
+                name="mobile"
+                placeholder="Enter mobile or WhatsApp number"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>Country *</label>
+            <input
+                type="text"
+                name="country"
+                placeholder="Enter your country"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>City *</label>
+            <input
+                type="text"
+                name="city"
+                placeholder="Enter your city"
+                required
+            >
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">02</div>
+        <h2>Video Information</h2>
+    </div>
+
+    <div class="grid">
+
+        <div class="field">
+            <label>Video / Song Title *</label>
+            <input
+                type="text"
+                name="video_title"
+                placeholder="Enter video title"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>Artist / Channel Name *</label>
+            <input
+                type="text"
+                name="channel_name"
+                placeholder="YouTube channel / artist name"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>Music Genre *</label>
+            <select name="genre" required>
+                <option value="">Select genre</option>
+                <option>Hip-Hop</option>
+                <option>Rap</option>
+                <option>Pop</option>
+                <option>Trap</option>
+                <option>R&amp;B</option>
+                <option>EDM</option>
+                <option>Rock</option>
+                <option>Indie</option>
+                <option>Reggaeton</option>
+                <option>Bollywood</option>
+                <option>Regional</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Video Type *</label>
+            <select name="video_type" required>
+                <option value="">Select video type</option>
+                <option>Official Music Video</option>
+                <option>Lyric Video</option>
+                <option>Performance Video</option>
+                <option>Visualizer</option>
+                <option>Live Performance</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Video Duration *</label>
+            <input
+                type="text"
+                name="video_duration"
+                placeholder="Example: 3:45"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>Planned Release Date</label>
+            <input
+                type="date"
+                name="release_date"
+            >
+        </div>
+
+        <div class="field full">
+            <label>Video / YouTube Link</label>
+            <input
+                type="url"
+                name="video_url"
+                placeholder="https://..."
+            >
+        </div>
+
+    </div>
+
+    <div class="video-note">
+        <strong>Video submission:</strong>
+        After your application is reviewed and approved, the RudraVX
+        team may provide further instructions for submitting the final
+        video master and required metadata.
+        <br><br>
+        Please keep your final video master ready in a professional
+        quality format.
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">03</div>
+        <h2>Your YouTube Presence</h2>
+    </div>
+
+    <div class="grid">
+
+        <div class="field full">
+            <label>YouTube Channel URL *</label>
+            <input
+                type="url"
+                name="youtube_channel"
+                placeholder="https://youtube.com/@yourchannel"
+                required
+            >
+        </div>
+
+        <div class="field">
+            <label>YouTube Subscribers</label>
+            <input
+                type="number"
+                name="youtube_subscribers"
+                min="0"
+                placeholder="Example: 25000"
+            >
+        </div>
+
+        <div class="field">
+            <label>Monthly YouTube Views</label>
+            <input
+                type="number"
+                name="monthly_views"
+                min="0"
+                placeholder="Approximate views"
+            >
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">04</div>
+        <h2>Distribution History</h2>
+    </div>
+
+    <div class="choice-grid">
+
+        <div class="choice">
+            <input
+                type="radio"
+                name="existing_distribution"
+                id="existingYes"
+                value="Yes"
+                required
+            >
+
+            <label for="existingYes">
+                <div class="choice-title">Yes</div>
+                <div class="choice-desc">
+                    I have previously distributed music/videos
+                    through another distributor.
+                </div>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input
+                type="radio"
+                name="existing_distribution"
+                id="existingNo"
+                value="No"
+            >
+
+            <label for="existingNo">
+                <div class="choice-title">No</div>
+                <div class="choice-desc">
+                    This will be my first professional
+                    distribution application.
+                </div>
+            </label>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">05</div>
+        <h2>Services You Want</h2>
+    </div>
+
+    <div class="notice">
+        The following services are included in the
+        <strong>$79.99 / 6 months</strong> package.
+        Your application does not create a separate charge
+        for these listed services.
+    </div>
+
+    <br>
+
+    <div class="check-list">
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Free Official Artist Channel</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Facebook Whitelist</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Bulk Distribution</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>WARM Radio Tracking - 20% off</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Dedicated Account Manager</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>CMS Service - Selected Users</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Record Label Platform on YouTube</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Artist Promotion</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Playlist Pitching Service</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Priority Release Scheduling - under 72 hours</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Custom Marketing Campaign Report</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Ultra-Fast Payouts</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>Live Chat Support</span>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" checked disabled>
+            <span>24/7 Support</span>
+        </label>
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">06</div>
+        <h2>Additional Information</h2>
+    </div>
+
+    <div class="grid">
+
+        <div class="field full">
+            <label>Tell us about your artist / project</label>
+            <textarea
+                name="artist_background"
+                placeholder="Tell us about your music, audience, previous releases, achievements, etc."
+            ></textarea>
+        </div>
+
+        <div class="field full">
+            <label>Additional Notes</label>
+            <textarea
+                name="additional_notes"
+                placeholder="Anything else you want the RudraVX team to know?"
+            ></textarea>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">07</div>
+        <h2>Package &amp; Billing</h2>
+    </div>
+
+    <div class="bill">
+
+        <div class="bill-head">
+            <h3>RudraVX Video Distribution</h3>
+            <span>6 MONTH PACKAGE</span>
+        </div>
+
+        <div class="bill-row">
+            <span>Package</span>
+            <strong>Video Distribution</strong>
+        </div>
+
+        <div class="bill-row">
+            <span>Duration</span>
+            <strong>6 Months</strong>
+        </div>
+
+        <div class="bill-row">
+            <span>Distribution</span>
+            <strong>VEVO Distribution</strong>
+        </div>
+
+        <div class="bill-row">
+            <span>Included Services</span>
+            <strong>14 Services</strong>
+        </div>
+
+        <div class="bill-total">
+            <span>Total Package Price</span>
+            <strong>$79.99</strong>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">08</div>
+        <h2>Important Terms</h2>
+    </div>
+
+    <div class="notice warning">
+
+        <strong>Important - Please read before submitting.</strong>
+
+        <br><br>
+
+        This is an application for the RudraVX Video Distribution
+        program. Submission of this application does not by itself
+        guarantee acceptance, VEVO approval, CMS access, Official
+        Artist Channel approval or placement on any particular
+        platform.
+
+        <br><br>
+
+        Eligibility and access to certain services may depend on
+        review, platform requirements, account eligibility,
+        content quality, rights ownership and other applicable
+        requirements.
+
+        <br><br>
+
+        The <strong>$79.99 / 6 months</strong> package includes the
+        services listed on this page, subject to eligibility and
+        availability.
+
+        <br><br>
+
+        Priority Release Scheduling is targeted for processing
+        <strong>under 72 hours</strong> after all required information
+        and materials have been received and approved. Platform-side
+        processing can vary.
+
+        <br><br>
+
+        Artists must have the necessary rights, permissions and
+        authorization for all submitted video, audio, artwork,
+        performances and other content.
+
+    </div>
+
+</div>
+
+<div class="section">
+
+    <div class="section-title">
+        <div class="number">09</div>
+        <h2>Final Confirmation</h2>
+    </div>
+
+    <div class="check-list">
+
+        <label class="check">
+            <input
+                type="checkbox"
+                name="rights_confirmation"
+                value="Artist confirms ownership or authorization of submitted content"
+                required
+            >
+            <span>
+                I confirm that I own or have the necessary rights,
+                licenses and permissions for the content I submit.
+            </span>
+        </label>
+
+        <label class="check">
+            <input
+                type="checkbox"
+                name="terms_confirmation"
+                value="Artist accepted Video Distribution terms"
+                required
+            >
+            <span>
+                I have read and understood the Video Distribution
+                package details, pricing and eligibility terms.
+            </span>
+        </label>
+
+        <label class="check">
+            <input
+                type="checkbox"
+                name="approval_confirmation"
+                value="Artist understands submission does not guarantee platform approval"
+                required
+            >
+            <span>
+                I understand that submitting this application does
+                not automatically guarantee platform approval,
+                VEVO placement, CMS access or OAC approval.
+            </span>
+        </label>
+
+        <label class="check">
+            <input
+                type="checkbox"
+                name="package_confirmation"
+                value="Artist confirms $79.99 six month package"
+                required
+            >
+            <span>
+                I understand that the selected package is
+                <strong>$79.99 for 6 months</strong>.
+            </span>
+        </label>
+
+    </div>
+
+</div>
+
+<button
+    type="submit"
+    class="submit-btn"
+    id="submitBtn"
+>
+    Submit Video Distribution Application
+</button>
+
+<div
+    class="submit-status"
+    id="submitStatus"
+>
+    Submitting your application...
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        © 2026 RudraVX - Rudravaax
+        <br><br>
+        Official Email:
+        <span class="official">rudravaax@gmail.com</span>
+    </div>
+</footer>
+
+<script>
+const form = document.getElementById("videoDistributionForm");
+const submitBtn = document.getElementById("submitBtn");
+const submitStatus = document.getElementById("submitStatus");
+
+const includedServices = [
+    "Free Official Artist Channel",
+    "Facebook Whitelist",
+    "Bulk Distribution",
+    "WARM Radio Tracking - 20% off",
+    "Dedicated Account Manager",
+    "CMS Service - Selected Users",
+    "Record Label Platform on YouTube",
+    "Artist Promotion",
+    "Playlist Pitching Service",
+    "Priority Release Scheduling - under 72 hours",
+    "Custom Marketing Campaign Report",
+    "Ultra-Fast Payouts",
+    "Live Chat Support",
+    "24/7 Support"
+];
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting Application...";
+    submitStatus.style.display = "block";
+    submitStatus.style.color = "#20d46b";
+    submitStatus.textContent = "Submitting your video distribution application...";
+
+    try {
+        const formData = new FormData(form);
+
+        formData.append(
+            "included_services",
+            includedServices.join(", ")
+        );
+
+        formData.append(
+            "total_payable",
+            "$79.99"
+        );
+
+        formData.append(
+            "package_details",
+            "VEVO Video Distribution - $79.99 / 6 Months"
+        );
+
+        const response = await fetch(
+            "https://api.web3forms.com/submit",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+        const result = await response.json();
+
+        if (result.success === true) {
+            submitStatus.textContent =
+                "Application submitted successfully. Redirecting to dashboard...";
+
+            setTimeout(function() {
+                window.location.href = "dashboard.html";
+            }, 1200);
+        } else {
+            throw new Error(
+                result.message || "Submission failed."
+            );
+        }
+
+    } catch (error) {
+        console.error(error);
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Video Distribution Application";
+
+        submitStatus.style.display = "block";
+        submitStatus.style.color = "#ff7777";
+        submitStatus.textContent =
+            "Application could not be submitted. Please check your internet connection and try again.";
+    }
+});
+</script>
+
+</body>
+</html>
