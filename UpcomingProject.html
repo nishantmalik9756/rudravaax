@@ -8,6 +8,10 @@
 
     <style>
 
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -18,12 +22,16 @@
             --black: #050505;
             --card: #101010;
             --card2: #151515;
+
             --orange: #ff6a00;
             --orange2: #ff8a2a;
+
             --green: #19d66b;
             --green2: #0d9b4d;
+
             --white: #ffffff;
             --muted: #9b9b9b;
+
             --border: rgba(255,255,255,0.09);
         }
 
@@ -53,6 +61,11 @@
                 sans-serif;
 
             min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
 
@@ -104,7 +117,6 @@
 
         .navbar nav a {
             color: #999;
-            text-decoration: none;
             font-size: 13px;
             font-weight: 700;
             transition: 0.25s;
@@ -163,7 +175,7 @@
 
 
         /* =========================
-           CONTAINER
+           PROJECTS CONTAINER
         ========================= */
 
         .projects-container {
@@ -171,14 +183,14 @@
             margin: 75px auto;
         }
 
-
-        /* =========================
-           SECTION
-        ========================= */
-
         .project-section {
             margin-bottom: 90px;
         }
+
+
+        /* =========================
+           SECTION HEADING
+        ========================= */
 
         .section-heading {
             display: flex;
@@ -229,7 +241,6 @@
 
         .active-status {
             color: var(--green);
-
             border-color:
                 rgba(25,214,107,0.45);
         }
@@ -272,7 +283,6 @@
 
             gap: 22px;
 
-            text-decoration: none;
             color: white;
 
             position: relative;
@@ -321,6 +331,8 @@
                     rgba(255,106,0,0.10),
                     rgba(25,214,107,0.04)
                 );
+
+            cursor: pointer;
         }
 
         .chapter-active .chapter-number {
@@ -341,11 +353,17 @@
         .chapter-arrow {
             font-size: 25px;
             color: var(--orange);
+
+            transition: transform 0.3s;
+        }
+
+        .chapter-active.open .chapter-arrow {
+            transform: rotate(90deg);
         }
 
 
         /* =========================
-           COMING SOON
+           OTHER CHAPTERS
         ========================= */
 
         .coming-soon {
@@ -361,6 +379,203 @@
             font-weight: 900;
 
             white-space: nowrap;
+        }
+
+
+        /* =========================
+           CHAPTER 1 DETAILS
+        ========================= */
+
+        .chapter-details {
+            display: none;
+
+            grid-column: 1 / -1;
+
+            margin-top: 5px;
+
+            border:
+                1px solid rgba(255,106,0,0.25);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,106,0,0.06),
+                    rgba(25,214,107,0.025)
+                );
+
+            overflow: hidden;
+        }
+
+        .chapter-details.active {
+            display: block;
+            animation: chapterOpen 0.35s ease;
+        }
+
+        @keyframes chapterOpen {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chapter-details-header {
+            padding: 35px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .details-label {
+            color: var(--green);
+
+            font-size: 10px;
+            font-weight: 900;
+
+            letter-spacing: 3px;
+        }
+
+        .chapter-details-header h2 {
+            font-size: 34px;
+            margin-top: 10px;
+        }
+
+        .chapter-details-header p {
+            color: #777;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .release-date {
+            text-align: right;
+
+            color: #777;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+
+            line-height: 1.8;
+        }
+
+        .release-date strong {
+            color: var(--orange);
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+           TRACKLIST
+        ========================= */
+
+        .tracklist {
+            width: 100%;
+        }
+
+        .track {
+            display: grid;
+
+            grid-template-columns:
+                55px 1fr;
+
+            gap: 20px;
+
+            align-items: center;
+
+            padding: 25px 30px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.07);
+
+            transition:
+                background 0.25s,
+                padding-left 0.25s;
+        }
+
+        .track:last-child {
+            border-bottom: none;
+        }
+
+        .track:hover {
+            background:
+                rgba(255,255,255,0.035);
+
+            padding-left: 40px;
+        }
+
+        .track-number {
+            color: #555;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+        }
+
+        .track h3 {
+            font-size: 21px;
+
+            font-weight: 500;
+
+            letter-spacing: -0.3px;
+        }
+
+        .track p {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            margin-top: 7px;
+        }
+
+        .track:first-child h3 {
+            color: var(--orange);
+        }
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .close-chapter {
+            margin: 25px 30px 30px;
+
+            padding: 11px 18px;
+
+            border:
+                1px solid rgba(255,106,0,0.35);
+
+            background: transparent;
+
+            color: var(--orange);
+
+            font-size: 9px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        .close-chapter:hover {
+            background: var(--orange);
+            color: #000;
         }
 
 
@@ -516,6 +731,45 @@
                 display: none;
             }
 
+            .chapter-details-header {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 25px;
+            }
+
+            .chapter-details-header h2 {
+                font-size: 28px;
+            }
+
+            .release-date {
+                text-align: left;
+            }
+
+            .track {
+                grid-template-columns: 35px 1fr;
+
+                gap: 15px;
+
+                padding: 22px 20px;
+            }
+
+            .track:hover {
+                padding-left: 25px;
+            }
+
+            .track h3 {
+                font-size: 19px;
+            }
+
+            .track p {
+                font-size: 9px;
+                line-height: 1.5;
+            }
+
+            .close-chapter {
+                margin: 20px;
+            }
+
             .album-card {
                 padding: 22px;
             }
@@ -537,421 +791,819 @@
 <body>
 
 
-<!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================= -->
 
-<header class="navbar">
+    <header class="navbar">
 
-    <nav>
+       
 
-        <a href="index.html" class="back-btn">
-            Dashboard
-        </a>
+        <nav>
 
-        <a href="upcomingproject.html">
-            Upcoming
-        </a>
-
-    </nav>
-
-</header>
-
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-label">
-        RUDRAVAAX'S
-    </div>
-
-    <h1>
-        UPCOMING<br>
-        <span>PROJECTS</span>
-    </h1>
-
-    <p>
-        Explore upcoming music, albums and the Signature Series.
-    </p>
-
-</section>
-
-
-
-<!-- PROJECTS -->
-
-<main class="projects-container">
-
-
-    <!-- SIGNATURE SERIES -->
-
-    <section class="project-section">
-
-        <div class="section-heading">
-
-            <div>
-
-                <span class="project-label">
-                    SERIES 01
-                </span>
-
-                <h2>
-                    Signature Series
-                </h2>
-
-                <p>
-                    A nine-chapter musical journey by Rudravaax.
-                </p>
-
-            </div>
-
-            <span class="status active-status">
-                ACTIVE
-            </span>
-
-        </div>
-
-
-        <!-- CHAPTERS -->
-
-        <div class="chapters">
-
-
-            <!-- CHAPTER 1 -->
-
-            <a href="chapter1.html"
-               class="chapter-card chapter-active">
-
-                <div class="chapter-number">
-                    01
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 1
-                    </h3>
-
-                    <p>
-                        Open Chapter
-                    </p>
-
-                </div>
-
-                <div class="chapter-arrow">
-                    →
-                </div>
-
+            <a href="index.html">
+                Dashboard
             </a>
 
+          
 
+        </nav>
 
-            <!-- CHAPTER 2 -->
+    </header>
 
-            <div class="chapter-card coming-soon">
 
-                <div class="chapter-number">
-                    02
-                </div>
 
-                <div class="chapter-info">
+    <!-- =========================
+         HERO
+    ========================= -->
 
-                    <h3>
-                        Chapter 2
-                    </h3>
+    <section class="hero" id="upcoming">
 
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
-
-
-            <!-- CHAPTER 3 -->
-
-            <div class="chapter-card coming-soon">
-
-                <div class="chapter-number">
-                    03
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 3
-                    </h3>
-
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
-
-
-            <!-- CHAPTER 4 -->
-
-            <div class="chapter-card coming-soon">
-
-                <div class="chapter-number">
-                    04
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 4
-                    </h3>
-
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
-
-
-            <!-- CHAPTER 5 -->
-
-            <div class="chapter-card coming-soon">
-
-                <div class="chapter-number">
-                    05
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 5
-                    </h3>
-
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
-
-
-            <!-- CHAPTER 6 -->
-
-            <div class="chapter-card coming-soon">
-
-                <div class="chapter-number">
-                    06
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 6
-                    </h3>
-
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
-
-
-            <!-- CHAPTER 7 -->
-
-            <div class="chapter-card coming-soon">
-
-                <div class="chapter-number">
-                    07
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 7
-                    </h3>
-
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
-
-
-            <!-- CHAPTER 8 -->
-
-            <div class="chapter-card coming-soon">
-
-                <div class="chapter-number">
-                    08
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 8
-                    </h3>
-
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
-
-
-            <!-- CHAPTER 9 -->
-
-            <div class="chapter-card coming-soon">
-
-                <div class="chapter-number">
-                    09
-                </div>
-
-                <div class="chapter-info">
-
-                    <h3>
-                        Chapter 9
-                    </h3>
-
-                    <p>
-                        Coming Soon
-                    </p>
-
-                </div>
-
-                <div class="chapter-status">
-                    COMING SOON
-                </div>
-
-            </div>
-
+        <div class="hero-label">
+            RUDRAVAAX'S
         </div>
+
+        <h1>
+            UPCOMING<br>
+            <span>PROJECTS</span>
+        </h1>
+
+        <p>
+            Explore upcoming music, albums and the Signature Series.
+        </p>
 
     </section>
 
 
 
-    <!-- THE FOREIGNER -->
+    <!-- =========================
+         PROJECTS
+    ========================= -->
 
-    <section class="project-section standalone">
+    <main class="projects-container">
 
-        <div class="section-heading">
 
-            <div>
+        <!-- =========================
+             SIGNATURE SERIES
+        ========================= -->
 
-                <span class="project-label">
-                    ALBUM 02
+        <section class="project-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="project-label">
+                        SERIES 01
+                    </span>
+
+                    <h2>
+                        Signature Series
+                    </h2>
+
+                    <p>
+                        A nine-chapter musical journey by Rudravaax.
+                    </p>
+
+                </div>
+
+                <span class="status active-status">
+                    ACTIVE
                 </span>
 
-                <h2>
-                    The Foreigner
-                </h2>
+            </div>
 
-                <p>
-                    An upcoming Rudravaax album.
-                </p>
+
+            <!-- CHAPTERS -->
+
+            <div class="chapters">
+
+
+                <!-- =========================
+                     CHAPTER 1 BUTTON
+                ========================= -->
+
+                <div
+                    class="chapter-card chapter-active"
+                    id="chapter1Button"
+                    onclick="toggleChapter()"
+                >
+
+                    <div class="chapter-number">
+                        01
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 1
+                        </h3>
+
+                        <p>
+                            Open Chapter
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-arrow">
+                        →
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     CHAPTER 1 DETAILS
+                ========================= -->
+
+                <div
+                    class="chapter-details"
+                    id="chapter1Details"
+                >
+
+                    <div class="chapter-details-header">
+
+                        <div>
+
+                            <span class="details-label">
+                                SIGNATURE SERIES / CHAPTER 01
+                            </span>
+
+                            <h2>
+                                Signature — Chapter 1
+                            </h2>
+
+                            <p>
+                                A Rudravaax Signature Series release.
+                            </p>
+
+                        </div>
+
+                        <div class="release-date">
+
+                            RELEASING ON<br>
+
+                            <strong>
+                                1 NOVEMBER
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TRACKLIST -->
+
+                    <div class="tracklist">
+
+
+                        <!-- 01 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                01
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Mohobbatein
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 02 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                02
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Raat Mein
+                                </h3>
+
+                                <p>
+                                    feat. ANRX BEATS · Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 03 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                03
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    God Flow
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 04 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                04
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Crazy Boy
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 05 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                05
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Naaginn
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 06 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                06
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Dynamite
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 07 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                07
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Saara Uttar Pradesh
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 08 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                08
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    C-O2
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 09 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                09
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Chhori Bawaal
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 10 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                10
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    NGrrr
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 11 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                11
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Fiighterr
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- 12 -->
+
+                        <div class="track">
+
+                            <span class="track-number">
+                                12
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Saari Rattiyaan
+                                </h3>
+
+                                <p>
+                                    Releasing On 1 November
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- CLOSE -->
+
+                    <button
+                        class="close-chapter"
+                        onclick="toggleChapter(event)"
+                    >
+                        CLOSE CHAPTER
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================
+                     CHAPTER 2
+                ========================= -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        02
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 2
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAPTER 3 -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        03
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 3
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAPTER 4 -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        04
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 4
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAPTER 5 -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        05
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 5
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAPTER 6 -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        06
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 6
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAPTER 7 -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        07
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 7
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAPTER 8 -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        08
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 8
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAPTER 9 -->
+
+                <div class="chapter-card coming-soon">
+
+                    <div class="chapter-number">
+                        09
+                    </div>
+
+                    <div class="chapter-info">
+
+                        <h3>
+                            Chapter 9
+                        </h3>
+
+                        <p>
+                            Coming Soon
+                        </p>
+
+                    </div>
+
+                    <div class="chapter-status">
+                        COMING SOON
+                    </div>
+
+                </div>
+
 
             </div>
 
-            <span class="status">
-                COMING SOON
-            </span>
+        </section>
 
+
+
+        <!-- =========================
+             THE FOREIGNER
+        ========================= -->
+
+        <section class="project-section standalone">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="project-label">
+                        ALBUM 02
+                    </span>
+
+                    <h2>
+                        The Foreigner
+                    </h2>
+
+                    <p>
+                        An upcoming Rudravaax album.
+                    </p>
+
+                </div>
+
+                <span class="status">
+                    COMING SOON
+                </span>
+
+            </div>
+
+
+            <div class="album-card">
+
+                <div class="album-symbol">
+                    F
+                </div>
+
+                <div>
+
+                    <h3>
+                        The Foreigner
+                    </h3>
+
+                    <p>
+                        Album
+                    </p>
+
+                </div>
+
+                <div class="album-status">
+                    COMING SOON
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            RVX / RudraVX
         </div>
 
+        <p>
+            © 2026 RudraVX. All Rights Reserved.
+        </p>
 
-        <div class="album-card">
+        <p>
+            Music by Rudravaax
+        </p>
 
-            <div class="album-symbol">
-                F
-            </div>
-
-            <div>
-
-                <h3>
-                    The Foreigner
-                </h3>
-
-                <p>
-                    Album
-                </p>
-
-            </div>
-
-            <div class="album-status">
-                COMING SOON
-            </div>
-
-        </div>
-
-    </section>
-
-
-</main>
+    </footer>
 
 
 
-<!-- FOOTER -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-<footer>
+    <script>
 
-    <div class="footer-logo">
-        RVX / RudraVX
-    </div>
+        function toggleChapter(event) {
 
-    <p>
-        © 2026 RudraVX. All Rights Reserved.
-    </p>
+            if (event) {
+                event.stopPropagation();
+            }
 
-    <p>
-        Music by Rudravaax
-    </p>
+            const details =
+                document.getElementById("chapter1Details");
 
-</footer>
+            const button =
+                document.getElementById("chapter1Button");
 
+            details.classList.toggle("active");
+
+            button.classList.toggle("open");
+
+
+            if (details.classList.contains("active")) {
+
+                setTimeout(function () {
+
+                    details.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }, 100);
+
+            }
+
+        }
+
+    </script>
 
 </body>
 </html>
