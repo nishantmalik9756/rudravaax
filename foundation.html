@@ -1,316 +1,2794 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>RudraVX — Foundation</title>
+  <title>RudraVX Foundation</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta
+    name="description"
+    content="RudraVX Foundation — A professional artist qualification and support program."
+  />
 
-        :root {
-            --black: #050505;
-            --black-light: #0d0d0d;
-            --card: #121212;
-            --white: #ffffff;
-            --grey: #9b9b9b;
-            --orange: #ff7a18;
-            --green: #20d46b;
-            --border: rgba(255, 255, 255, 0.08);
-        }
+  <style>
 
-        html {
-            scroll-behavior: smooth;
-        }
+    /* =========================================================
+       RUDRAVX FOUNDATION
+       COLOR SYSTEM
+       Black | Green | White | Orange
+    ========================================================= */
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: var(--black);
-            color: var(--white);
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    :root {
+      --black: #050505;
+      --black-2: #0a0a0a;
+      --black-3: #101010;
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+      --white: #ffffff;
+      --white-soft: #d9d9d9;
+      --gray: #8c8c8c;
+      --gray-dark: #242424;
 
-        header {
-            width: 100%;
-            border-bottom: 1px solid var(--border);
-            background: rgba(5, 5, 5, 0.94);
-            backdrop-filter: blur(15px);
-        }
+      --green: #00e676;
+      --green-dark: #00a957;
+      --green-soft: rgba(0, 230, 118, 0.12);
 
-        .nav {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+      --orange: #ff7a00;
+      --orange-light: #ff9b3d;
+      --orange-soft: rgba(255, 122, 0, 0.12);
 
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
+      --border: rgba(255,255,255,0.09);
 
-        .logo span {
-            color: var(--orange);
-        }
+      --radius: 20px;
+      --radius-small: 12px;
 
-        .dashboard-link {
-            color: var(--grey);
-            font-size: 14px;
-            transition: 0.3s;
-        }
+      --shadow-green: 0 0 35px rgba(0,230,118,0.12);
+      --shadow-orange: 0 0 35px rgba(255,122,0,0.12);
 
-        .dashboard-link:hover {
-            color: var(--white);
-        }
+      --max-width: 1200px;
+    }
 
-        main {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 20px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .foundation {
-            width: 100%;
-            max-width: 850px;
-            text-align: center;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .icon {
-            width: 76px;
-            height: 76px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 122, 24, 0.3);
-            border-radius: 22px;
-            background: rgba(255, 122, 24, 0.06);
-            color: var(--orange);
-            font-size: 30px;
-            font-weight: 900;
-        }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        .badge {
-            display: inline-block;
-            margin-bottom: 22px;
-            padding: 7px 15px;
-            border: 1px solid rgba(32, 212, 107, 0.3);
-            border-radius: 30px;
-            color: var(--green);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        h1 {
-            font-size: clamp(42px, 7vw, 72px);
-            line-height: 1;
-            margin-bottom: 22px;
-            letter-spacing: -2px;
-        }
+    button {
+      font: inherit;
+    }
 
-        h1 span {
-            color: var(--orange);
-        }
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
 
-        .main-message {
-            max-width: 680px;
-            margin: auto;
-            color: var(--white);
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 1.5;
-        }
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
 
-        .sub-message {
-            max-width: 600px;
-            margin: 15px auto 0;
-            color: var(--grey);
-            font-size: 14px;
-            line-height: 1.8;
-        }
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
 
-        .work-card {
-            max-width: 650px;
-            margin: 40px auto 0;
-            padding: 22px 25px;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            background: linear-gradient(145deg, #121212, #090909);
-        }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
 
-        .work-card p {
-            color: #c0c0c0;
-            font-size: 13px;
-            line-height: 1.8;
-        }
+    .section-label::before {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: var(--orange);
+      border-radius: 10px;
+    }
 
-        .work-card strong {
-            color: var(--green);
-        }
+    .section-title {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
 
-        .back-button {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 13px 22px;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--white);
-            background: #101010;
-            font-size: 13px;
-            font-weight: 700;
-            transition: 0.3s;
-        }
+    .section-description {
+      color: var(--gray);
+      max-width: 680px;
+      font-size: 17px;
+    }
 
-        .back-button:hover {
-            border-color: var(--orange);
-            color: var(--orange);
-            transform: translateY(-2px);
-        }
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
 
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 30px 20px;
-            text-align: center;
-            color: var(--grey);
-            font-size: 13px;
-        }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 76px;
+      background: rgba(5,5,5,0.86);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        footer strong {
-            color: var(--white);
-        }
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        footer a {
-            color: var(--orange);
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
 
-        .footer-email {
-            margin-top: 5px;
-        }
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--orange), var(--green));
+      color: #000;
+      font-weight: 1000;
+      box-shadow: 0 0 25px rgba(255,122,0,0.15);
+    }
 
-        @media (max-width: 600px) {
-            .nav {
-                padding: 16px 18px;
-            }
+    .logo span {
+      color: var(--green);
+    }
 
-            main {
-                padding: 60px 18px;
-            }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--white-soft);
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-            .icon {
-                width: 65px;
-                height: 65px;
-                border-radius: 18px;
-                font-size: 25px;
-            }
+    .nav-links a {
+      transition: 0.25s ease;
+    }
 
-            .main-message {
-                font-size: 17px;
-            }
+    .nav-links a:hover {
+      color: var(--green);
+    }
 
-            .sub-message {
-                font-size: 13px;
-            }
+    .nav-cta {
+      background: var(--green);
+      color: #000;
+      padding: 10px 17px;
+      border-radius: 10px;
+      font-weight: 900;
+    }
 
-            .work-card {
-                padding: 20px 18px;
-            }
+    .nav-cta:hover {
+      background: #36ff99 !important;
+      color: #000 !important;
+    }
 
-            h1 {
-                letter-spacing: -1px;
-            }
-        }
-    </style>
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      background: rgba(0,230,118,0.07);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: -250px;
+      right: -200px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgba(255,122,0,0.055);
+      filter: blur(110px);
+      border-radius: 50%;
+      bottom: -250px;
+      left: -150px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(0,230,118,0.25);
+      background: var(--green-soft);
+      color: var(--green);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--green);
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      font-weight: 1000;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 .green {
+      color: var(--green);
+    }
+
+    .hero h1 .orange {
+      color: var(--orange);
+    }
+
+    .hero-text {
+      color: var(--gray);
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      border: none;
+      cursor: pointer;
+      padding: 14px 21px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+      box-shadow: var(--shadow-green);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #39ff98;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* =========================================================
+       HERO CARD
+    ========================================================= */
+
+    .hero-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.07),
+          rgba(255,255,255,0.02)
+        );
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow-green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      background: var(--orange);
+      opacity: 0.08;
+      filter: blur(55px);
+      top: -50px;
+      right: -40px;
+      border-radius: 50%;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gray);
+    }
+
+    .verified {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .discount-number {
+      font-size: 88px;
+      line-height: 1;
+      font-weight: 1000;
+      color: var(--green);
+      letter-spacing: -5px;
+    }
+
+    .discount-number small {
+      font-size: 35px;
+      letter-spacing: 0;
+    }
+
+    .discount-text {
+      color: var(--white-soft);
+      margin: 7px 0 28px;
+      font-weight: 700;
+    }
+
+    .card-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 20px 0;
+    }
+
+    .card-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 15px;
+      border-radius: 13px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 19px;
+      color: var(--white);
+    }
+
+    .stat span {
+      color: var(--gray);
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .intro-box {
+      background: var(--black-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .intro-box h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .intro-box p {
+      color: var(--gray);
+    }
+
+    .green-line {
+      width: 55px;
+      height: 4px;
+      background: var(--green);
+      border-radius: 20px;
+      margin-bottom: 25px;
+    }
+
+    /* =========================================================
+       FOUNDATION MANAGER
+    ========================================================= */
+
+    .manager-section {
+      margin-top: 55px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .manager-card {
+      width: min(100%, 760px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding: 30px;
+      overflow: hidden;
+
+      border: 1px solid rgba(0,230,118,0.18);
+      border-radius: 25px;
+
+      background:
+        radial-gradient(
+          circle at 0% 100%,
+          rgba(255,122,0,0.09),
+          transparent 35%
+        ),
+        linear-gradient(145deg, #111, #080808);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.35),
+        var(--shadow-green);
+
+      transition: 0.4s ease;
+    }
+
+    .manager-card::before {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      right: -80px;
+      top: -90px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0.08;
+      filter: blur(55px);
+      pointer-events: none;
+    }
+
+    .manager-card::after {
+      content: "";
+      position: absolute;
+      left: -120%;
+      top: 0;
+      width: 60%;
+      height: 1px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--green),
+          transparent
+        );
+      animation: managerScan 4s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes managerScan {
+      from {
+        left: -120%;
+      }
+
+      to {
+        left: 150%;
+      }
+    }
+
+    .manager-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0,230,118,0.42);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.45),
+        0 0 45px rgba(0,230,118,0.14);
+    }
+
+    .manager-photo-wrap {
+      position: relative;
+      flex: 0 0 150px;
+      width: 150px;
+      height: 150px;
+
+      border-radius: 50%;
+      padding: 4px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--orange),
+          var(--green)
+        );
+
+      box-shadow:
+        0 0 0 8px rgba(0,230,118,0.04),
+        0 0 40px rgba(0,230,118,0.16);
+
+      transition: 0.4s ease;
+    }
+
+    .manager-card:hover .manager-photo-wrap {
+      transform: scale(1.05) rotate(2deg);
+
+      box-shadow:
+        0 0 0 12px rgba(0,230,118,0.03),
+        0 0 50px rgba(0,230,118,0.24);
+    }
+
+    .manager-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+
+      object-fit: cover;
+      object-position: center;
+
+      border-radius: 50%;
+      border: 4px solid #0b0b0b;
+
+      background: #0b0b0b;
+    }
+
+    .manager-info {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .manager-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 9px;
+
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .manager-tag::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--green);
+
+      box-shadow: 0 0 10px var(--green);
+
+      animation:
+        managerDot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes managerDot {
+
+      0%,
+      100% {
+        opacity: 0.45;
+        transform: scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+    }
+
+    .manager-name {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.05;
+      font-weight: 1000;
+      letter-spacing: -1.5px;
+      margin-bottom: 7px;
+    }
+
+    .manager-role {
+      color: var(--orange-light);
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .manager-description {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 500px;
+    }
+
+    .manager-badge {
+      display: inline-flex;
+
+      margin-top: 16px;
+      padding: 7px 11px;
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      background: rgba(255,255,255,0.035);
+
+      color: var(--white-soft);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       PROCESS
+    ========================================================= */
+
+    .process {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .process-card {
+      position: relative;
+      background: var(--black-2);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 25px 20px;
+      min-height: 220px;
+      transition: 0.3s ease;
+    }
+
+    .process-card:hover {
+      border-color: rgba(0,230,118,0.35);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-green);
+    }
+
+    .process-number {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .process-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       TEST STRUCTURE
+    ========================================================= */
+
+    .tests-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .test-card {
+      background:
+        linear-gradient(
+          160deg,
+          #111,
+          #080808
+        );
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      padding: 25px 20px;
+
+      transition: 0.3s ease;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .test-card::after {
+      content: "";
+
+      position: absolute;
+
+      height: 3px;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--orange),
+          var(--green)
+        );
+
+      opacity: 0;
+
+      transition: 0.3s ease;
+    }
+
+    .test-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(255,122,0,0.35);
+
+      box-shadow:
+        var(--shadow-orange);
+    }
+
+    .test-card:hover::after {
+      opacity: 1;
+    }
+
+    .test-number {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .test-card h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .test-info {
+      display: flex;
+      justify-content: space-between;
+
+      padding: 9px 0;
+
+      border-bottom:
+        1px solid var(--border);
+
+      color: var(--gray);
+
+      font-size: 13px;
+    }
+
+    .test-info strong {
+      color: var(--white);
+    }
+
+    /* =========================================================
+       RULES
+    ========================================================= */
+
+    .rules {
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(0,230,118,0.05),
+          transparent 30%
+        ),
+        #080808;
+    }
+
+    .rules-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .rule-card {
+      display: flex;
+      gap: 17px;
+      padding: 23px;
+
+      background: var(--black-2);
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .rule-icon {
+      flex:
+        0 0 38px;
+
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      color: #000;
+
+      background: var(--orange);
+
+      font-weight: 1000;
+    }
+
+    .rule-card h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .rule-card p {
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       SCORING
+    ========================================================= */
+
+    .scoring-grid {
+      margin-top: 50px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 25px;
+    }
+
+    .score-box {
+      background: var(--black-2);
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      padding: 30px;
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 17px 0;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .score-row:last-child {
+      border-bottom: none;
+    }
+
+    .score-row span {
+      color: var(--gray);
+    }
+
+    .score-value {
+      font-size: 21px;
+      font-weight: 1000;
+    }
+
+    .positive {
+      color: var(--green);
+    }
+
+    .negative {
+      color: #ff4d4d;
+    }
+
+    .discount-box {
+      border:
+        1px solid rgba(0,230,118,0.25);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(0,230,118,0.09),
+          rgba(255,122,0,0.04)
+        );
+
+      box-shadow:
+        var(--shadow-green);
+    }
+
+    .discount-big {
+      font-size:
+        clamp(60px, 8vw, 100px);
+
+      color: var(--green);
+
+      line-height: 1;
+
+      font-weight: 1000;
+
+      letter-spacing: -5px;
+
+      margin: 20px 0;
+    }
+
+    .discount-box p {
+      color: var(--gray);
+    }
+
+    .cap-note {
+      margin-top: 22px;
+
+      padding: 15px;
+
+      border-left:
+        3px solid var(--orange);
+
+      background:
+        var(--orange-soft);
+
+      color: var(--white-soft);
+
+      font-size: 13px;
+
+      border-radius:
+        0 10px 10px 0;
+    }
+
+    /* =========================================================
+       TOPICS
+    ========================================================= */
+
+    .topics-wrapper {
+      margin-top: 45px;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+    .topic {
+      padding: 10px 15px;
+
+      border: 1px solid var(--border);
+
+      background: #0b0b0b;
+
+      border-radius: 999px;
+
+      color: var(--white-soft);
+
+      font-size: 13px;
+
+      transition: 0.25s ease;
+    }
+
+    .topic:hover {
+      border-color: var(--green);
+
+      color: var(--green);
+
+      background:
+        var(--green-soft);
+    }
+
+    /* =========================================================
+       DISCOUNT EXAMPLES
+    ========================================================= */
+
+    .examples-table {
+      margin-top: 45px;
+
+      overflow: hidden;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 18px;
+
+      background: var(--black-2);
+    }
+
+    .example-row {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr 1fr;
+
+      padding: 17px 22px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      font-size: 14px;
+    }
+
+    .example-row:last-child {
+      border-bottom: none;
+    }
+
+    .example-row.header {
+      background: #111;
+
+      color: var(--gray);
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+    }
+
+    .example-row span:nth-child(2) {
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    .example-row span:last-child {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    .faq-list {
+      margin-top: 50px;
+
+      display: grid;
+
+      gap: 12px;
+    }
+
+    details {
+      background: var(--black-2);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 14px;
+
+      padding: 20px;
+    }
+
+    summary {
+      cursor: pointer;
+
+      font-weight: 800;
+
+      list-style: none;
+
+      position: relative;
+
+      padding-right: 30px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+
+      position: absolute;
+
+      right: 0;
+
+      color: var(--green);
+
+      font-size: 22px;
+
+      top: -4px;
+    }
+
+    details[open] summary::after {
+      content: "−";
+      color: var(--orange);
+    }
+
+    details p {
+      color: var(--gray);
+
+      margin-top: 12px;
+
+      font-size: 14px;
+
+      padding-right: 20px;
+    }
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
+      padding: 100px 0;
+    }
+
+    .cta-box {
+      position: relative;
+
+      overflow: hidden;
+
+      text-align: center;
+
+      padding: 75px 30px;
+
+      border:
+        1px solid rgba(0,230,118,0.22);
+
+      border-radius: 30px;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(0,230,118,0.12),
+          transparent 50%
+        ),
+        linear-gradient(
+          145deg,
+          #101010,
+          #080808
+        );
+
+      box-shadow:
+        var(--shadow-green);
+    }
+
+    .cta-box h2 {
+      font-size:
+        clamp(35px, 5vw, 65px);
+
+      line-height: 1;
+
+      letter-spacing: -3px;
+
+      margin-bottom: 18px;
+    }
+
+    .cta-box h2 span {
+      color: var(--green);
+    }
+
+    .cta-box p {
+      color: var(--gray);
+
+      max-width: 650px;
+
+      margin:
+        0 auto 30px;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      border-top:
+        1px solid var(--border);
+
+      padding: 35px 0;
+
+      background: #030303;
+    }
+
+    .footer-inner {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .footer-text {
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    .footer-badge {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .hero-grid,
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 600px;
+      }
+
+      .process-grid,
+      .tests-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .rules-grid,
+      .scoring-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .navbar {
+        height: 68px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .card-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid,
+      .tests-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .example-row {
+        grid-template-columns:
+          1fr 1fr 1fr;
+
+        padding: 15px;
+
+        font-size: 12px;
+      }
+
+      .discount-number {
+        font-size: 70px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      /* MANAGER MOBILE */
+
+      .manager-section {
+        margin-top: 40px;
+      }
+
+      .manager-card {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px 20px;
+
+        gap: 21px;
+      }
+
+      .manager-photo-wrap {
+        flex:
+          0 0 125px;
+
+        width: 125px;
+        height: 125px;
+      }
+
+      .manager-description {
+        margin: auto;
+      }
+
+      .manager-badge {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 360px) {
+
+      .manager-photo-wrap {
+        width: 110px;
+        height: 110px;
+        flex-basis: 110px;
+      }
+
+      .manager-name {
+        font-size: 27px;
+      }
+    }
+
+    .back-dashboard {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.035);
+
+  color: #d9d9d9;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  transition: 0.25s ease;
+}
+
+.back-dashboard:hover {
+  color: #00e676;
+  border-color: rgba(0,230,118,0.35);
+  background: rgba(0,230,118,0.08);
+
+  transform: translateX(-3px);
+}
+
+  </style>
 </head>
+
 
 <body>
 
-<header>
-    <nav class="nav">
-        
-          
+  <!-- =======================================================
+       NAVBAR
+  ======================================================== -->
+
+  <header class="navbar">
+
+    <div class="container nav-inner">
+
+      
+<a href="index.html" class="back-dashboard">
+  Dashboard
+</a>
+      <nav class="nav-links">
+
+        <a href="#about">
+          About
         </a>
 
-        <a href="index.html" class="dashboard-link">
-            Dashboard
+        <a href="#process">
+          How It Works
         </a>
-    </nav>
-</header>
 
-<main>
-
-    <section class="foundation">
-
-        <div class="icon">
-            R
-        </div>
-
-        <div class="badge">
-            RudraVX Foundation
-        </div>
-
-        <h1>
-            Not Available In <span>Your Country</span>
-        </h1>
-
-        <p class="main-message">
-            We will be here soon.
-        </p>
-
-        <p class="sub-message">
-            We are working every day to expand RudraVX Foundation
-            and make it available in more countries and communities.
-        </p>
-
-        <div class="work-card">
-            <p>
-                <strong>Our work is ongoing.</strong>
-                We are continuously building, planning and working towards
-                taking the RudraVX Foundation wider. We hope to bring it
-                to your country soon.
-            </p>
-        </div>
-
-        <a href="dashboard.html" class="back-button">
-            Back to Dashboard
+        <a href="#tests">
+          Tests
         </a>
+
+        <a href="#rules">
+          Rules
+        </a>
+
+        <a href="#faq">
+          FAQ
+        </a>
+
+        <a href="#apply" class="nav-cta">
+          Apply Now
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="hero-badge">
+
+            <span class="live-dot"></span>
+
+            ARTIST SUPPORT & QUALIFICATION PROGRAM
+
+          </div>
+
+
+          <h1>
+
+            RUDRA<span class="green">VX</span><br>
+
+            <span class="orange">
+              FOUNDATION
+            </span>
+
+          </h1>
+
+
+          <p class="hero-text">
+
+            A professional qualification and support program built for
+            artists who want access to RudraVX services at a reduced cost
+            through demonstrated music knowledge and skill.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a href="#apply" class="btn btn-primary">
+              Apply for Foundation →
+            </a>
+
+            <a href="#process" class="btn btn-secondary">
+              Explore Foundation
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="card-top">
+
+            <div class="card-title">
+              FOUNDATION BENEFIT
+            </div>
+
+            <div class="verified">
+              ● VERIFIED SYSTEM
+            </div>
+
+          </div>
+
+
+          <div class="discount-number">
+
+            60<small>%</small>
+
+          </div>
+
+
+          <div class="discount-text">
+
+            Maximum eligible Foundation discount
+
+          </div>
+
+
+          <div class="card-divider"></div>
+
+
+          <div class="card-stats">
+
+            <div class="stat">
+
+              <strong>
+                5
+              </strong>
+
+              <span>
+                Tests
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <strong>
+                1,000
+              </strong>
+
+              <span>
+                Total Questions
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <strong>
+                50m
+              </strong>
+
+              <span>
+                Per Test
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </section>
 
-</main>
 
-<footer>
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
 
-    <p>
-        © 2026 <strong>RudraVX</strong> · Rudravaax
-    </p>
+    <section class="section" id="about">
 
-    <p class="footer-email">
-        Official Contact:
-        <a href="mailto:rudravaax@gmail.com">
-            rudravaax@gmail.com
-        </a>
-    </p>
+      <div class="container intro-grid">
 
-</footer>
+        <div>
+
+          <div class="section-label">
+            ABOUT THE FOUNDATION
+          </div>
+
+          <h2 class="section-title">
+            Built for serious artists.
+          </h2>
+
+        </div>
+
+
+        <div class="intro-box">
+
+          <div class="green-line"></div>
+
+          <h3>
+            What is RudraVX Foundation?
+          </h3>
+
+
+          <p>
+
+            RudraVX Foundation is an artist-support program designed to
+            identify artists with strong music knowledge and provide them
+            with access to eligible RudraVX services at a reduced price.
+
+          </p>
+
+
+          <br>
+
+
+          <p>
+
+            Artists must apply first. Once their application is approved,
+            they become eligible to take the Foundation qualification tests.
+            The final result determines their Foundation benefit.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOUNDATION MANAGER
+    ====================================================== -->
+
+    <section class="section" id="manager">
+
+      <div class="container">
+
+        <div class="section-label">
+          FOUNDATION MANAGEMENT
+        </div>
+
+
+        <h2 class="section-title">
+          Meet the Foundation Manager.
+        </h2>
+
+
+        <p class="section-description">
+
+          The RudraVX Foundation is managed and coordinated by the
+          Foundation Manager.
+
+        </p>
+
+
+        <div class="manager-section">
+
+          <div class="manager-card">
+
+            <div class="manager-photo-wrap">
+
+              <img
+                src="images/arman-magotra.jpeg"
+                alt="Arman Magotra — RudraVX Foundation Manager"
+                class="manager-photo"
+                
+              >
+
+            </div>
+
+
+            <div class="manager-info">
+
+              <div class="manager-tag">
+                RUDRAVX FOUNDATION
+              </div>
+
+
+              <div class="manager-name">
+                Arman Magotra
+              </div>
+
+
+              <div class="manager-role">
+                Foundation Manager
+              </div>
+
+
+              <p class="manager-description">
+
+                Responsible for Foundation coordination, application
+                management and the overall qualification process.
+
+              </p>
+
+
+              <div class="manager-badge">
+                OFFICIAL FOUNDATION MANAGEMENT
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+    ====================================================== -->
+
+    <section class="section process" id="process">
+
+      <div class="container">
+
+        <div class="section-label">
+          HOW IT WORKS
+        </div>
+
+
+        <h2 class="section-title">
+          Five steps. One qualification.
+        </h2>
+
+
+        <p class="section-description">
+
+          The Foundation follows a structured process from application
+          to qualification and service benefits.
+
+        </p>
+
+
+        <div class="process-grid">
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              STEP 01
+            </div>
+
+            <h3>
+              Apply
+            </h3>
+
+            <p>
+              Submit your artist information and Foundation application.
+            </p>
+
+          </div>
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              STEP 02
+            </div>
+
+            <h3>
+              Review
+            </h3>
+
+            <p>
+              RudraVX reviews the submitted Foundation application.
+            </p>
+
+          </div>
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              STEP 03
+            </div>
+
+            <h3>
+              Qualify
+            </h3>
+
+            <p>
+              Approved artists receive access to the Foundation tests.
+            </p>
+
+          </div>
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              STEP 04
+            </div>
+
+            <h3>
+              Complete
+            </h3>
+
+            <p>
+              Successfully clear all five professional-level tests.
+            </p>
+
+          </div>
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              STEP 05
+            </div>
+
+            <h3>
+              Benefit
+            </h3>
+
+            <p>
+              Receive your Foundation status and eligible service discount.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TEST STRUCTURE
+    ====================================================== -->
+
+    <section class="section" id="tests">
+
+      <div class="container">
+
+        <div class="section-label">
+          QUALIFICATION TESTS
+        </div>
+
+
+        <h2 class="section-title">
+          Five professional tests.
+        </h2>
+
+
+        <p class="section-description">
+
+          Each test contains 200 difficult music-related questions and
+          must be completed within 50 minutes.
+
+        </p>
+
+
+        <div class="tests-grid">
+
+
+          <div class="test-card">
+
+            <div class="test-number">
+              TEST 01
+            </div>
+
+            <h3>
+              Foundation I
+            </h3>
+
+            <div class="test-info">
+              <span>Questions</span>
+              <strong>200</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Marks</span>
+              <strong>100</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Time</span>
+              <strong>50 min</strong>
+            </div>
+
+          </div>
+
+
+          <div class="test-card">
+
+            <div class="test-number">
+              TEST 02
+            </div>
+
+            <h3>
+              Foundation II
+            </h3>
+
+            <div class="test-info">
+              <span>Questions</span>
+              <strong>200</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Marks</span>
+              <strong>100</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Time</span>
+              <strong>50 min</strong>
+            </div>
+
+          </div>
+
+
+          <div class="test-card">
+
+            <div class="test-number">
+              TEST 03
+            </div>
+
+            <h3>
+              Foundation III
+            </h3>
+
+            <div class="test-info">
+              <span>Questions</span>
+              <strong>200</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Marks</span>
+              <strong>100</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Time</span>
+              <strong>50 min</strong>
+            </div>
+
+          </div>
+
+
+          <div class="test-card">
+
+            <div class="test-number">
+              TEST 04
+            </div>
+
+            <h3>
+              Foundation IV
+            </h3>
+
+            <div class="test-info">
+              <span>Questions</span>
+              <strong>200</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Marks</span>
+              <strong>100</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Time</span>
+              <strong>50 min</strong>
+            </div>
+
+          </div>
+
+
+          <div class="test-card">
+
+            <div class="test-number">
+              TEST 05
+            </div>
+
+            <h3>
+              Foundation V
+            </h3>
+
+            <div class="test-info">
+              <span>Questions</span>
+              <strong>200</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Marks</span>
+              <strong>100</strong>
+            </div>
+
+            <div class="test-info">
+              <span>Time</span>
+              <strong>50 min</strong>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RULES
+    ====================================================== -->
+
+    <section class="section rules" id="rules">
+
+      <div class="container">
+
+        <div class="section-label">
+          TEST RULES
+        </div>
+
+
+        <h2 class="section-title">
+          The test is serious.
+        </h2>
+
+
+        <p class="section-description">
+
+          Read the rules carefully before beginning any Foundation test.
+
+        </p>
+
+
+        <div class="rules-grid">
+
+
+          <div class="rule-card">
+
+            <div class="rule-icon">
+              01
+            </div>
+
+            <div>
+
+              <h3>
+                200 Questions
+              </h3>
+
+              <p>
+                Every Foundation test contains 200 multiple-choice
+                music-related questions.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="rule-card">
+
+            <div class="rule-icon">
+              02
+            </div>
+
+            <div>
+
+              <h3>
+                50 Minutes
+              </h3>
+
+              <p>
+                The timer begins immediately when the test starts.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="rule-card">
+
+            <div class="rule-icon">
+              03
+            </div>
+
+            <div>
+
+              <h3>
+                Sequential Tests
+              </h3>
+
+              <p>
+                The next test becomes available only after the current
+                test has been successfully cleared.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="rule-card">
+
+            <div class="rule-icon">
+              04
+            </div>
+
+            <div>
+
+              <h3>
+                Automatic Submission
+              </h3>
+
+              <p>
+                When the 50-minute timer reaches zero, the test is
+                automatically submitted.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="rule-card">
+
+            <div class="rule-icon">
+              05
+            </div>
+
+            <div>
+
+              <h3>
+                Secure Examination
+              </h3>
+
+              <p>
+                The examination interface uses supported browser
+                monitoring such as fullscreen and visibility detection.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="rule-card">
+
+            <div class="rule-icon">
+              06
+            </div>
+
+            <div>
+
+              <h3>
+                No External Assistance
+              </h3>
+
+              <p>
+                Artists are expected to complete the Foundation tests
+                using their own knowledge.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCORING
+    ====================================================== -->
+
+    <section class="section" id="scoring">
+
+      <div class="container">
+
+        <div class="section-label">
+          SCORING & BENEFITS
+        </div>
+
+
+        <h2 class="section-title">
+          Performance determines your benefit.
+        </h2>
+
+
+        <p class="section-description">
+
+          Your final Foundation performance determines the eligible
+          service discount, subject to the maximum Foundation limit.
+
+        </p>
+
+
+        <div class="scoring-grid">
+
+
+          <div class="score-box">
+
+            <h3>
+              Foundation Score
+            </h3>
+
+
+            <div class="score-row">
+
+              <span>
+                Total Tests
+              </span>
+
+              <strong class="score-value">
+                5
+              </strong>
+
+            </div>
+
+
+            <div class="score-row">
+
+              <span>
+                Questions Per Test
+              </span>
+
+              <strong class="score-value">
+                200
+              </strong>
+
+            </div>
+
+
+            <div class="score-row">
+
+              <span>
+                Maximum Per Test
+              </span>
+
+              <strong class="score-value">
+                100
+              </strong>
+
+            </div>
+
+
+            <div class="score-row">
+
+              <span>
+                Total Maximum
+              </span>
+
+              <strong class="score-value positive">
+                500
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="score-box discount-box">
+
+            <h3>
+              Maximum Foundation Benefit
+            </h3>
+
+
+            <div class="discount-big">
+              60%
+            </div>
+
+
+            <p>
+
+              The maximum discount available through the RudraVX
+              Foundation is 60%.
+
+            </p>
+
+
+            <div class="cap-note">
+
+              Even if an artist achieves a score above 80% or reaches
+              100%, the Foundation discount cannot exceed 60%.
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TOPICS
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-label">
+          QUESTION AREAS
+        </div>
+
+
+        <h2 class="section-title">
+          Music knowledge. Not easy trivia.
+        </h2>
+
+
+        <p class="section-description">
+
+          Foundation questions are designed around professional music
+          knowledge and practical understanding.
+
+        </p>
+
+
+        <div class="topics-wrapper">
+
+          <span class="topic">Music Theory</span>
+          <span class="topic">Scales</span>
+          <span class="topic">Modes</span>
+          <span class="topic">Intervals</span>
+          <span class="topic">Chords</span>
+          <span class="topic">Harmony</span>
+          <span class="topic">Rhythm</span>
+          <span class="topic">Production</span>
+          <span class="topic">DAW</span>
+          <span class="topic">MIDI</span>
+          <span class="topic">Sampling</span>
+          <span class="topic">Sound Design</span>
+          <span class="topic">Recording</span>
+          <span class="topic">Vocals</span>
+          <span class="topic">Mixing</span>
+          <span class="topic">EQ</span>
+          <span class="topic">Compression</span>
+          <span class="topic">Dynamics</span>
+          <span class="topic">Reverb</span>
+          <span class="topic">Delay</span>
+          <span class="topic">Mastering</span>
+          <span class="topic">LUFS</span>
+          <span class="topic">True Peak</span>
+          <span class="topic">Gain Staging</span>
+          <span class="topic">Stereo Imaging</span>
+          <span class="topic">Copyright</span>
+          <span class="topic">Publishing</span>
+          <span class="topic">Royalties</span>
+          <span class="topic">Distribution</span>
+          <span class="topic">Music Business</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DISCOUNT EXAMPLES
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="section-label">
+          DISCOUNT EXAMPLES
+        </div>
+
+
+        <h2 class="section-title">
+          Your score. Your Foundation benefit.
+        </h2>
+
+
+        <div class="examples-table">
+
+
+          <div class="example-row header">
+
+            <span>
+              Final Percentage
+            </span>
+
+            <span>
+              Foundation Status
+            </span>
+
+            <span>
+              Maximum Benefit
+            </span>
+
+          </div>
+
+
+          <div class="example-row">
+
+            <span>
+              40%
+            </span>
+
+            <span>
+              Qualified
+            </span>
+
+            <span>
+              40%
+            </span>
+
+          </div>
+
+
+          <div class="example-row">
+
+            <span>
+              55%
+            </span>
+
+            <span>
+              Qualified
+            </span>
+
+            <span>
+              55%
+            </span>
+
+          </div>
+
+
+          <div class="example-row">
+
+            <span>
+              60%
+            </span>
+
+            <span>
+              Qualified
+            </span>
+
+            <span>
+              60%
+            </span>
+
+          </div>
+
+
+          <div class="example-row">
+
+            <span>
+              70%
+            </span>
+
+            <span>
+              High Achievement
+            </span>
+
+            <span>
+              60%
+            </span>
+
+          </div>
+
+
+          <div class="example-row">
+
+            <span>
+              80%+
+            </span>
+
+            <span>
+              High Achievement
+            </span>
+
+            <span>
+              60%
+            </span>
+
+          </div>
+
+
+          <div class="example-row">
+
+            <span>
+              100%
+            </span>
+
+            <span>
+              High Achievement
+            </span>
+
+            <span>
+              60%
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FAQ
+    ====================================================== -->
+
+    <section class="section" id="faq">
+
+      <div class="container">
+
+        <div class="section-label">
+          FAQ
+        </div>
+
+
+        <h2 class="section-title">
+          Frequently asked questions.
+        </h2>
+
+
+        <div class="faq-list">
+
+
+          <details>
+
+            <summary>
+              How many tests are there?
+            </summary>
+
+            <p>
+              There are five Foundation tests. Each test contains
+              200 questions.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              How much time is given for each test?
+            </summary>
+
+            <p>
+              Each test has a 50-minute time limit. When the timer
+              reaches zero, the test is automatically submitted.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Can I directly take Test 02?
+            </summary>
+
+            <p>
+              No. Tests are sequential. The next test becomes available
+              only after the previous test has been successfully cleared.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              What is the maximum Foundation discount?
+            </summary>
+
+            <p>
+              The maximum Foundation discount is 60%, regardless of
+              whether the final score is above 60%, above 80%, or 100%.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Are the questions difficult?
+            </summary>
+
+            <p>
+              Yes. The Foundation is designed around advanced and
+              professional-level music knowledge rather than basic trivia.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Will every artist receive the same questions?
+            </summary>
+
+            <p>
+              The examination system is designed to use a large question
+              pool and randomized question selection so that different
+              attempts can receive different questions.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Can I use Google to log into my Foundation account?
+            </summary>
+
+            <p>
+              Foundation authentication and normal Google authentication
+              are separate account paths. Foundation benefits require
+              successful Foundation account authentication.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Can the Foundation discount be changed manually?
+            </summary>
+
+            <p>
+              No. Eligible Foundation benefits are calculated and
+              verified by the system.
+            </p>
+
+          </details>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         APPLY CTA
+    ====================================================== -->
+
+    <section class="cta" id="apply">
+
+      <div class="container">
+
+        <div class="cta-box">
+
+          <div
+            class="section-label"
+            style="justify-content:center;"
+          >
+            RUDRAVX FOUNDATION
+          </div>
+
+
+          <h2>
+            Ready to prove your
+            <span>
+              music knowledge?
+            </span>
+          </h2>
+
+
+          <p>
+
+            Apply for the RudraVX Foundation and begin your journey
+            toward Foundation qualification and eligible service benefits.
+
+          </p>
+
+
+          <a
+            href="foundation-apply.html"
+            class="btn btn-primary"
+          >
+            Apply Now →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div class="footer-text">
+        © 2026 RudraVX. RudraVX Foundation.
+      </div>
+
+
+      <div class="footer-badge">
+        ARTIST • MUSIC • FOUNDATION
+      </div>
+
+    </div>
+
+  </footer>
+
 
 </body>
+
 </html>
