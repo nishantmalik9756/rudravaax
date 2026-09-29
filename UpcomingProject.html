@@ -8,783 +8,2329 @@
 
     <style>
 
-        /* =========================
-           RESET
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #050505;
-            --card: #101010;
-            --card2: #151515;
-
-            --orange: #ff6a00;
-            --orange2: #ff8a2a;
-
-            --green: #19d66b;
-            --green2: #0d9b4d;
-
-            --white: #ffffff;
-            --muted: #9b9b9b;
-
-            --border: rgba(255,255,255,0.09);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background:
-                radial-gradient(
-                    circle at 85% 5%,
-                    rgba(255,106,0,0.12),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 5% 50%,
-                    rgba(25,214,107,0.08),
-                    transparent 30%
-                ),
-                var(--black);
-
-            color: var(--white);
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            min-height: 100vh;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================= */
-
-        .navbar {
-            height: 74px;
-            padding: 0 6%;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            position: sticky;
-            top: 0;
-            z-index: 100;
-
-            background: rgba(5,5,5,0.88);
-            backdrop-filter: blur(15px);
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .nav-logo span {
-            color: var(--orange);
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 3px;
-        }
-
-        .nav-logo strong {
-            font-size: 18px;
-            letter-spacing: 1px;
-        }
-
-        .navbar nav {
-            display: flex;
-            gap: 28px;
-        }
-
-        .navbar nav a {
-            color: #999;
-            font-size: 13px;
-            font-weight: 700;
-            transition: 0.25s;
-        }
-
-        .navbar nav a:hover {
-            color: var(--orange);
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 450px;
-            padding: 100px 8% 80px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-        .hero-label {
-            color: var(--green);
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size:
-                clamp(55px, 10vw, 125px);
-
-            line-height: 0.85;
-            letter-spacing: -5px;
-            font-weight: 950;
-        }
+/* =========================================================
+   RUDRAVX — ROBOTIC / SCI-FI INTERFACE
+   HTML UNCHANGED
+========================================================= */
 
-        .hero h1 span {
-            color: transparent;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
-            -webkit-text-stroke:
-                2px var(--orange);
-        }
 
-        .hero p {
-            color: #aaa;
-            margin-top: 35px;
-            font-size: 16px;
-        }
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --bg: #030506;
+    --bg2: #070a0c;
+    --panel: #0a0e10;
+    --panel2: #0d1214;
+
+    --green: #39ff88;
+    --green-soft: #16c96a;
+
+    --orange: #ff6a00;
+    --orange-soft: #ff8b38;
+
+    --cyan: #00e5ff;
+
+    --white: #f4f7f6;
+    --text: #d5d9d8;
+    --muted: #68716f;
+
+    --line: rgba(57,255,136,0.16);
+    --line-white: rgba(255,255,255,0.07);
 
-
-        /* =========================
-           PROJECTS CONTAINER
-        ========================= */
-
-        .projects-container {
-            width: min(1100px, 90%);
-            margin: 75px auto;
-        }
+    --shadow-green:
+        0 0 25px rgba(57,255,136,0.08);
 
-        .project-section {
-            margin-bottom: 90px;
-        }
+    --shadow-orange:
+        0 0 25px rgba(255,106,0,0.08);
+}
 
 
-        /* =========================
-           SECTION HEADING
-        ========================= */
+/* =========================================================
+   RESET
+========================================================= */
 
-        .section-heading {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            gap: 30px;
-            margin-bottom: 35px;
-            padding-bottom: 25px;
+html {
+    scroll-behavior: smooth;
+}
 
-            border-bottom:
-                1px solid var(--border);
-        }
+body {
+    min-height: 100vh;
 
-        .project-label {
-            color: var(--green);
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 3px;
-        }
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(57,255,136,0.07),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 30%,
+            rgba(255,106,0,0.05),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #030506 0%,
+            #050809 50%,
+            #020304 100%
+        );
 
-        .section-heading h2 {
-            font-size: 38px;
-            margin-top: 8px;
-            letter-spacing: -1px;
-        }
+    color: var(--white);
 
-        .section-heading p {
-            color: var(--muted);
-            font-size: 14px;
-            margin-top: 8px;
-        }
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
 
-        .status {
-            color: #777;
+    overflow-x: hidden;
 
-            border:
-                1px solid #333;
+    position: relative;
+}
 
-            padding: 7px 12px;
 
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: 2px;
+/* =========================================================
+   GLOBAL SCI-FI GRID
+========================================================= */
 
-            white-space: nowrap;
-        }
+body::before {
+    content: "";
 
-        .active-status {
-            color: var(--green);
-            border-color:
-                rgba(25,214,107,0.45);
-        }
+    position: fixed;
+    inset: 0;
 
+    pointer-events: none;
 
-        /* =========================
-           CHAPTERS
-        ========================= */
+    background:
+        linear-gradient(
+            rgba(57,255,136,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(57,255,136,0.025) 1px,
+            transparent 1px
+        );
 
-        .chapters {
-            display: grid;
+    background-size:
+        45px 45px;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 0%,
+            rgba(0,0,0,0.8) 55%,
+            transparent 100%
+        );
 
-            gap: 12px;
-        }
+    z-index: -5;
+}
 
 
-        /* =========================
-           CHAPTER CARD
-        ========================= */
+/* =========================================================
+   SCANLINES
+========================================================= */
 
-        .chapter-card {
-            min-height: 115px;
-            padding: 25px;
+body::after {
+    content: "";
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.035),
-                    rgba(255,255,255,0.015)
-                );
+    position: fixed;
+    inset: 0;
 
-            border:
-                1px solid var(--border);
+    pointer-events: none;
 
-            display: flex;
-            align-items: center;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,255,255,0.008) 4px
+        );
 
-            gap: 22px;
+    opacity: 0.35;
 
-            color: white;
+    z-index: 999;
+}
 
-            position: relative;
 
-            transition:
-                transform 0.25s,
-                border-color 0.25s,
-                background 0.25s;
-        }
+/* =========================================================
+   LINKS
+========================================================= */
 
-        .chapter-number {
-            font-size: 14px;
-            font-weight: 900;
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-            color: var(--green);
 
-            min-width: 30px;
-        }
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-        .chapter-info {
-            flex: 1;
-        }
+.navbar {
+    height: 72px;
 
-        .chapter-info h3 {
-            font-size: 19px;
-            margin-bottom: 5px;
-        }
+    padding:
+        0 6%;
 
-        .chapter-info p {
-            font-size: 12px;
-            color: #777;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
+    position: sticky;
+    top: 0;
 
-        /* =========================
-           ACTIVE CHAPTER
-        ========================= */
+    z-index: 100;
 
-        .chapter-active {
-            border-color:
-                rgba(255,106,0,0.5);
+    background:
+        rgba(3,5,6,0.88);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,106,0,0.10),
-                    rgba(25,214,107,0.04)
-                );
+    backdrop-filter:
+        blur(18px);
 
-            cursor: pointer;
-        }
+    border-bottom:
+        1px solid var(--line-white);
 
-        .chapter-active .chapter-number {
-            color: var(--orange);
-        }
+    overflow: hidden;
+}
 
-        .chapter-active .chapter-info p {
-            color: var(--orange2);
-        }
 
-        .chapter-active:hover {
-            transform: translateY(-4px);
+/* top HUD line */
 
-            border-color:
-                var(--orange);
-        }
+.navbar::before {
+    content: "";
 
-        .chapter-arrow {
-            font-size: 25px;
-            color: var(--orange);
+    position: absolute;
 
-            transition: transform 0.3s;
-        }
+    top: 0;
+    left: 0;
 
-        .chapter-active.open .chapter-arrow {
-            transform: rotate(90deg);
-        }
+    width: 100%;
+    height: 1px;
 
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            var(--green) 35%,
+            var(--cyan) 50%,
+            var(--orange) 65%,
+            transparent 100%
+        );
 
-        /* =========================
-           OTHER CHAPTERS
-        ========================= */
+    opacity: 0.8;
 
-        .coming-soon {
-            cursor: default;
-            opacity: 0.65;
-        }
+    animation:
+        navScan 5s linear infinite;
+}
 
-        .chapter-status {
-            font-size: 8px;
-            color: #666;
 
-            letter-spacing: 1.5px;
-            font-weight: 900;
+/* bottom glow */
 
-            white-space: nowrap;
-        }
+.navbar::after {
+    content: "";
 
+    position: absolute;
 
-        /* =========================
-           CHAPTER 1 DETAILS
-        ========================= */
+    bottom: 0;
+    left: 6%;
 
-        .chapter-details {
-            display: none;
+    width: 90px;
+    height: 1px;
 
-            grid-column: 1 / -1;
+    background:
+        var(--green);
 
-            margin-top: 5px;
+    box-shadow:
+        0 0 12px var(--green);
+}
 
-            border:
-                1px solid rgba(255,106,0,0.25);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,106,0,0.06),
-                    rgba(25,214,107,0.025)
-                );
+/* dashboard button */
 
-            overflow: hidden;
-        }
+.navbar nav {
+    display: flex;
 
-        .chapter-details.active {
-            display: block;
-            animation: chapterOpen 0.35s ease;
-        }
+    position: relative;
+    z-index: 2;
+}
 
-        @keyframes chapterOpen {
-            from {
-                opacity: 0;
-                transform: translateY(-8px);
-            }
+.navbar nav a {
+    position: relative;
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    padding:
+        10px 20px;
 
-        .chapter-details-header {
-            padding: 35px;
+    color:
+        #9aa19f;
 
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
+    font-family:
+        Orbitron,
+        sans-serif;
 
-            gap: 30px;
+    font-size:
+        10px;
 
-            border-bottom:
-                1px solid var(--border);
-        }
+    font-weight:
+        700;
 
-        .details-label {
-            color: var(--green);
+    letter-spacing:
+        2px;
 
-            font-size: 10px;
-            font-weight: 900;
+    border:
+        1px solid
+        rgba(57,255,136,0.18);
 
-            letter-spacing: 3px;
-        }
+    background:
+        rgba(57,255,136,0.025);
 
-        .chapter-details-header h2 {
-            font-size: 34px;
-            margin-top: 10px;
-        }
+    transition:
+        0.3s ease;
 
-        .chapter-details-header p {
-            color: #777;
-            font-size: 12px;
-            margin-top: 8px;
-        }
+    overflow: hidden;
+}
 
-        .release-date {
-            text-align: right;
 
-            color: #777;
+/* corner */
 
-            font-size: 10px;
-            letter-spacing: 2px;
+.navbar nav a::after {
+    content: "";
 
-            line-height: 1.8;
-        }
+    position: absolute;
 
-        .release-date strong {
-            color: var(--orange);
+    top: -1px;
+    right: -1px;
 
-            font-size: 14px;
+    width: 7px;
+    height: 7px;
 
-            letter-spacing: 2px;
-        }
+    border-top:
+        1px solid var(--green);
 
+    border-right:
+        1px solid var(--green);
+}
 
-        /* =========================
-           TRACKLIST
-        ========================= */
+.navbar nav a::before {
+    content: "";
 
-        .tracklist {
-            width: 100%;
-        }
+    position: absolute;
 
-        .track {
-            display: grid;
+    left: -100%;
+    top: 0;
 
-            grid-template-columns:
-                55px 1fr;
+    width: 100%;
+    height: 100%;
 
-            gap: 20px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(57,255,136,0.12),
+            transparent
+        );
 
-            align-items: center;
+    transition:
+        left 0.5s ease;
+}
 
-            padding: 25px 30px;
+.navbar nav a:hover::before {
+    left: 100%;
+}
 
-            border-bottom:
-                1px solid rgba(255,255,255,0.07);
+.navbar nav a:hover {
+    color:
+        var(--green);
 
-            transition:
-                background 0.25s,
-                padding-left 0.25s;
-        }
+    border-color:
+        rgba(57,255,136,0.55);
 
-        .track:last-child {
-            border-bottom: none;
-        }
+    box-shadow:
+        0 0 20px rgba(57,255,136,0.08);
 
-        .track:hover {
-            background:
-                rgba(255,255,255,0.035);
+    transform:
+        translateY(-2px);
+}
 
-            padding-left: 40px;
-        }
 
-        .track-number {
-            color: #555;
+/* =========================================================
+   HERO
+========================================================= */
 
-            font-size: 11px;
+.hero {
+    min-height:
+        490px;
 
-            letter-spacing: 2px;
-        }
+    padding:
+        110px 8%
+        95px;
 
-        .track h3 {
-            font-size: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-            font-weight: 500;
+    position: relative;
 
-            letter-spacing: -0.3px;
-        }
+    border-bottom:
+        1px solid var(--line-white);
 
-        .track p {
-            color: #666;
+    overflow: hidden;
+}
 
-            font-size: 10px;
 
-            letter-spacing: 1px;
+/* giant HUD circle */
 
-            margin-top: 7px;
-        }
+.hero::before {
+    content: "";
 
-        .track:first-child h3 {
-            color: var(--orange);
-        }
+    position: absolute;
 
+    width: 620px;
+    height: 620px;
 
-        /* =========================
-           CLOSE BUTTON
-        ========================= */
+    right: -260px;
+    top: -230px;
 
-        .close-chapter {
-            margin: 25px 30px 30px;
+    border:
+        1px solid
+        rgba(57,255,136,0.10);
 
-            padding: 11px 18px;
+    border-radius: 50%;
 
-            border:
-                1px solid rgba(255,106,0,0.35);
+    box-shadow:
+        0 0 70px rgba(57,255,136,0.025);
 
-            background: transparent;
+    animation:
+        hudRotate 25s linear infinite;
+}
 
-            color: var(--orange);
 
-            font-size: 9px;
+/* second HUD circle */
 
-            font-weight: 900;
+.hero::after {
+    content: "";
 
-            letter-spacing: 2px;
+    position: absolute;
 
-            cursor: pointer;
+    width: 390px;
+    height: 390px;
 
-            transition: 0.25s;
-        }
+    right: -145px;
+    top: -115px;
 
-        .close-chapter:hover {
-            background: var(--orange);
-            color: #000;
-        }
+    border:
+        1px dashed
+        rgba(255,106,0,0.14);
 
+    border-radius: 50%;
 
-        /* =========================
-           ALBUM
-        ========================= */
+    animation:
+        hudRotateReverse 18s linear infinite;
+}
 
-        .album-card {
-            min-height: 150px;
-            padding: 30px;
 
-            display: flex;
-            align-items: center;
+/* left technical line */
 
-            gap: 25px;
+.hero-label {
+    color:
+        var(--green);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,106,0,0.08),
-                    rgba(25,214,107,0.05)
-                );
+    font-family:
+        Orbitron,
+        sans-serif;
 
-            border:
-                1px solid var(--border);
-        }
+    font-size:
+        10px;
 
-        .album-symbol {
-            width: 65px;
-            height: 65px;
+    font-weight:
+        700;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    letter-spacing:
+        5px;
 
-            border:
-                1px solid var(--orange);
+    margin-bottom:
+        27px;
 
-            color: var(--orange);
+    position: relative;
 
-            font-size: 25px;
-            font-weight: 900;
-        }
+    z-index: 3;
 
-        .album-card h3 {
-            font-size: 23px;
-        }
+    animation:
+        fadeUp 0.7s ease both;
+}
 
-        .album-card p {
-            color: #777;
-            margin-top: 4px;
-            font-size: 12px;
-        }
+.hero-label::before {
+    content: "";
 
-        .album-status {
-            margin-left: auto;
+    display: inline-block;
 
-            color: #666;
+    width: 35px;
+    height: 1px;
 
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
+    margin-right:
+        13px;
 
+    vertical-align:
+        middle;
 
-        /* =========================
-           FOOTER
-        ========================= */
+    background:
+        var(--green);
 
-        footer {
-            padding: 45px 7%;
+    box-shadow:
+        0 0 10px var(--green);
+}
 
-            border-top:
-                1px solid var(--border);
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+/* title */
 
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+.hero h1 {
+    position: relative;
 
-        .footer-logo {
-            color: var(--orange);
+    z-index: 3;
 
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
+    font-family:
+        Orbitron,
+        Arial,
+        sans-serif;
 
-        footer p {
-            color: #666;
-            font-size: 11px;
-        }
+    font-size:
+        clamp(50px, 9vw, 115px);
 
+    line-height:
+        0.88;
 
-        /* =========================
-           MOBILE
-        ========================= */
+    letter-spacing:
+        -5px;
 
-        @media (max-width: 700px) {
+    font-weight:
+        900;
 
-            .navbar {
-                padding: 0 5%;
-            }
+    text-transform:
+        uppercase;
 
-            .navbar nav {
-                gap: 12px;
-            }
+    animation:
+        fadeUp 0.8s 0.1s ease both;
+}
 
-            .navbar nav a {
-                font-size: 10px;
-            }
 
-            .hero {
-                padding:
-                    75px 6%
-                    60px;
-            }
+/* green main word */
 
-            .hero h1 {
-                letter-spacing: -3px;
-            }
+.hero h1 span {
+    color:
+        transparent;
 
-            .hero h1 span {
-                -webkit-text-stroke:
-                    1px var(--orange);
-            }
+    -webkit-text-stroke:
+        1.5px var(--green);
 
-            .projects-container {
-                width: 88%;
-            }
+    text-shadow:
+        0 0 25px rgba(57,255,136,0.08);
 
-            .section-heading {
-                align-items: flex-start;
-                flex-direction: column;
-            }
+    transition:
+        0.4s ease;
+}
 
-            .section-heading h2 {
-                font-size: 30px;
-            }
+.hero h1 span:hover {
+    color:
+        rgba(57,255,136,0.07);
 
-            .chapters {
-                grid-template-columns: 1fr;
-            }
+    text-shadow:
+        0 0 35px rgba(57,255,136,0.18);
+}
 
-            .chapter-card {
-                min-height: 101px;
-                padding: 20px;
-            }
 
-            .chapter-status {
-                display: none;
-            }
+/* subtitle */
 
-            .chapter-details-header {
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 25px;
-            }
+.hero p {
+    position: relative;
 
-            .chapter-details-header h2 {
-                font-size: 28px;
-            }
+    z-index: 3;
 
-            .release-date {
-                text-align: left;
-            }
+    color:
+        #7f8986;
 
-            .track {
-                grid-template-columns: 35px 1fr;
+    margin-top:
+        35px;
 
-                gap: 15px;
+    font-size:
+        13px;
 
-                padding: 22px 20px;
-            }
+    letter-spacing:
+        0.7px;
 
-            .track:hover {
-                padding-left: 25px;
-            }
+    max-width:
+        560px;
 
-            .track h3 {
-                font-size: 19px;
-            }
+    animation:
+        fadeUp 0.8s 0.2s ease both;
+}
 
-            .track p {
-                font-size: 9px;
-                line-height: 1.5;
-            }
 
-            .close-chapter {
-                margin: 20px;
-            }
+/* =========================================================
+   PROJECT CONTAINER
+========================================================= */
 
-            .album-card {
-                padding: 22px;
-            }
+.projects-container {
+    width:
+        min(1100px, 90%);
 
-            .album-status {
-                display: none;
-            }
+    margin:
+        85px auto;
+}
 
-            footer {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+.project-section {
+    margin-bottom:
+        105px;
+}
 
-    </style>
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom:
+        32px;
+
+    padding-bottom:
+        23px;
+
+    position: relative;
+
+    border-bottom:
+        1px solid var(--line-white);
+}
+
+
+/* technical bottom line */
+
+.section-heading::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width:
+        110px;
+
+    height:
+        1px;
+
+    background:
+        var(--orange);
+
+    box-shadow:
+        0 0 12px rgba(255,106,0,0.55);
+}
+
+.project-label {
+    color:
+        var(--green);
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        4px;
+}
+
+.section-heading h2 {
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        34px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -1px;
+
+    margin-top:
+        9px;
+}
+
+.section-heading p {
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    margin-top:
+        8px;
+}
+
+
+/* =========================================================
+   STATUS HUD
+========================================================= */
+
+.status {
+    color:
+        #555d5b;
+
+    padding:
+        7px 13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    white-space:
+        nowrap;
+
+    position:
+        relative;
+}
+
+.active-status {
+    color:
+        var(--green);
+
+    border-color:
+        rgba(57,255,136,0.35);
+
+    box-shadow:
+        inset 0 0 12px
+        rgba(57,255,136,0.025);
+}
+
+.active-status::before {
+    content: "";
+
+    display:
+        inline-block;
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    margin-right:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 9px var(--green);
+
+    animation:
+        blink 1.4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CHAPTER GRID
+========================================================= */
+
+.chapters {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        12px;
+}
+
+
+/* =========================================================
+   CHAPTER CARD — ROBOTIC PANEL
+========================================================= */
+
+.chapter-card {
+    min-height:
+        115px;
+
+    padding:
+        24px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        22px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(255,255,255,0.008)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.075);
+
+    transition:
+        0.35s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* top technical line */
+
+.chapter-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width:
+        100%;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(57,255,136,0.25),
+            transparent
+        );
+
+    opacity:
+        0;
+
+    transition:
+        0.35s ease;
+}
+
+
+/* right corner */
+
+.chapter-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width:
+        10px;
+
+    height:
+        10px;
+
+    border-top:
+        1px solid rgba(57,255,136,0.3);
+
+    border-right:
+        1px solid rgba(57,255,136,0.3);
+}
+
+.chapter-card:hover::before {
+    opacity:
+        1;
+}
+
+.chapter-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(57,255,136,0.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(57,255,136,0.045),
+            rgba(255,255,255,0.012)
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.3),
+        0 0 25px rgba(57,255,136,0.025);
+}
+
+
+/* =========================================================
+   CHAPTER NUMBER
+========================================================= */
+
+.chapter-number {
+    min-width:
+        30px;
+
+    color:
+        var(--green);
+
+    font-family:
+        Orbitron,
+        monospace;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+.chapter-info {
+    flex:
+        1;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+.chapter-info h3 {
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        16px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.2px;
+
+    margin-bottom:
+        6px;
+}
+
+.chapter-info p {
+    color:
+        #626a68;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        0.8px;
+}
+
+
+/* =========================================================
+   ACTIVE CHAPTER
+========================================================= */
+
+.chapter-active {
+    cursor:
+        pointer;
+
+    border-color:
+        rgba(255,106,0,0.42);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,106,0,0.08),
+            rgba(57,255,136,0.025)
+        );
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(255,106,0,0.025);
+}
+
+
+/* orange vertical HUD indicator */
+
+.chapter-active::after {
+    width:
+        3px;
+
+    height:
+        100%;
+
+    top:
+        0;
+
+    right:
+        auto;
+
+    left:
+        0;
+
+    border:
+        0;
+
+    background:
+        var(--orange);
+
+    box-shadow:
+        0 0 15px
+        rgba(255,106,0,0.6);
+}
+
+.chapter-active .chapter-number {
+    color:
+        var(--orange);
+}
+
+.chapter-active .chapter-info p {
+    color:
+        var(--orange-soft);
+}
+
+.chapter-active:hover {
+    border-color:
+        rgba(255,106,0,0.75);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.35),
+        0 0 25px rgba(255,106,0,0.05);
+}
+
+.chapter-arrow {
+    color:
+        var(--orange);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        23px;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    transition:
+        0.35s ease;
+}
+
+.chapter-active:hover .chapter-arrow {
+    transform:
+        translateX(7px);
+
+    text-shadow:
+        0 0 12px
+        rgba(255,106,0,0.5);
+}
+
+.chapter-active.open .chapter-arrow {
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   LOCKED / UPCOMING CHAPTERS
+========================================================= */
+
+.coming-soon {
+    opacity:
+        0.52;
+
+    cursor:
+        default;
+}
+
+.coming-soon:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(255,255,255,0.11);
+
+    box-shadow:
+        none;
+}
+
+.chapter-status {
+    color:
+        #454b49;
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+}
+
+
+/* =========================================================
+   CHAPTER DETAILS
+========================================================= */
+
+.chapter-details {
+    display:
+        none;
+
+    grid-column:
+        1 / -1;
+
+    margin-top:
+        5px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,106,0,0.055),
+            rgba(57,255,136,0.018)
+        );
+
+    border:
+        1px solid
+        rgba(255,106,0,0.25);
+}
+
+.chapter-details::before {
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--orange),
+            transparent
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(255,106,0,0.4);
+}
+
+.chapter-details.active {
+    display:
+        block;
+
+    animation:
+        detailOpen 0.45s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
+   DETAILS HEADER
+========================================================= */
+
+.chapter-details-header {
+    padding:
+        34px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+.details-label {
+    color:
+        var(--green);
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        3px;
+}
+
+.chapter-details-header h2 {
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        28px;
+
+    font-weight:
+        700;
+
+    margin-top:
+        10px;
+}
+
+.chapter-details-header p {
+    color:
+        #5f6865;
+
+    font-size:
+        11px;
+
+    margin-top:
+        8px;
+}
+
+.release-date {
+    color:
+        #555d5a;
+
+    text-align:
+        right;
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        2px;
+
+    line-height:
+        1.8;
+}
+
+.release-date strong {
+    color:
+        var(--orange);
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        2px;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,106,0,0.25);
+}
+
+
+/* =========================================================
+   TRACKLIST
+========================================================= */
+
+.tracklist {
+    width:
+        100%;
+}
+
+.track {
+    display:
+        grid;
+
+    grid-template-columns:
+        55px 1fr;
+
+    gap:
+        20px;
+
+    align-items:
+        center;
+
+    padding:
+        23px 30px;
+
+    position:
+        relative;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.055);
+
+    transition:
+        0.3s ease;
+}
+
+.track:last-child {
+    border-bottom:
+        none;
+}
+
+
+/* left active scanner */
+
+.track::before {
+    content: "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        2px;
+
+    height:
+        100%;
+
+    background:
+        var(--green);
+
+    transform:
+        scaleY(0);
+
+    transform-origin:
+        bottom;
+
+    transition:
+        0.3s ease;
+
+    box-shadow:
+        0 0 10px
+        rgba(57,255,136,0.4);
+}
+
+.track:hover {
+    background:
+        rgba(57,255,136,0.018);
+
+    padding-left:
+        38px;
+}
+
+.track:hover::before {
+    transform:
+        scaleY(1);
+}
+
+.track-number {
+    color:
+        #414947;
+
+    font-family:
+        Orbitron,
+        monospace;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2px;
+
+    transition:
+        0.3s ease;
+}
+
+.track:hover .track-number {
+    color:
+        var(--green);
+}
+
+.track h3 {
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        17px;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        0;
+
+    transition:
+        0.3s ease;
+}
+
+.track:hover h3 {
+    transform:
+        translateX(3px);
+
+    color:
+        #ffffff;
+}
+
+.track p {
+    color:
+        #4e5654;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        1px;
+
+    margin-top:
+        7px;
+}
+
+.track:first-child h3 {
+    color:
+        var(--orange);
+
+    text-shadow:
+        0 0 15px
+        rgba(255,106,0,0.12);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-chapter {
+    margin:
+        24px 30px 30px;
+
+    padding:
+        10px 17px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(255,106,0,0.35);
+
+    background:
+        rgba(255,106,0,0.02);
+
+    color:
+        var(--orange);
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s ease;
+}
+
+.close-chapter::before {
+    content: "";
+
+    position:
+        absolute;
+
+    left:
+        -100%;
+
+    top:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,106,0,0.15),
+            transparent
+        );
+
+    transition:
+        left 0.5s ease;
+}
+
+.close-chapter:hover::before {
+    left:
+        100%;
+}
+
+.close-chapter:hover {
+    color:
+        #000;
+
+    background:
+        var(--orange);
+
+    border-color:
+        var(--orange);
+
+    box-shadow:
+        0 0 25px
+        rgba(255,106,0,0.16);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   THE FOREIGNER
+========================================================= */
+
+.album-card {
+    min-height:
+        145px;
+
+    padding:
+        28px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        24px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,106,0,0.06),
+            rgba(57,255,136,0.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    transition:
+        0.35s ease;
+}
+
+.album-card::before {
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -100%;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(57,255,136,0.045),
+            transparent
+        );
+
+    transition:
+        left 0.7s ease;
+}
+
+.album-card:hover::before {
+    left:
+        100%;
+}
+
+.album-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255,106,0,0.28);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.3);
+}
+
+
+/* album symbol */
+
+.album-symbol {
+    width:
+        65px;
+
+    height:
+        65px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    color:
+        var(--orange);
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        22px;
+
+    font-weight:
+        800;
+
+    border:
+        1px solid
+        var(--orange);
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(255,106,0,0.04);
+
+    transition:
+        0.35s ease;
+}
+
+.album-symbol::before {
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        -1px;
+
+    left:
+        -1px;
+
+    width:
+        9px;
+
+    height:
+        9px;
+
+    border-top:
+        2px solid
+        var(--green);
+
+    border-left:
+        2px solid
+        var(--green);
+}
+
+.album-symbol::after {
+    content: "";
+
+    position:
+        absolute;
+
+    right:
+        -1px;
+
+    bottom:
+        -1px;
+
+    width:
+        9px;
+
+    height:
+        9px;
+
+    border-right:
+        2px solid
+        var(--orange);
+
+    border-bottom:
+        2px solid
+        var(--orange);
+}
+
+.album-card:hover .album-symbol {
+    transform:
+        rotate(4deg)
+        scale(1.04);
+
+    box-shadow:
+        0 0 25px
+        rgba(255,106,0,0.10);
+}
+
+.album-card h3 {
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        20px;
+
+    font-weight:
+        600;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+.album-card p {
+    color:
+        #626a68;
+
+    margin-top:
+        5px;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        1px;
+}
+
+.album-status {
+    margin-left:
+        auto;
+
+    color:
+        #464d4b;
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding:
+        40px 7%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    flex-wrap:
+        wrap;
+
+    position:
+        relative;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    background:
+        rgba(0,0,0,0.3);
+}
+
+footer::before {
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        -1px;
+
+    left:
+        7%;
+
+    width:
+        90px;
+
+    height:
+        1px;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 12px
+        rgba(57,255,136,0.5);
+}
+
+.footer-logo {
+    color:
+        var(--orange);
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+}
+
+footer p {
+    color:
+        #4e5654;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        0.5px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes navScan {
+
+    0% {
+        transform:
+            translateX(-100%);
+    }
+
+    100% {
+        transform:
+            translateX(100%);
+    }
+}
+
+
+@keyframes hudRotate {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes hudRotateReverse {
+
+    from {
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotate(0deg);
+    }
+}
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity:
+            0.3;
+    }
+
+    50% {
+        opacity:
+            1;
+    }
+}
+
+
+@keyframes detailOpen {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(-12px)
+            scale(0.985);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .hero {
+        padding:
+            95px 7%
+            80px;
+    }
+
+    .projects-container {
+        width:
+            90%;
+    }
+
+    .chapters {
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height:
+            64px;
+
+        padding:
+            0 5%;
+    }
+
+    .navbar nav a {
+        padding:
+            9px 15px;
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            1.5px;
+    }
+
+
+    .hero {
+        min-height:
+            410px;
+
+        padding:
+            75px 7%
+            60px;
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(45px, 14vw, 75px);
+
+        letter-spacing:
+            -3px;
+    }
+
+    .hero h1 span {
+        -webkit-text-stroke:
+            1px var(--green);
+    }
+
+    .hero p {
+        font-size:
+            11px;
+
+        line-height:
+            1.7;
+    }
+
+
+    .projects-container {
+        width:
+            88%;
+
+        margin:
+            65px auto;
+    }
+
+    .project-section {
+        margin-bottom:
+            75px;
+    }
+
+
+    .section-heading {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            14px;
+    }
+
+    .section-heading h2 {
+        font-size:
+            25px;
+    }
+
+    .section-heading p {
+        font-size:
+            10px;
+
+        line-height:
+            1.6;
+    }
+
+
+    .chapters {
+        grid-template-columns:
+            1fr;
+    }
+
+    .chapter-card {
+        min-height:
+            98px;
+
+        padding:
+            19px;
+
+        gap:
+            15px;
+    }
+
+    .chapter-info h3 {
+        font-size:
+            14px;
+    }
+
+    .chapter-info p {
+        font-size:
+            9px;
+    }
+
+    .chapter-status {
+        display:
+            none;
+    }
+
+    .chapter-arrow {
+        font-size:
+            20px;
+    }
+
+
+    .chapter-details-header {
+        padding:
+            23px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            18px;
+    }
+
+    .chapter-details-header h2 {
+        font-size:
+            22px;
+    }
+
+    .release-date {
+        text-align:
+            left;
+    }
+
+
+    .track {
+        grid-template-columns:
+            32px 1fr;
+
+        gap:
+            13px;
+
+        padding:
+            20px 17px;
+    }
+
+    .track:hover {
+        padding-left:
+            22px;
+    }
+
+    .track h3 {
+        font-size:
+            14px;
+    }
+
+    .track p {
+        font-size:
+            8px;
+
+        line-height:
+            1.6;
+    }
+
+    .close-chapter {
+        margin:
+            18px;
+    }
+
+
+    .album-card {
+        padding:
+            20px;
+
+        gap:
+            16px;
+    }
+
+    .album-symbol {
+        width:
+            52px;
+
+        height:
+            52px;
+
+        font-size:
+            18px;
+    }
+
+    .album-card h3 {
+        font-size:
+            16px;
+    }
+
+    .album-status {
+        display:
+            none;
+    }
+
+
+    footer {
+        padding:
+            32px 7%;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size:
+            43px;
+    }
+
+    .projects-container {
+        width:
+            90%;
+    }
+
+    .chapter-card {
+        padding:
+            17px;
+    }
+
+    .chapter-number {
+        min-width:
+            25px;
+
+        font-size:
+            10px;
+    }
+
+    .track h3 {
+        font-size:
+            13px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}
+
+       </style>
 </head>
 
 
