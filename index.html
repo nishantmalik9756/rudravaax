@@ -9,6 +9,8 @@
 
 <body>
 
+    
+
 <main class="dashboard">
 
     <!-- TOPBAR -->
@@ -32,6 +34,7 @@
 
     </header>
 
+    
 
     <!-- DASHBOARD CONTENT -->
     <section class="dashboard-content">
@@ -52,6 +55,149 @@
             </p>
 
         </div>
+
+        
+<!-- ================================= -->
+<!-- DUSSEHRA MONTH OFFER -->
+<!-- ================================= -->
+
+<section class="dussehra-offer">
+
+    <div class="offer-glow offer-glow-one"></div>
+    <div class="offer-glow offer-glow-two"></div>
+
+    <div class="offer-content">
+
+        <span class="offer-label">
+            RUDRAVX FESTIVE SPECIAL
+        </span>
+
+        <h2>
+            DUSSEHRA
+            <span>MONTH OFFER</span>
+        </h2>
+
+        <div class="offer-discount">
+
+            <strong>40%</strong>
+
+            <span>OFF</span>
+
+        </div>
+
+        <p class="offer-heading">
+            Celebrate. Create. Release.
+        </p>
+
+        <p class="offer-description">
+
+            This Dussehra Month, RudraVX is offering
+            <strong>40% OFF</strong> on its available services.
+
+            Choose the service you want the offer on and
+            contact us directly through email.
+
+        </p>
+
+
+        <div class="offer-services">
+
+            <div class="offer-service">
+                <span>01</span>
+                <p>Music Production</p>
+            </div>
+
+            <div class="offer-service">
+                <span>02</span>
+                <p>Mixing & Mastering</p>
+            </div>
+
+            <div class="offer-service">
+                <span>03</span>
+                <p>Audio / Video Distribution</p>
+            </div>
+
+            <div class="offer-service">
+                <span>04</span>
+                <p>Artist Services</p>
+            </div>
+
+            <div class="offer-service">
+                <span>05</span>
+                <p>Creative Services</p>
+            </div>
+
+        </div>
+
+
+        <!-- IMPORTANT INFORMATION -->
+
+        <div class="offer-verification">
+
+            <div class="verification-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <h3>
+                    How to Claim the Offer
+                </h3>
+
+                <p>
+                    Email us with the name of the specific service
+                    you want the 40% OFF offer on.
+                    Please include your <strong>mobile number</strong>
+                    in the email.
+                </p>
+
+                <p>
+                    Your mobile number is required only for
+                    verification so that the Dussehra Month Offer
+                    is not misused or claimed multiple times
+                    by the same person.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="offer-note">
+
+            <span>✦</span>
+
+            DUSSEHRA MONTH · 40% OFF
+
+            <span>✦</span>
+
+        </div>
+
+
+        <!-- DIRECT EMAIL -->
+
+        <a
+            href="mailto:rudravaax@gmail.com?subject=Dussehra%20Month%20Offer%20-%2040%25%20OFF"
+            class="offer-email"
+        >
+
+            <span class="email-main">
+                rudravaax@gmail.com
+            </span>
+
+            <span class="email-arrow">
+                →
+            </span>
+
+        </a>
+
+        <p class="offer-email-hint">
+            Email us with your required service + mobile number
+        </p>
+
+    </div>
+
+</section>
 
 
         <!-- DASHBOARD OPTIONS -->
@@ -1063,50 +1209,12 @@
         </div>
 
 
-        <!-- CREATION TO RELEASE -->
-        <div class="about-process">
+        
 
-            <div class="process-heading">
-                <span>THE JOURNEY</span>
-                <h3>From Creation To Release</h3>
-            </div>
+            
 
-            <div class="process-line">
-
-                <div class="process-item">
-                    <b>01</b>
-                    <span>IDEA</span>
-                </div>
-
-                <div class="process-item">
-                    <b>02</b>
-                    <span>PRODUCTION</span>
-                </div>
-
-                <div class="process-item">
-                    <b>03</b>
-                    <span>RECORDING</span>
-                </div>
-
-                <div class="process-item">
-                    <b>04</b>
-                    <span>MIXING</span>
-                </div>
-
-                <div class="process-item">
-                    <b>05</b>
-                    <span>MASTERING</span>
-                </div>
-
-                <div class="process-item">
-                    <b>06</b>
-                    <span>DISTRIBUTION</span>
-                </div>
-
-                <div class="process-item">
-                    <b>07</b>
-                    <span>PROMOTION</span>
-                </div>
+            
+                
 
             </div>
 
@@ -1291,6 +1399,7 @@
 
 
 <!-- TEAM CAROUSEL JAVASCRIPT -->
+<!-- TEAM CAROUSEL JAVASCRIPT -->
 <script>
 
     const teamMembers = document.querySelectorAll(".team-member");
@@ -1300,7 +1409,8 @@
 
     let currentTeamIndex = 0;
     let teamTimer = null;
-    let teamStarted = false;
+
+    const SLIDE_TIME = 4000; // 4 seconds
 
     function updateTeam(index) {
 
@@ -1319,14 +1429,16 @@
                 member.classList.add("active");
 
             } else if (
-                i === (index - 1 + teamMembers.length) %
+                i ===
+                (index - 1 + teamMembers.length) %
                 teamMembers.length
             ) {
 
                 member.classList.add("left");
 
             } else if (
-                i === (index + 1) %
+                i ===
+                (index + 1) %
                 teamMembers.length
             ) {
 
@@ -1336,6 +1448,8 @@
 
         });
 
+
+        /* DOT SYNC */
 
         teamDots.forEach((dot, i) => {
 
@@ -1371,21 +1485,7 @@
     }
 
 
-    function startTeamCarousel() {
-
-        if (teamStarted) {
-            return;
-        }
-
-        teamStarted = true;
-
-        teamTimer = setInterval(
-            nextTeamMember,
-            3500
-        );
-
-    }
-
+    /* START / RESET TIMER */
 
     function resetTeamTimer() {
 
@@ -1393,33 +1493,43 @@
 
         teamTimer = setInterval(
             nextTeamMember,
-            3500
+            SLIDE_TIME
         );
 
     }
 
+
+    /* RIGHT ARROW */
 
     rightButton.addEventListener(
         "click",
         function() {
 
             nextTeamMember();
+
+            // Manual click ke baad 4 sec fresh start
             resetTeamTimer();
 
         }
     );
 
+
+    /* LEFT ARROW */
 
     leftButton.addEventListener(
         "click",
         function() {
 
             previousTeamMember();
+
+            // Manual click ke baad 4 sec fresh start
             resetTeamTimer();
 
         }
     );
 
+
+    /* DOT CLICK */
 
     teamDots.forEach(
         function(dot) {
@@ -1434,6 +1544,8 @@
                         );
 
                     updateTeam(index);
+
+                    // Dot click ke baad timer fresh start
                     resetTeamTimer();
 
                 }
@@ -1443,21 +1555,151 @@
     );
 
 
-    /*
-        Rudravaax remains in the center
-        when the dashboard first loads.
-
-        Carousel starts automatically
-        after a 1 second delay.
-    */
+    /* INITIAL SLIDE */
 
     updateTeam(0);
 
+
+    /* 1 SECOND INITIAL DELAY */
+
     setTimeout(
-        startTeamCarousel,
+        function() {
+
+            resetTeamTimer();
+
+        },
         1000
     );
 
+</script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const track = document.querySelector(".team-track");
+    const members = document.querySelectorAll(".team-member");
+    const dots = document.querySelectorAll(".team-dot");
+
+    const nextButton = document.querySelector(".team-arrow:not(.team-arrow-left)");
+    const prevButton = document.querySelector(".team-arrow-left");
+
+    if (!track || members.length === 0) return;
+
+    let currentIndex = 0;
+
+    // Har photo kitne milliseconds screen par rahegi
+    // 4000 = 4 seconds
+    const slideDuration = 4000;
+
+
+    function showSlide(index) {
+
+        if (index >= members.length) {
+            currentIndex = 0;
+        }
+
+        else if (index < 0) {
+            currentIndex = members.length - 1;
+        }
+
+        else {
+            currentIndex = index;
+        }
+
+
+        // Slide move
+        track.style.transform =
+            `translateX(-${currentIndex * 100}%)`;
+
+
+        // Active member
+        members.forEach((member, i) => {
+
+            member.classList.toggle(
+                "active",
+                i === currentIndex
+            );
+
+        });
+
+
+        // Active dot
+        dots.forEach((dot, i) => {
+
+            dot.classList.toggle(
+                "active",
+                i === currentIndex
+            );
+
+        });
+
+    }
+
+
+    function nextSlide() {
+
+        showSlide(currentIndex + 1);
+
+    }
+
+
+    function previousSlide() {
+
+        showSlide(currentIndex - 1);
+
+    }
+
+
+    // Next button
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            nextSlide
+        );
+
+    }
+
+
+    // Previous button
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            previousSlide
+        );
+
+    }
+
+
+    // Dots
+    dots.forEach((dot, index) => {
+
+        dot.addEventListener(
+            "click",
+            function () {
+
+                showSlide(index);
+
+            }
+        );
+
+    });
+
+
+    // AUTOMATIC SLIDE
+    setInterval(function () {
+
+        nextSlide();
+
+    }, slideDuration);
+
+
+    // First slide
+    showSlide(0);
+
+});
 
 </script>
 
