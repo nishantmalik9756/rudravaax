@@ -5,20 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>RudraVX — Upcoming Projects</title>
-
-    
 <style>
-/* =========================================================
-   RUDRAVX — ROBOTIC / SCI-FI INTERFACE
-   HTML UNCHANGED
-========================================================= */
-
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-
-/* =========================================================
+    /* =========================================================
    RUDRAVX — UPCOMING PROJECTS
-   LATEST RELEASE STYLE
+   PREMIUM BLACK / ORANGE THEME
    ========================================================= */
 
 * {
@@ -32,25 +22,18 @@ html {
 }
 
 body {
-    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(
-            circle at 50% 10%,
-            rgba(255, 90, 0, 0.09),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 90% 60%,
-            rgba(255, 60, 0, 0.045),
-            transparent 28%
-        ),
-        #000;
-
+        radial-gradient(circle at 15% 10%, rgba(255, 90, 0, 0.13), transparent 28%),
+        radial-gradient(circle at 85% 35%, rgba(255, 120, 0, 0.08), transparent 30%),
+        #050505;
     color: #fff;
-    font-family: Inter, Arial, Helvetica, sans-serif;
+    min-height: 100vh;
     overflow-x: hidden;
     position: relative;
 }
+
+/* GRID BACKGROUND */
 
 body::before {
     content: "";
@@ -60,436 +43,230 @@ body::before {
     z-index: -2;
 
     background-image:
-        linear-gradient(
-            rgba(255,255,255,0.018) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.018) 1px,
-            transparent 1px
-        );
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 
-    background-size: 45px 45px;
-
-    mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 90%
-    );
+    background-size: 55px 55px;
 }
 
 body::after {
     content: "";
     position: fixed;
-    inset: 0;
+    width: 500px;
+    height: 500px;
+    right: -200px;
+    top: 300px;
+
+    background: rgba(255, 75, 0, 0.08);
+    filter: blur(100px);
+    border-radius: 50%;
+
     pointer-events: none;
-    z-index: 999;
-
-    background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0,
-            transparent 3px,
-            rgba(255,255,255,0.006) 4px
-        );
+    z-index: -1;
 }
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
 
 /* =========================================================
    NAVBAR
    ========================================================= */
 
 .navbar {
-    height: 70px;
-    padding: 0 6%;
-
+    width: 100%;
+    padding: 22px 6%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-end;
 
     position: sticky;
     top: 0;
     z-index: 1000;
 
-    background: rgba(0,0,0,0.82);
+    background: rgba(5, 5, 5, 0.82);
     backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.navbar::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #ff5f00,
-        #ff9d00,
-        #ff5f00,
-        transparent
-    );
-
-    opacity: 0.8;
+    border-bottom: 1px solid rgba(255, 95, 0, 0.25);
 }
 
 .navbar nav {
     display: flex;
+    align-items: center;
+    gap: 28px;
 }
 
-.navbar nav a {
-    position: relative;
-
-    padding: 10px 20px;
-
-    color: rgba(255,255,255,0.7);
-
-    font-family: Orbitron, sans-serif;
-    font-size: 10px;
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 2px;
-
-    border: 1px solid rgba(255,90,0,0.35);
-    border-radius: 30px;
-
-    background: rgba(255,80,0,0.04);
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
     transition: 0.3s ease;
 }
 
-.navbar nav a:hover {
-    color: #fff;
-    background: #ff5f00;
-    border-color: #ff5f00;
-
-    box-shadow:
-        0 0 18px rgba(255,90,0,0.4),
-        0 0 35px rgba(255,90,0,0.12);
-
-    transform: translateY(-2px);
+.navbar a:hover {
+    color: #ff6500;
+    text-shadow: 0 0 15px rgba(255, 101, 0, 0.7);
 }
-
 
 /* =========================================================
    HERO
    ========================================================= */
 
 .hero {
-    min-height: 440px;
+    text-align: center;
+    padding: 100px 20px 80px;
+    max-width: 1100px;
+    margin: auto;
 
-    padding: 90px 7% 75px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    position: relative;
-    overflow: hidden;
-
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 600px;
-    height: 600px;
-
-    right: -250px;
-    top: -260px;
-
-    border: 1px solid rgba(255,90,0,0.12);
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 80px rgba(255,90,0,0.04);
-
-    animation: rotateCircle 25s linear infinite;
-}
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    width: 380px;
-    height: 380px;
-
-    right: -140px;
-    top: -120px;
-
-    border: 1px dashed rgba(255,160,0,0.13);
-    border-radius: 50%;
-
-    animation: rotateReverse 18s linear infinite;
+    animation: pageAppear 0.9s ease forwards;
 }
 
 .hero-label {
-    position: relative;
-    z-index: 2;
-
-    color: #ff6500;
-
-    font-family: Orbitron, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 5px;
-
-    margin-bottom: 25px;
-
-    animation: fadeUp 0.7s ease both;
-}
-
-.hero-label::before {
-    content: "";
-
     display: inline-block;
 
-    width: 35px;
-    height: 1px;
+    padding: 8px 18px;
+    margin-bottom: 22px;
 
-    margin-right: 12px;
+    border: 1px solid rgba(255, 95, 0, 0.5);
+    border-radius: 50px;
 
-    vertical-align: middle;
+    color: #ff6a00;
+    background: rgba(255, 80, 0, 0.06);
 
-    background: #ff6500;
-
-    box-shadow:
-        0 0 10px rgba(255,100,0,0.7);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
 }
 
 .hero h1 {
-    position: relative;
-    z-index: 2;
-
-    font-family: Orbitron, Arial, sans-serif;
-
-    font-size: clamp(50px, 9vw, 110px);
-
+    font-size: clamp(48px, 8vw, 100px);
     line-height: 0.9;
-    letter-spacing: -5px;
+    letter-spacing: -4px;
     font-weight: 900;
 
     text-transform: uppercase;
-
-    animation: fadeUp 0.8s 0.1s ease both;
 }
 
 .hero h1 span {
-    color: transparent;
-
-    -webkit-text-stroke: 1.5px #ff6500;
+    color: #ff6500;
 
     text-shadow:
-        0 0 25px rgba(255,90,0,0.08);
-
-    transition: 0.4s ease;
-}
-
-.hero h1 span:hover {
-    color: rgba(255,90,0,0.08);
-
-    text-shadow:
-        0 0 35px rgba(255,90,0,0.2);
+        0 0 20px rgba(255, 101, 0, 0.4),
+        0 0 60px rgba(255, 101, 0, 0.15);
 }
 
 .hero p {
-    position: relative;
-    z-index: 2;
-
-    max-width: 560px;
-
     margin-top: 30px;
 
-    color: rgba(255,255,255,0.45);
-
-    font-size: 13px;
-    line-height: 1.8;
-    letter-spacing: 0.5px;
-
-    animation: fadeUp 0.8s 0.2s ease both;
+    color: #999;
+    font-size: 15px;
+    line-height: 1.7;
 }
-
 
 /* =========================================================
    PROJECT CONTAINER
    ========================================================= */
 
 .projects-container {
-    width: min(1050px, 90%);
-    margin: 80px auto;
+    width: min(1150px, 90%);
+    margin: auto;
+    padding-bottom: 100px;
 }
-
-.project-section {
-    margin-bottom: 90px;
-}
-
 
 /* =========================================================
-   SECTION HEADING
+   PROJECT SECTION
    ========================================================= */
+
+.project-section {
+    margin-bottom: 80px;
+}
 
 .section-heading {
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
 
-    gap: 25px;
-
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     padding-bottom: 22px;
 
-    position: relative;
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.section-heading::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -1px;
-
-    width: 100px;
-    height: 1px;
-
-    background: #ff6500;
-
-    box-shadow:
-        0 0 12px rgba(255,100,0,0.6);
-}
-
-.project-label {
+.project-label,
+.details-label {
     color: #ff6500;
-
-    font-family: Orbitron, sans-serif;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    letter-spacing: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .section-heading h2 {
-    margin-top: 9px;
+    margin-top: 8px;
 
-    font-family: Orbitron, sans-serif;
-
-    font-size: 32px;
-    font-weight: 700;
-
-    letter-spacing: -1px;
+    font-size: clamp(28px, 4vw, 48px);
+    letter-spacing: -1.5px;
+    font-weight: 800;
 }
 
 .section-heading p {
     margin-top: 8px;
-
-    color: rgba(255,255,255,0.4);
-
-    font-size: 12px;
+    color: #777;
+    font-size: 14px;
 }
 
 .status {
-    padding: 7px 13px;
+    padding: 8px 14px;
 
-    color: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255, 95, 0, 0.4);
+    border-radius: 30px;
 
-    font-family: Orbitron, sans-serif;
-    font-size: 8px;
-    font-weight: 700;
+    color: #ff6500;
+    background: rgba(255, 95, 0, 0.06);
 
+    font-size: 10px;
+    font-weight: 800;
     letter-spacing: 2px;
 
-    border: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
 }
 
 .active-status {
-    color: #ff6500;
-
-    border-color: rgba(255,100,0,0.4);
-
-    box-shadow:
-        inset 0 0 15px rgba(255,90,0,0.03);
+    box-shadow: 0 0 20px rgba(255, 95, 0, 0.08);
 }
-
-.active-status::before {
-    content: "";
-
-    display: inline-block;
-
-    width: 5px;
-    height: 5px;
-
-    margin-right: 7px;
-
-    border-radius: 50%;
-
-    background: #ff6500;
-
-    box-shadow:
-        0 0 9px #ff6500;
-
-    animation: blink 1.4s ease-in-out infinite;
-}
-
 
 /* =========================================================
-   CHAPTER GRID
+   CHAPTERS
    ========================================================= */
 
 .chapters {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-
-/* =========================================================
-   CHAPTER CARD
-   ========================================================= */
-
 .chapter-card {
-    min-height: 115px;
+    position: relative;
 
-    padding: 24px;
-
-    display: flex;
+    display: grid;
+    grid-template-columns: 75px 1fr auto;
     align-items: center;
 
-    gap: 22px;
-
-    position: relative;
-    overflow: hidden;
+    min-height: 88px;
+    padding: 20px 25px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(255,255,255,0.045),
-            rgba(255,255,255,0.012)
+            120deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)
         );
 
-    border: 1px solid rgba(255,255,255,0.09);
-    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+
+    overflow: hidden;
 
     transition:
         transform 0.35s ease,
@@ -500,9 +277,7 @@ a {
 
 .chapter-card::before {
     content: "";
-
     position: absolute;
-
     top: 0;
     left: -120%;
 
@@ -512,177 +287,110 @@ a {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255,90,0,0.08),
+        rgba(255, 101, 0, 0.08),
         transparent
     );
 
-    transform: skewX(-20deg);
-
-    transition: left 0.6s ease;
+    transform: skewX(-25deg);
+    transition: 0.7s ease;
 }
 
 .chapter-card:hover::before {
-    left: 140%;
+    left: 130%;
 }
-
-.chapter-card:hover {
-    transform: translateY(-5px);
-
-    border-color: rgba(255,90,0,0.42);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,80,0,0.07),
-            rgba(255,255,255,0.018)
-        );
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.45),
-        0 0 25px rgba(255,80,0,0.07);
-}
-
-
-/* =========================================================
-   CHAPTER NUMBER
-   ========================================================= */
-
-.chapter-number {
-    min-width: 30px;
-
-    color: #ff6500;
-
-    font-family: Orbitron, monospace;
-
-    font-size: 12px;
-    font-weight: 800;
-
-    position: relative;
-    z-index: 2;
-}
-
-.chapter-info {
-    flex: 1;
-
-    position: relative;
-    z-index: 2;
-}
-
-.chapter-info h3 {
-    font-family: Orbitron, sans-serif;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    letter-spacing: 0.2px;
-
-    margin-bottom: 6px;
-}
-
-.chapter-info p {
-    color: rgba(255,255,255,0.38);
-
-    font-size: 10px;
-    letter-spacing: 0.8px;
-}
-
-
-/* =========================================================
-   ACTIVE CHAPTER
-   ========================================================= */
 
 .chapter-active {
     cursor: pointer;
 
-    border-color: rgba(255,90,0,0.48);
+    border-color: rgba(255, 101, 0, 0.35);
 
     background:
         linear-gradient(
-            145deg,
-            rgba(255,90,0,0.09),
-            rgba(255,255,255,0.018)
+            120deg,
+            rgba(255, 101, 0, 0.09),
+            rgba(255, 255, 255, 0.02)
         );
 
     box-shadow:
-        inset 0 0 30px rgba(255,90,0,0.025);
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 30px rgba(255, 101, 0, 0.025);
 }
 
-.chapter-active::after {
-    content: "";
+.chapter-active:hover {
+    transform: translateY(-3px);
 
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 3px;
-    height: 100%;
-
-    background: #ff6500;
+    border-color: rgba(255, 101, 0, 0.7);
 
     box-shadow:
-        0 0 15px rgba(255,100,0,0.7);
+        0 15px 45px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(255, 101, 0, 0.08);
 }
 
-.chapter-active .chapter-number {
+/* NUMBER */
+
+.chapter-number {
     color: #ff6500;
+
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-.chapter-active .chapter-info p {
-    color: #ff8b38;
+/* INFO */
+
+.chapter-info h3 {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.chapter-info p {
+    margin-top: 6px;
+
+    color: #777;
+    font-size: 12px;
 }
 
 .chapter-arrow {
     color: #ff6500;
+    font-size: 26px;
 
-    font-size: 23px;
-
-    position: relative;
-    z-index: 2;
-
-    transition: 0.35s ease;
+    transition: 0.3s ease;
 }
 
 .chapter-active:hover .chapter-arrow {
-    transform: translateX(7px);
-
-    text-shadow:
-        0 0 12px rgba(255,100,0,0.6);
+    transform: translateX(6px);
 }
-
-.chapter-active.open .chapter-arrow {
-    transform: rotate(90deg);
-}
-
 
 /* =========================================================
-   COMING SOON
+   DISABLED / FUTURE CHAPTERS
    ========================================================= */
 
-.coming-soon {
-    opacity: 0.45;
+.chapter-card.coming-soon {
+    opacity: 0.65;
+
     cursor: default;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(255, 255, 255, 0.01)
+        );
 }
 
-.coming-soon:hover {
-    transform: translateY(-2px);
-
-    border-color: rgba(255,255,255,0.12);
-
-    box-shadow: none;
+.chapter-card.coming-soon:hover {
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .chapter-status {
-    color: rgba(255,255,255,0.22);
+    color: #666;
 
-    font-family: Orbitron, sans-serif;
-
-    font-size: 7px;
-    font-weight: 700;
-
+    font-size: 10px;
+    font-weight: 800;
     letter-spacing: 1.5px;
-}
 
+    white-space: nowrap;
+}
 
 /* =========================================================
    CHAPTER DETAILS
@@ -691,500 +399,280 @@ a {
 .chapter-details {
     display: none;
 
-    grid-column: 1 / -1;
-
-    margin-top: 5px;
-
-    position: relative;
-    overflow: hidden;
+    margin-top: 15px;
+    padding: 35px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,90,0,0.055),
-            rgba(255,255,255,0.012)
-        );
+        radial-gradient(
+            circle at top right,
+            rgba(255, 101, 0, 0.09),
+            transparent 35%
+        ),
+        rgba(255, 255, 255, 0.025);
 
-    border: 1px solid rgba(255,90,0,0.28);
-    border-radius: 18px;
-}
+    border: 1px solid rgba(255, 101, 0, 0.25);
+    border-radius: 20px;
 
-.chapter-details::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #ff6500,
-        transparent
-    );
-
-    box-shadow:
-        0 0 12px rgba(255,100,0,0.5);
+    animation: chapterOpen 0.45s ease;
 }
 
 .chapter-details.active {
     display: block;
-
-    animation:
-        detailOpen 0.45s cubic-bezier(.2,.8,.2,1);
 }
-
-
-/* =========================================================
-   DETAILS HEADER
-   ========================================================= */
 
 .chapter-details-header {
-    padding: 32px;
-
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
-
     gap: 30px;
 
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-}
+    padding-bottom: 28px;
+    margin-bottom: 25px;
 
-.details-label {
-    color: #ff6500;
-
-    font-family: Orbitron, sans-serif;
-
-    font-size: 8px;
-    font-weight: 700;
-
-    letter-spacing: 3px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .chapter-details-header h2 {
     margin-top: 10px;
 
-    font-family: Orbitron, sans-serif;
-
-    font-size: 27px;
-    font-weight: 700;
+    font-size: clamp(26px, 4vw, 42px);
+    letter-spacing: -1px;
 }
 
 .chapter-details-header p {
     margin-top: 8px;
-
-    color: rgba(255,255,255,0.38);
-
-    font-size: 11px;
+    color: #777;
+    font-size: 13px;
 }
 
 .release-date {
-    color: rgba(255,255,255,0.35);
+    min-width: 140px;
+
+    padding: 15px;
+
+    border: 1px solid rgba(255, 101, 0, 0.3);
+    border-radius: 12px;
 
     text-align: right;
 
-    font-family: Orbitron, sans-serif;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-    line-height: 1.8;
+    color: #777;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
 }
 
 .release-date strong {
+    display: block;
+
+    margin-top: 7px;
+
     color: #ff6500;
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-
-    text-shadow:
-        0 0 15px rgba(255,90,0,0.3);
+    font-size: 17px;
 }
-
 
 /* =========================================================
    TRACKLIST
    ========================================================= */
 
 .tracklist {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .track {
     display: grid;
-
     grid-template-columns: 55px 1fr;
-
-    gap: 20px;
-
     align-items: center;
 
-    padding: 22px 30px;
+    padding: 17px 0;
 
-    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
-    border-bottom: 1px solid rgba(255,255,255,0.055);
-
-    transition:
-        background 0.3s ease,
-        padding-left 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .track:last-child {
     border-bottom: none;
 }
 
-.track::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 2px;
-    height: 100%;
-
-    background: #ff6500;
-
-    transform: scaleY(0);
-    transform-origin: bottom;
-
-    transition: 0.3s ease;
-
-    box-shadow:
-        0 0 10px rgba(255,90,0,0.5);
-}
-
 .track:hover {
-    background: rgba(255,90,0,0.025);
-
-    padding-left: 38px;
-}
-
-.track:hover::before {
-    transform: scaleY(1);
+    padding-left: 8px;
 }
 
 .track-number {
-    color: rgba(255,255,255,0.22);
-
-    font-family: Orbitron, monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    transition: 0.3s ease;
-}
-
-.track:hover .track-number {
     color: #ff6500;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .track h3 {
-    font-family: Orbitron, sans-serif;
-
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 700;
 
     transition: 0.3s ease;
 }
 
 .track:hover h3 {
-    transform: translateX(3px);
-    color: #fff;
+    color: #ff6500;
 }
 
 .track p {
-    margin-top: 7px;
+    margin-top: 5px;
 
-    color: rgba(255,255,255,0.25);
-
-    font-size: 9px;
-    letter-spacing: 1px;
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 0.5px;
 }
-
-.track:first-child h3 {
-    color: #ff6500;
-
-    text-shadow:
-        0 0 15px rgba(255,90,0,0.15);
-}
-
 
 /* =========================================================
    CLOSE BUTTON
    ========================================================= */
 
 .close-chapter {
-    margin: 24px 30px 30px;
+    display: block;
 
-    padding: 10px 17px;
+    margin: 30px auto 0;
 
-    position: relative;
-    overflow: hidden;
+    padding: 12px 22px;
 
+    border: 1px solid rgba(255, 101, 0, 0.4);
+    border-radius: 30px;
+
+    background: transparent;
     color: #ff6500;
 
-    font-family: Orbitron, sans-serif;
-
-    font-size: 8px;
-    font-weight: 700;
-
-    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 
     cursor: pointer;
-
-    border: 1px solid rgba(255,90,0,0.38);
-    background: rgba(255,90,0,0.025);
 
     transition: 0.3s ease;
 }
 
 .close-chapter:hover {
+    background: #ff6500;
     color: #000;
 
-    background: #ff6500;
-    border-color: #ff6500;
-
-    box-shadow:
-        0 0 25px rgba(255,90,0,0.2);
-
-    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255, 101, 0, 0.35);
 }
-
 
 /* =========================================================
-   THE FOREIGNER / ALBUM
+   THE FOREIGNER
    ========================================================= */
 
+.standalone {
+    margin-top: 100px;
+}
+
 .album-card {
-    min-height: 140px;
-
-    padding: 27px;
-
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 25px;
 
-    gap: 23px;
+    padding: 30px;
 
-    position: relative;
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,90,0,0.06),
-            rgba(255,255,255,0.015)
-        );
-
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 18px;
 
+    background:
+        radial-gradient(
+            circle at left,
+            rgba(255, 101, 0, 0.07),
+            transparent 35%
+        ),
+        rgba(255, 255, 255, 0.025);
+
     transition: 0.35s ease;
-}
-
-.album-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,90,0,0.05),
-        transparent
-    );
-
-    transition: left 0.7s ease;
-}
-
-.album-card:hover::before {
-    left: 100%;
 }
 
 .album-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 
-    border-color: rgba(255,90,0,0.35);
+    border-color: rgba(255, 101, 0, 0.35);
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,0.4),
-        0 0 25px rgba(255,90,0,0.05);
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(255, 101, 0, 0.06);
 }
 
 .album-symbol {
-    width: 65px;
-    height: 65px;
-
-    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    position: relative;
+    border-radius: 14px;
 
-    color: #ff6500;
+    background: #ff6500;
+    color: #000;
 
-    font-family: Orbitron, sans-serif;
+    font-size: 28px;
+    font-weight: 900;
 
-    font-size: 22px;
-    font-weight: 800;
-
-    border: 1px solid #ff6500;
-
-    box-shadow:
-        inset 0 0 20px rgba(255,90,0,0.04);
-
-    transition: 0.35s ease;
-}
-
-.album-symbol::before {
-    content: "";
-
-    position: absolute;
-
-    top: -1px;
-    left: -1px;
-
-    width: 9px;
-    height: 9px;
-
-    border-top: 2px solid #ff9d00;
-    border-left: 2px solid #ff9d00;
-}
-
-.album-symbol::after {
-    content: "";
-
-    position: absolute;
-
-    right: -1px;
-    bottom: -1px;
-
-    width: 9px;
-    height: 9px;
-
-    border-right: 2px solid #ff6500;
-    border-bottom: 2px solid #ff6500;
-}
-
-.album-card:hover .album-symbol {
-    transform: rotate(4deg) scale(1.05);
-
-    box-shadow:
-        0 0 25px rgba(255,90,0,0.12);
+    box-shadow: 0 0 30px rgba(255, 101, 0, 0.25);
 }
 
 .album-card h3 {
-    position: relative;
-    z-index: 2;
-
-    font-family: Orbitron, sans-serif;
-
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 22px;
 }
 
 .album-card p {
-    margin-top: 6px;
+    margin-top: 5px;
 
-    color: rgba(255,255,255,0.35);
-
-    font-size: 10px;
-    letter-spacing: 1px;
+    color: #666;
+    font-size: 12px;
 }
 
 .album-status {
-    margin-left: auto;
+    color: #666;
 
-    color: rgba(255,255,255,0.25);
-
-    font-family: Orbitron, sans-serif;
-
-    font-size: 8px;
-    font-weight: 700;
-
+    font-size: 10px;
+    font-weight: 800;
     letter-spacing: 2px;
-}
 
+    white-space: nowrap;
+}
 
 /* =========================================================
    FOOTER
    ========================================================= */
 
 footer {
-    padding: 38px 7%;
+    margin-top: 80px;
+    padding: 45px 20px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-align: center;
 
-    gap: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    flex-wrap: wrap;
-
-    position: relative;
-
-    border-top: 1px solid rgba(255,255,255,0.07);
-
-    background: rgba(0,0,0,0.4);
-}
-
-footer::before {
-    content: "";
-
-    position: absolute;
-
-    top: -1px;
-    left: 7%;
-
-    width: 90px;
-    height: 1px;
-
-    background: #ff6500;
-
-    box-shadow:
-        0 0 12px rgba(255,90,0,0.6);
+    color: #555;
 }
 
 .footer-logo {
+    margin-bottom: 12px;
+
     color: #ff6500;
 
-    font-family: Orbitron, sans-serif;
-
-    font-size: 11px;
-    font-weight: 800;
-
+    font-size: 14px;
+    font-weight: 900;
     letter-spacing: 2px;
 }
 
 footer p {
-    color: rgba(255,255,255,0.28);
-
-    font-size: 9px;
+    margin-top: 5px;
+    font-size: 11px;
 }
-
 
 /* =========================================================
    ANIMATIONS
    ========================================================= */
 
-@keyframes fadeUp {
+@keyframes pageAppear {
     from {
         opacity: 0;
         transform: translateY(25px);
@@ -1196,187 +684,140 @@ footer p {
     }
 }
 
-@keyframes rotateCircle {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes rotateReverse {
-    from {
-        transform: rotate(360deg);
-    }
-
-    to {
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes blink {
-    0%, 100% {
-        opacity: 0.3;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes detailOpen {
+@keyframes chapterOpen {
     from {
         opacity: 0;
-        transform: translateY(-12px) scale(0.985);
+        transform: translateY(-10px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
-
 
 /* =========================================================
    TABLET
    ========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
 
     .hero {
-        padding: 90px 7% 70px;
+        padding: 75px 20px 60px;
     }
 
-    .projects-container {
-        width: 90%;
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    .chapters {
-        grid-template-columns: 1fr;
+    .status {
+        align-self: flex-start;
+    }
+
+    .chapter-details {
+        padding: 25px;
+    }
+
+    .chapter-details-header {
+        flex-direction: column;
+    }
+
+    .release-date {
+        text-align: left;
     }
 }
-
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
     .navbar {
-        height: 62px;
-        padding: 0 5%;
+        padding: 16px 5%;
     }
 
-    .navbar nav a {
-        padding: 9px 15px;
+    .navbar nav {
+        gap: 10px;
+    }
 
-        font-size: 8px;
-        letter-spacing: 1.5px;
+    .navbar a {
+        font-size: 10px;
     }
 
     .hero {
-        min-height: 390px;
-
-        padding: 75px 7% 60px;
+        padding: 65px 15px 55px;
     }
 
     .hero h1 {
-        font-size: clamp(43px, 14vw, 72px);
-        letter-spacing: -3px;
-    }
-
-    .hero h1 span {
-        -webkit-text-stroke: 1px #ff6500;
+        font-size: 52px;
+        letter-spacing: -2px;
     }
 
     .hero p {
-        font-size: 11px;
-        line-height: 1.7;
+        font-size: 13px;
     }
 
     .projects-container {
-        width: 88%;
-        margin: 65px auto;
+        width: 92%;
     }
 
     .project-section {
-        margin-bottom: 70px;
-    }
-
-    .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
-
-        gap: 14px;
+        margin-bottom: 60px;
     }
 
     .section-heading h2 {
-        font-size: 25px;
-    }
-
-    .section-heading p {
-        font-size: 10px;
-        line-height: 1.6;
-    }
-
-    .chapters {
-        grid-template-columns: 1fr;
+        font-size: 31px;
     }
 
     .chapter-card {
-        min-height: 98px;
+        grid-template-columns: 48px 1fr auto;
+        padding: 17px;
+        min-height: 78px;
+    }
 
-        padding: 19px;
-
-        gap: 15px;
+    .chapter-number {
+        font-size: 19px;
     }
 
     .chapter-info h3 {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .chapter-info p {
-        font-size: 9px;
-    }
-
-    .chapter-status {
-        display: none;
+        font-size: 10px;
     }
 
     .chapter-arrow {
         font-size: 20px;
     }
 
-    .chapter-details-header {
-        padding: 23px;
+    .chapter-status {
+        font-size: 8px;
+        text-align: right;
+    }
 
-        flex-direction: column;
-        align-items: flex-start;
-
-        gap: 18px;
+    .chapter-details {
+        padding: 20px 17px;
+        border-radius: 16px;
     }
 
     .chapter-details-header h2 {
-        font-size: 22px;
-    }
-
-    .release-date {
-        text-align: left;
+        font-size: 27px;
     }
 
     .track {
-        grid-template-columns: 32px 1fr;
-
-        gap: 13px;
-
-        padding: 20px 17px;
-    }
-
-    .track:hover {
-        padding-left: 22px;
+        grid-template-columns: 42px 1fr;
+        padding: 15px 0;
     }
 
     .track h3 {
@@ -1384,87 +825,55 @@ footer p {
     }
 
     .track p {
-        font-size: 8px;
-        line-height: 1.6;
-    }
-
-    .close-chapter {
-        margin: 18px;
+        font-size: 9px;
+        line-height: 1.5;
     }
 
     .album-card {
-        padding: 20px;
-        gap: 16px;
+        padding: 22px;
     }
 
     .album-symbol {
-        width: 52px;
-        height: 52px;
-
-        font-size: 18px;
+        width: 50px;
+        height: 50px;
+        font-size: 23px;
     }
 
     .album-card h3 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .album-status {
-        display: none;
-    }
-
-    footer {
-        padding: 32px 7%;
-
-        flex-direction: column;
-        align-items: flex-start;
+        font-size: 8px;
     }
 }
 
-
 /* =========================================================
-   VERY SMALL MOBILE
+   VERY SMALL DEVICES
    ========================================================= */
 
-@media (max-width: 420px) {
+@media (max-width: 400px) {
 
     .hero h1 {
-        font-size: 43px;
-    }
-
-    .projects-container {
-        width: 90%;
+        font-size: 44px;
     }
 
     .chapter-card {
-        padding: 17px;
+        grid-template-columns: 38px 1fr;
     }
 
-    .chapter-number {
-        min-width: 25px;
-        font-size: 10px;
+    .chapter-arrow,
+    .chapter-status {
+        display: none;
     }
 
-    .track h3 {
-        font-size: 13px;
-    }
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
+    .album-card {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
 </style>
+
 </head>
 
 
