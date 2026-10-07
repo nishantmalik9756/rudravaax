@@ -7,36 +7,19 @@
 <title>RudraVX — Mixing & Mastering</title>
 
 <style>
-
-/* =========================================================
-   RUDRAVX — MIXING & MASTERING
-   SMOOTH SCI-FI / ROBOTIC / PERFORMANCE UI
-========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap');
-
 :root{
-    --black:#020604;
-    --black2:#050b08;
-    --card:#07100c;
-    --card2:#0a1510;
-
-    --white:#effff5;
-    --muted:#8da698;
-
-    --green:#39ff88;
-    --green2:#19db70;
-    --green3:#00b85c;
-
-    --line:rgba(57,255,136,.14);
-
-    --ease:cubic-bezier(.22,1,.36,1);
+    --bg:#050505;
+    --bg2:#0a0a0a;
+    --card:#101010;
+    --card2:#151515;
+    --orange:#ff6a00;
+    --orange2:#ff8c00;
+    --white:#fff;
+    --muted:#999;
+    --border:rgba(255,106,0,.25);
+    --green:#2ed47a;
+    --red:#ff4545;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -50,2371 +33,1537 @@ html{
 
 body{
     min-height:100vh;
-
-    font-family:"Inter",Arial,sans-serif;
-
+    overflow-x:hidden;
     color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
 
     background:
-        radial-gradient(
-            circle at 15% 10%,
-            rgba(57,255,136,.055),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 25%,
-            rgba(0,184,92,.035),
-            transparent 25%
-        ),
-        linear-gradient(
-            145deg,
-            #010302,
-            #020604 55%,
-            #030906
-        );
+        radial-gradient(circle at 10% 5%,rgba(255,106,0,.15),transparent 27%),
+        radial-gradient(circle at 90% 20%,rgba(255,106,0,.10),transparent 25%),
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),
+        #050505;
 
-    overflow-x:hidden;
-
-    -webkit-font-smoothing:antialiased;
+    background-size:auto,auto,45px 45px,45px 45px;
 }
-
-
-/* =========================================================
-   TECH GRID
-========================================================= */
-
-body::before{
-    content:"";
-
-    position:fixed;
-    inset:0;
-
-    pointer-events:none;
-
-    background-image:
-        linear-gradient(
-            rgba(57,255,136,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(57,255,136,.025) 1px,
-            transparent 1px
-        );
-
-    background-size:60px 60px;
-
-    opacity:.6;
-
-    z-index:-2;
-}
-
-
-/* =========================================================
-   SCANLINES
-========================================================= */
 
 body::after{
     content:"";
-
     position:fixed;
     inset:0;
-
     pointer-events:none;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            transparent 0,
-            transparent 5px,
-            rgba(57,255,136,.008) 6px
-        );
-
-    opacity:.2;
-
-    z-index:999;
+    background:radial-gradient(circle,transparent 35%,rgba(0,0,0,.55));
+    z-index:-1;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
+/* ================= HEADER ================= */
 
 header{
     position:sticky;
     top:0;
+    z-index:1000;
 
-    z-index:100;
-
-    height:72px;
+    height:76px;
+    padding:0 6%;
 
     display:flex;
     align-items:center;
+    justify-content:space-between;
 
-    padding:0 6%;
+    background:rgba(5,5,5,.84);
+    backdrop-filter:blur(18px);
 
-    background:rgba(2,6,4,.97);
-
-    border-bottom:
-        1px solid rgba(57,255,136,.12);
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.28);
+    border-bottom:1px solid rgba(255,106,0,.18);
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
 }
 
-header::after{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-1px;
-
-    width:180px;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--green),
-            transparent
-        );
-
-    opacity:.65;
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-
-/* =========================================================
-   DASHBOARD BUTTON
-========================================================= */
+.logo span{
+    color:var(--orange);
+}
 
 .dashboard-btn{
-    position:relative;
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    min-width:145px;
-    height:42px;
-
-    padding:0 22px;
-
-    color:var(--green);
-
     text-decoration:none;
+    color:white;
 
-    font-family:"Orbitron",sans-serif;
+    padding:11px 18px;
 
-    font-size:10px;
-    font-weight:700;
+    border:1px solid var(--border);
+    border-radius:10px;
 
-    letter-spacing:1.6px;
+    font-size:12px;
+    font-weight:800;
 
-    text-transform:uppercase;
-
-    background:
-        rgba(57,255,136,.035);
-
-    border:
-        1px solid rgba(57,255,136,.45);
-
-    clip-path:polygon(
-        0 0,
-        calc(100% - 10px) 0,
-        100% 10px,
-        100% 100%,
-        10px 100%,
-        0 calc(100% - 10px)
-    );
-
-    overflow:hidden;
-
-    transition:
-        transform .35s var(--ease),
-        background .35s var(--ease),
-        color .35s var(--ease),
-        box-shadow .35s var(--ease);
-
-    will-change:transform;
-}
-
-.dashboard-btn::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-120%;
-
-    width:65%;
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(57,255,136,.25),
-            transparent
-        );
-
-    transform:skewX(-20deg);
-
-    transition:
-        left .65s var(--ease);
-}
-
-.dashboard-btn::after{
-    content:"";
-
-    position:absolute;
-
-    right:5px;
-    top:5px;
-
-    width:5px;
-    height:5px;
-
-    border-top:
-        1px solid var(--green);
-
-    border-right:
-        1px solid var(--green);
+    transition:.3s;
 }
 
 .dashboard-btn:hover{
-    color:#001b0d;
-
-    background:var(--green);
-
-    border-color:var(--green);
-
-    transform:translate3d(0,-2px,0);
-
-    box-shadow:
-        0 0 22px rgba(57,255,136,.15);
+    color:#000;
+    background:var(--orange);
+    box-shadow:0 0 25px rgba(255,106,0,.4);
+    transform:translateY(-2px);
 }
 
-.dashboard-btn:hover::before{
-    left:145%;
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-main{
-    width:min(1180px,92%);
-
-    margin:auto;
-
-    padding:70px 0 90px;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
+/* ================= HERO ================= */
 
 .hero{
-    position:relative;
-
-    min-height:315px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-    padding:30px 0;
-
-    animation:
-        heroIn .7s var(--ease) both;
+    width:min(1150px,92%);
+    margin:auto;
+    padding:85px 0 55px;
+    text-align:center;
 }
 
+.badge{
+    display:inline-block;
 
-/* =========================================================
-   HUD
-========================================================= */
+    padding:8px 15px;
 
-.hero::before{
-    content:"";
+    border:1px solid rgba(255,106,0,.35);
+    border-radius:999px;
 
-    position:absolute;
+    color:var(--orange);
+    background:rgba(255,106,0,.06);
 
-    width:230px;
-    height:230px;
-
-    right:-40px;
-    top:10px;
-
-    border:
-        1px solid rgba(57,255,136,.11);
-
-    border-radius:50%;
-
-    box-shadow:
-        0 0 30px rgba(57,255,136,.025);
-
-    pointer-events:none;
-}
-
-.hero::after{
-    content:"";
-
-    position:absolute;
-
-    width:170px;
-    height:170px;
-
-    right:-10px;
-    top:40px;
-
-    border:
-        1px dashed rgba(57,255,136,.09);
-
-    border-radius:50%;
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   BADGE
-========================================================= */
-
-.hero-badge{
-    width:max-content;
-
-    padding:8px 14px;
-
-    margin-bottom:20px;
-
-    color:var(--green);
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:9px;
-    font-weight:700;
-
+    font-size:11px;
+    font-weight:900;
     letter-spacing:2px;
 
-    background:
-        rgba(57,255,136,.035);
-
-    border:
-        1px solid rgba(57,255,136,.25);
-
-    clip-path:polygon(
-        0 0,
-        calc(100% - 7px) 0,
-        100% 7px,
-        100% 100%,
-        7px 100%,
-        0 calc(100% - 7px)
-    );
-
-    animation:
-        fadeIn .6s var(--ease) both;
+    margin-bottom:23px;
 }
 
-
-/* =========================================================
-   TITLE
-========================================================= */
-
 .hero h1{
-    max-width:850px;
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:
-        clamp(
-            44px,
-            7vw,
-            88px
-        );
-
-    line-height:.97;
-
-    letter-spacing:-3px;
-
-    text-transform:uppercase;
-
-    color:#effff5;
-
-    text-shadow:
-        0 0 20px rgba(57,255,136,.055);
-
-    animation:
-        titleIn .75s var(--ease) .05s both;
+    font-size:clamp(45px,7vw,82px);
+    line-height:.95;
+    letter-spacing:-4px;
+    font-weight:950;
 }
 
 .hero h1 span{
-    display:block;
-
-    color:transparent;
-
-    -webkit-text-stroke:
-        1px var(--green);
-
-    text-shadow:
-        0 0 18px rgba(57,255,136,.1);
+    color:var(--orange);
+    text-shadow:0 0 35px rgba(255,106,0,.3);
 }
-
-
-/* =========================================================
-   HERO TEXT
-========================================================= */
 
 .hero p{
-    max-width:650px;
+    max-width:720px;
+    margin:25px auto 0;
 
-    margin-top:22px;
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    line-height:1.8;
-
-    animation:
-        fadeUp .65s var(--ease) .12s both;
+    color:#999;
+    font-size:15px;
+    line-height:1.7;
 }
 
-
-/* =========================================================
-   INFO GRID
-========================================================= */
+/* ================= INFO ================= */
 
 .info-grid{
+    width:min(1150px,92%);
+    margin:0 auto 40px;
+
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-
-    margin-top:30px;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
-
-
-/* =========================================================
-   UNIVERSAL CARDS
-========================================================= */
-
-.info-card,
-.project-card,
-.service-card,
-.plan-card,
-.delivery-card{
-
-    position:relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(9,18,13,.98),
-            rgba(3,8,5,.98)
-        );
-
-    border:
-        1px solid rgba(57,255,136,.12);
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.22);
-
-    overflow:hidden;
-
-    transition:
-        transform .35s var(--ease),
-        border-color .35s var(--ease),
-        box-shadow .35s var(--ease);
-
-    will-change:transform;
-
-    clip-path:polygon(
-        0 0,
-        calc(100% - 11px) 0,
-        100% 11px,
-        100% 100%,
-        11px 100%,
-        0 calc(100% - 11px)
-    );
-}
-
-
-/* =========================================================
-   CARD SCAN
-========================================================= */
-
-.info-card::before,
-.project-card::before,
-.service-card::before,
-.plan-card::before,
-.delivery-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-100%;
-
-    width:45%;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--green),
-            transparent
-        );
-
-    transition:
-        left .65s var(--ease);
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   CARD CORNER
-========================================================= */
-
-.info-card::after,
-.project-card::after,
-.service-card::after,
-.plan-card::after,
-.delivery-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    right:9px;
-    bottom:9px;
-
-    width:9px;
-    height:9px;
-
-    border-right:
-        1px solid rgba(57,255,136,.38);
-
-    border-bottom:
-        1px solid rgba(57,255,136,.38);
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   CARD HOVER
-========================================================= */
-
-.info-card:hover,
-.project-card:hover,
-.service-card:hover,
-.plan-card:hover,
-.delivery-card:hover{
-
-    transform:
-        translate3d(0,-3px,0);
-
-    border-color:
-        rgba(57,255,136,.28);
-
-    box-shadow:
-        0 16px 38px rgba(0,0,0,.3),
-        0 0 22px rgba(57,255,136,.045);
-}
-
-.info-card:hover::before,
-.project-card:hover::before,
-.service-card:hover::before,
-.plan-card:hover::before,
-.delivery-card:hover::before{
-
-    left:145%;
-}
-
-
-/* =========================================================
-   INFO CARD
-========================================================= */
 
 .info-card{
-    min-height:145px;
+    padding:25px;
 
-    padding:24px;
+    background:rgba(15,15,15,.88);
+
+    border:1px solid rgba(255,106,0,.18);
+    border-radius:18px;
+
+    transition:.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,106,0,.55);
+    box-shadow:0 15px 40px rgba(255,106,0,.08);
+}
+
+.icon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+    color:var(--orange);
+    background:rgba(255,106,0,.09);
+
+    font-weight:900;
 }
 
 .info-card h3{
-    margin-bottom:9px;
-
-    color:var(--green);
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:12px;
-
-    letter-spacing:1.3px;
-
-    text-transform:uppercase;
+    font-size:18px;
+    margin-bottom:8px;
 }
 
 .info-card p{
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.65;
+    color:#888;
+    font-size:13px;
+    line-height:1.6;
 }
 
+/* ================= MAIN ================= */
 
-/* =========================================================
-   FORM BOX
-========================================================= */
-
-.form-box{
-    position:relative;
-
-    margin-top:65px;
-
-    padding:42px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(8,17,12,.99),
-            rgba(2,7,4,.99)
-        );
-
-    border:
-        1px solid rgba(57,255,136,.15);
-
-    clip-path:polygon(
-        0 0,
-        calc(100% - 16px) 0,
-        100% 16px,
-        100% calc(100% - 16px),
-        calc(100% - 16px) 100%,
-        16px 100%,
-        0 calc(100% - 16px)
-    );
-
-    box-shadow:
-        0 25px 65px rgba(0,0,0,.3);
-
-    animation:
-        fadeUp .8s var(--ease) both;
+.wrapper{
+    width:min(1000px,92%);
+    margin:40px auto 80px;
 }
 
-.form-box::before{
-    content:"";
+.form-section{
+    padding:28px;
+    margin-bottom:20px;
 
-    position:absolute;
+    background:rgba(12,12,12,.90);
 
-    top:0;
-    left:8%;
+    border:1px solid rgba(255,106,0,.18);
+    border-radius:20px;
 
-    width:84%;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(57,255,136,.65),
-            transparent
-        );
-
-    opacity:.55;
+    box-shadow:0 15px 50px rgba(0,0,0,.18);
 }
-
-
-/* =========================================================
-   SECTION
-========================================================= */
-
-.section{
-    margin-bottom:48px;
-}
-
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
 
 .section-title{
     display:flex;
     align-items:center;
-
-    gap:14px;
-
-    margin-bottom:22px;
-
-    color:#eafff1;
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:15px;
-
-    letter-spacing:1.4px;
-
-    text-transform:uppercase;
+    gap:13px;
+    margin-bottom:23px;
 }
 
-.section-title span{
-    color:var(--green);
-
-    font-size:10px;
-
+.section-number{
+    color:var(--orange);
+    font-size:12px;
+    font-weight:900;
     letter-spacing:2px;
 }
 
-.section-title::after{
-    content:"";
-
-    flex:1;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(57,255,136,.2),
-            transparent
-        );
+.section-title h2{
+    font-size:19px;
 }
 
-
-/* =========================================================
-   LABEL
-========================================================= */
-
-label{
-    display:block;
-
-    margin-bottom:8px;
-
-    color:#bcd0c3;
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-}
-
-
-/* =========================================================
-   FORM GRID
-========================================================= */
+/* ================= INPUT ================= */
 
 .form-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:20px;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
 
-/* =========================================================
-   INPUTS
-========================================================= */
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    color:#ccc;
+    font-size:12px;
+    font-weight:700;
+}
 
 input,
 select,
 textarea{
-
     width:100%;
 
-    padding:14px 15px;
+    padding:14px;
 
-    color:var(--white);
+    background:#080808;
+    color:white;
 
-    font-family:"Inter",sans-serif;
-
-    font-size:13px;
-
-    background:#050c08;
-
-    border:
-        1px solid rgba(57,255,136,.12);
-
-    border-radius:0;
+    border:1px solid #292929;
+    border-radius:11px;
 
     outline:none;
 
-    transition:
-        border-color .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
-}
+    font-size:14px;
 
-input::placeholder,
-textarea::placeholder{
-    color:#53695d;
-}
-
-input:hover,
-select:hover,
-textarea:hover{
-    border-color:
-        rgba(57,255,136,.23);
+    transition:.25s;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-
-    background:#07110b;
-
-    border-color:
-        rgba(57,255,136,.55);
-
-    box-shadow:
-        0 0 0 2px rgba(57,255,136,.035),
-        0 0 18px rgba(57,255,136,.05);
+    border-color:var(--orange);
+    box-shadow:0 0 0 3px rgba(255,106,0,.08);
 }
 
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
 
-/* =========================================================
-   PROJECT OPTIONS
-========================================================= */
+/* ================= OPTIONS ================= */
 
-.project-options{
+.options{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:13px;
 }
 
-.project-card{
-    padding:24px;
-
-    cursor:pointer;
+.options.two{
+    grid-template-columns:repeat(2,1fr);
 }
 
-.project-card h3,
-.service-card h3,
-.plan-card h3,
-.delivery-card h3{
-
-    color:var(--green);
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:12px;
-
-    letter-spacing:1px;
-}
-
-.project-card p,
-.service-card p,
-.plan-card p,
-.delivery-card p{
-
-    margin-top:8px;
-
-    color:var(--muted);
-
-    font-size:11px;
-
-    line-height:1.65;
-}
-
-
-/* =========================================================
-   ACTIVE CARD
-========================================================= */
-
-.project-card.active,
-.service-card.active,
-.plan-card.active,
-.delivery-card.active{
-
-    border-color:
-        rgba(57,255,136,.7);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(57,255,136,.065),
-            rgba(3,9,6,.98)
-        );
-
-    box-shadow:
-        0 0 25px rgba(57,255,136,.065),
-        inset 0 0 20px rgba(57,255,136,.018);
-}
-
-
-/* =========================================================
-   SONG COUNT
-========================================================= */
-
-.song-count{
-    margin-top:20px;
-}
-
-
-/* =========================================================
-   SERVICE
-========================================================= */
-
-.service-options{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:13px;
-}
-
-.service-card{
-    padding:24px;
-
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   PLAN
-========================================================= */
-
-.plan-options{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:14px;
-}
-
-.plan-card{
-    padding:26px;
-
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   AUDIO NOTICE
-========================================================= */
-
-.audio-notice{
+.option{
     position:relative;
-
-    padding:20px 22px;
-
-    background:
-        rgba(57,255,136,.025);
-
-    border:
-        1px solid rgba(57,255,136,.1);
-
-    border-left:
-        2px solid var(--green);
-
-    overflow:hidden;
 }
 
-.audio-notice::before{
-    content:"";
-
+.option input{
     position:absolute;
-
-    left:0;
-    top:0;
-
-    width:100%;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(57,255,136,.5),
-            transparent
-        );
-
-    opacity:.5;
+    opacity:0;
+    pointer-events:none;
 }
 
-.audio-notice strong{
-    color:var(--green);
+.option label{
+    display:block;
 
-    font-family:"Orbitron",sans-serif;
+    min-height:94px;
+    padding:18px;
+
+    cursor:pointer;
+
+    background:#090909;
+    border:1px solid #292929;
+    border-radius:14px;
+
+    transition:.25s;
+}
+
+.option label strong{
+    display:block;
+    margin-bottom:7px;
+
+    font-size:14px;
+}
+
+.option label span{
+    display:block;
+
+    color:#818181;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.option input:checked + label{
+    background:rgba(255,106,0,.07);
+    border-color:var(--orange);
+    box-shadow:0 0 25px rgba(255,106,0,.09);
+}
+
+.option input:checked + label strong{
+    color:var(--orange);
+}
+
+/* ================= PROJECT TYPE ================= */
+
+.project-option label{
+    min-height:105px;
+}
+
+.project-option .range{
+    color:#666;
+    display:block;
+    margin-top:5px;
+}
+
+.project-option input:checked + label .range{
+    color:#aaa;
+}
+
+/* ================= DEBUT+ ================= */
+
+.debut-box{
+    display:none;
+
+    margin-top:20px;
+    padding:22px;
+
+    border:1px solid rgba(255,106,0,.5);
+    border-radius:16px;
+
+    background:
+        radial-gradient(circle at 100% 0%,rgba(255,106,0,.15),transparent 45%),
+        #0a0a0a;
+}
+
+.debut-box.active{
+    display:block;
+}
+
+.debut-badge{
+    display:inline-block;
+
+    padding:6px 10px;
+
+    color:#000;
+    background:var(--orange);
+
+    border-radius:6px;
 
     font-size:10px;
-
+    font-weight:950;
     letter-spacing:1px;
+
+    margin-bottom:10px;
 }
 
-.audio-notice p{
-    margin-top:8px;
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.7;
+.debut-box h3{
+    font-size:20px;
+    margin-bottom:7px;
 }
 
-
-/* =========================================================
-   DELIVERY
-========================================================= */
-
-.delivery-options{
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:14px;
+.debut-box p{
+    color:#999;
+    font-size:13px;
+    line-height:1.6;
 }
 
-.delivery-card{
-    padding:24px;
+.debut-price{
+    margin-top:15px;
 
-    cursor:pointer;
+    color:var(--orange);
+
+    font-size:28px;
+    font-weight:950;
 }
 
+/* ================= NOTICE ================= */
 
-/* =========================================================
-   CHECKBOX
-========================================================= */
+.notice{
+    padding:17px;
 
-.checkbox-group{
+    border:1px dashed rgba(255,106,0,.35);
+    border-radius:13px;
+
+    background:rgba(255,106,0,.035);
+
+    color:#999;
+
+    font-size:13px;
+    line-height:1.6;
+}
+
+.notice strong{
+    color:var(--orange);
+}
+
+/* ================= CHECKBOX ================= */
+
+.checkbox-row{
     display:flex;
-    flex-direction:column;
-
-    gap:11px;
-
-    margin-top:20px;
-}
-
-.checkbox-item{
-    display:flex;
-    align-items:center;
-
     gap:10px;
 
-    color:var(--muted);
+    margin-top:14px;
 
-    font-family:"Inter",sans-serif;
+    color:#999;
 
-    font-size:12px;
-
-    cursor:pointer;
+    font-size:13px;
+    line-height:1.5;
 }
 
-.checkbox-item input{
-    width:15px;
-    height:15px;
-
-    padding:0;
-
-    accent-color:var(--green);
-
-    box-shadow:none;
+.checkbox-row input{
+    width:auto;
+    margin-top:3px;
+    accent-color:var(--orange);
 }
 
-
-/* =========================================================
-   BILL
-========================================================= */
+/* ================= BILL ================= */
 
 .bill{
-    position:relative;
+    background:
+        radial-gradient(circle at 100% 0%,rgba(255,106,0,.12),transparent 35%),
+        #090909;
 
-    padding:26px;
-
-    background:#040b07;
-
-    border:
-        1px solid rgba(57,255,136,.18);
-
-    clip-path:polygon(
-        0 0,
-        calc(100% - 12px) 0,
-        100% 12px,
-        100% 100%,
-        12px 100%,
-        0 calc(100% - 12px)
-    );
+    border-color:rgba(255,106,0,.35);
 }
 
-.bill::after{
-    content:"LIVE";
-
-    position:absolute;
-
-    top:12px;
-    right:14px;
-
-    color:var(--green);
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:7px;
-
-    letter-spacing:2px;
-
-    opacity:.55;
+.bill-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 }
 
 .bill-row{
     display:flex;
-
-    align-items:center;
     justify-content:space-between;
 
-    padding:10px 0;
+    gap:20px;
 
-    border-bottom:
-        1px solid rgba(57,255,136,.055);
-}
+    padding-bottom:12px;
 
-.bill-row:last-child{
-    border-bottom:0;
-}
+    border-bottom:1px solid #222;
 
-.bill-row span:first-child{
-    color:var(--muted);
-
-    font-size:11px;
+    color:#999;
+    font-size:14px;
 }
 
 .bill-row span:last-child{
-    color:#dffff0;
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:11px;
+    color:white;
+    font-weight:700;
 }
 
-.bill-total{
-    margin-top:10px;
-
-    padding-top:17px;
-
-    border-top:
-        1px solid rgba(57,255,136,.17);
+.bill-row.debut{
+    display:none;
 }
 
-.bill-total span:last-child{
-    color:var(--green);
-
-    font-size:19px;
-
-    text-shadow:
-        0 0 12px rgba(57,255,136,.13);
+.bill-row.debut.active{
+    display:flex;
 }
 
+.bill-row.adjustment span:last-child{
+    color:var(--orange);
+}
 
-/* =========================================================
-   SUBMIT BUTTON
-========================================================= */
+.bill-row.delivery span:last-child{
+    color:#ddd;
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:18px;
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,106,0,.3);
+}
+
+.total-row span:first-child{
+    color:#aaa;
+    font-size:14px;
+    font-weight:700;
+}
+
+.total-price{
+    color:var(--orange);
+
+    font-size:34px;
+    font-weight:950;
+
+    text-shadow:0 0 25px rgba(255,106,0,.25);
+}
+
+/* ================= BUTTON ================= */
 
 .submit-btn{
-    position:relative;
-
     width:100%;
 
-    min-height:56px;
+    margin-top:20px;
+    padding:17px;
 
-    margin-top:24px;
+    border:0;
+    border-radius:13px;
 
-    border:
-        1px solid var(--green);
+    color:#000;
 
-    color:#00190b;
+    background:linear-gradient(
+        135deg,
+        #ff6a00,
+        #ff8c00
+    );
 
-    background:
-        var(--green);
-
-    font-family:"Orbitron",sans-serif;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    letter-spacing:1.7px;
+    font-size:15px;
+    font-weight:950;
 
     cursor:pointer;
 
-    clip-path:polygon(
-        0 0,
-        calc(100% - 13px) 0,
-        100% 13px,
-        100% 100%,
-        13px 100%,
-        0 calc(100% - 13px)
-    );
-
-    overflow:hidden;
-
-    transition:
-        transform .3s var(--ease),
-        box-shadow .3s var(--ease),
-        background .3s ease;
-
-    will-change:transform;
-}
-
-.submit-btn::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-110%;
-
-    width:50%;
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.35),
-            transparent
-        );
-
-    transform:skewX(-20deg);
-
-    transition:
-        left .7s var(--ease);
-
-    pointer-events:none;
-}
-
-.submit-btn::after{
-    content:"";
-
-    position:absolute;
-
-    inset:5px;
-
-    border:
-        1px solid rgba(0,30,15,.18);
-
-    pointer-events:none;
+    transition:.3s;
 }
 
 .submit-btn:hover{
-    transform:
-        translate3d(0,-2px,0);
-
-    background:#4dff97;
-
-    box-shadow:
-        0 10px 30px rgba(57,255,136,.16),
-        0 0 25px rgba(57,255,136,.07);
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(255,106,0,.25);
 }
 
-.submit-btn:hover::before{
-    left:145%;
+.submit-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
 }
 
-.submit-btn:active{
-    transform:
-        translate3d(0,0,0)
-        scale(.995);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
 footer{
-    position:relative;
-
-    padding:42px 6%;
+    padding:35px 20px;
 
     text-align:center;
 
-    background:#010503;
+    border-top:1px solid rgba(255,255,255,.06);
 
-    border-top:
-        1px solid rgba(57,255,136,.1);
-}
-
-footer p{
-    color:#5e7467;
-
-    font-size:10px;
-
-    letter-spacing:.5px;
+    color:#666;
+    font-size:12px;
 }
 
 footer strong{
-    color:var(--green);
-
-    font-family:"Orbitron",sans-serif;
+    color:var(--orange);
 }
 
+/* ================= MOBILE ================= */
 
-/* =========================================================
-   LIGHTWEIGHT ANIMATIONS
-========================================================= */
+@media(max-width:800px){
 
-@keyframes heroIn{
-
-    from{
-        opacity:0;
-
-        transform:
-            translate3d(0,12px,0);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            translate3d(0,0,0);
-    }
-}
-
-@keyframes titleIn{
-
-    from{
-        opacity:0;
-
-        transform:
-            translate3d(0,12px,0);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            translate3d(0,0,0);
-    }
-}
-
-@keyframes fadeIn{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-}
-
-@keyframes fadeUp{
-
-    from{
-        opacity:0;
-
-        transform:
-            translate3d(0,12px,0);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            translate3d(0,0,0);
-    }
-}
-
-
-/* =========================================================
-   SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar{
-    width:7px;
-}
-
-::-webkit-scrollbar-track{
-    background:#020604;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#075b32;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background:var(--green);
-}
-
-
-/* =========================================================
-   SELECTION
-========================================================= */
-
-::selection{
-    color:#001b0d;
-
-    background:var(--green);
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:850px){
-
-    main{
-        width:90%;
-
-        padding-top:55px;
-    }
-
-    .hero{
-        min-height:285px;
-    }
-
-    .hero h1{
-        font-size:
-            clamp(
-                40px,
-                9vw,
-                68px
-            );
-    }
-
-    .info-grid,
-    .project-options,
-    .service-options{
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .form-box{
-        padding:32px;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:600px){
-
-    header{
-        height:64px;
-
-        padding:0 5%;
-    }
-
-    main{
-        width:90%;
-
-        padding:
-            42px 0
-            65px;
-    }
-
-    .hero{
-        min-height:255px;
-    }
-
-    .hero::before{
-        width:150px;
-        height:150px;
-
-        right:-75px;
-        top:15px;
-    }
-
-    .hero::after{
-        width:105px;
-        height:105px;
-
-        right:-53px;
-        top:37px;
-    }
-
-    .hero h1{
-        font-size:
-            clamp(
-                36px,
-                12vw,
-                56px
-            );
-
-        letter-spacing:-2px;
-    }
-
-    .hero p{
-        font-size:12px;
-
-        line-height:1.7;
-    }
-
-    .info-grid,
-    .project-options,
-    .service-options,
-    .plan-options,
-    .delivery-options,
-    .form-grid{
-
+    .info-grid{
         grid-template-columns:1fr;
     }
 
-    .form-box{
-        margin-top:45px;
-
-        padding:23px 17px;
+    .options{
+        grid-template-columns:1fr;
     }
 
-    .section{
-        margin-bottom:42px;
+    .options.two{
+        grid-template-columns:1fr;
     }
 
-    .section-title{
-        font-size:12px;
+    .form-grid{
+        grid-template-columns:1fr;
     }
 
+    .field.full{
+        grid-column:auto;
+    }
+
+    .hero{
+        padding-top:60px;
+    }
 }
 
+@media(max-width:520px){
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+    header{
+        height:68px;
+        padding:0 5%;
+    }
 
-@media(max-width:380px){
+    .logo{
+        font-size:20px;
+    }
+
+    .dashboard-btn{
+        padding:9px 12px;
+        font-size:11px;
+    }
+
+    .hero{
+        width:92%;
+        padding:50px 0 40px;
+    }
 
     .hero h1{
-        font-size:34px;
+        font-size:45px;
+        letter-spacing:-2px;
     }
 
-    .hero-badge{
-        font-size:8px;
+    .wrapper{
+        width:94%;
     }
 
-    .form-box{
-        padding:20px 14px;
+    .form-section{
+        padding:20px;
     }
 
-    .submit-btn{
-        min-height:53px;
-
-        font-size:9px;
-
-        letter-spacing:1.3px;
+    .total-price{
+        font-size:27px;
     }
-
 }
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation:none !important;
-
-        transition:none !important;
-
-        scroll-behavior:auto !important;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
-
 
 <header>
 
-    <a
-        href="index.html"
-        class="dashboard-btn">
+   
 
+    <a href="dashboard.html" class="dashboard-btn">
         ← Dashboard
-
     </a>
 
 </header>
 
 
-<main>
+<section class="hero">
+
+    <div class="badge">
+        RUDRAVX // AUDIO ENGINEERING
+    </div>
+
+    <h1>
+        Mixing & <span>Mastering</span>
+    </h1>
+
+    <p>
+        Professional mixing and mastering for artists who want
+        their music to sound clean, powerful and release-ready.
+    </p>
+
+</section>
 
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+<section class="info-grid">
 
-    <section class="hero">
+    <div class="info-card">
 
-        <div class="hero-badge">
-            RUDRAVX // AUDIO ENGINEERING
-        </div>
+        <div class="icon">M</div>
 
-        <h1>
-            Mixing &
-            <span>Mastering</span>
-        </h1>
+        <h3>Mixing</h3>
 
         <p>
-            Professional mixing and mastering designed to give your music
-            clarity, depth, punch and a polished final sound.
+            Balance vocals, instruments, drums and effects
+            for a clean and powerful final mix.
         </p>
-
-    </section>
-
-
-    <!-- =====================================================
-         INFO
-    ====================================================== -->
-
-    <section class="info-grid">
-
-
-        <article class="info-card">
-
-            <h3>
-                Mixing
-            </h3>
-
-            <p>
-                Balance vocals, instruments and effects to create
-                a clean and powerful mix.
-            </p>
-
-        </article>
-
-
-        <article class="info-card">
-
-            <h3>
-                Mastering
-            </h3>
-
-            <p>
-                Final polish, loudness, dynamics and tonal balance
-                for release-ready audio.
-            </p>
-
-        </article>
-
-
-        <article class="info-card">
-
-            <h3>
-                Delivery
-            </h3>
-
-            <p>
-                Receive your final processed files in professional
-                high-quality formats.
-            </p>
-
-        </article>
-
-
-    </section>
-
-
-    <!-- =====================================================
-         FORM BOX
-    ====================================================== -->
-
-    <div class="form-box">
-
-
-        <form id="mixingForm">
-
-
-            <!-- =================================================
-                 01
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        01
-                    </span>
-
-                    Artist Information
-
-                </div>
-
-
-                <div class="form-grid">
-
-
-                    <div>
-
-                        <label>
-                            Artist Name
-                        </label>
-
-                        <input
-                            type="text"
-                            name="artist_name"
-                            placeholder="Enter artist name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Email
-                        </label>
-
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter email address"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Phone Number
-                        </label>
-
-                        <input
-                            type="tel"
-                            name="phone"
-                            placeholder="Enter phone number"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Project Name
-                        </label>
-
-                        <input
-                            type="text"
-                            name="project_name"
-                            placeholder="Enter project name"
-                            required
-                        >
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 02
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        02
-                    </span>
-
-                    Project Type
-
-                </div>
-
-
-                <div class="project-options">
-
-
-                    <div
-                        class="project-card active"
-                        data-project="Single">
-
-                        <h3>
-                            Single
-                        </h3>
-
-                        <p>
-                            One song project.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="project-card"
-                        data-project="EP">
-
-                        <h3>
-                            EP
-                        </h3>
-
-                        <p>
-                            2–7 songs.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="project-card"
-                        data-project="Album">
-
-                        <h3>
-                            Album
-                        </h3>
-
-                        <p>
-                            8–50 songs.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="song-count">
-
-                    <label>
-                        Number of Songs
-                    </label>
-
-                    <select
-                        id="songCount"
-                        name="song_count">
-                    </select>
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 03
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        03
-                    </span>
-
-                    Service
-
-                </div>
-
-
-                <div class="service-options">
-
-
-                    <div
-                        class="service-card active"
-                        data-service="Mixing + Mastering">
-
-                        <h3>
-                            Mixing + Mastering
-                        </h3>
-
-                        <p>
-                            Complete audio processing.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="service-card"
-                        data-service="Only Mixing">
-
-                        <h3>
-                            Only Mixing
-                        </h3>
-
-                        <p>
-                            Professional mixing only.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="service-card"
-                        data-service="Only Mastering">
-
-                        <h3>
-                            Only Mastering
-                        </h3>
-
-                        <p>
-                            Final mastering only.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 04
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        04
-                    </span>
-
-                    Plan
-
-                </div>
-
-
-                <div class="plan-options">
-
-
-                    <div
-                        class="plan-card active"
-                        data-plan="Basic">
-
-                        <h3>
-                            Basic
-                        </h3>
-
-                        <p>
-                            Essential professional processing
-                            for your project.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="plan-card"
-                        data-plan="Premium">
-
-                        <h3>
-                            Premium
-                        </h3>
-
-                        <p>
-                            Advanced processing and detailed
-                            finishing for a polished result.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 05
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        05
-                    </span>
-
-                    Audio Submission
-
-                </div>
-
-
-                <div class="audio-notice">
-
-                    <strong>
-                        OFFICIAL AUDIO SUBMISSION
-                    </strong>
-
-                    <p>
-                        After submitting this request, send your
-                        project files to <b>rudravaax@gmail.com</b>
-                        with your project name and artist name.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 06
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        06
-                    </span>
-
-                    Delivery
-
-                </div>
-
-
-                <div class="delivery-options">
-
-
-                    <div
-                        class="delivery-card active"
-                        data-delivery="Standard">
-
-                        <h3>
-                            Standard
-                        </h3>
-
-                        <p>
-                            Regular delivery.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="delivery-card"
-                        data-delivery="Priority">
-
-                        <h3>
-                            Priority
-                        </h3>
-
-                        <p>
-                            Faster delivery.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 07
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        07
-                    </span>
-
-                    Additional Information
-
-                </div>
-
-
-                <div>
-
-                    <label>
-                        Notes / References
-                    </label>
-
-                    <textarea
-                        name="notes"
-                        rows="5"
-                        placeholder="Tell us about your sound, references or special requirements..."
-                    ></textarea>
-
-                </div>
-
-
-                <div class="checkbox-group">
-
-
-                    <label class="checkbox-item">
-
-                        <input
-                            type="checkbox"
-                            name="stems_ready"
-                        >
-
-                        My audio files/stems are ready.
-
-                    </label>
-
-
-                    <label class="checkbox-item">
-
-                        <input
-                            type="checkbox"
-                            name="terms"
-                            required
-                        >
-
-                        I agree to the service terms.
-
-                    </label>
-
-
-                </div>
-
-            </section>
-
-
-            <!-- =================================================
-                 08
-            ================================================== -->
-
-            <section class="section">
-
-                <div class="section-title">
-
-                    <span>
-                        08
-                    </span>
-
-                    Final Bill
-
-                </div>
-
-
-                <div class="bill">
-
-
-                    <div class="bill-row">
-
-                        <span>
-                            Service
-                        </span>
-
-                        <span id="billService">
-                            Mixing + Mastering
-                        </span>
-
-                    </div>
-
-
-                    <div class="bill-row">
-
-                        <span>
-                            Plan
-                        </span>
-
-                        <span id="billPlan">
-                            Basic
-                        </span>
-
-                    </div>
-
-
-                    <div class="bill-row">
-
-                        <span>
-                            Songs
-                        </span>
-
-                        <span id="billSongs">
-                            1
-                        </span>
-
-                    </div>
-
-
-                    <div class="bill-row">
-
-                        <span>
-                            Base Price
-                        </span>
-
-                        <span id="billBase">
-                            $29.99
-                        </span>
-
-                    </div>
-
-
-                    <div class="bill-row">
-
-                        <span>
-                            Discount
-                        </span>
-
-                        <span id="billDiscount">
-                            $0.00
-                        </span>
-
-                    </div>
-
-
-                    <div class="bill-row">
-
-                        <span>
-                            Delivery
-                        </span>
-
-                        <span id="billDelivery">
-                            Standard
-                        </span>
-
-                    </div>
-
-
-                    <div class="bill-total bill-row">
-
-                        <span>
-                            Total
-                        </span>
-
-                        <span id="billTotal">
-                            $29.99
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="submit-btn">
-
-                    SUBMIT MIXING & MASTERING REQUEST
-
-                </button>
-
-
-            </section>
-
-
-            <!-- =================================================
-                 HIDDEN WEB3FORMS DATA
-            ================================================== -->
-
-            <input
-                type="hidden"
-                name="access_key"
-                value="1887c1a2-4f71-4e66-91e2-5b8872960792"
-            >
-
-            <input
-                type="hidden"
-                name="subject"
-                value="New RudraVX Mixing & Mastering Request"
-            >
-
-            <input
-                type="hidden"
-                name="from_name"
-                value="RudraVX Mixing & Mastering"
-            >
-
-            <input
-                type="hidden"
-                name="redirect"
-                value="dashboard.html"
-            >
-
-            <input
-                type="hidden"
-                name="selected_project"
-                id="selectedProject"
-                value="Single"
-            >
-
-            <input
-                type="hidden"
-                name="selected_service"
-                id="selectedService"
-                value="Mixing + Mastering"
-            >
-
-            <input
-                type="hidden"
-                name="selected_plan"
-                id="selectedPlan"
-                value="Basic"
-            >
-
-            <input
-                type="hidden"
-                name="selected_delivery"
-                id="selectedDelivery"
-                value="Standard"
-            >
-
-            <input
-                type="hidden"
-                name="final_price"
-                id="finalPrice"
-                value="29.99"
-            >
-
-
-        </form>
 
     </div>
 
-</main>
+
+    <div class="info-card">
+
+        <div class="icon">MS</div>
+
+        <h3>Mastering</h3>
+
+        <p>
+            Final loudness, clarity, dynamics and tonal balance
+            prepared for digital platforms.
+        </p>
+
+    </div>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+    <div class="info-card">
+
+        <div class="icon">DL</div>
+
+        <h3>Delivery</h3>
+
+        <p>
+            Receive your final processed files in
+            high-quality release-ready formats.
+        </p>
+
+    </div>
+
+</section>
+
+
+<form
+    id="mixingForm"
+    class="wrapper"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+>
+
+
+<!-- ================= WEB3FORMS ================= -->
+
+<input
+    type="hidden"
+    name="access_key"
+    value="1887c1a2-4f71-4e66-91e2-5b8872960792"
+>
+
+<input
+    type="hidden"
+    name="subject"
+    value="New RudraVX Mixing & Mastering Request"
+>
+
+<input
+    type="hidden"
+    name="from_name"
+    value="RudraVX Mixing & Mastering"
+>
+
+<input
+    type="hidden"
+    name="redirect"
+    value="dashboard.html"
+>
+
+
+<input type="hidden" name="selected_project" id="hiddenProject">
+<input type="hidden" name="selected_service" id="hiddenService">
+<input type="hidden" name="selected_plan" id="hiddenPlan">
+<input type="hidden" name="song_count" id="hiddenSongs">
+
+<input type="hidden" name="debut_plus" id="hiddenDebut">
+
+<input type="hidden" name="base_price" id="hiddenBase">
+<input type="hidden" name="service_adjustment" id="hiddenAdjustment">
+<input type="hidden" name="delivery_charge" id="hiddenDelivery">
+<input type="hidden" name="final_price" id="hiddenFinal">
+
+
+<!-- ================= 01 ARTIST ================= -->
+
+<section class="form-section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            01
+        </div>
+
+        <h2>
+            Artist Information
+        </h2>
+
+    </div>
+
+
+    <div class="form-grid">
+
+        <div class="field">
+
+            <label>
+                Artist Name *
+            </label>
+
+            <input
+                type="text"
+                name="artist_name"
+                required
+                placeholder="Enter artist name"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Email *
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                required
+                placeholder="Enter email address"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Phone
+            </label>
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Enter phone number"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Project Name *
+            </label>
+
+            <input
+                type="text"
+                name="project_name"
+                required
+                placeholder="Song / EP / Album name"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 02 PROJECT ================= -->
+
+<section class="form-section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            02
+        </div>
+
+        <h2>
+            Project Type
+        </h2>
+
+    </div>
+
+
+    <div class="options">
+
+        <!-- SINGLE -->
+
+        <div class="option project-option">
+
+            <input
+                type="radio"
+                id="single"
+                name="project_type"
+                value="Single"
+                checked
+                onchange="changeProject('single')"
+            >
+
+            <label for="single">
+
+                <strong>
+                    Single
+                </strong>
+
+                <span>
+                    Exactly 1 song
+                </span>
+
+                <span class="range">
+                    1 song only
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <!-- EP -->
+
+        <div class="option project-option">
+
+            <input
+                type="radio"
+                id="ep"
+                name="project_type"
+                value="EP"
+                onchange="changeProject('ep')"
+            >
+
+            <label for="ep">
+
+                <strong>
+                    EP
+                </strong>
+
+                <span>
+                    Multiple-song project
+                </span>
+
+                <span class="range">
+                    2–7 songs
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <!-- ALBUM -->
+
+        <div class="option project-option">
+
+            <input
+                type="radio"
+                id="album"
+                name="project_type"
+                value="Album"
+                onchange="changeProject('album')"
+            >
+
+            <label for="album">
+
+                <strong>
+                    Album
+                </strong>
+
+                <span>
+                    Full project
+                </span>
+
+                <span class="range">
+                    8–18 songs
+                </span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- SONG COUNT -->
+
+    <div class="field" style="margin-top:20px;">
+
+        <label>
+            Number of Songs *
+        </label>
+
+        <select
+            id="songCount"
+            required
+            onchange="updatePrice()"
+        ></select>
+
+    </div>
+
+
+    <!-- DEBUT+ -->
+
+    <div
+        class="debut-box"
+        id="debutBox"
+    >
+
+        <div class="debut-badge">
+            DEBUT+ SUBSCRIPTION
+        </div>
+
+        <h3>
+            19+ Song Project
+        </h3>
+
+        <p>
+            Projects containing more than 18 songs require
+            the RudraVX Debut+ Subscription. Normal Album
+            pricing is not available for 19+ songs.
+        </p>
+
+        <div class="debut-price">
+            $29.99
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 03 SERVICE ================= -->
+
+<section class="form-section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            03
+        </div>
+
+        <h2>
+            Service
+        </h2>
+
+    </div>
+
+
+    <div class="options">
+
+        <div class="option">
+
+            <input
+                type="radio"
+                id="mixMaster"
+                name="service"
+                value="Mixing + Mastering"
+                checked
+                onchange="updatePrice()"
+            >
+
+            <label for="mixMaster">
+
+                <strong>
+                    Mixing + Mastering
+                </strong>
+
+                <span>
+                    Complete audio engineering
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <div class="option">
+
+            <input
+                type="radio"
+                id="onlyMix"
+                name="service"
+                value="Only Mixing"
+                onchange="updatePrice()"
+            >
+
+            <label for="onlyMix">
+
+                <strong>
+                    Only Mixing
+                </strong>
+
+                <span>
+                    Professional mixing only
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <div class="option">
+
+            <input
+                type="radio"
+                id="onlyMaster"
+                name="service"
+                value="Only Mastering"
+                onchange="updatePrice()"
+            >
+
+            <label for="onlyMaster">
+
+                <strong>
+                    Only Mastering
+                </strong>
+
+                <span>
+                    Professional mastering only
+                </span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 04 PLAN ================= -->
+
+<section class="form-section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            04
+        </div>
+
+        <h2>
+            Plan
+        </h2>
+
+    </div>
+
+
+    <div class="options two">
+
+        <div class="option">
+
+            <input
+                type="radio"
+                id="basic"
+                name="plan"
+                value="Basic"
+                checked
+                onchange="updatePrice()"
+            >
+
+            <label for="basic">
+
+                <strong>
+                    Basic
+                </strong>
+
+                <span>
+                    Essential professional processing
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <div class="option">
+
+            <input
+                type="radio"
+                id="premium"
+                name="plan"
+                value="Premium"
+                onchange="updatePrice()"
+            >
+
+            <label for="premium">
+
+                <strong>
+                    Premium
+                </strong>
+
+                <span>
+                    Advanced processing and detailed finishing
+                </span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 05 AUDIO ================= -->
+
+<section class="form-section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            05
+        </div>
+
+        <h2>
+            Audio Submission
+        </h2>
+
+    </div>
+
+
+    <div class="notice">
+
+        <strong>
+            Important:
+        </strong>
+
+        After submitting this request, the RudraVX team
+        will contact you regarding your audio files,
+        stems and required format.
+
+        Please keep your highest-quality files ready.
+
+    </div>
+
+</section>
+
+
+<!-- ================= 06 DELIVERY ================= -->
+
+<section class="form-section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            06
+        </div>
+
+        <h2>
+            Delivery
+        </h2>
+
+    </div>
+
+
+    <div class="options two">
+
+        <div class="option">
+
+            <input
+                type="radio"
+                id="standard"
+                name="delivery"
+                value="Standard"
+                checked
+                onchange="updatePrice()"
+            >
+
+            <label for="standard">
+
+                <strong>
+                    Standard Delivery
+                </strong>
+
+                <span>
+                    Regular processing timeline
+                </span>
+
+            </label>
+
+        </div>
+
+
+        <div class="option">
+
+            <input
+                type="radio"
+                id="priority"
+                name="delivery"
+                value="Priority"
+                onchange="updatePrice()"
+            >
+
+            <label for="priority">
+
+                <strong>
+                    Priority Delivery
+                </strong>
+
+                <span>
+                    Faster processing — +$4.99
+                </span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 07 NOTES ================= -->
+
+<section class="form-section">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            07
+        </div>
+
+        <h2>
+            Additional Information
+        </h2>
+
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            Additional Notes
+        </label>
+
+        <textarea
+            name="notes"
+            placeholder="Tell us anything important about your project..."
+        ></textarea>
+
+    </div>
+
+
+    <label class="checkbox-row">
+
+        <input
+            type="checkbox"
+            name="stems_ready"
+            value="Yes"
+        >
+
+        <span>
+            I understand that I may need to provide
+            properly organized stems/audio files.
+        </span>
+
+    </label>
+
+
+    <label class="checkbox-row">
+
+        <input
+            type="checkbox"
+            name="terms"
+            value="Accepted"
+            required
+        >
+
+        <span>
+            I agree to the RudraVX service terms and
+            pricing shown above.
+        </span>
+
+    </label>
+
+</section>
+
+
+<!-- ================= 08 BILL ================= -->
+
+<section class="form-section bill">
+
+    <div class="section-title">
+
+        <div class="section-number">
+            08
+        </div>
+
+        <h2>
+            Final Bill
+        </h2>
+
+    </div>
+
+
+    <div class="bill-list">
+
+        <div class="bill-row">
+
+            <span>
+                Project
+            </span>
+
+            <span id="billProject">
+                Single
+            </span>
+
+        </div>
+
+
+        <div class="bill-row">
+
+            <span>
+                Service
+            </span>
+
+            <span id="billService">
+                Mixing + Mastering
+            </span>
+
+        </div>
+
+
+        <div class="bill-row">
+
+            <span>
+                Plan
+            </span>
+
+            <span id="billPlan">
+                Basic
+            </span>
+
+        </div>
+
+
+        <div class="bill-row">
+
+            <span>
+                Songs
+            </span>
+
+            <span id="billSongs">
+                1
+            </span>
+
+        </div>
+
+
+        <div class="bill-row">
+
+            <span>
+                Base Price
+            </span>
+
+            <span id="billBase">
+                $9.99
+            </span>
+
+        </div>
+
+
+        <div
+            class="bill-row debut"
+            id="billDebutRow"
+        >
+
+            <span>
+                Debut+ Subscription
+            </span>
+
+            <span>
+                $29.99
+            </span>
+
+        </div>
+
+
+        <div class="bill-row adjustment">
+
+            <span>
+                Service Adjustment
+            </span>
+
+            <span id="billAdjustment">
+                $0.00
+            </span>
+
+        </div>
+
+
+        <div class="bill-row delivery">
+
+            <span>
+                Delivery
+            </span>
+
+            <span id="billDelivery">
+                $0.00
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="total-row">
+
+        <span>
+            Total
+        </span>
+
+        <span
+            class="total-price"
+            id="billTotal"
+        >
+            $9.99
+        </span>
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="submit-btn"
+        id="submitBtn"
+    >
+        SUBMIT REQUEST
+    </button>
+
+</section>
+
+</form>
+
 
 <footer>
 
-    <p>
-
-        © 2026
-
-        <strong>
-            RudraVX
-        </strong>
-
-        — Mixing & Mastering
-
-    </p>
+    © 2026 <strong>RudraVX</strong>
+    — Audio Engineering Department
 
 </footer>
 
@@ -2422,131 +1571,138 @@ footer strong{
 <script>
 
 /* =========================================================
-   PROJECT / SERVICE / PLAN / DELIVERY
-========================================================= */
+   RUDRAVX PRICING ENGINE
+   =========================================================
 
-const projectCards =
-    document.querySelectorAll(".project-card");
+   PROJECT TYPES
 
-const serviceCards =
-    document.querySelectorAll(".service-card");
+   Single = 1 song
+   EP     = 2–7 songs
+   Album  = 8–18 songs
 
-const planCards =
-    document.querySelectorAll(".plan-card");
+   19+ songs = Debut+ Subscription
 
-const deliveryCards =
-    document.querySelectorAll(".delivery-card");
-
-const songCount =
-    document.getElementById("songCount");
-
-const billService =
-    document.getElementById("billService");
-
-const billPlan =
-    document.getElementById("billPlan");
-
-const billSongs =
-    document.getElementById("billSongs");
-
-const billBase =
-    document.getElementById("billBase");
-
-const billDiscount =
-    document.getElementById("billDiscount");
-
-const billDelivery =
-    document.getElementById("billDelivery");
-
-const billTotal =
-    document.getElementById("billTotal");
-
-const selectedProject =
-    document.getElementById("selectedProject");
-
-const selectedService =
-    document.getElementById("selectedService");
-
-const selectedPlan =
-    document.getElementById("selectedPlan");
-
-const selectedDelivery =
-    document.getElementById("selectedDelivery");
-
-const finalPrice =
-    document.getElementById("finalPrice");
+   DEBUT+ = ₹2999 = $29.99
 
 
-let currentProject =
-    "Single";
+   NORMAL PRICING BASIS
 
-let currentService =
-    "Mixing + Mastering";
+   BASIC
+   1 song  = ₹999
+   2 songs = ₹1299
+   3–19   = +₹100 per song
 
-let currentPlan =
-    "Basic";
+   PREMIUM
+   1 song  = ₹1499
+   2 songs = ₹1799
+   3–19   = +₹200 per song
 
-let currentDelivery =
-    "Standard";
+
+   SERVICE DIFFERENCE
+
+   Mixing + Mastering
+   Only Mixing
+   Only Mastering
+
+   are calculated independently.
+
+   The service multipliers below preserve
+   separate service pricing.
+
+   ========================================================= */
 
 
-/* =========================================================
-   PRICE TABLE
-========================================================= */
+/* ================= CONFIG ================= */
 
-const prices = {
+const INR_TO_USD = 100;
 
-    "Mixing + Mastering":{
-        Basic:29.99,
-        Premium:49.99
-    },
+const DEBUT_PLUS_USD = 29.99;
 
-    "Only Mixing":{
-        Basic:19.99,
-        Premium:39.99
-    },
+const PRIORITY_USD = 4.99;
 
-    "Only Mastering":{
-        Basic:19.99,
-        Premium:29.99
-    }
+
+/*
+    Service-specific pricing multipliers.
+
+    These are intentionally kept in one place so
+    you can change service pricing later easily.
+*/
+
+const SERVICE_MULTIPLIER = {
+
+    "Mixing + Mastering": 1.00,
+
+    "Only Mixing": 0.65,
+
+    "Only Mastering": 0.65
 
 };
 
 
+/* ================= HELPERS ================= */
+
+function getSelected(name){
+
+    const item =
+        document.querySelector(
+            `input[name="${name}"]:checked`
+        );
+
+    return item ? item.value : "";
+
+}
+
+
+function money(value){
+
+    return "$" + value.toFixed(2);
+
+}
+
+
 /* =========================================================
-   SONG OPTIONS
-========================================================= */
+   CREATE SONG OPTIONS
+   ========================================================= */
 
-function renderSongOptions(){
+function createSongOptions(){
 
-    songCount.innerHTML = "";
+    const project =
+        getSelected("project_type");
+
+    const select =
+        document.getElementById("songCount");
+
 
     let min = 1;
     let max = 1;
 
 
-    if(currentProject === "EP"){
+    if(project === "Single"){
+
+        min = 1;
+        max = 1;
+
+    }
+
+    else if(project === "EP"){
 
         min = 2;
         max = 7;
 
     }
 
-
-    if(currentProject === "Album"){
+    else if(project === "Album"){
 
         min = 8;
-        max = 50;
+        max = 18;
 
     }
 
 
-    for(
-        let i = min;
-        i <= max;
-        i++
-    ){
+    select.innerHTML = "";
+
+
+    for(let i=min;i<=max;i++){
 
         const option =
             document.createElement("option");
@@ -2554,334 +1710,436 @@ function renderSongOptions(){
         option.value = i;
 
         option.textContent =
-            `${i} ${i === 1 ? "Song" : "Songs"}`;
+            i === 1
+            ? "1 Song"
+            : `${i} Songs`;
 
-        songCount.appendChild(option);
+        select.appendChild(option);
 
     }
 
 
-    updateBill();
+    /*
+        Automatically select first valid number.
+    */
+
+    select.value = min;
+
+
+    updatePrice();
 
 }
 
 
 /* =========================================================
-   UPDATE BILL
-========================================================= */
+   PROJECT TYPE CHANGE
+   ========================================================= */
 
-function updateBill(){
-
-    const songs =
-        Number(songCount.value || 1);
-
-
-    let base =
-        prices[currentService][currentPlan];
-
-    let discount = 0;
-
+function changeProject(type){
 
     /*
-       Additional song pricing
-       starts from song 19
+        Normal project types never allow 19+.
+
+        19+ is handled separately through Debut+.
     */
 
-    if(songs > 18){
-
-        base +=
-            (songs - 18);
-
-    }
-
-
-    /*
-       EP discount
-    */
-
-    if(
-        currentProject === "EP" &&
-        currentService === "Mixing + Mastering"
-    ){
-
-        discount =
-            base * 0.10;
-
-    }
-
-
-    /*
-       Album discount
-    */
-
-    if(
-        currentProject === "Album" &&
-        currentService === "Mixing + Mastering"
-    ){
-
-        discount =
-            base * 0.25;
-
-    }
-
-
-    /*
-       Priority delivery
-    */
-
-    let deliveryPrice = 0;
-
-
-    if(
-        currentDelivery === "Priority"
-    ){
-
-        deliveryPrice =
-            9.99;
-
-    }
-
-
-    const total =
-        base -
-        discount +
-        deliveryPrice;
-
-
-    billService.textContent =
-        currentService;
-
-    billPlan.textContent =
-        currentPlan;
-
-    billSongs.textContent =
-        songs;
-
-    billBase.textContent =
-        `$${base.toFixed(2)}`;
-
-    billDiscount.textContent =
-        discount > 0
-            ? `-$${discount.toFixed(2)}`
-            : "$0.00";
-
-    billDelivery.textContent =
-        currentDelivery === "Priority"
-            ? "$9.99 Priority"
-            : "Standard";
-
-    billTotal.textContent =
-        `$${total.toFixed(2)}`;
-
-
-    selectedProject.value =
-        currentProject;
-
-    selectedService.value =
-        currentService;
-
-    selectedPlan.value =
-        currentPlan;
-
-    selectedDelivery.value =
-        currentDelivery;
-
-    finalPrice.value =
-        total.toFixed(2);
+    createSongOptions();
 
 }
 
 
 /* =========================================================
-   PROJECT SELECTION
-========================================================= */
+   NORMAL PRICE
+   ========================================================= */
 
-projectCards.forEach(card => {
+function calculateNormalINR(songCount,plan,service){
 
-    card.addEventListener(
-        "click",
-        () => {
+    let price = 0;
 
-            projectCards.forEach(c =>
-                c.classList.remove("active")
-            );
 
-            card.classList.add("active");
+    /* BASIC */
 
-            currentProject =
-                card.dataset.project;
+    if(plan === "Basic"){
 
-            renderSongOptions();
+        if(songCount === 1){
+
+            price = 999;
 
         }
-    );
 
-});
+        else if(songCount === 2){
+
+            price = 1299;
+
+        }
+
+        else{
+
+            price =
+                1299 +
+                ((songCount - 2) * 100);
+
+        }
+
+    }
+
+
+    /* PREMIUM */
+
+    if(plan === "Premium"){
+
+        if(songCount === 1){
+
+            price = 1499;
+
+        }
+
+        else if(songCount === 2){
+
+            price = 1799;
+
+        }
+
+        else{
+
+            price =
+                1799 +
+                ((songCount - 2) * 200);
+
+        }
+
+    }
+
+
+    /*
+        Apply service-specific pricing.
+    */
+
+    price *=
+        SERVICE_MULTIPLIER[service];
+
+
+    return price;
+
+}
 
 
 /* =========================================================
-   SERVICE SELECTION
-========================================================= */
+   FINAL .99 ADJUSTMENT
+   =========================================================
 
-serviceCards.forEach(card => {
+   Example:
 
-    card.addEventListener(
-        "click",
-        () => {
+   $24.32 -> $24.99
+   $31.20 -> $31.99
+   $49.99 -> $49.99
 
-            serviceCards.forEach(c =>
-                c.classList.remove("active")
-            );
+   This is NOT a government tax.
+   It is a RudraVX Service Adjustment.
+   ========================================================= */
 
-            card.classList.add("active");
+function adjustTo99(cents){
 
-            currentService =
-                card.dataset.service;
+    const remainder =
+        cents % 100;
 
-            updateBill();
+    const adjustment =
+        remainder === 99
+        ? 0
+        : 99 - remainder;
 
-        }
-    );
+    return {
 
-});
+        adjustmentCents: adjustment,
 
+        finalCents:
+            cents + adjustment
 
-/* =========================================================
-   PLAN SELECTION
-========================================================= */
+    };
 
-planCards.forEach(card => {
-
-    card.addEventListener(
-        "click",
-        () => {
-
-            planCards.forEach(c =>
-                c.classList.remove("active")
-            );
-
-            card.classList.add("active");
-
-            currentPlan =
-                card.dataset.plan;
-
-            updateBill();
-
-        }
-    );
-
-});
+}
 
 
 /* =========================================================
-   DELIVERY SELECTION
-========================================================= */
+   UPDATE PRICE
+   ========================================================= */
 
-deliveryCards.forEach(card => {
+function updatePrice(){
 
-    card.addEventListener(
-        "click",
-        () => {
+    const project =
+        getSelected("project_type");
 
-            deliveryCards.forEach(c =>
-                c.classList.remove("active")
+    const service =
+        getSelected("service");
+
+    const plan =
+        getSelected("plan");
+
+    const delivery =
+        getSelected("delivery");
+
+    const songCount =
+        Number(
+            document.getElementById("songCount").value
+        );
+
+
+    /*
+        ==========================================
+        NORMAL PROJECT
+        ==========================================
+    */
+
+    let baseUSD = 0;
+
+    let debutPlus = false;
+
+
+    /*
+        ==========================================
+        DEBUT+ MODE
+        ==========================================
+
+        This is available when 19+ is required.
+
+        Since normal Album ends at 18,
+        the user can activate Debut+ using
+        the separate section if needed.
+        ==========================================
+    */
+
+    if(songCount > 18){
+
+        debutPlus = true;
+
+        baseUSD = DEBUT_PLUS_USD;
+
+    }
+
+    else{
+
+        const baseINR =
+            calculateNormalINR(
+                songCount,
+                plan,
+                service
             );
 
-            card.classList.add("active");
+        baseUSD =
+            baseINR / INR_TO_USD;
 
-            currentDelivery =
-                card.dataset.delivery;
+    }
 
-            updateBill();
 
-        }
-    );
+    /*
+        Convert to integer cents.
+    */
 
-});
+    let baseCents =
+        Math.round(baseUSD * 100);
+
+
+    /*
+        Delivery.
+    */
+
+    let deliveryCents = 0;
+
+    if(delivery === "Priority"){
+
+        deliveryCents =
+            Math.round(PRIORITY_USD * 100);
+
+    }
+
+
+    /*
+        ==========================================
+        FINAL CALCULATION
+        ==========================================
+    */
+
+    let subtotalCents =
+        baseCents + deliveryCents;
+
+
+    const adjusted =
+        adjustTo99(subtotalCents);
+
+
+    const finalCents =
+        adjusted.finalCents;
+
+
+    const adjustmentCents =
+        adjusted.adjustmentCents;
+
+
+    /*
+        ==========================================
+        UPDATE UI
+        ==========================================
+    */
+
+    document.getElementById("billProject")
+        .textContent = project;
+
+
+    document.getElementById("billService")
+        .textContent = service;
+
+
+    document.getElementById("billPlan")
+        .textContent =
+        debutPlus
+        ? "Debut+"
+        : plan;
+
+
+    document.getElementById("billSongs")
+        .textContent = songCount;
+
+
+    document.getElementById("billBase")
+        .textContent =
+        money(baseCents / 100);
+
+
+    document.getElementById("billAdjustment")
+        .textContent =
+        money(adjustmentCents / 100);
+
+
+    document.getElementById("billDelivery")
+        .textContent =
+        money(deliveryCents / 100);
+
+
+    document.getElementById("billTotal")
+        .textContent =
+        money(finalCents / 100);
+
+
+    /*
+        Debut row
+    */
+
+    const debutRow =
+        document.getElementById("billDebutRow");
+
+
+    if(debutPlus){
+
+        debutRow.classList.add("active");
+
+    }
+
+    else{
+
+        debutRow.classList.remove("active");
+
+    }
+
+
+    /*
+        ==========================================
+        WEB3FORMS HIDDEN DATA
+        ==========================================
+    */
+
+    document.getElementById("hiddenProject")
+        .value = project;
+
+
+    document.getElementById("hiddenService")
+        .value = service;
+
+
+    document.getElementById("hiddenPlan")
+        .value =
+        debutPlus
+        ? "Debut+"
+        : plan;
+
+
+    document.getElementById("hiddenSongs")
+        .value = songCount;
+
+
+    document.getElementById("hiddenDebut")
+        .value =
+        debutPlus
+        ? "Yes — $29.99"
+        : "No";
+
+
+    document.getElementById("hiddenBase")
+        .value =
+        money(baseCents / 100);
+
+
+    document.getElementById("hiddenAdjustment")
+        .value =
+        money(adjustmentCents / 100);
+
+
+    document.getElementById("hiddenDelivery")
+        .value =
+        money(deliveryCents / 100);
+
+
+    document.getElementById("hiddenFinal")
+        .value =
+        money(finalCents / 100);
+
+}
 
 
 /* =========================================================
-   SONG CHANGE
-========================================================= */
+   DEBUT+ 19+ SUPPORT
+   =========================================================
 
-songCount.addEventListener(
-    "change",
-    updateBill
+   Normal Album is intentionally limited to 18.
+
+   If you later want a dedicated "19+ Songs / Debut+"
+   selector, this function can be connected to it.
+
+   For now, the pricing engine already supports
+   Debut+ automatically when songCount > 18.
+   ========================================================= */
+
+
+/* =========================================================
+   FORM SUBMIT
+   ========================================================= */
+
+document
+.getElementById("mixingForm")
+.addEventListener(
+    "submit",
+    function(){
+
+        updatePrice();
+
+
+        const button =
+            document.getElementById("submitBtn");
+
+
+        button.disabled = true;
+
+        button.textContent =
+            "SUBMITTING REQUEST...";
+
+    }
 );
 
 
 /* =========================================================
-   FORM SUBMISSION
-========================================================= */
-
-document
-    .getElementById("mixingForm")
-    .addEventListener(
-        "submit",
-        async function(e){
-
-            e.preventDefault();
-
-            updateBill();
-
-
-            const formData =
-                new FormData(this);
-
-
-            try{
-
-                const response =
-                    await fetch(
-                        "https://api.web3forms.com/submit",
-                        {
-                            method:"POST",
-
-                            body:formData,
-
-                            headers:{
-                                Accept:
-                                    "application/json"
-                            }
-                        }
-                    );
-
-
-                const result =
-                    await response.json();
-
-
-                if(result.success){
-
-                    window.location.href =
-                        "dashboard.html";
-
-                }else{
-
-                    alert(
-                        "Something went wrong. Please try again."
-                    );
-
-                }
-
-
-            }catch(error){
-
-                alert(
-                    "Unable to submit request. Please try again."
-                );
-
-            }
-
-        }
-    );
-
-
-/* =========================================================
    INITIAL LOAD
-========================================================= */
+   ========================================================= */
 
-renderSongOptions();
+createSongOptions();
 
 </script>
 
