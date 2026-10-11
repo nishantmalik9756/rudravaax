@@ -1,25 +1,18 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RudraVX — Mixing & Mastering</title>
+<title>RudraVX — Login</title>
 
 <style>
-:root{
-    --bg:#050505;
-    --bg2:#0a0a0a;
-    --card:#101010;
-    --card2:#151515;
-    --orange:#ff6a00;
-    --orange2:#ff8c00;
-    --white:#fff;
-    --muted:#999;
-    --border:rgba(255,106,0,.25);
-    --green:#2ed47a;
-    --red:#ff4545;
-}
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -27,2121 +20,1838 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+:root{
+    --orange:#ff6a00;
+    --orange-light:#ff8c32;
+    --black:#050505;
+    --card:#0c0c0c;
+    --border:rgba(255,106,0,.25);
+    --white:#ffffff;
+    --muted:#858585;
 }
+
+
+/* =========================
+   BODY
+========================= */
 
 body{
+
     min-height:100vh;
-    overflow-x:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color:var(--white);
-    font-family:Arial,Helvetica,sans-serif;
 
     background:
-        radial-gradient(circle at 10% 5%,rgba(255,106,0,.15),transparent 27%),
-        radial-gradient(circle at 90% 20%,rgba(255,106,0,.10),transparent 25%),
-        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,106,0,.15),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(255,106,0,.10),
+            transparent 30%
+        ),
+
         #050505;
 
-    background-size:auto,auto,45px 45px,45px 45px;
+    overflow-x:hidden;
 }
 
-body::after{
+
+/* =========================
+   GRID
+========================= */
+
+body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:45px 45px;
+
     pointer-events:none;
-    background:radial-gradient(circle,transparent 35%,rgba(0,0,0,.55));
-    z-index:-1;
+
 }
 
-/* ================= HEADER ================= */
 
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
+/* =========================
+   GLOW
+========================= */
 
-    height:76px;
-    padding:0 6%;
+.glow{
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    position:fixed;
 
-    background:rgba(5,5,5,.84);
-    backdrop-filter:blur(18px);
+    width:350px;
+    height:350px;
 
-    border-bottom:1px solid rgba(255,106,0,.18);
-    box-shadow:0 10px 35px rgba(0,0,0,.35);
-}
+    border-radius:50%;
 
-.logo{
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.logo span{
-    color:var(--orange);
-}
-
-.dashboard-btn{
-    text-decoration:none;
-    color:white;
-
-    padding:11px 18px;
-
-    border:1px solid var(--border);
-    border-radius:10px;
-
-    font-size:12px;
-    font-weight:800;
-
-    transition:.3s;
-}
-
-.dashboard-btn:hover{
-    color:#000;
     background:var(--orange);
-    box-shadow:0 0 25px rgba(255,106,0,.4);
-    transform:translateY(-2px);
+
+    filter:blur(180px);
+
+    opacity:.07;
+
+    pointer-events:none;
 }
 
-/* ================= HERO ================= */
-
-.hero{
-    width:min(1150px,92%);
-    margin:auto;
-    padding:85px 0 55px;
-    text-align:center;
+.glow.one{
+    top:-160px;
+    left:-160px;
 }
 
-.badge{
-    display:inline-block;
-
-    padding:8px 15px;
-
-    border:1px solid rgba(255,106,0,.35);
-    border-radius:999px;
-
-    color:var(--orange);
-    background:rgba(255,106,0,.06);
-
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:2px;
-
-    margin-bottom:23px;
+.glow.two{
+    right:-160px;
+    bottom:-160px;
 }
 
-.hero h1{
-    font-size:clamp(45px,7vw,82px);
-    line-height:.95;
-    letter-spacing:-4px;
-    font-weight:950;
-}
 
-.hero h1 span{
-    color:var(--orange);
-    text-shadow:0 0 35px rgba(255,106,0,.3);
-}
-
-.hero p{
-    max-width:720px;
-    margin:25px auto 0;
-
-    color:#999;
-    font-size:15px;
-    line-height:1.7;
-}
-
-/* ================= INFO ================= */
-
-.info-grid{
-    width:min(1150px,92%);
-    margin:0 auto 40px;
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.info-card{
-    padding:25px;
-
-    background:rgba(15,15,15,.88);
-
-    border:1px solid rgba(255,106,0,.18);
-    border-radius:18px;
-
-    transition:.3s;
-}
-
-.info-card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(255,106,0,.55);
-    box-shadow:0 15px 40px rgba(255,106,0,.08);
-}
-
-.icon{
-    width:42px;
-    height:42px;
-
-    display:grid;
-    place-items:center;
-
-    margin-bottom:15px;
-
-    border-radius:12px;
-
-    color:var(--orange);
-    background:rgba(255,106,0,.09);
-
-    font-weight:900;
-}
-
-.info-card h3{
-    font-size:18px;
-    margin-bottom:8px;
-}
-
-.info-card p{
-    color:#888;
-    font-size:13px;
-    line-height:1.6;
-}
-
-/* ================= MAIN ================= */
+/* =========================
+   MAIN
+========================= */
 
 .wrapper{
-    width:min(1000px,92%);
-    margin:40px auto 80px;
+
+    width:100%;
+
+    max-width:450px;
+
+    position:relative;
+
+    z-index:5;
 }
 
-.form-section{
-    padding:28px;
-    margin-bottom:20px;
 
-    background:rgba(12,12,12,.90);
+/* =========================
+   LOGO
+========================= */
 
-    border:1px solid rgba(255,106,0,.18);
-    border-radius:20px;
+.logo{
 
-    box-shadow:0 15px 50px rgba(0,0,0,.18);
+    text-align:center;
+
+    margin-bottom:25px;
 }
 
-.section-title{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    margin-bottom:23px;
-}
+.logo h1{
 
-.section-number{
-    color:var(--orange);
-    font-size:12px;
+    font-size:44px;
+
     font-weight:900;
-    letter-spacing:2px;
+
+    letter-spacing:-2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--orange),
+            #ffffff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
 }
 
-.section-title h2{
-    font-size:19px;
+.logo p{
+
+    margin-top:7px;
+
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
 }
 
-/* ================= INPUT ================= */
 
-.form-grid{
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    background:
+        rgba(10,10,10,.94);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:35px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+
+        0 30px 80px rgba(0,0,0,.7),
+
+        0 0 50px rgba(255,106,0,.05);
+
+    animation:
+        cardIn .55s ease;
+}
+
+
+@keyframes cardIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:5px;
+
+    padding:5px;
+
+    margin-bottom:28px;
+
+    background:#080808;
+
+    border:
+        1px solid #1d1d1d;
+
+    border-radius:12px;
 }
+
+
+.tab{
+
+    border:0;
+
+    background:transparent;
+
+    color:#666;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    transition:.25s;
+}
+
+
+.tab.active{
+
+    color:#050505;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange-light)
+        );
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.heading{
+
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+
+.heading h2{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+}
+
+
+.heading p{
+
+    color:#777;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   FORMS
+========================= */
+
+.form{
+
+    display:none;
+}
+
+
+.form.active{
+
+    display:block;
+}
+
 
 .field{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+
+    margin-bottom:18px;
 }
 
-.field.full{
-    grid-column:1/-1;
-}
 
 .field label{
-    color:#ccc;
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#ddd;
+
     font-size:12px;
+
     font-weight:700;
 }
 
-input,
-select,
-textarea{
+
+.field input{
+
     width:100%;
 
-    padding:14px;
+    padding:14px 15px;
 
     background:#080808;
-    color:white;
 
-    border:1px solid #292929;
+    border:
+        1px solid #292929;
+
     border-radius:11px;
 
     outline:none;
 
+    color:white;
+
     font-size:14px;
 
     transition:.25s;
 }
 
-input:focus,
-select:focus,
-textarea:focus{
+
+.field input:focus{
+
     border-color:var(--orange);
-    box-shadow:0 0 0 3px rgba(255,106,0,.08);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,106,0,.08);
 }
 
-textarea{
-    min-height:120px;
-    resize:vertical;
+
+.field input::placeholder{
+
+    color:#4f4f4f;
 }
 
-/* ================= OPTIONS ================= */
 
-.options{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:13px;
-}
+/* =========================
+   PASSWORD
+========================= */
 
-.options.two{
-    grid-template-columns:repeat(2,1fr);
-}
+.password-box{
 
-.option{
     position:relative;
 }
 
-.option input{
-    position:absolute;
-    opacity:0;
-    pointer-events:none;
+
+.password-box input{
+
+    padding-right:65px;
 }
 
-.option label{
-    display:block;
 
-    min-height:94px;
-    padding:18px;
+.show-password{
+
+    position:absolute;
+
+    right:12px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    border:0;
+
+    background:none;
+
+    color:#777;
 
     cursor:pointer;
 
-    background:#090909;
-    border:1px solid #292929;
-    border-radius:14px;
+    font-size:10px;
+
+    font-weight:800;
+}
+
+
+.show-password:hover{
+
+    color:var(--orange);
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:
+        3px 0 20px;
+
+    font-size:11px;
+}
+
+
+.remember{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:#777;
+
+    cursor:pointer;
+}
+
+
+.remember input{
+
+    accent-color:
+        var(--orange);
+}
+
+
+.forgot{
+
+    color:var(--orange);
+
+    cursor:pointer;
+}
+
+
+.forgot:hover{
+
+    color:white;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.main-button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange-light)
+        );
+
+    color:#050505;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    cursor:pointer;
 
     transition:.25s;
 }
 
-.option label strong{
-    display:block;
-    margin-bottom:7px;
 
-    font-size:14px;
+.main-button:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(255,106,0,.25);
 }
 
-.option label span{
-    display:block;
 
-    color:#818181;
-    font-size:12px;
-    line-height:1.5;
+.main-button:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
 }
 
-.option input:checked + label{
-    background:rgba(255,106,0,.07);
-    border-color:var(--orange);
-    box-shadow:0 0 25px rgba(255,106,0,.09);
-}
 
-.option input:checked + label strong{
-    color:var(--orange);
-}
+/* =========================
+   STATUS
+========================= */
 
-/* ================= PROJECT TYPE ================= */
+.status{
 
-.project-option label{
-    min-height:105px;
-}
-
-.project-option .range{
-    color:#666;
-    display:block;
-    margin-top:5px;
-}
-
-.project-option input:checked + label .range{
-    color:#aaa;
-}
-
-/* ================= DEBUT+ ================= */
-
-.debut-box{
-    display:none;
-
-    margin-top:20px;
-    padding:22px;
-
-    border:1px solid rgba(255,106,0,.5);
-    border-radius:16px;
-
-    background:
-        radial-gradient(circle at 100% 0%,rgba(255,106,0,.15),transparent 45%),
-        #0a0a0a;
-}
-
-.debut-box.active{
-    display:block;
-}
-
-.debut-badge{
-    display:inline-block;
-
-    padding:6px 10px;
-
-    color:#000;
-    background:var(--orange);
-
-    border-radius:6px;
-
-    font-size:10px;
-    font-weight:950;
-    letter-spacing:1px;
-
-    margin-bottom:10px;
-}
-
-.debut-box h3{
-    font-size:20px;
-    margin-bottom:7px;
-}
-
-.debut-box p{
-    color:#999;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.debut-price{
-    margin-top:15px;
-
-    color:var(--orange);
-
-    font-size:28px;
-    font-weight:950;
-}
-
-/* ================= NOTICE ================= */
-
-.notice{
-    padding:17px;
-
-    border:1px dashed rgba(255,106,0,.35);
-    border-radius:13px;
-
-    background:rgba(255,106,0,.035);
-
-    color:#999;
-
-    font-size:13px;
-    line-height:1.6;
-}
-
-.notice strong{
-    color:var(--orange);
-}
-
-/* ================= CHECKBOX ================= */
-
-.checkbox-row{
-    display:flex;
-    gap:10px;
+    min-height:20px;
 
     margin-top:14px;
 
-    color:#999;
+    text-align:center;
 
-    font-size:13px;
-    line-height:1.5;
+    font-size:11px;
 }
 
-.checkbox-row input{
-    width:auto;
-    margin-top:3px;
-    accent-color:var(--orange);
+
+.status.error{
+
+    color:#ff5555;
 }
 
-/* ================= BILL ================= */
 
-.bill{
-    background:
-        radial-gradient(circle at 100% 0%,rgba(255,106,0,.12),transparent 35%),
-        #090909;
+.status.success{
 
-    border-color:rgba(255,106,0,.35);
+    color:#62ff91;
 }
 
-.bill-list{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
 
-.bill-row{
-    display:flex;
-    justify-content:space-between;
+/* =========================
+   FORGOT PASSWORD
+========================= */
 
-    gap:20px;
+.forgot-panel{
 
-    padding-bottom:12px;
-
-    border-bottom:1px solid #222;
-
-    color:#999;
-    font-size:14px;
-}
-
-.bill-row span:last-child{
-    color:white;
-    font-weight:700;
-}
-
-.bill-row.debut{
     display:none;
 }
 
-.bill-row.debut.active{
-    display:flex;
+
+.forgot-panel.active{
+
+    display:block;
 }
 
-.bill-row.adjustment span:last-child{
-    color:var(--orange);
-}
 
-.bill-row.delivery span:last-child{
-    color:#ddd;
-}
+/* =========================
+   BACK BUTTON
+========================= */
 
-.total-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-top:18px;
-    padding-top:18px;
-
-    border-top:1px solid rgba(255,106,0,.3);
-}
-
-.total-row span:first-child{
-    color:#aaa;
-    font-size:14px;
-    font-weight:700;
-}
-
-.total-price{
-    color:var(--orange);
-
-    font-size:34px;
-    font-weight:950;
-
-    text-shadow:0 0 25px rgba(255,106,0,.25);
-}
-
-/* ================= BUTTON ================= */
-
-.submit-btn{
-    width:100%;
-
-    margin-top:20px;
-    padding:17px;
-
-    border:0;
-    border-radius:13px;
-
-    color:#000;
-
-    background:linear-gradient(
-        135deg,
-        #ff6a00,
-        #ff8c00
-    );
-
-    font-size:15px;
-    font-weight:950;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.submit-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 35px rgba(255,106,0,.25);
-}
-
-.submit-btn:disabled{
-    opacity:.6;
-    cursor:not-allowed;
-    transform:none;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    padding:35px 20px;
+.back-button{
 
     text-align:center;
 
-    border-top:1px solid rgba(255,255,255,.06);
+    margin-top:18px;
 
-    color:#666;
-    font-size:12px;
+    color:#777;
+
+    font-size:11px;
+
+    cursor:pointer;
 }
 
-footer strong{
+
+.back-button:hover{
+
     color:var(--orange);
 }
 
-/* ================= MOBILE ================= */
 
-@media(max-width:800px){
+/* =========================
+   INFO
+========================= */
 
-    .info-grid{
-        grid-template-columns:1fr;
-    }
+.info{
 
-    .options{
-        grid-template-columns:1fr;
-    }
+    margin-top:22px;
 
-    .options.two{
-        grid-template-columns:1fr;
-    }
+    padding:12px;
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
+    border-radius:10px;
 
-    .field.full{
-        grid-column:auto;
-    }
+    border:
+        1px solid
+        rgba(255,106,0,.10);
 
-    .hero{
-        padding-top:60px;
-    }
+    background:
+        rgba(255,106,0,.04);
+
+    color:#777;
+
+    text-align:center;
+
+    font-size:10px;
+
+    line-height:1.6;
 }
 
-@media(max-width:520px){
 
-    header{
-        height:68px;
-        padding:0 5%;
-    }
+/* =========================
+   FOOTER
+========================= */
 
-    .logo{
-        font-size:20px;
-    }
+footer{
 
-    .dashboard-btn{
-        padding:9px 12px;
-        font-size:11px;
-    }
+    text-align:center;
 
-    .hero{
-        width:92%;
-        padding:50px 0 40px;
-    }
+    margin-top:22px;
 
-    .hero h1{
-        font-size:45px;
-        letter-spacing:-2px;
-    }
+    color:#555;
 
-    .wrapper{
-        width:94%;
-    }
-
-    .form-section{
-        padding:20px;
-    }
-
-    .total-price{
-        font-size:27px;
-    }
+    font-size:10px;
 }
+
+
+footer strong{
+
+    color:#888;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    body{
+
+        padding:15px;
+    }
+
+    .card{
+
+        padding:27px 22px;
+    }
+
+    .logo h1{
+
+        font-size:37px;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<header>
 
-   
-
-    <a href="dashboard.html" class="dashboard-btn">
-        ← Dashboard
-    </a>
-
-</header>
+<div class="glow one"></div>
+<div class="glow two"></div>
 
 
-<section class="hero">
-
-    <div class="badge">
-        RUDRAVX // AUDIO ENGINEERING
-    </div>
-
-    <h1>
-        Mixing & <span>Mastering</span>
-    </h1>
-
-    <p>
-        Professional mixing and mastering for artists who want
-        their music to sound clean, powerful and release-ready.
-    </p>
-
-</section>
+<div class="wrapper">
 
 
-<section class="info-grid">
+    <!-- LOGO -->
 
-    <div class="info-card">
+    <div class="logo">
 
-        <div class="icon">M</div>
-
-        <h3>Mixing</h3>
+        <h1>RudraVX</h1>
 
         <p>
-            Balance vocals, instruments, drums and effects
-            for a clean and powerful final mix.
+            Official Artist Platform
         </p>
 
     </div>
 
 
-    <div class="info-card">
+    <!-- LOGIN CARD -->
 
-        <div class="icon">MS</div>
-
-        <h3>Mastering</h3>
-
-        <p>
-            Final loudness, clarity, dynamics and tonal balance
-            prepared for digital platforms.
-        </p>
-
-    </div>
+    <div class="card">
 
 
-    <div class="info-card">
+        <!-- TABS -->
 
-        <div class="icon">DL</div>
+        <div class="tabs">
 
-        <h3>Delivery</h3>
-
-        <p>
-            Receive your final processed files in
-            high-quality release-ready formats.
-        </p>
-
-    </div>
-
-</section>
-
-
-<form
-    id="mixingForm"
-    class="wrapper"
-    action="https://api.web3forms.com/submit"
-    method="POST"
->
-
-
-<!-- ================= WEB3FORMS ================= -->
-
-<input
-    type="hidden"
-    name="access_key"
-    value="1887c1a2-4f71-4e66-91e2-5b8872960792"
->
-
-<input
-    type="hidden"
-    name="subject"
-    value="New RudraVX Mixing & Mastering Request"
->
-
-<input
-    type="hidden"
-    name="from_name"
-    value="RudraVX Mixing & Mastering"
->
-
-<input
-    type="hidden"
-    name="redirect"
-    value="dashboard.html"
->
-
-
-<input type="hidden" name="selected_project" id="hiddenProject">
-<input type="hidden" name="selected_service" id="hiddenService">
-<input type="hidden" name="selected_plan" id="hiddenPlan">
-<input type="hidden" name="song_count" id="hiddenSongs">
-
-<input type="hidden" name="debut_plus" id="hiddenDebut">
-
-<input type="hidden" name="base_price" id="hiddenBase">
-<input type="hidden" name="service_adjustment" id="hiddenAdjustment">
-<input type="hidden" name="delivery_charge" id="hiddenDelivery">
-<input type="hidden" name="final_price" id="hiddenFinal">
-
-
-<!-- ================= 01 ARTIST ================= -->
-
-<section class="form-section">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            01
-        </div>
-
-        <h2>
-            Artist Information
-        </h2>
-
-    </div>
-
-
-    <div class="form-grid">
-
-        <div class="field">
-
-            <label>
-                Artist Name *
-            </label>
-
-            <input
-                type="text"
-                name="artist_name"
-                required
-                placeholder="Enter artist name"
+            <button
+                class="tab active"
+                id="signInTab"
+                type="button"
             >
+                SIGN IN
+            </button>
 
-        </div>
 
-
-        <div class="field">
-
-            <label>
-                Email *
-            </label>
-
-            <input
-                type="email"
-                name="email"
-                required
-                placeholder="Enter email address"
+            <button
+                class="tab"
+                id="signUpTab"
+                type="button"
             >
+                SIGN UP
+            </button>
 
         </div>
 
 
-        <div class="field">
-
-            <label>
-                Phone
-            </label>
-
-            <input
-                type="tel"
-                name="phone"
-                placeholder="Enter phone number"
-            >
-
-        </div>
-
-
-        <div class="field">
-
-            <label>
-                Project Name *
-            </label>
-
-            <input
-                type="text"
-                name="project_name"
-                required
-                placeholder="Song / EP / Album name"
-            >
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= 02 PROJECT ================= -->
-
-<section class="form-section">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            02
-        </div>
-
-        <h2>
-            Project Type
-        </h2>
-
-    </div>
-
-
-    <div class="options">
-
-        <!-- SINGLE -->
-
-        <div class="option project-option">
-
-            <input
-                type="radio"
-                id="single"
-                name="project_type"
-                value="Single"
-                checked
-                onchange="changeProject('single')"
-            >
-
-            <label for="single">
-
-                <strong>
-                    Single
-                </strong>
-
-                <span>
-                    Exactly 1 song
-                </span>
-
-                <span class="range">
-                    1 song only
-                </span>
-
-            </label>
-
-        </div>
-
-
-        <!-- EP -->
-
-        <div class="option project-option">
-
-            <input
-                type="radio"
-                id="ep"
-                name="project_type"
-                value="EP"
-                onchange="changeProject('ep')"
-            >
-
-            <label for="ep">
-
-                <strong>
-                    EP
-                </strong>
-
-                <span>
-                    Multiple-song project
-                </span>
-
-                <span class="range">
-                    2–7 songs
-                </span>
-
-            </label>
-
-        </div>
-
-
-        <!-- ALBUM -->
-
-        <div class="option project-option">
-
-            <input
-                type="radio"
-                id="album"
-                name="project_type"
-                value="Album"
-                onchange="changeProject('album')"
-            >
-
-            <label for="album">
-
-                <strong>
-                    Album
-                </strong>
-
-                <span>
-                    Full project
-                </span>
-
-                <span class="range">
-                    8–18 songs
-                </span>
-
-            </label>
-
-        </div>
-
-    </div>
-
-
-    <!-- SONG COUNT -->
-
-    <div class="field" style="margin-top:20px;">
-
-        <label>
-            Number of Songs *
-        </label>
-
-        <select
-            id="songCount"
-            required
-            onchange="updatePrice()"
-        ></select>
-
-    </div>
-
-
-    <!-- DEBUT+ -->
-
-    <div
-        class="debut-box"
-        id="debutBox"
-    >
-
-        <div class="debut-badge">
-            DEBUT+ SUBSCRIPTION
-        </div>
-
-        <h3>
-            19+ Song Project
-        </h3>
-
-        <p>
-            Projects containing more than 18 songs require
-            the RudraVX Debut+ Subscription. Normal Album
-            pricing is not available for 19+ songs.
-        </p>
-
-        <div class="debut-price">
-            $29.99
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= 03 SERVICE ================= -->
-
-<section class="form-section">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            03
-        </div>
-
-        <h2>
-            Service
-        </h2>
-
-    </div>
-
-
-    <div class="options">
-
-        <div class="option">
-
-            <input
-                type="radio"
-                id="mixMaster"
-                name="service"
-                value="Mixing + Mastering"
-                checked
-                onchange="updatePrice()"
-            >
-
-            <label for="mixMaster">
-
-                <strong>
-                    Mixing + Mastering
-                </strong>
-
-                <span>
-                    Complete audio engineering
-                </span>
-
-            </label>
-
-        </div>
-
-
-        <div class="option">
-
-            <input
-                type="radio"
-                id="onlyMix"
-                name="service"
-                value="Only Mixing"
-                onchange="updatePrice()"
-            >
-
-            <label for="onlyMix">
-
-                <strong>
-                    Only Mixing
-                </strong>
-
-                <span>
-                    Professional mixing only
-                </span>
-
-            </label>
-
-        </div>
-
-
-        <div class="option">
-
-            <input
-                type="radio"
-                id="onlyMaster"
-                name="service"
-                value="Only Mastering"
-                onchange="updatePrice()"
-            >
-
-            <label for="onlyMaster">
-
-                <strong>
-                    Only Mastering
-                </strong>
-
-                <span>
-                    Professional mastering only
-                </span>
-
-            </label>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= 04 PLAN ================= -->
-
-<section class="form-section">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            04
-        </div>
-
-        <h2>
-            Plan
-        </h2>
-
-    </div>
-
-
-    <div class="options two">
-
-        <div class="option">
-
-            <input
-                type="radio"
-                id="basic"
-                name="plan"
-                value="Basic"
-                checked
-                onchange="updatePrice()"
-            >
-
-            <label for="basic">
-
-                <strong>
-                    Basic
-                </strong>
-
-                <span>
-                    Essential professional processing
-                </span>
-
-            </label>
-
-        </div>
-
-
-        <div class="option">
-
-            <input
-                type="radio"
-                id="premium"
-                name="plan"
-                value="Premium"
-                onchange="updatePrice()"
-            >
-
-            <label for="premium">
-
-                <strong>
-                    Premium
-                </strong>
-
-                <span>
-                    Advanced processing and detailed finishing
-                </span>
-
-            </label>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= 05 AUDIO ================= -->
-
-<section class="form-section">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            05
-        </div>
-
-        <h2>
-            Audio Submission
-        </h2>
-
-    </div>
-
-
-    <div class="notice">
-
-        <strong>
-            Important:
-        </strong>
-
-        After submitting this request, the RudraVX team
-        will contact you regarding your audio files,
-        stems and required format.
-
-        Please keep your highest-quality files ready.
-
-    </div>
-
-</section>
-
-
-<!-- ================= 06 DELIVERY ================= -->
-
-<section class="form-section">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            06
-        </div>
-
-        <h2>
-            Delivery
-        </h2>
-
-    </div>
-
-
-    <div class="options two">
-
-        <div class="option">
-
-            <input
-                type="radio"
-                id="standard"
-                name="delivery"
-                value="Standard"
-                checked
-                onchange="updatePrice()"
-            >
-
-            <label for="standard">
-
-                <strong>
-                    Standard Delivery
-                </strong>
-
-                <span>
-                    Regular processing timeline
-                </span>
-
-            </label>
-
-        </div>
-
-
-        <div class="option">
-
-            <input
-                type="radio"
-                id="priority"
-                name="delivery"
-                value="Priority"
-                onchange="updatePrice()"
-            >
-
-            <label for="priority">
-
-                <strong>
-                    Priority Delivery
-                </strong>
-
-                <span>
-                    Faster processing — +$4.99
-                </span>
-
-            </label>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= 07 NOTES ================= -->
-
-<section class="form-section">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            07
-        </div>
-
-        <h2>
-            Additional Information
-        </h2>
-
-    </div>
-
-
-    <div class="field">
-
-        <label>
-            Additional Notes
-        </label>
-
-        <textarea
-            name="notes"
-            placeholder="Tell us anything important about your project..."
-        ></textarea>
-
-    </div>
-
-
-    <label class="checkbox-row">
-
-        <input
-            type="checkbox"
-            name="stems_ready"
-            value="Yes"
-        >
-
-        <span>
-            I understand that I may need to provide
-            properly organized stems/audio files.
-        </span>
-
-    </label>
-
-
-    <label class="checkbox-row">
-
-        <input
-            type="checkbox"
-            name="terms"
-            value="Accepted"
-            required
-        >
-
-        <span>
-            I agree to the RudraVX service terms and
-            pricing shown above.
-        </span>
-
-    </label>
-
-</section>
-
-
-<!-- ================= 08 BILL ================= -->
-
-<section class="form-section bill">
-
-    <div class="section-title">
-
-        <div class="section-number">
-            08
-        </div>
-
-        <h2>
-            Final Bill
-        </h2>
-
-    </div>
-
-
-    <div class="bill-list">
-
-        <div class="bill-row">
-
-            <span>
-                Project
-            </span>
-
-            <span id="billProject">
-                Single
-            </span>
-
-        </div>
-
-
-        <div class="bill-row">
-
-            <span>
-                Service
-            </span>
-
-            <span id="billService">
-                Mixing + Mastering
-            </span>
-
-        </div>
-
-
-        <div class="bill-row">
-
-            <span>
-                Plan
-            </span>
-
-            <span id="billPlan">
-                Basic
-            </span>
-
-        </div>
-
-
-        <div class="bill-row">
-
-            <span>
-                Songs
-            </span>
-
-            <span id="billSongs">
-                1
-            </span>
-
-        </div>
-
-
-        <div class="bill-row">
-
-            <span>
-                Base Price
-            </span>
-
-            <span id="billBase">
-                $9.99
-            </span>
-
-        </div>
-
+        <!-- =========================
+             SIGN IN
+        ========================== -->
 
         <div
-            class="bill-row debut"
-            id="billDebutRow"
+            class="form active"
+            id="signInForm"
         >
 
-            <span>
-                Debut+ Subscription
-            </span>
+            <div class="heading">
 
-            <span>
-                $29.99
-            </span>
+                <h2>
+                    Welcome Back
+                </h2>
+
+                <p>
+                    Login to your RudraVX Dashboard
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+
+                <div class="field">
+
+                    <label>
+                        Email / Login ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="loginId"
+                        placeholder="Enter Email or Login ID"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter Password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            onclick="togglePassword(
+                                'loginPassword',
+                                this
+                            )"
+                        >
+                            SHOW
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                            checked
+                        >
+
+                        Remember Me
+
+                    </label>
+
+
+                    <span
+                        class="forgot"
+                        onclick="showForgot()"
+                    >
+                        Forgot Password?
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="main-button"
+                    id="loginButton"
+                >
+                    SIGN IN
+                </button>
+
+
+                <div
+                    class="status"
+                    id="loginStatus"
+                ></div>
+
+            </form>
 
         </div>
 
 
-        <div class="bill-row adjustment">
+        <!-- =========================
+             SIGN UP
+        ========================== -->
 
-            <span>
-                Service Adjustment
-            </span>
+        <div
+            class="form"
+            id="signUpForm"
+        >
 
-            <span id="billAdjustment">
-                $0.00
-            </span>
+            <div class="heading">
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p>
+                    Join the RudraVX platform
+                </p>
+
+            </div>
+
+
+            <form id="signupForm">
+
+
+                <div class="field">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Artist Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="artistName"
+                        placeholder="Enter artist name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            onclick="togglePassword(
+                                'signupPassword',
+                                this
+                            )"
+                        >
+                            SHOW
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Confirm Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            onclick="togglePassword(
+                                'confirmPassword',
+                                this
+                            )"
+                        >
+                            SHOW
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="main-button"
+                    id="signupButton"
+                >
+                    CREATE ACCOUNT
+                </button>
+
+
+                <div
+                    class="status"
+                    id="signupStatus"
+                ></div>
+
+            </form>
 
         </div>
 
 
-        <div class="bill-row delivery">
+        <!-- =========================
+             FORGOT PASSWORD
+        ========================== -->
 
-            <span>
-                Delivery
-            </span>
+        <div
+            class="forgot-panel"
+            id="forgotPanel"
+        >
 
-            <span id="billDelivery">
-                $0.00
-            </span>
+            <div class="heading">
+
+                <h2>
+                    Reset Password
+                </h2>
+
+                <p>
+                    Enter your registered email
+                </p>
+
+            </div>
+
+
+            <form id="forgotForm">
+
+
+                <div class="field">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="forgotEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="main-button"
+                >
+                    SEND RESET LINK
+                </button>
+
+
+                <div
+                    class="status"
+                    id="forgotStatus"
+                ></div>
+
+            </form>
+
+
+            <div
+                class="back-button"
+                onclick="showSignIn()"
+            >
+                ← Back to Sign In
+            </div>
+
+        </div>
+
+
+        <!-- SESSION INFO -->
+
+        <div class="info">
+
+            Your login session will automatically
+            expire after <strong>7 days</strong>.
 
         </div>
 
     </div>
 
 
-    <div class="total-row">
+    <footer>
 
-        <span>
-            Total
-        </span>
+        © 2026
+        <strong>RudraVX</strong>
+        · Rudravaax
 
-        <span
-            class="total-price"
-            id="billTotal"
-        >
-            $9.99
-        </span>
-
-    </div>
+    </footer>
 
 
-    <button
-        type="submit"
-        class="submit-btn"
-        id="submitBtn"
-    >
-        SUBMIT REQUEST
-    </button>
-
-</section>
-
-</form>
-
-
-<footer>
-
-    © 2026 <strong>RudraVX</strong>
-    — Audio Engineering Department
-
-</footer>
+</div>
 
 
 <script>
 
-/* =========================================================
-   RUDRAVX PRICING ENGINE
-   =========================================================
+/* ==========================================
+   BACKEND API
+   CHANGE THESE TO YOUR BACKEND URLS
+========================================== */
 
-   PROJECT TYPES
+const API = {
 
-   Single = 1 song
-   EP     = 2–7 songs
-   Album  = 8–18 songs
+    login:
+        "/api/auth/login",
 
-   19+ songs = Debut+ Subscription
+    signup:
+        "/api/auth/signup",
 
-   DEBUT+ = ₹2999 = $29.99
-
-
-   NORMAL PRICING BASIS
-
-   BASIC
-   1 song  = ₹999
-   2 songs = ₹1299
-   3–19   = +₹100 per song
-
-   PREMIUM
-   1 song  = ₹1499
-   2 songs = ₹1799
-   3–19   = +₹200 per song
-
-
-   SERVICE DIFFERENCE
-
-   Mixing + Mastering
-   Only Mixing
-   Only Mastering
-
-   are calculated independently.
-
-   The service multipliers below preserve
-   separate service pricing.
-
-   ========================================================= */
-
-
-/* ================= CONFIG ================= */
-
-const INR_TO_USD = 100;
-
-const DEBUT_PLUS_USD = 29.99;
-
-const PRIORITY_USD = 4.99;
-
-
-/*
-    Service-specific pricing multipliers.
-
-    These are intentionally kept in one place so
-    you can change service pricing later easily.
-*/
-
-const SERVICE_MULTIPLIER = {
-
-    "Mixing + Mastering": 1.00,
-
-    "Only Mixing": 0.65,
-
-    "Only Mastering": 0.65
+    forgotPassword:
+        "/api/auth/forgot-password"
 
 };
 
 
-/* ================= HELPERS ================= */
+/* ==========================================
+   SESSION TIME
+========================================== */
 
-function getSelected(name){
+const SEVEN_DAYS =
+    7 * 24 * 60 * 60 * 1000;
 
-    const item =
-        document.querySelector(
-            `input[name="${name}"]:checked`
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const signInTab =
+    document.getElementById("signInTab");
+
+const signUpTab =
+    document.getElementById("signUpTab");
+
+const signInForm =
+    document.getElementById("signInForm");
+
+const signUpForm =
+    document.getElementById("signUpForm");
+
+const forgotPanel =
+    document.getElementById("forgotPanel");
+
+
+/* ==========================================
+   EXISTING SESSION CHECK
+========================================== */
+
+(function(){
+
+    const loggedIn =
+        localStorage.getItem(
+            "rudravaaxLoggedIn"
         );
 
-    return item ? item.value : "";
-
-}
-
-
-function money(value){
-
-    return "$" + value.toFixed(2);
-
-}
-
-
-/* =========================================================
-   CREATE SONG OPTIONS
-   ========================================================= */
-
-function createSongOptions(){
-
-    const project =
-        getSelected("project_type");
-
-    const select =
-        document.getElementById("songCount");
-
-
-    let min = 1;
-    let max = 1;
-
-
-    if(project === "Single"){
-
-        min = 1;
-        max = 1;
-
-    }
-
-    else if(project === "EP"){
-
-        min = 2;
-        max = 7;
-
-    }
-
-    else if(project === "Album"){
-
-        min = 8;
-        max = 18;
-
-    }
-
-
-    select.innerHTML = "";
-
-
-    for(let i=min;i<=max;i++){
-
-        const option =
-            document.createElement("option");
-
-        option.value = i;
-
-        option.textContent =
-            i === 1
-            ? "1 Song"
-            : `${i} Songs`;
-
-        select.appendChild(option);
-
-    }
-
-
-    /*
-        Automatically select first valid number.
-    */
-
-    select.value = min;
-
-
-    updatePrice();
-
-}
-
-
-/* =========================================================
-   PROJECT TYPE CHANGE
-   ========================================================= */
-
-function changeProject(type){
-
-    /*
-        Normal project types never allow 19+.
-
-        19+ is handled separately through Debut+.
-    */
-
-    createSongOptions();
-
-}
-
-
-/* =========================================================
-   NORMAL PRICE
-   ========================================================= */
-
-function calculateNormalINR(songCount,plan,service){
-
-    let price = 0;
-
-
-    /* BASIC */
-
-    if(plan === "Basic"){
-
-        if(songCount === 1){
-
-            price = 999;
-
-        }
-
-        else if(songCount === 2){
-
-            price = 1299;
-
-        }
-
-        else{
-
-            price =
-                1299 +
-                ((songCount - 2) * 100);
-
-        }
-
-    }
-
-
-    /* PREMIUM */
-
-    if(plan === "Premium"){
-
-        if(songCount === 1){
-
-            price = 1499;
-
-        }
-
-        else if(songCount === 2){
-
-            price = 1799;
-
-        }
-
-        else{
-
-            price =
-                1799 +
-                ((songCount - 2) * 200);
-
-        }
-
-    }
-
-
-    /*
-        Apply service-specific pricing.
-    */
-
-    price *=
-        SERVICE_MULTIPLIER[service];
-
-
-    return price;
-
-}
-
-
-/* =========================================================
-   FINAL .99 ADJUSTMENT
-   =========================================================
-
-   Example:
-
-   $24.32 -> $24.99
-   $31.20 -> $31.99
-   $49.99 -> $49.99
-
-   This is NOT a government tax.
-   It is a RudraVX Service Adjustment.
-   ========================================================= */
-
-function adjustTo99(cents){
-
-    const remainder =
-        cents % 100;
-
-    const adjustment =
-        remainder === 99
-        ? 0
-        : 99 - remainder;
-
-    return {
-
-        adjustmentCents: adjustment,
-
-        finalCents:
-            cents + adjustment
-
-    };
-
-}
-
-
-/* =========================================================
-   UPDATE PRICE
-   ========================================================= */
-
-function updatePrice(){
-
-    const project =
-        getSelected("project_type");
-
-    const service =
-        getSelected("service");
-
-    const plan =
-        getSelected("plan");
-
-    const delivery =
-        getSelected("delivery");
-
-    const songCount =
+    const loginTime =
         Number(
-            document.getElementById("songCount").value
+            localStorage.getItem(
+                "rudravaaxLoginTime"
+            )
         );
 
 
-    /*
-        ==========================================
-        NORMAL PROJECT
-        ==========================================
-    */
+    if(
 
-    let baseUSD = 0;
+        loggedIn === "true" &&
 
-    let debutPlus = false;
+        loginTime &&
 
+        Date.now() - loginTime <
+        SEVEN_DAYS
 
-    /*
-        ==========================================
-        DEBUT+ MODE
-        ==========================================
+    ){
 
-        This is available when 19+ is required.
-
-        Since normal Album ends at 18,
-        the user can activate Debut+ using
-        the separate section if needed.
-        ==========================================
-    */
-
-    if(songCount > 18){
-
-        debutPlus = true;
-
-        baseUSD = DEBUT_PLUS_USD;
+        window.location.replace(
+            "index.html"
+        );
 
     }
 
-    else{
+})();
 
-        const baseINR =
-            calculateNormalINR(
-                songCount,
-                plan,
-                service
-            );
 
-        baseUSD =
-            baseINR / INR_TO_USD;
+/* ==========================================
+   SIGN IN TAB
+========================================== */
 
-    }
+signInTab.onclick = function(){
 
+    signInTab.classList.add("active");
 
-    /*
-        Convert to integer cents.
-    */
+    signUpTab.classList.remove("active");
 
-    let baseCents =
-        Math.round(baseUSD * 100);
+    signInForm.classList.add("active");
 
+    signUpForm.classList.remove("active");
 
-    /*
-        Delivery.
-    */
+    forgotPanel.classList.remove("active");
 
-    let deliveryCents = 0;
+};
 
-    if(delivery === "Priority"){
 
-        deliveryCents =
-            Math.round(PRIORITY_USD * 100);
+/* ==========================================
+   SIGN UP TAB
+========================================== */
 
-    }
+signUpTab.onclick = function(){
 
+    signUpTab.classList.add("active");
 
-    /*
-        ==========================================
-        FINAL CALCULATION
-        ==========================================
-    */
+    signInTab.classList.remove("active");
 
-    let subtotalCents =
-        baseCents + deliveryCents;
+    signUpForm.classList.add("active");
 
+    signInForm.classList.remove("active");
 
-    const adjusted =
-        adjustTo99(subtotalCents);
+    forgotPanel.classList.remove("active");
 
+};
 
-    const finalCents =
-        adjusted.finalCents;
 
+/* ==========================================
+   FORGOT PASSWORD
+========================================== */
 
-    const adjustmentCents =
-        adjusted.adjustmentCents;
+function showForgot(){
 
+    signInForm.classList.remove("active");
 
-    /*
-        ==========================================
-        UPDATE UI
-        ==========================================
-    */
+    signUpForm.classList.remove("active");
 
-    document.getElementById("billProject")
-        .textContent = project;
+    forgotPanel.classList.add("active");
 
+    signInTab.classList.remove("active");
 
-    document.getElementById("billService")
-        .textContent = service;
-
-
-    document.getElementById("billPlan")
-        .textContent =
-        debutPlus
-        ? "Debut+"
-        : plan;
-
-
-    document.getElementById("billSongs")
-        .textContent = songCount;
-
-
-    document.getElementById("billBase")
-        .textContent =
-        money(baseCents / 100);
-
-
-    document.getElementById("billAdjustment")
-        .textContent =
-        money(adjustmentCents / 100);
-
-
-    document.getElementById("billDelivery")
-        .textContent =
-        money(deliveryCents / 100);
-
-
-    document.getElementById("billTotal")
-        .textContent =
-        money(finalCents / 100);
-
-
-    /*
-        Debut row
-    */
-
-    const debutRow =
-        document.getElementById("billDebutRow");
-
-
-    if(debutPlus){
-
-        debutRow.classList.add("active");
-
-    }
-
-    else{
-
-        debutRow.classList.remove("active");
-
-    }
-
-
-    /*
-        ==========================================
-        WEB3FORMS HIDDEN DATA
-        ==========================================
-    */
-
-    document.getElementById("hiddenProject")
-        .value = project;
-
-
-    document.getElementById("hiddenService")
-        .value = service;
-
-
-    document.getElementById("hiddenPlan")
-        .value =
-        debutPlus
-        ? "Debut+"
-        : plan;
-
-
-    document.getElementById("hiddenSongs")
-        .value = songCount;
-
-
-    document.getElementById("hiddenDebut")
-        .value =
-        debutPlus
-        ? "Yes — $29.99"
-        : "No";
-
-
-    document.getElementById("hiddenBase")
-        .value =
-        money(baseCents / 100);
-
-
-    document.getElementById("hiddenAdjustment")
-        .value =
-        money(adjustmentCents / 100);
-
-
-    document.getElementById("hiddenDelivery")
-        .value =
-        money(deliveryCents / 100);
-
-
-    document.getElementById("hiddenFinal")
-        .value =
-        money(finalCents / 100);
+    signUpTab.classList.remove("active");
 
 }
 
 
-/* =========================================================
-   DEBUT+ 19+ SUPPORT
-   =========================================================
+/* ==========================================
+   BACK TO SIGN IN
+========================================== */
 
-   Normal Album is intentionally limited to 18.
+function showSignIn(){
 
-   If you later want a dedicated "19+ Songs / Debut+"
-   selector, this function can be connected to it.
+    signInTab.click();
 
-   For now, the pricing engine already supports
-   Debut+ automatically when songCount > 18.
-   ========================================================= */
+}
 
 
-/* =========================================================
-   FORM SUBMIT
-   ========================================================= */
+/* ==========================================
+   SHOW / HIDE PASSWORD
+========================================== */
+
+function togglePassword(
+    inputId,
+    button
+){
+
+    const input =
+        document.getElementById(
+            inputId
+        );
+
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        button.textContent =
+            "HIDE";
+
+    }
+    else{
+
+        input.type = "password";
+
+        button.textContent =
+            "SHOW";
+
+    }
+
+}
+
+
+/* ==========================================
+   CREATE SESSION
+========================================== */
+
+function createSession(token){
+
+    localStorage.setItem(
+        "rudravaaxLoggedIn",
+        "true"
+    );
+
+
+    localStorage.setItem(
+        "rudravaaxLoginTime",
+        Date.now().toString()
+    );
+
+
+    if(token){
+
+        localStorage.setItem(
+            "rudravaaxToken",
+            token
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   SIGN IN
+========================================== */
 
 document
-.getElementById("mixingForm")
+.getElementById("loginForm")
 .addEventListener(
     "submit",
-    function(){
+    async function(event){
 
-        updatePrice();
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById(
+                "loginId"
+            ).value.trim();
+
+
+        const password =
+            document.getElementById(
+                "loginPassword"
+            ).value;
+
+
+        const status =
+            document.getElementById(
+                "loginStatus"
+            );
 
 
         const button =
-            document.getElementById("submitBtn");
+            document.getElementById(
+                "loginButton"
+            );
 
 
-        button.disabled = true;
+        status.className =
+            "status";
+
+
+        status.textContent =
+            "";
+
+
+        button.disabled =
+            true;
+
 
         button.textContent =
-            "SUBMITTING REQUEST...";
+            "SIGNING IN...";
+
+
+        try{
+
+            const response =
+                await fetch(
+                    API.login,
+                    {
+
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:JSON.stringify({
+
+                            email:
+                                email,
+
+                            password:
+                                password
+
+                        })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if(!response.ok){
+
+                throw new Error(
+                    data.message ||
+                    "Invalid email or password."
+                );
+
+            }
+
+
+            createSession(
+                data.token
+            );
+
+
+            status.classList.add(
+                "success"
+            );
+
+
+            status.textContent =
+                "Login successful. Opening dashboard...";
+
+
+            setTimeout(
+                function(){
+
+                    window.location.replace(
+                        "index.html"
+                    );
+
+                },
+                500
+            );
+
+
+        }
+        catch(error){
+
+            status.classList.add(
+                "error"
+            );
+
+
+            status.textContent =
+                error.message ||
+                "Unable to sign in.";
+
+
+            button.disabled =
+                false;
+
+
+            button.textContent =
+                "SIGN IN";
+
+        }
 
     }
 );
 
 
-/* =========================================================
-   INITIAL LOAD
-   ========================================================= */
+/* ==========================================
+   SIGN UP
+========================================== */
 
-createSongOptions();
+document
+.getElementById("signupForm")
+.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const fullName =
+            document.getElementById(
+                "fullName"
+            ).value.trim();
+
+
+        const artistName =
+            document.getElementById(
+                "artistName"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "signupEmail"
+            ).value.trim();
+
+
+        const password =
+            document.getElementById(
+                "signupPassword"
+            ).value;
+
+
+        const confirmPassword =
+            document.getElementById(
+                "confirmPassword"
+            ).value;
+
+
+        const status =
+            document.getElementById(
+                "signupStatus"
+            );
+
+
+        const button =
+            document.getElementById(
+                "signupButton"
+            );
+
+
+        status.className =
+            "status";
+
+
+        status.textContent =
+            "";
+
+
+        if(password !== confirmPassword){
+
+            status.classList.add(
+                "error"
+            );
+
+            status.textContent =
+                "Passwords do not match.";
+
+            return;
+
+        }
+
+
+        if(password.length < 8){
+
+            status.classList.add(
+                "error"
+            );
+
+            status.textContent =
+                "Password must contain at least 8 characters.";
+
+            return;
+
+        }
+
+
+        button.disabled =
+            true;
+
+
+        button.textContent =
+            "CREATING ACCOUNT...";
+
+
+        try{
+
+            const response =
+                await fetch(
+                    API.signup,
+                    {
+
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:JSON.stringify({
+
+                            fullName:
+                                fullName,
+
+                            artistName:
+                                artistName,
+
+                            email:
+                                email,
+
+                            password:
+                                password
+
+                        })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if(!response.ok){
+
+                throw new Error(
+                    data.message ||
+                    "Unable to create account."
+                );
+
+            }
+
+
+            /*
+               IF BACKEND RETURNS TOKEN,
+               LOGIN AUTOMATICALLY.
+            */
+
+            if(data.token){
+
+                createSession(
+                    data.token
+                );
+
+
+                window.location.replace(
+                    "index.html"
+                );
+
+
+                return;
+
+            }
+
+
+            status.classList.add(
+                "success"
+            );
+
+
+            status.textContent =
+                data.message ||
+                "Account created successfully. Please sign in.";
+
+
+            button.disabled =
+                false;
+
+
+            button.textContent =
+                "CREATE ACCOUNT";
+
+
+            setTimeout(
+                showSignIn,
+                1200
+            );
+
+
+        }
+        catch(error){
+
+            status.classList.add(
+                "error"
+            );
+
+
+            status.textContent =
+                error.message ||
+                "Unable to create account.";
+
+
+            button.disabled =
+                false;
+
+
+            button.textContent =
+                "CREATE ACCOUNT";
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   FORGOT PASSWORD
+========================================== */
+
+document
+.getElementById("forgotForm")
+.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById(
+                "forgotEmail"
+            ).value.trim();
+
+
+        const status =
+            document.getElementById(
+                "forgotStatus"
+            );
+
+
+        status.className =
+            "status";
+
+
+        status.textContent =
+            "Sending reset link...";
+
+
+        try{
+
+            const response =
+                await fetch(
+                    API.forgotPassword,
+                    {
+
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:JSON.stringify({
+
+                            email:
+                                email
+
+                        })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if(!response.ok){
+
+                throw new Error(
+                    data.message ||
+                    "Unable to send reset link."
+                );
+
+            }
+
+
+            status.classList.add(
+                "success"
+            );
+
+
+            status.textContent =
+                data.message ||
+                "Password reset link sent successfully.";
+
+        }
+        catch(error){
+
+            status.classList.add(
+                "error"
+            );
+
+
+            status.textContent =
+                error.message ||
+                "Unable to send reset link.";
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   LOGOUT
+   USE THIS FUNCTION IN DASHBOARD
+========================================== */
+
+function logout(){
+
+    localStorage.removeItem(
+        "rudravaaxLoggedIn"
+    );
+
+
+    localStorage.removeItem(
+        "rudravaaxLoginTime"
+    );
+
+
+    localStorage.removeItem(
+        "rudravaaxToken"
+    );
+
+
+    window.location.replace(
+        "login.html"
+    );
+
+}
 
 </script>
 
 </body>
 </html>
+```
