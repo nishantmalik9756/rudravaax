@@ -5,537 +5,1068 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RudraVX — Advertising</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --black: #050505;
-            --black-light: #0d0d0d;
-            --card: #121212;
-            --white: #ffffff;
-            --grey: #a5a5a5;
-            --orange: #ff7a18;
-            --green: #20d46b;
-            --blue: #4285f4;
-            --border: rgba(255,255,255,0.09);
-            --red: #ff5c5c;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(5,5,5,0.94);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--orange);
-        }
-
-        .dashboard {
-            color: var(--grey);
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .dashboard:hover {
-            color: var(--white);
-        }
-
-        .hero {
-            max-width: 1000px;
-            margin: auto;
-            padding: 85px 25px 55px;
-            text-align: center;
-        }
-
-        .badge {
-            display: inline-block;
-            color: var(--orange);
-            border: 1px solid rgba(255,122,24,0.35);
-            padding: 7px 15px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 72px);
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--orange);
-        }
-
-        .hero p {
-            max-width: 720px;
-            margin: auto;
-            color: var(--grey);
-            font-size: 17px;
-        }
-
-        .eligibility {
-            max-width: 950px;
-            margin: 0 auto 45px;
-            padding: 0 25px;
-        }
-
-        .eligibility-box {
-            background: rgba(255,122,24,0.07);
-            border: 1px solid rgba(255,122,24,0.25);
-            border-radius: 16px;
-            padding: 22px;
-            text-align: center;
-        }
-
-        .eligibility-box strong {
-            color: var(--orange);
-        }
-
-        .eligibility-box p {
-            color: #d2d2d2;
-            font-size: 14px;
-            margin-top: 6px;
-        }
-
-        .fee-section {
-            max-width: 950px;
-            margin: 0 auto 60px;
-            padding: 0 25px;
-        }
-
-        .fee-card {
-            background: linear-gradient(145deg, #101510, #080808);
-            border: 1px solid rgba(32,212,107,0.25);
-            border-radius: 20px;
-            padding: 32px;
-            text-align: center;
-        }
-
-        .fee-card .zero {
-            font-size: 50px;
-            font-weight: 900;
-            color: var(--green);
-        }
-
-        .fee-card h2 {
-            margin-bottom: 5px;
-        }
-
-        .fee-card p {
-            color: var(--grey);
-            max-width: 700px;
-            margin: auto;
-            font-size: 14px;
-        }
-
-        .budget-section {
-            max-width: 950px;
-            margin: 0 auto 65px;
-            padding: 0 25px;
-        }
-
-        .budget-box {
-            background: var(--black-light);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 28px;
-        }
-
-        .budget-box h2 {
-            margin-bottom: 12px;
-        }
-
-        .budget-box p {
-            color: var(--grey);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .budget-box strong {
-            color: var(--white);
-        }
-
-        .platforms {
-            max-width: 1100px;
-            margin: 0 auto 70px;
-            padding: 0 25px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .platform {
-            background: linear-gradient(145deg, #151515, #0a0a0a);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 30px;
-            transition: 0.3s;
-        }
-
-        .platform:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255,122,24,0.35);
-        }
-
-        .platform-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: #1b1b1b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
-
-        .google .platform-icon {
-            color: var(--blue);
-        }
-
-        .youtube .platform-icon {
-            color: #ff3333;
-        }
-
-        .meta .platform-icon {
-            color: #648cff;
-        }
-
-        .platform h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .platform p {
-            color: var(--grey);
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
-
-        .platform ul {
-            list-style: none;
-        }
-
-        .platform li {
-            color: #ccc;
-            font-size: 13px;
-            padding: 6px 0;
-        }
-
-        .platform li::before {
-            content: "✓";
-            color: var(--green);
-            margin-right: 8px;
-            font-weight: bold;
-        }
-
-        .form-section {
-            max-width: 950px;
-            margin: auto;
-            padding: 0 25px 80px;
-        }
-
-        .heading {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .heading h2 {
-            font-size: 36px;
-            margin-bottom: 8px;
-        }
-
-        .heading p {
-            color: var(--grey);
-            font-size: 14px;
-        }
-
-        form {
-            background: var(--black-light);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 35px;
-        }
-
-        .form-section-block {
-            margin-bottom: 28px;
-        }
-
-        .form-section-block h3 {
-            font-size: 18px;
-            margin-bottom: 17px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
-
-        .full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            color: #ddd;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            background: #080808;
-            border: 1px solid var(--border);
-            color: var(--white);
-            border-radius: 10px;
-            padding: 13px 14px;
-            outline: none;
-            font-size: 14px;
-            transition: 0.25s;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255,122,24,0.08);
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        select option {
-            background: #111111;
-        }
-
-        .campaign-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .campaign-option {
-            position: relative;
-        }
-
-        .campaign-option input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .campaign-option label {
-            display: block;
-            background: #080808;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        .campaign-option label strong {
-            display: block;
-            color: var(--white);
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .campaign-option label span {
-            color: var(--grey);
-            font-size: 13px;
-        }
-
-        .campaign-option input:checked + label {
-            border-color: var(--orange);
-            background: rgba(255,122,24,0.08);
-        }
-
-        .terms {
-            background: #080808;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 18px;
-        }
-
-        .check {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .check:last-child {
-            margin-bottom: 0;
-        }
-
-        .check input {
-            width: 16px;
-            height: 16px;
-            margin-top: 3px;
-            accent-color: var(--orange);
-            flex-shrink: 0;
-        }
-
-        .check label {
-            color: #bbb;
-            font-size: 12px;
-            font-weight: 400;
-        }
-
-        button {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(90deg, var(--orange), #ff9b42);
-            color: #000;
-            font-weight: 900;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255,122,24,0.2);
-        }
-
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .status {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 13px;
-            color: var(--green);
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--grey);
-            font-size: 13px;
-        }
-
-        footer strong {
-            color: var(--white);
-        }
-
-        footer a {
-            color: var(--orange);
-        }
-
-        @media (max-width: 800px) {
-            .platforms {
-                grid-template-columns: 1fr;
-            }
-
-            .grid,
-            .campaign-options {
-                grid-template-columns: 1fr;
-            }
-
-            form {
-                padding: 25px 18px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .hero {
-                padding-top: 60px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .hero,
-            .eligibility,
-            .fee-section,
-            .budget-section,
-            .platforms,
-            .form-section {
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-
-            .fee-card,
-            .budget-box,
-            .platform {
-                padding: 24px;
-            }
-        }
-    </style>
+    
+   <link rel="stylesheet" href="style.css">
+
+   <style> 
+    
+/* ==========================================
+   RUDRAVX — ADVERTISING PAGE
+   White + Blue + Green Theme
+========================================== */
+
+:root {
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --blue-light: #eff6ff;
+    --green: #16a34a;
+    --green-dark: #15803d;
+    --green-light: #f0fdf4;
+    --text: #172033;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --background: #f8fafc;
+    --white: #ffffff;
+    --shadow: 0 14px 40px rgba(15, 23, 42, 0.07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+input,
+select,
+textarea,
+button {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+========================================== */
+
+header {
+    width: 100%;
+    padding: 17px 7%;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 10;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.dashboard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    font-size: 14px;
+    font-weight: 750;
+    transition: 0.25s ease;
+}
+
+.dashboard:hover {
+    background: var(--blue);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 7% 85px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 12% 15%,
+            rgba(37, 99, 235, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 88% 85%,
+            rgba(22, 163, 74, 0.09),
+            transparent 30%
+        ),
+        var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: -140px;
+    right: 8%;
+    border: 1px solid rgba(37, 99, 235, 0.13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    bottom: -115px;
+    left: 8%;
+    border: 1px solid rgba(22, 163, 74, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.badge {
+    position: relative;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 23px;
+    border: 1px solid #bfdbfe;
+    border-radius: 30px;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto 20px;
+    font-size: clamp(36px, 5.5vw, 62px);
+    font-weight: 850;
+    line-height: 1.12;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--green-dark);
+    background: linear-gradient(
+        100deg,
+        var(--blue),
+        var(--green)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero > p {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* ==========================================
+   ELIGIBILITY SECTION
+========================================== */
+
+.eligibility {
+    width: min(1100px, 88%);
+    margin: 45px auto 0;
+}
+
+.eligibility-box {
+    padding: 25px 28px;
+    background: var(--blue-light);
+    border: 1px solid #bfdbfe;
+    border-left: 5px solid var(--blue);
+    border-radius: 14px;
+}
+
+.eligibility-box strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--blue-dark);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.eligibility-box p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ==========================================
+   ZERO PERCENT FEE CARD
+========================================== */
+
+.fee-section {
+    width: min(1100px, 88%);
+    margin: 28px auto;
+}
+
+.fee-card {
+    position: relative;
+    overflow: hidden;
+    padding: 38px;
+    background: var(--white);
+    border: 1px solid #bbf7d0;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.fee-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -100px;
+    right: -60px;
+    border-radius: 50%;
+    background: rgba(22, 163, 74, 0.07);
+}
+
+.zero {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--green-dark);
+    font-size: clamp(55px, 8vw, 78px);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -3px;
+}
+
+.fee-card h2 {
+    position: relative;
+    margin-bottom: 12px;
+    font-size: clamp(21px, 3vw, 29px);
+    line-height: 1.4;
+}
+
+.fee-card p {
+    position: relative;
+    max-width: 750px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ==========================================
+   ADVERTISING BUDGET
+========================================== */
+
+.budget-section {
+    width: min(1100px, 88%);
+    margin: 28px auto 55px;
+}
+
+.budget-box {
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    box-shadow: 0 7px 25px rgba(15, 23, 42, 0.035);
+}
+
+.budget-box h2 {
+    margin-bottom: 18px;
+    font-size: 25px;
+    font-weight: 850;
+}
+
+.budget-box p {
+    margin-bottom: 13px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.budget-box p:last-child {
+    margin-bottom: 0;
+}
+
+.budget-box strong {
+    color: var(--blue-dark);
+}
+
+/* ==========================================
+   ADVERTISING PLATFORM CARDS
+========================================== */
+
+.platforms {
+    width: min(1100px, 88%);
+    margin: 0 auto 75px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+.platform {
+    position: relative;
+    padding: 29px 25px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--blue);
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.045);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.platform:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.platform.google {
+    border-top-color: var(--blue);
+}
+
+.platform.youtube {
+    border-top-color: #dc2626;
+}
+
+.platform.meta {
+    border-top-color: var(--green);
+}
+
+.platform-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 53px;
+    height: 53px;
+    margin-bottom: 21px;
+    border-radius: 15px;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.youtube .platform-icon {
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 16px;
+}
+
+.meta .platform-icon {
+    background: var(--green-light);
+    color: var(--green-dark);
+}
+
+.platform h3 {
+    margin-bottom: 12px;
+    font-size: 23px;
+    font-weight: 850;
+}
+
+.platform > p {
+    min-height: 100px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.platform ul {
+    display: grid;
+    gap: 11px;
+    list-style: none;
+}
+
+.platform li {
+    position: relative;
+    padding-left: 24px;
+    color: #334155;
+    font-size: 13px;
+}
+
+.platform li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--green-dark);
+    font-weight: 900;
+}
+
+/* ==========================================
+   ADVERTISING APPLICATION FORM
+========================================== */
+
+.form-section {
+    width: min(1000px, 90%);
+    margin: 0 auto 75px;
+    padding: 42px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    box-shadow: var(--shadow);
+}
+
+.heading {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.heading h2 {
+    margin-bottom: 10px;
+    font-size: clamp(27px, 4vw, 37px);
+    line-height: 1.3;
+    letter-spacing: -1px;
+}
+
+.heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Form section blocks */
+
+.form-section-block {
+    margin-bottom: 28px;
+    padding: 26px;
+    background: #fbfdff;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.form-section-block h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 23px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.form-section-block h3::before {
+    content: "";
+    width: 5px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: linear-gradient(
+        to bottom,
+        var(--blue),
+        var(--green)
+    );
+}
+
+/* Form grid */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 21px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    background: var(--white);
+    color: var(--text);
+    font-size: 14px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.field input,
+.field select {
+    min-height: 48px;
+}
+
+.field textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #94a3b8;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+    border-color: #94a3b8;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.11);
+}
+
+/* ==========================================
+   CAMPAIGN PLATFORM OPTIONS
+========================================== */
+
+.campaign-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.campaign-option {
+    position: relative;
+    min-width: 0;
+}
+
+.campaign-option input {
+    position: absolute;
+    top: 17px;
+    left: 15px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--blue);
+    cursor: pointer;
+}
+
+.campaign-option label {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 135px;
+    padding: 18px 14px 18px 43px;
+    gap: 10px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.campaign-option label strong {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.campaign-option label span {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.campaign-option label:hover {
+    border-color: #93c5fd;
+    background: var(--blue-light);
+}
+
+.campaign-option input:checked + label {
+    border-color: var(--blue);
+    background: var(--blue-light);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.07);
+}
+
+.campaign-option input:focus-visible + label {
+    outline: 3px solid rgba(37, 99, 235, 0.2);
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   TERMS AND CHECKBOXES
+========================================== */
+
+.terms {
+    display: grid;
+    gap: 14px;
+}
+
+.check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.check:has(input:checked) {
+    background: var(--green-light);
+    border-color: #86efac;
+}
+
+.check input {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    accent-color: var(--green);
+    cursor: pointer;
+}
+
+.check label {
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.8;
+    cursor: pointer;
+}
+
+/* ==========================================
+   SUBMIT BUTTON AND STATUS
+========================================== */
+
+#submitButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 440px);
+    min-height: 56px;
+    margin: 10px auto 0;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(
+        110deg,
+        var(--blue),
+        #2563eb 55%,
+        var(--green)
+    );
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 9px 23px rgba(37, 99, 235, 0.2);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+#submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 13px 28px rgba(37, 99, 235, 0.26);
+}
+
+#submitButton:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+#submitButton:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 4px;
+}
+
+#submitButton:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.status {
+    min-height: 22px;
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    padding: 30px 7%;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer strong {
+    color: var(--blue-dark);
+    font-weight: 850;
+}
+
+footer a {
+    color: var(--blue);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+footer a:hover {
+    color: var(--green-dark);
+    text-decoration: underline;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+    .hero {
+        padding: 75px 6%;
+    }
+
+    .platforms {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .platform:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .platform > p {
+        min-height: auto;
+    }
+
+    .form-section {
+        padding: 30px;
+    }
+
+    .form-section-block {
+        padding: 22px;
+    }
+
+    .campaign-options {
+        grid-template-columns: 1fr;
+    }
+
+    .campaign-option label {
+        min-height: 100px;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+    header {
+        padding: 14px 5%;
+    }
+
+    .dashboard {
+        padding: 9px 16px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 58px 6% 55px;
+    }
+
+    .hero h1 {
+        font-size: clamp(33px, 9vw, 43px);
+        letter-spacing: -1.2px;
+    }
+
+    .hero > p {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .badge {
+        font-size: 10px;
+        letter-spacing: 0.8px;
+    }
+
+    .eligibility,
+    .fee-section,
+    .budget-section {
+        width: 90%;
+    }
+
+    .eligibility {
+        margin-top: 30px;
+    }
+
+    .eligibility-box {
+        padding: 19px;
+    }
+
+    .eligibility-box strong {
+        font-size: 15px;
+    }
+
+    .eligibility-box p,
+    .budget-box p {
+        font-size: 13px;
+    }
+
+    .fee-card {
+        padding: 29px 20px;
+    }
+
+    .fee-card h2 {
+        font-size: 22px;
+    }
+
+    .fee-card p {
+        font-size: 13px;
+    }
+
+    .budget-box {
+        padding: 22px 19px;
+    }
+
+    .budget-box h2 {
+        font-size: 23px;
+    }
+
+    .platforms {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 17px;
+        margin-bottom: 48px;
+    }
+
+    .platform:last-child {
+        grid-column: auto;
+    }
+
+    .platform {
+        padding: 25px 22px;
+    }
+
+    .platform h3 {
+        font-size: 22px;
+    }
+
+    .platform > p {
+        margin-bottom: 18px;
+    }
+
+    .form-section {
+        width: 92%;
+        margin-bottom: 45px;
+        padding: 23px 14px;
+        border-radius: 17px;
+    }
+
+    .heading {
+        margin-bottom: 27px;
+        padding-bottom: 21px;
+    }
+
+    .heading h2 {
+        font-size: 27px;
+    }
+
+    .heading p {
+        font-size: 13px;
+    }
+
+    .form-section-block {
+        margin-bottom: 20px;
+        padding: 18px 13px;
+        border-radius: 12px;
+    }
+
+    .form-section-block h3 {
+        align-items: flex-start;
+        gap: 9px;
+        font-size: 16px;
+    }
+
+    .form-section-block h3::before {
+        height: 22px;
+        margin-top: 2px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+        font-size: 16px;
+    }
+
+    .campaign-options {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .campaign-option label {
+        min-height: auto;
+        padding: 16px 13px 16px 43px;
+    }
+
+    .check {
+        padding: 13px 10px;
+        gap: 10px;
+    }
+
+    .check label {
+        font-size: 12px;
+    }
+
+    #submitButton {
+        width: 100%;
+        min-height: 53px;
+        padding: 14px;
+        font-size: 13px;
+    }
+
+    footer {
+        padding: 25px 5%;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   EXTRA SMALL PHONES
+========================================== */
+
+@media (max-width: 360px) {
+    .form-section {
+        width: 94%;
+        padding: 17px 10px;
+    }
+
+    .form-section-block {
+        padding: 15px 10px;
+    }
+
+    .platform {
+        padding: 21px 17px;
+    }
+
+    .zero {
+        font-size: 58px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+   </style>
 </head>
 
 <body>
 
-<header>
-    <div class="nav">
-       
-         
-        </a>
 
-        <a href="index.html" class="dashboard">
-            Dashboard
-        </a>
-    </div>
-</header>
+ <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="index.html" class="brand">
+                <img src="images/logo.jpeg" alt="RudraVX Logo" class="logo">
+                <span>Rudra<span class="accent">VX</span></span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="latestrelease.html">Listen To The Rudravaax</a>
+                <a href="UpcomingProject.html">Upcoming Project</a>
+                <a href="#ecosystem">Our Services</a>
+                <a href="#team">Our Team</a>
+                <a href="Contact.Html" class="nav-contact">Contact</a>
+            </nav>
+
+        </div>
+    </header>
 
 <section class="hero">
     <div class="badge">RudraVX Advertising</div>

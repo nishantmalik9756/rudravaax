@@ -8,486 +8,356 @@
     <title>RudraVX — Exit</title>
 
     
-    <style>
-        :root {
-            --bg: #050505;
-            --orange: #ff6a00;
-            --orange-light: #ff8a2b;
-            --white: #ffffff;
-            --text: #e7e7e7;
-            --muted: #999999;
-            --border: rgba(255, 106, 0, 0.25);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-        }
-
-        body {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 25px;
+    
+      <style>
+/* ========================================
+   RUDRAVX EXIT PAGE
+   Theme: White | Blue | Green
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #1769ff;
+    --blue-dark: #1048bd;
+    --green: #16a765;
+    --text: #172033;
+    --muted: #687386;
+    --border: #e3eaf3;
+    --white: #ffffff;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(22, 167, 101, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(23, 105, 255, 0.13),
+            transparent 38%
+        ),
+        #f5f8fc;
+
+    overflow-x: hidden;
+}
+
+/* MAIN CARD */
+
+.box {
+    position: relative;
+    width: 100%;
+    max-width: 570px;
+    padding: 48px 42px;
+
+    text-align: center;
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(226, 234, 245, 0.95);
+    border-radius: 26px;
+
+    box-shadow:
+        0 25px 70px rgba(23, 48, 90, 0.10),
+        0 4px 14px rgba(23, 48, 90, 0.04);
+
+    animation: cardEnter 0.65s ease both;
+}
+
+/* LOGO */
+
+.logo {
+    display: inline-block;
+    margin-bottom: 35px;
+
+    font-size: 29px;
+    font-weight: 900;
+    letter-spacing: -1.3px;
+    color: var(--text);
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+/* QUESTION ICON */
+
+.icon {
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 25px;
 
-            font-family:
-                Inter,
-                Arial,
-                Helvetica,
-                sans-serif;
+    border-radius: 24px;
+    color: white;
 
-            color: var(--text);
+    font-size: 36px;
+    font-weight: 800;
 
-            background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255, 106, 0, 0.14),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 80% 75%,
-                    rgba(255, 106, 0, 0.10),
-                    transparent 32%
-                ),
-                #050505;
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        #3987ff 55%,
+        var(--green)
+    );
 
-            overflow: hidden;
-        }
+    box-shadow: 0 12px 28px rgba(23, 105, 255, 0.22);
 
+    animation: iconFloat 3s ease-in-out infinite;
+}
 
-        /* =========================
-           BACKGROUND GRID
-        ========================= */
+/* HEADING */
 
-        body::before {
-            content: "";
+.box h1 {
+    max-width: 440px;
+    margin: 0 auto 15px;
+
+    font-size: clamp(27px, 5vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -1.1px;
+    font-weight: 850;
+}
 
-            position: fixed;
-            inset: 0;
+/* DESCRIPTION */
+
+.box p {
+    max-width: 410px;
+    margin: 0 auto;
 
-            pointer-events: none;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* BUTTON CONTAINER */
 
-            opacity: 0.18;
-
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.025) 1px,
-                    transparent 1px
-                );
-
-            background-size: 45px 45px;
-
-            mask-image: linear-gradient(
-                to bottom,
-                black,
-                transparent
-            );
-        }
-
-
-        /* =========================
-           MAIN BOX
-        ========================= */
-
-        .box {
-            position: relative;
-
-            width: min(620px, 100%);
-
-            padding: 55px 50px;
-
-            text-align: center;
-
-            border: 1px solid var(--border);
-
-            border-radius: 26px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 106, 0, 0.07),
-                    rgba(255,255,255,0.015)
-                ),
-                rgba(10, 10, 10, 0.88);
-
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-
-            box-shadow:
-                0 30px 100px rgba(0, 0, 0, 0.65),
-                0 0 50px rgba(255, 106, 0, 0.05);
-
-            animation: boxIn 0.7s ease forwards;
-        }
-
-
-        /* Orange glow */
-
-        .box::before {
-            content: "";
-
-            position: absolute;
-
-            width: 250px;
-            height: 250px;
-
-            left: 50%;
-            top: -160px;
-
-            transform: translateX(-50%);
-
-            background: var(--orange);
-
-            opacity: 0.13;
-
-            filter: blur(80px);
-
-            border-radius: 50%;
-
-            pointer-events: none;
-        }
-
-
-        /* =========================
-           LOGO
-        ========================= */
-
-        .logo {
-            position: relative;
-
-            margin-bottom: 35px;
-
-            color: var(--white);
-
-            font-size: 28px;
-
-            font-weight: 900;
-
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: var(--orange);
-
-            text-shadow:
-                0 0 18px rgba(255, 106, 0, 0.4);
-        }
-
-
-        /* =========================
-           ICON
-        ========================= */
-
-        .icon {
-            width: 78px;
-            height: 78px;
-
-            margin: 0 auto 28px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255, 106, 0, 0.35);
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255, 106, 0, 0.16),
-                    rgba(255, 106, 0, 0.025)
-                );
-
-            color: var(--orange);
-
-            font-size: 30px;
-
-            font-weight: 900;
-
-            box-shadow:
-                0 0 35px rgba(255, 106, 0, 0.12);
-
-            animation: iconPulse 2.5s ease-in-out infinite;
-        }
-
-
-        /* =========================
-           HEADING
-        ========================= */
-
-        h1 {
-            position: relative;
-
-            color: var(--white);
-
-            font-size: clamp(28px, 5vw, 43px);
-
-            line-height: 1.12;
-
-            font-weight: 900;
-
-            letter-spacing: -1.2px;
-
-            margin-bottom: 18px;
-        }
-
-
-        /* =========================
-           DESCRIPTION
-        ========================= */
-
-        p {
-            max-width: 460px;
-
-            margin: 0 auto;
-
-            color: var(--muted);
-
-            font-size: 15px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           BUTTONS
-        ========================= */
-
-        .buttons {
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            gap: 14px;
-
-            margin-top: 35px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .buttons button,
-        .buttons a {
-            min-height: 48px;
-
-            padding: 13px 22px;
-
-            border-radius: 999px;
-
-            font-family: inherit;
-
-            font-size: 14px;
-
-            font-weight: 800;
-
-            text-decoration: none;
-
-            cursor: pointer;
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                background 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-
-        /* Main button */
-
-        .exit-btn {
-            border: 1px solid var(--orange);
-
-            background: var(--orange);
-
-            color: #000;
-
-            box-shadow:
-                0 8px 25px rgba(255, 106, 0, 0.15);
-        }
-
-        .exit-btn:hover {
-            background: var(--orange-light);
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 35px rgba(255, 106, 0, 0.30);
-        }
-
-
-        /* Secondary button */
-
-        .cancel-btn {
-            border: 1px solid rgba(255,255,255,0.13);
-
-            background: rgba(255,255,255,0.035);
-
-            color: #d0d0d0;
-        }
-
-        .cancel-btn:hover {
-            color: var(--orange);
-
-            border-color: rgba(255,106,0,0.35);
-
-            background: rgba(255,106,0,0.05);
-
-            transform: translateY(-3px);
-        }
-
-
-        /* =========================
-           ANIMATIONS
-        ========================= */
-
-        @keyframes boxIn {
-
-            from {
-                opacity: 0;
-                transform: translateY(25px) scale(0.98);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-
-        }
-
-
-        @keyframes iconPulse {
-
-            0%,
-            100% {
-                box-shadow:
-                    0 0 25px rgba(255,106,0,0.08);
-            }
-
-            50% {
-                box-shadow:
-                    0 0 40px rgba(255,106,0,0.20);
-            }
-
-        }
-
-
-        /* =========================
-           SELECTION
-        ========================= */
-
-        ::selection {
-            background: var(--orange);
-            color: #000;
-        }
-
-
-        /* =========================
-           SCROLLBAR
-        ========================= */
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #292929;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--orange);
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            body {
-                padding: 18px;
-            }
-
-            .box {
-                padding: 42px 24px;
-
-                border-radius: 21px;
-            }
-
-            .logo {
-                font-size: 24px;
-
-                margin-bottom: 28px;
-            }
-
-            .icon {
-                width: 68px;
-                height: 68px;
-
-                font-size: 26px;
-
-                margin-bottom: 23px;
-            }
-
-            h1 {
-                font-size: 29px;
-            }
-
-            p {
-                font-size: 14px;
-            }
-
-            .buttons {
-                flex-direction: column;
-
-                width: 100%;
-            }
-
-            .buttons button,
-            .buttons a {
-                width: 100%;
-            }
-
-        }
-
-
-        @media (max-width: 380px) {
-
-            .box {
-                padding: 35px 20px;
-            }
-
-            h1 {
-                font-size: 26px;
-            }
-
-        }
-
-    </style>
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    margin-top: 32px;
+}
+
+/* SHARED BUTTON STYLES */
+
+.exit-btn,
+.cancel-btn {
+    width: 100%;
+    min-height: 51px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 20px;
+    border-radius: 13px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 750;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* PRIMARY BUTTON */
+
+.exit-btn {
+    color: var(--white);
+    border: none;
+
+    background: linear-gradient(
+        110deg,
+        var(--blue),
+        #3987ff
+    );
+
+    box-shadow: 0 8px 20px rgba(23, 105, 255, 0.20);
+}
+
+.exit-btn:hover {
+    transform: translateY(-3px);
+
+    background: linear-gradient(
+        110deg,
+        var(--blue-dark),
+        var(--blue)
+    );
+
+    box-shadow: 0 12px 26px rgba(23, 105, 255, 0.28);
+}
+
+.exit-btn:active {
+    transform: translateY(0);
+}
+
+/* SECONDARY BUTTON */
+
+.cancel-btn {
+    color: var(--text);
+    background: #ffffff;
+    border: 1px solid var(--border);
+}
+
+.cancel-btn:hover {
+    color: var(--green);
+    border-color: var(--green);
+    background: #f3fff8;
+    transform: translateY(-2px);
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.exit-btn:focus-visible,
+.cancel-btn:focus-visible {
+    outline: 3px solid rgba(23, 105, 255, 0.35);
+    outline-offset: 4px;
+}
+
+/* ANIMATIONS */
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 700px) {
+    .box {
+        max-width: 500px;
+        padding: 40px 30px;
+        border-radius: 23px;
+    }
+
+    .logo {
+        margin-bottom: 29px;
+    }
+
+    .icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 21px;
+        font-size: 32px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    body {
+        padding: 17px;
+    }
+
+    .box {
+        padding: 32px 21px;
+        border-radius: 20px;
+    }
+
+    .logo {
+        font-size: 25px;
+        margin-bottom: 26px;
+    }
+
+    .icon {
+        width: 63px;
+        height: 63px;
+        margin-bottom: 22px;
+        border-radius: 19px;
+        font-size: 29px;
+    }
+
+    .box h1 {
+        font-size: 27px;
+        letter-spacing: -0.7px;
+    }
+
+    .box p {
+        font-size: 14px;
+    }
+
+    .buttons {
+        margin-top: 27px;
+        gap: 11px;
+    }
+
+    .exit-btn,
+    .cancel-btn {
+        min-height: 48px;
+        font-size: 13px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 340px) {
+    .box {
+        padding: 28px 17px;
+    }
+
+    .box h1 {
+        font-size: 24px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
 
 </head>
 

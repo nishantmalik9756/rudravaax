@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | RudraVX</title>
+    <meta name="description" content="Contact RudraVX for general enquiries, support and other questions.">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container navbar">
+
+            <a href="index.html" class="brand">
+                <img src="images/logo.jpeg" alt="RudraVX Logo" class="logo">
+                <span>Rudra<span class="accent">VX</span></span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="latestrelease.html">Listen To The Rudravaax</a>
+                <a href="UpcomingProject.html">Upcoming Project</a>
+                <a href="index.html#ecosystem">Our Services</a>
+                <a href="index.html#team">Our Team</a>
+                <a href="Contact.Html" class="nav-contact active">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- CONTACT HERO -->
+        <section class="contact-hero">
+            <div class="container contact-hero-inner">
+
+                <span class="eyebrow">WE'RE HERE TO HELP</span>
+
+                <h1>
+                    Let's Talk.
+                    <span class="gradient-text">What's on your mind?</span>
+                </h1>
+
+                <p>
+                    Have a question, facing a problem or need general
+                    assistance? Tell us what's going on, and share the
+                    details so we can understand your concern.
+                </p>
+
+                <div class="contact-hero-tags">
+                    <span>General Enquiries</span>
+                    <span>Website Support</span>
+                    <span>Other Questions</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SERVICE NOTICE -->
+        <section class="container service-notice-section">
+            <div class="service-notice">
+
+                <div class="notice-icon">i</div>
+
+                <div>
+                    <h2>Contacting us about a particular service?</h2>
+
+                    <p>
+                        If you want to contact RudraVX regarding a specific
+                        service, please visit that particular service's page
+                        and fill out the form provided there, if available.
+                        This contact form is intended for general enquiries,
+                        website-related problems and other concerns.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT FORM SECTION -->
+        <section class="contact-form-section">
+            <div class="container contact-layout">
+
+                <!-- CONTACT INFORMATION -->
+                <div class="contact-info">
+
+                    <span class="eyebrow">GET IN TOUCH</span>
+
+                    <h2>Tell us how we can help.</h2>
+
+                    <p>
+                        Please provide accurate details. Your email address
+                        is mandatory so that you can be contacted regarding
+                        your enquiry.
+                    </p>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">✉</div>
+
+                        <div>
+                            <span>Email us</span>
+                            <a href="mailto:rudravaax@gmail.com">
+                                rudravaax@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">↗</div>
+
+                        <div>
+                            <span>Official website</span>
+                            <a href="index.html">RudraVX Home</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-note">
+                        <strong>Please note</strong>
+
+                        <p>
+                            For service-specific requests, use the relevant
+                            service page linked below rather than this
+                            general contact form.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT FORM -->
+                <div class="contact-form-card">
+
+                    <div class="form-heading">
+                        <h2>Contact Form</h2>
+                        <p>Fields marked with * are required.</p>
+                    </div>
+
+                    <form id="contactForm">
+
+                        <!-- WEB3FORMS CONFIGURATION -->
+                        <input
+                            type="hidden"
+                            name="access_key"
+                            value="1887c1a2-4f71-4e66-91e2-5b8872960792"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="subject"
+                            value="New Contact Enquiry | RudraVX"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="from_name"
+                            value="RudraVX Contact Website"
+                        >
+
+                        <!-- HONEYPOT SPAM PROTECTION -->
+                        <input
+                            type="checkbox"
+                            name="botcheck"
+                            style="display:none"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
+
+
+                        <!-- NAME -->
+                        <div class="form-group">
+                            <label for="name">
+                                Your Name <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address <span>*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                maxlength="254"
+                                required
+                            >
+
+                            <small>
+                                Please provide a valid email address.
+                            </small>
+                        </div>
+
+
+                        <!-- ISSUE CATEGORY -->
+                        <div class="form-group">
+                            <label for="issue">
+                                What do you need help with? <span>*</span>
+                            </label>
+
+                            <select id="issue" name="issue" required>
+                                <option value="" selected disabled>
+                                    Select the type of problem
+                                </option>
+
+                                <option value="General Enquiry">
+                                    General Enquiry
+                                </option>
+
+                                <option value="Website or Technical Problem">
+                                    Website or Technical Problem
+                                </option>
+
+                                <option value="Account or Form Problem">
+                                    Account or Form Problem
+                                </option>
+
+                                <option value="Feedback or Suggestion">
+                                    Feedback or Suggestion
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+                            </select>
+                        </div>
+
+
+                        <!-- MESSAGE -->
+                        <div class="form-group">
+                            <label for="message">
+                                Describe Your Problem <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="Explain your question or problem in detail..."
+                                maxlength="5000"
+                                required
+                            ></textarea>
+
+                            <div class="message-footer">
+                                <small>Maximum 5,000 characters.</small>
+                                <small id="characterCount">0 / 5000</small>
+                            </div>
+                        </div>
+
+
+                        <!-- PRIVACY NOTE -->
+                        <p class="form-privacy-note">
+                            Please do not include passwords, payment card
+                            details or other sensitive information.
+                        </p>
+
+
+                        <!-- SUBMIT BUTTON -->
+                        <button
+                            type="submit"
+                            class="btn btn-primary submit-btn"
+                        >
+                            Send Enquiry <span>↗</span>
+                        </button>
+
+                        <!-- FORM STATUS -->
+                        <p
+                            id="formStatus"
+                            class="form-status"
+                            role="status"
+                            aria-live="polite"
+                        ></p>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SERVICE LINKS -->
+        <section class="service-directory-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">
+                        LOOKING FOR SOMETHING SPECIFIC?
+                    </span>
+
+                    <h2>
+                        Visit the <span class="accent">Right Service</span>
+                    </h2>
+
+                    <p>
+                        For service-related enquiries, visit the appropriate
+                        page and use its dedicated form, if provided.
+                    </p>
+                </div>
+
+
+                <div class="contact-service-grid">
+
+                    <a href="musicproduction.html" class="contact-service-card">
+                        <span class="contact-service-icon">♫</span>
+                        <span class="contact-service-title">Music Production</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="mixingmastering.html" class="contact-service-card">
+                        <span class="contact-service-icon">≋</span>
+                        <span class="contact-service-title">Mixing &amp; Mastering</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="audiodistribution.html" class="contact-service-card">
+                        <span class="contact-service-icon">◉</span>
+                        <span class="contact-service-title">Audio Distribution</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="videodistribution.html" class="contact-service-card">
+                        <span class="contact-service-icon">▶</span>
+                        <span class="contact-service-title">Video Distribution</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="foundation.html" class="contact-service-card">
+                        <span class="contact-service-icon">✦</span>
+                        <span class="contact-service-title">Foundation</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="agreement.html" class="contact-service-card">
+                        <span class="contact-service-icon">§</span>
+                        <span class="contact-service-title">Label–Artist Partnership</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="collaboration.html" class="contact-service-card">
+                        <span class="contact-service-icon">⤳</span>
+                        <span class="contact-service-title">Collaboration</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="advertising.html" class="contact-service-card">
+                        <span class="contact-service-icon">↗</span>
+                        <span class="contact-service-title">Advertising &amp; Marketing</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                    <a href="artist-license.html" class="contact-service-card">
+                        <span class="contact-service-icon">♧</span>
+                        <span class="contact-service-title">Artist Licence</span>
+                        <span class="contact-service-arrow">↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FINAL CTA -->
+        <section class="contact-bottom-section">
+            <div class="container">
+
+                <div class="contact-bottom-panel">
+
+                    <div>
+                        <span class="eyebrow">STAY CONNECTED</span>
+
+                        <h2>Still have a question?</h2>
+
+                        <p>
+                            You can also email us directly at
+                            rudravaax@gmail.com.
+                        </p>
+                    </div>
+
+                    <a
+                        href="mailto:rudravaax@gmail.com"
+                        class="btn btn-light"
+                    >
+                        Email RudraVX <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="container footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand">
+                    <img src="images/logo.jpeg" alt="RudraVX Logo" class="logo">
+                    <span>Rudra<span class="accent">VX</span></span>
+                </a>
+
+                <p>
+                    An independent creative ecosystem connecting
+                    music, artists and ideas.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+
+                <a href="index.html">Home</a>
+                <a href="latestrelease.html">Listen To The Rudravaax</a>
+                <a href="UpcomingProject.html">Upcoming Project</a>
+                <a href="index.html#team">Our Team</a>
+            </div>
+
+
+            <div class="footer-column">
+                <h3>Connect</h3>
+
+                <a
+                    href="https://open.spotify.com/artist/3sgUsWlgqaJd4UVsHtQyso"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Spotify
+                </a>
+
+                <a
+                    href="https://www.youtube.com/@rudravaax"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+                <a
+                    href="https://www.instagram.com/rudravvaax/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+                <a href="mailto:rudravaax@gmail.com">
+                    Email Us
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+
+                <p>
+                    © <span id="current-year">2026</span>
+                    Rudravaax / RudraVX. All rights reserved.
+                </p>
+
+                <a href="index.html">Back to Home</a>
+
+            </div>
+        </div>
+
+    </footer>
+
+
+    <!-- FORM SCRIPT -->
+    <script>
+        // Automatically update footer year
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+
+
+        const contactForm = document.getElementById("contactForm");
+        const messageField = document.getElementById("message");
+        const characterCount = document.getElementById("characterCount");
+        const formStatus = document.getElementById("formStatus");
+
+        const submitButton = contactForm.querySelector(
+            'button[type="submit"]'
+        );
+
+
+        // Character counter
+        messageField.addEventListener("input", function () {
+            characterCount.textContent =
+                messageField.value.length + " / 5000";
+        });
+
+
+        // Close mobile menu after navigation
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                document.getElementById("menu-toggle").checked = false;
+            });
+        });
+
+
+        // Submit contact form using Web3Forms
+        contactForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            // Validate required fields
+            if (!contactForm.reportValidity()) {
+                return;
+            }
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const issue = document.getElementById("issue").value;
+            const message = messageField.value.trim();
+
+
+            // Additional validation
+            if (!name || !email || !issue || !message) {
+                formStatus.textContent =
+                    "Please complete all required fields.";
+
+                formStatus.className = "form-status error";
+                return;
+            }
+
+
+            // Prevent repeated clicks during submission
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+
+            formStatus.textContent = "Sending your enquiry...";
+            formStatus.className = "form-status";
+
+
+            try {
+                const formData = new FormData(contactForm);
+
+
+                // Custom email subject
+                formData.set(
+                    "subject",
+                    "RudraVX Contact Form - " + issue
+                );
+
+
+                // Include all enquiry details in the notification
+                formData.set(
+                    "message",
+                    "RUDRAVX CONTACT ENQUIRY\n\n" +
+                    "Name: " + name + "\n" +
+                    "Email: " + email + "\n" +
+                    "Problem Category: " + issue + "\n\n" +
+                    "Message:\n" + message
+                );
+
+
+                // Send request to Web3Forms
+                const response = await fetch(
+                    "https://api.web3forms.com/submit",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+                const result = await response.json();
+
+
+                if (response.ok && result.success) {
+
+                    formStatus.textContent =
+                        "Your enquiry has been submitted successfully. " +
+                        "Thank you for contacting RudraVX!";
+
+                    formStatus.className = "form-status success";
+
+
+                    // Reset form after successful submission
+                    contactForm.reset();
+
+                    characterCount.textContent = "0 / 5000";
+
+                } else {
+
+                    throw new Error(
+                        result.message || "Submission failed."
+                    );
+
+                }
+
+            } catch (error) {
+
+                console.error("Web3Forms error:", error);
+
+                formStatus.textContent =
+                    "We couldn't submit your enquiry. Please try again " +
+                    "or email rudravaax@gmail.com directly.";
+
+                formStatus.className = "form-status error";
+
+            } finally {
+
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML =
+                    'Send Enquiry <span>↗</span>';
+
+            }
+        });
+    </script>
+
+</body>
+</html>
