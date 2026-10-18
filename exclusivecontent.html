@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1769ff">
+
+  <title>Exclusive Content | Rudravaax</title>
+
+  <style>
+    :root {
+      --mp-blue: #1769ff;
+      --mp-blue-dark: #0b43b5;
+      --mp-green: #16a765;
+      --mp-text: #17243a;
+      --mp-muted: #68758a;
+      --mp-border: #e3eaf3;
+      --mp-bg: #f5f8fd;
+      --mp-white: #ffffff;
+      --mp-shadow: 0 12px 35px rgba(25, 65, 120, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--mp-bg);
+      color: var(--mp-text);
+      min-height: 100vh;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    .exclusive-page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 28px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--mp-blue);
+      background: #eaf1ff;
+      border: 1px solid #d7e5ff;
+      border-radius: 30px;
+      padding: 7px 13px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 46px);
+      letter-spacing: -1.5px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: var(--mp-blue);
+    }
+
+    .hero p {
+      color: var(--mp-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .content-card {
+      background: var(--mp-white);
+      border: 1px solid var(--mp-border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--mp-shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 205px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .content-card.available:hover {
+      transform: translateY(-3px);
+      border-color: var(--mp-blue);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 17px;
+    }
+
+    .number {
+      color: var(--mp-blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .status {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 6px 9px;
+      border-radius: 20px;
+      background: #e7f8ef;
+      color: #087b43;
+    }
+
+    .locked .status {
+      background: #eef1f6;
+      color: #778397;
+    }
+
+    .content-card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .content-card p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--mp-muted);
+      margin-bottom: 20px;
+    }
+
+    .card-button {
+      margin-top: auto;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      border: 0;
+      border-radius: 10px;
+      padding: 12px;
+      background: var(--mp-blue);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .card-button:hover {
+      background: var(--mp-blue-dark);
+    }
+
+    .locked .card-button {
+      background: #edf0f5;
+      color: #8993a3;
+      cursor: not-allowed;
+    }
+
+    .foreigner {
+      margin-top: 24px;
+      padding: 23px;
+      background: var(--mp-white);
+      border: 1px solid var(--mp-border);
+      border-radius: 18px;
+      box-shadow: var(--mp-shadow);
+    }
+
+    .foreigner h2 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .foreigner p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--mp-muted);
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: var(--mp-green);
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .referral {
+      margin-top: 20px;
+      padding: 20px;
+      background: #eef5ff;
+      border: 1px solid #dce8ff;
+      border-radius: 16px;
+    }
+
+    .referral h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .referral p {
+      color: var(--mp-muted);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 13px;
+    }
+
+    .referral-form {
+      display: flex;
+      gap: 9px;
+    }
+
+    .referral-form input {
+      width: 100%;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--mp-border);
+      border-radius: 10px;
+      outline: none;
+      background: white;
+      color: var(--mp-text);
+    }
+
+    .referral-form input:focus {
+      border-color: var(--mp-blue);
+    }
+
+    .referral-form button {
+      flex-shrink: 0;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 10px;
+      background: var(--mp-green);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .message {
+      display: none;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      color: var(--mp-muted);
+      font-size: 11px;
+    }
+
+    @media (max-width: 540px) {
+      .exclusive-page {
+        padding: 25px 14px;
+        align-items: flex-start;
+      }
+
+      .hero {
+        margin-top: 12px;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-card {
+        min-height: 185px;
+      }
+
+      .referral-form {
+        flex-direction: column;
+      }
+
+      .referral-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="exclusive-page">
+    <div class="container">
+
+      <section class="hero">
+        <div class="eyebrow">Rudravaax Official</div>
+        <h1>Exclusive <span>Content</span></h1>
+        <p>
+          Explore exclusive chapters and projects from Rudravaax.
+          Select an available project to submit your access application.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="section-title">Signature — 9 Chapters</h2>
+
+        <div class="content-grid">
+
+          <article class="content-card available">
+            <div class="card-top">
+              <span class="number">CHAPTER 01</span>
+              <span class="status">AVAILABLE</span>
+            </div>
+            <h3>Signature Chapter One</h3>
+            <p>Apply for exclusive access to Signature Chapter One.</p>
+            <button class="card-button" onclick="openChapterOne()">
+              Apply for Access →
+            </button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 02</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Two</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 03</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Three</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 04</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Four</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 05</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Five</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 06</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Six</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 07</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Seven</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 08</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Eight</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+          <article class="content-card locked">
+            <div class="card-top">
+              <span class="number">CHAPTER 09</span>
+              <span class="status">LOCKED</span>
+            </div>
+            <h3>Signature Chapter Nine</h3>
+            <p>This chapter is not available yet.</p>
+            <button class="card-button" disabled>Coming Later</button>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="foreigner">
+        <div class="card-top">
+          <span class="number">EXCLUSIVE ALBUM</span>
+          <span class="status">AVAILABLE</span>
+        </div>
+        <h2>The Foreigner</h2>
+        <p>
+          Submit an application to request access to this exclusive album.
+        </p>
+        <div class="price">$1.99 <span style="font-size:12px;font-weight:500;color:#68758a;">application fee</span></div>
+        <button class="card-button" onclick="openForeigner()">
+          Apply for The Foreigner →
+        </button>
+      </section>
+
+      <section class="referral">
+        <h3>Have a Chapter One referral code?</h3>
+        <p>
+          Enter your referral code to request complimentary access.
+          No code? You can still submit an application.
+        </p>
+
+        <form class="referral-form" onsubmit="submitReferral(event)">
+          <input
+            type="text"
+            id="referralCode"
+            placeholder="Enter referral code"
+            autocomplete="off"
+            aria-label="Referral code"
+          >
+          <button type="submit">Continue →</button>
+        </form>
+
+        <div class="message" id="referralMessage" role="status"></div>
+      </section>
+
+      <footer class="footer">
+        © 2026 Rudravaax. All rights reserved.
+      </footer>
+
+    </div>
+  </main>
+
+ <script>
+const APPLICATION_PAGE = "accessexclusive.html";
+const FREE_ACCESS_PAGE = "freeexclusive.html";
+const REFERRAL_CODE = "RVX-SIG-CH012026";
+
+// Signature Chapter One
+function openChapterOne() {
+  window.location.href =
+    APPLICATION_PAGE +
+    "?project=" +
+    encodeURIComponent("Signature Chapter One — Mohobbatein");
+}
+
+// The Foreigner
+function openForeigner() {
+  window.location.href =
+    APPLICATION_PAGE +
+    "?project=" +
+    encodeURIComponent("The Foreigner") +
+    "&fee=1.99";
+}
+
+// Referral code verification
+function submitReferral(event) {
+  event.preventDefault();
+
+  const input = document.getElementById("referralCode");
+  const message = document.getElementById("referralMessage");
+
+  if (!input || !message) {
+    return;
+  }
+
+  const enteredCode = input.value.trim();
+
+  // Empty referral code
+  if (enteredCode === "") {
+    message.style.display = "block";
+    message.style.color = "#b42318";
+    message.textContent = "Please enter your referral code.";
+    input.focus();
+    return;
+  }
+
+  // Correct referral code: open free exclusive content
+  if (enteredCode === REFERRAL_CODE) {
+    window.location.href = FREE_ACCESS_PAGE;
+    return;
+  }
+
+  // Incorrect referral code
+  message.style.display = "block";
+  message.style.color = "#b42318";
+  message.textContent =
+    "Invalid referral code. Please check it and try again.";
+
+  input.focus();
+  input.select();
+}
+
+
+</script>
+</body>
+</html>

@@ -1513,3 +1513,10 @@ a {
 
 
 
+/* Hide Meet Rudravaax & His Team on Mobile */
+@media (max-width: 768px) {
+    .team-section {
+        display: none !important;
+    }
+}
+
