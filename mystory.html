@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rudravaax — The Making of a Name</title>
+
+    <meta name="description"
+          content="The cinematic journey of Rudravaax — from a phone, a dream, and a voice to an independent musical identity.">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+      
+/* =========================================
+   RUDRAVAAX — MODERN CINEMATIC BIOGRAPHY
+   Clean • Minimal • Responsive • Premium
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+/* ---------- ROOT VARIABLES ---------- */
+
+:root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-alt: #eef2f5;
+
+    --text: #15191f;
+    --muted: #68717d;
+    --line: rgba(20, 30, 45, 0.12);
+
+    --green: #b6f36b;
+    --green-dark: #7dc53d;
+    --blue: #3c78ff;
+    --cyan: #69e6ff;
+
+    --dark: #10141c;
+    --dark-soft: #181e29;
+
+    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'Manrope', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --container: 1120px;
+    --radius: 20px;
+    --radius-small: 12px;
+
+    --shadow:
+        0 20px 60px rgba(20, 30, 45, 0.07);
+
+    --transition:
+        0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-x: hidden;
+
+    /* Disable normal text selection */
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+::selection {
+    background: var(--green);
+    color: var(--dark);
+}
+
+.container {
+    width: min(var(--container), calc(100% - 48px));
+    margin-inline: auto;
+}
+
+/* ---------- PAGE ---------- */
+
+.page {
+    width: 100%;
+    overflow: clip;
+    background: var(--bg);
+}
+
+.page section {
+    position: relative;
+}
+
+/* ---------- HEADER ---------- */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+
+    background: rgba(247, 248, 250, 0.86);
+    border-bottom: 1px solid rgba(20, 30, 45, 0.08);
+
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+.header-inner {
+    width: min(1240px, calc(100% - 48px));
+    min-height: 70px;
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 37px;
+    height: 37px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.brand-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    line-height: 1.3;
+}
+
+.brand-caption {
+    display: block;
+    margin-top: 2px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+}
+
+.header-note {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+/* ---------- SHARED TYPOGRAPHY ---------- */
+
+.eyebrow,
+.chapter-kicker,
+.chapter-number,
+.chapter-year,
+.story-heading,
+.portrait-mark,
+.bio-heading {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 1.7px;
+    line-height: 1.7;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+}
+
+.eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+}
+
+p {
+    color: var(--muted);
+}
+
+.highlight {
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 590px;
+    padding: 110px 24px 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 75% 20%,
+            rgba(182, 243, 107, 0.17),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 15% 85%,
+            rgba(60, 120, 255, 0.08),
+            transparent 35%
+        ),
+        var(--bg);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 30, 45, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(20, 30, 45, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 54px 54px;
+
+    mask-image:
+        linear-gradient(to bottom, black, transparent 90%);
+}
+
+.hero-content {
+    width: min(100%, 920px);
+    margin-inline: auto;
+    text-align: center;
+    animation: heroReveal 1s ease both;
+}
+
+.hero .eyebrow {
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    max-width: 900px;
+    margin: 0 auto;
+
+    font-size: clamp(42px, 7vw, 82px);
+    font-weight: 800;
+    letter-spacing: -0.075em;
+    line-height: 0.99;
+
+    overflow-wrap: anywhere;
+}
+
+.hero h1 span {
+    color: var(--green-dark);
+}
+
+.hero-description {
+    max-width: 490px;
+    margin: 26px auto 0;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.hero-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+.hero-meta span {
+    padding: 7px 12px;
+
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.4px;
+}
+
+/* ---------- OPENING ---------- */
+
+.opening {
+    padding: 105px 0;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.opening-grid {
+    display: grid;
+    grid-template-columns: 0.7fr 1.5fr;
+    gap: 90px;
+    align-items: start;
+}
+
+.opening-aside {
+    position: sticky;
+    top: 110px;
+}
+
+.opening-aside .eyebrow {
+    margin-bottom: 16px;
+}
+
+.opening-aside h2 {
+    max-width: 260px;
+    font-size: clamp(26px, 3vw, 39px);
+}
+
+.opening-copy {
+    max-width: 650px;
+}
+
+.opening-copy p {
+    margin-bottom: 22px;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.opening-copy p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- STORY TIMELINE ---------- */
+
+.story {
+    padding: 110px 0 125px;
+    background: #f3f5f7;
+}
+
+.story-heading {
+    display: block;
+    margin-bottom: 65px;
+    color: var(--muted);
+}
+
+.story-heading::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    background: var(--line);
+}
+
+.chapter {
+    display: grid;
+    grid-template-columns: 100px 150px minmax(0, 1fr);
+    gap: 28px;
+
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.chapter:first-of-type {
+    border-top: 1px solid var(--line);
+}
+
+.chapter-number {
+    color: var(--green-dark);
+    font-size: 11px;
+}
+
+.chapter-year {
+    color: #9199a3;
+    padding-top: 3px;
+}
+
+.chapter-content {
+    max-width: 670px;
+}
+
+.chapter-kicker {
+    margin-bottom: 14px;
+    color: #8a929d;
+    font-size: 9px;
+}
+
+.chapter-content h2 {
+    margin-bottom: 19px;
+    font-size: clamp(25px, 3.2vw, 39px);
+}
+
+.chapter-content p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.95;
+}
+
+.chapter-content p:last-child {
+    margin-bottom: 0;
+}
+
+.chapter:hover .chapter-content h2 {
+    color: #4c8b21;
+    transition: color var(--transition);
+}
+
+/* ---------- DARK INTERLUDE ---------- */
+
+.interlude {
+    padding: 115px 24px;
+    overflow: hidden;
+    color: #f5f7fa;
+    background:
+        radial-gradient(
+            ellipse at 80% 20%,
+            rgba(182, 243, 107, 0.1),
+            transparent 40%
+        ),
+        #111720;
+}
+
+.interlude::after {
+    content: "RV";
+    position: absolute;
+    right: -20px;
+    bottom: -140px;
+
+    color: rgba(255, 255, 255, 0.025);
+    font-family: var(--font-heading);
+    font-size: clamp(200px, 35vw, 460px);
+    font-weight: 800;
+    letter-spacing: -0.12em;
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+.interlude-inner {
+    position: relative;
+    z-index: 1;
+    width: min(850px, 100%);
+    margin-inline: auto;
+}
+
+.interlude .eyebrow {
+    color: #a8b3c1;
+    margin-bottom: 25px;
+}
+
+.interlude h2 {
+    max-width: 760px;
+    margin-bottom: 30px;
+    font-size: clamp(35px, 6vw, 68px);
+    letter-spacing: -0.065em;
+}
+
+.interlude p {
+    max-width: 650px;
+    margin-bottom: 20px;
+    color: #aeb8c6;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.interlude .highlight {
+    color: var(--green);
+}
+
+/* ---------- ARTIST IDENTITY ---------- */
+
+.identity {
+    padding: 110px 0;
+    background: #fff;
+}
+
+.identity-heading {
+    max-width: 720px;
+    margin-bottom: 55px;
+}
+
+.identity-heading .eyebrow {
+    margin-bottom: 20px;
+}
+
+.identity-heading h2 {
+    margin-bottom: 18px;
+    font-size: clamp(34px, 5vw, 58px);
+}
+
+.identity-heading p {
+    max-width: 540px;
+    font-size: 14px;
+}
+
+.identity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.identity-item {
+    min-height: 160px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: #f7f8fa;
+    border: 1px solid rgba(20, 30, 45, 0.08);
+    border-radius: var(--radius-small);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.identity-item:hover {
+    transform: translateY(-4px);
+    background: #f0f8e9;
+    border-color: rgba(125, 197, 61, 0.4);
+}
+
+.identity-item span {
+    color: #9aa2ad;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.identity-item h3 {
+    font-size: 18px;
+    letter-spacing: -0.7px;
+}
+
+/* ---------- PORTRAIT SECTION ---------- */
+
+.portrait-section {
+    padding: 100px 0;
+    background:
+        radial-gradient(
+            ellipse at 15% 50%,
+            rgba(60, 120, 255, 0.1),
+            transparent 42%
+        ),
+        #edf1f6;
+}
+
+.portrait-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.portrait-mark {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: var(--blue);
+}
+
+.portrait-copy h2 {
+    margin-bottom: 24px;
+    font-size: clamp(34px, 5vw, 58px);
+}
+
+.portrait-copy p {
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.portrait-copy .highlight {
+    color: var(--text);
+}
+
+.portrait-layout img {
+    width: 100%;
+    max-height: 540px;
+    object-fit: cover;
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+/* ---------- FUTURE / FINALE ---------- */
+
+.finale {
+    position: relative;
+    padding: 125px 24px;
+    overflow: hidden;
+
+    color: #f6f8fc;
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(105, 230, 255, 0.12),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(60, 120, 255, 0.15),
+            transparent 35%
+        ),
+        #0b1019;
+}
+
+.finale::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(105, 230, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(105, 230, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    mask-image:
+        linear-gradient(to bottom, transparent, black 30%, black);
+}
+
+.finale > * {
+    position: relative;
+    z-index: 1;
+}
+
+.finale .eyebrow {
+    color: var(--cyan);
+    margin-bottom: 25px;
+}
+
+.finale h2 {
+    max-width: 850px;
+    margin-bottom: 28px;
+
+    font-size: clamp(40px, 7vw, 82px);
+    letter-spacing: -0.075em;
+}
+
+.finale h2 span {
+    color: var(--cyan);
+}
+
+.finale p {
+    max-width: 650px;
+    margin-bottom: 20px;
+    color: #a7b2c3;
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* ---------- OFFICIAL BIO ---------- */
+
+.official-bio {
+    padding: 100px 0;
+    background: #f6f8fa;
+}
+
+.bio-layout {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 80px;
+}
+
+.bio-heading {
+    color: var(--blue);
+}
+
+.bio-copy h2 {
+    margin-bottom: 25px;
+    font-size: clamp(28px, 4vw, 45px);
+}
+
+.bio-copy p {
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.bio-email {
+    display: inline-block;
+    margin-top: 15px;
+    padding-bottom: 5px;
+
+    color: var(--text);
+    border-bottom: 1px solid var(--green-dark);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        color var(--transition),
+        border-color var(--transition);
+}
+
+.bio-email:hover {
+    color: var(--green-dark);
+    border-color: var(--blue);
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    padding: 30px 0;
+    color: #e8edf5;
+    background: #0b1019;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.footer-brand img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.footer-copy {
+    color: #8e9aaa;
+    font-size: 11px;
+}
+
+.footer-top {
+    color: var(--cyan);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: opacity var(--transition);
+}
+
+.footer-top:hover {
+    opacity: 0.65;
+}
+
+/* ---------- REVEAL ANIMATIONS ---------- */
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Native scroll reveal where supported */
+@supports (animation-timeline: view()) {
+    .chapter,
+    .identity-item,
+    .opening-copy,
+    .portrait-copy,
+    .bio-copy {
+        animation: revealOnScroll linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+
+    @keyframes revealOnScroll {
+        from {
+            opacity: 0.35;
+            transform: translateY(18px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* ---------- RESPONSIVE: TABLET ---------- */
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 520px;
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .opening-grid {
+        grid-template-columns: 1fr 1.7fr;
+        gap: 45px;
+    }
+
+    .chapter {
+        grid-template-columns: 70px 95px minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .portrait-layout {
+        gap: 38px;
+    }
+
+    .bio-layout {
+        gap: 40px;
+    }
+
+    .identity-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------- RESPONSIVE: MOBILE ---------- */
+
+@media (max-width: 600px) {
+    .container {
+        width: calc(100% - 36px);
+    }
+
+    .header-inner {
+        width: calc(100% - 32px);
+        min-height: 62px;
+        gap: 12px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand img {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+
+    .brand-name {
+        font-size: 12px;
+    }
+
+    .brand-caption {
+        font-size: 7px;
+        letter-spacing: 0.8px;
+    }
+
+    .header-note {
+        max-width: 120px;
+        font-size: 8px;
+        line-height: 1.6;
+    }
+
+    .hero {
+        min-height: 470px;
+        padding: 78px 18px 75px;
+    }
+
+    .hero .eyebrow {
+        margin-bottom: 20px;
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 11vw, 60px);
+    }
+
+    .hero-description {
+        max-width: 350px;
+        margin-top: 22px;
+        font-size: 13px;
+    }
+
+    .hero-meta {
+        gap: 7px;
+        margin-top: 27px;
+    }
+
+    .hero-meta span {
+        padding: 6px 9px;
+        font-size: 8px;
+    }
+
+    .opening,
+    .identity,
+    .official-bio {
+        padding: 75px 0;
+    }
+
+    .opening-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .opening-aside {
+        position: static;
+    }
+
+    .opening-aside h2 {
+        max-width: 360px;
+        font-size: 32px;
+    }
+
+    .opening-copy p {
+        font-size: 14px;
+        line-height: 1.95;
+    }
+
+    .story {
+        padding: 75px 0 85px;
+    }
+
+    .story-heading {
+        margin-bottom: 38px;
+    }
+
+    .chapter {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 10px 14px;
+        padding: 30px 0;
+    }
+
+    .chapter-number {
+        grid-column: 1;
+        grid-row: 1;
+        font-size: 9px;
+    }
+
+    .chapter-year {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: 9px;
+        overflow-wrap: anywhere;
+    }
+
+    .chapter-content {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .chapter-kicker {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .chapter-content h2 {
+        font-size: 28px;
+    }
+
+    .chapter-content p {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .interlude {
+        padding: 85px 20px;
+    }
+
+    .interlude h2 {
+        font-size: clamp(35px, 10vw, 52px);
+    }
+
+    .interlude p {
+        font-size: 14px;
+    }
+
+    .identity-heading {
+        margin-bottom: 35px;
+    }
+
+    .identity-heading h2 {
+        font-size: 38px;
+    }
+
+    .identity-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .identity-item {
+        min-height: 130px;
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .identity-item h3 {
+        font-size: 15px;
+    }
+
+    .identity-item span {
+        font-size: 8px;
+    }
+
+    .portrait-section {
+        padding: 75px 0;
+    }
+
+    .portrait-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .portrait-copy h2 {
+        font-size: 42px;
+    }
+
+    .portrait-layout img {
+        max-height: 430px;
+        border-radius: 14px;
+    }
+
+    .finale {
+        padding: 85px 20px;
+    }
+
+    .finale h2 {
+        font-size: clamp(40px, 11vw, 60px);
+    }
+
+    .finale p {
+        font-size: 14px;
+    }
+
+    .bio-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .bio-copy h2 {
+        font-size: 34px;
+    }
+
+    .footer {
+        padding: 25px 0;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media (max-width: 360px) {
+    .header-note {
+        max-width: 95px;
+        font-size: 7px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .identity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chapter {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .chapter-content h2 {
+        font-size: 25px;
+    }
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+    </style>
+</head>
+
+<body>
+<div class="page" id="top">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+
+            <!-- Clicking the logo opens index.html -->
+            <a class="brand" href="index.html" aria-label="Rudravaax homepage">
+                <img src="images/logo.jpeg" alt="Rudravaax logo">
+
+                <span>
+                    <span class="brand-name">RUDRAVAAX</span>
+                    <span class="brand-caption">Independent Artist</span>
+                </span>
+            </a>
+
+            <div class="header-note">
+                The story behind the sound
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- HERO: THE OPENING SCENE -->
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+
+                    <div class="eyebrow">An independent journey</div>
+
+
+                    <h1>
+                        RUDRAVAAX - 
+                       
+                        <span> NOT JUST A NAME.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Before the name, there was a voice.
+                        Before the sound, there was silence.
+                        And before the world could hear Rudravaax,
+                        there was a young boy trying to understand
+                        what the music inside him was asking for.
+                    </p>
+
+                    <div class="hero-meta">
+                        <span>2018 — Present</span>
+                        <span class="line"></span>
+                        <span>A story in sound</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- OPENING NARRATION -->
+        <section class="opening">
+            <div class="container opening-grid">
+
+                <aside class="opening-aside">
+                    <span class="number">01</span>
+                    <p>Every sound has a beginning</p>
+                </aside>
+
+                <div class="opening-copy">
+
+                    <div class="section-label">Before the first track</div>
+
+                    <h2>
+                        Some stories begin with an opportunity.
+                        <em>Others begin with a feeling.</em>
+                    </h2>
+
+                    <p>
+                        This one began with a phone, a voice, and a
+                        curiosity that refused to disappear. There was
+                        no grand studio waiting in the background.
+                        No expensive equipment. No perfect conditions.
+                        Only a young mind discovering that music could
+                        become more than something to listen to.
+                    </p>
+
+                    <p>
+                        It could become something to create.
+                        Something to question. Something to build an
+                        identity around — even when nobody else could
+                        see what that identity might become.
+                    </p>
+
+                    <p>
+                        This is not a story about becoming successful
+                        overnight. It is about the years nobody saw,
+                        the experiments that did not work, the sound
+                        that kept changing, and the person who kept
+                        returning to it.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- THE CHAPTERS -->
+        <section class="story">
+            <div class="container">
+
+                <div class="story-heading">
+                    <div class="eyebrow">The timeline</div>
+
+                    <h2>
+                        Every era left
+                        <span class="green">a mark.</span>
+                    </h2>
+
+                    <p>
+                        Different years. Different sounds. Different
+                        versions of the same dream. One continuous
+                        journey towards finding a voice that feels
+                        unmistakably its own.
+                    </p>
+                </div>
+
+
+                <!-- CHAPTER 01 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">01</span>
+                        <span class="chapter-year">2018</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Origin</em></h3>
+                        <span class="chapter-kicker">The first spark</span>
+
+                        <p>
+                            In 2018, a young boy began singing through
+                            his father's phone. His world was small,
+                            but the possibilities inside his head were
+                            not. There was no professional microphone,
+                            no studio, and no carefully designed plan.
+                            There was simply a voice looking for a place
+                            to exist.
+                        </p>
+
+                        <p>
+                            StarMaker became one of the first places
+                            where that voice could be heard. Song after
+                            song, he began discovering the strange
+                            connection between emotion, melody, and
+                            expression. He did not yet understand the
+                            mechanics of music. He only knew that
+                            something about it felt right.
+                        </p>
+
+                        <p class="highlight">
+                            He did not begin with a career in mind.
+                            He began because he wanted to sing.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 02 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">02</span>
+                        <span class="chapter-year">2020–2021</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Echoes</em></h3>
+                        <span class="chapter-kicker">From singing to creating</span>
+
+                        <p>
+                            By 2020, the early phase of singing had
+                            given him something more important than
+                            polished recordings: the desire to go
+                            further. The songs were imperfect. The
+                            recordings were limited. But each attempt
+                            left behind a lesson.
+                        </p>
+
+                        <p>
+                            Gradually, listening turned into curiosity.
+                            Curiosity turned into experimentation.
+                            Existing lyrics found their way onto beats
+                            he made himself. He began looking beyond
+                            the vocal and towards the entire sound
+                            surrounding it.
+                        </p>
+
+                        <p>
+                            In 2021, another shift began. He started
+                            writing his own lyrics and took composition
+                            more seriously around December. Music was
+                            no longer just a place to perform. It was
+                            becoming a place to put his own thoughts.
+                        </p>
+
+                        <p class="highlight">
+                            The voice wanted more than a melody.
+                            It wanted something of its own to say.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 03 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">03</span>
+                        <span class="chapter-year">The early years</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Silence</em></h3>
+                        <span class="chapter-kicker">The struggle nobody heard</span>
+
+                        <p>
+                            Not everyone understood what music meant
+                            to him. When his father discovered a song
+                            on the phone and played it to the family,
+                            the reaction was not the encouragement
+                            he had hoped for. There was criticism,
+                            scolding, and punishment — because the
+                            people around him did not see the same
+                            future he was beginning to imagine.
+                        </p>
+
+                        <p>
+                            For a young creator, that kind of moment
+                            can make a dream feel difficult to explain.
+                            Something deeply personal suddenly becomes
+                            something to defend. The passion remains,
+                            but the confidence around it has to survive
+                            questions it cannot yet answer.
+                        </p>
+
+                        <p>
+                            He was still learning. Still making mistakes.
+                            Still trying to understand why a sound
+                            felt right in his head but wrong when he
+                            heard it back. The work was far from perfect,
+                            and the journey offered no guarantees.
+                        </p>
+
+                        <p class="highlight">
+                            Some of the most important work happens
+                            before anybody believes it is worth hearing.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 04 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">04</span>
+                        <span class="chapter-year">May–June 2022</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Collision</em></h3>
+                        <span class="chapter-kicker">Two creative directions</span>
+
+                        <p>
+                            In May 2022, an Instagram connection
+                            introduced him to Aman Kumar, known as
+                            A₹chak. What began through social media
+                            developed into a creative partnership.
+                        </p>
+
+                        <p>
+                            Their strengths leaned in different
+                            directions. Rudravaax was increasingly
+                            interested in production, inspired by the
+                            energy and sound of artists such as Yo Yo
+                            Honey Singh. A₹chak brought a strong
+                            interest in writing. Different instincts
+                            gave their collaboration a new direction.
+                        </p>
+
+                        <p>
+                            In June 2022, they created tracks including
+                            <em>Classy Launde</em> and
+                            <em>Kisi Se Kiss</em>. The songs were made
+                            with the tools they had: phones, limited
+                            resources, and an ambition much larger
+                            than the technical quality they could
+                            achieve at the time.
+                        </p>
+
+                        <p>
+                            Those early collaborations may no longer
+                            be available online, but their importance
+                            was never limited to where the tracks
+                            ended up. They were part of the process
+                            through which an artist learned to work
+                            with another creative mind.
+                        </p>
+
+                        <p class="highlight">
+                            Sometimes, a new direction begins when
+                            two different ideas meet.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 05 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">05</span>
+                        <span class="chapter-year">2023</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Frequency</em></h3>
+                        <span class="chapter-kicker">Learning the language of sound</span>
+
+                        <p>
+                            By 2023, production had become a more
+                            serious part of the journey. Making a beat
+                            was only the beginning. The next challenge
+                            was understanding why some sounds worked
+                            together while others fought for space.
+                        </p>
+
+                        <p>
+                            BandLab became part of the process from
+                            around April through October. Timing,
+                            texture, balance, mixing, and mastering
+                            were no longer distant technical terms.
+                            They were problems to solve, one project
+                            at a time.
+                        </p>
+
+                        <p>
+                            The learning was practical and often
+                            imperfect. A mix could sound different
+                            through different earphones. A beat could
+                            feel powerful in one moment and crowded
+                            in the next. Every experiment revealed
+                            another detail he had not noticed before.
+                        </p>
+
+                        <p class="highlight">
+                            He was not only making music anymore.
+                            He was learning how to listen.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 06 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">06</span>
+                        <span class="chapter-year">2024</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Alchemy</em></h3>
+                        <span class="chapter-kicker">Turning experiments into experience</span>
+
+                        <p>
+                            In 2024, attention shifted further towards
+                            mixing and mastering. The focus was no
+                            longer simply on completing songs, but
+                            on understanding how a collection of
+                            individual sounds could become one
+                            coherent experience.
+                        </p>
+
+                        <p>
+                            Projects accumulated. Ideas multiplied.
+                            By the end of the year, the catalogue
+                            contained more than 200 songs and projects
+                            across different stages of development.
+                            Not every experiment needed to become a
+                            release. Each one became part of a growing
+                            education in sound.
+                        </p>
+
+                        <p>
+                            This was the unglamorous side of creation:
+                            repeated listening, small adjustments,
+                            lessons from mistakes, and the patience
+                            to return to a track that was not yet
+                            saying what he wanted it to say.
+                        </p>
+
+                        <p class="highlight">
+                            The craft was changing. So was the person
+                            behind it.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 07 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">07</span>
+                        <span class="chapter-year">2025</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Exodus</em></h3>
+                        <span class="chapter-kicker">Leaving room for a new beginning</span>
+
+                        <p>
+                            By 2025, years of experimentation had
+                            created a large body of work. But a
+                            catalogue full of songs did not necessarily
+                            represent the artist he wanted to become.
+                        </p>
+
+                        <p>
+                            He made the decision to take down previous
+                            releases from music platforms and prepare
+                            for a fresh start. It was a change in
+                            direction: a willingness to leave an
+                            earlier public identity behind rather than
+                            let it define everything that came next.
+                        </p>
+
+                        <p>
+                            Starting again does not erase the past.
+                            The lessons remain, even when the old
+                            work is no longer the centre of the story.
+                            Every rough recording, unfinished idea,
+                            and previous release had helped shape
+                            his understanding of what he wanted
+                            to create.
+                        </p>
+
+                        <p class="highlight">
+                            The past was not wasted.
+                            It had prepared the ground.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 08 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">08</span>
+                        <span class="chapter-year">2026</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Rebirth</em></h3>
+                        <span class="chapter-kicker">A name. A direction. A new chapter.</span>
+
+                        <p>
+                            In 2026, the journey entered a new phase.
+                            The earlier identity, Jaadugar, belonged
+                            to a previous chapter. A new artistic
+                            identity emerged: Rudravaax.
+                        </p>
+
+                        <p>
+                            The name represents a renewed direction,
+                            not the claim that the learning is over.
+                            He continues to develop as a vocalist,
+                            producer, composer, lyricist, and engineer.
+                            He continues to explore how the elements
+                            of his music can work together to create
+                            something that feels personal and distinct.
+                        </p>
+
+                        <p>
+                            The ambition reaches beyond a single
+                            release. Rudravaax is building a wider
+                            creative identity — one that brings
+                            together music, visual presentation,
+                            independent work, and a closer connection
+                            with the people who choose to listen.
+                        </p>
+
+                        <p class="highlight">
+                            A new name does not change where the
+                            journey began. It changes how the next
+                            chapter is written.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 09 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">09</span>
+                        <span class="chapter-year">The road ahead</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Pursuit</em></h3>
+                        <span class="chapter-kicker">Building beyond the present</span>
+
+                        <p>
+                            The next stage is not defined by one
+                            guaranteed outcome. It is defined by the
+                            work still waiting to be done: stronger
+                            records, sharper production, a clearer
+                            identity, and a growing relationship with
+                            an audience that connects with the music.
+                        </p>
+
+                        <p>
+                            The vision is to create music that carries
+                            energy and personality — bringing together
+                            hip-hop, rap, electronic influences, and
+                            melodies that belong to his own creative
+                            world. Every release is an opportunity to
+                            refine that direction.
+                        </p>
+
+                        <p>
+                            There will be more to learn, more decisions
+                            to make, and more work that never reaches
+                            the public. Progress will not always look
+                            dramatic from the outside. Sometimes it
+                            will be one better mix, one stronger idea,
+                            or one song that finally sounds the way
+                            it was imagined.
+                        </p>
+
+                        <p class="highlight">
+                            The goal is not to pretend the journey
+                            is complete. The goal is to keep moving.
+                        </p>
+                    </div>
+                </article>
+
+
+                <!-- CHAPTER 10 -->
+                <article class="chapter">
+                    <aside class="chapter-aside">
+                        <span class="chapter-number">10</span>
+                        <span class="chapter-year">Ongoing</span>
+                    </aside>
+
+                    <div class="chapter-content">
+                        <h3><em>Legacy</em></h3>
+                        <span class="chapter-kicker">Still being written</span>
+
+                        <p>
+                            Legacy is a word that belongs to the
+                            future, but its foundations are laid in
+                            the present. It is built through choices,
+                            consistency, the courage to improve, and
+                            the ability to keep creating when the
+                            response is uncertain.
+                        </p>
+
+                        <p>
+                            Rudravaax is still on that road. The story
+                            has no final scene yet. There are sounds
+                            still to discover, projects still to shape,
+                            and experiences that have not happened.
+                        </p>
+
+                        <p>
+                            The years behind him explain how the
+                            journey began. They do not decide how
+                            far it can go. That part will be written
+                            through the music, the work, and the
+                            connection built with listeners over time.
+                        </p>
+
+                        <p class="highlight">
+                            This chapter is not a conclusion.
+                            It is a promise to continue creating.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- CINEMATIC INTERLUDE -->
+        <section class="interlude">
+            <div class="container interlude-inner">
+
+                <div class="section-label">Between the past and the future</div>
+
+                <h2>
+                    The world may hear
+                    the <em>music.</em>
+                    <br>
+                    Only the journey knows
+                    the <em>cost.</em>
+                </h2>
+
+                <p>
+                    Every finished track carries a history that
+                    listeners may never see: the first idea, the
+                    imperfect recording, the hours spent learning,
+                    the versions left behind, and the decision to
+                    try again. The final sound is only the part
+                    that makes it out of the room.
+                </p>
+
+                <div class="signature-line"></div>
+
+            </div>
+        </section>
+
+
+        <!-- CREATIVE IDENTITY -->
+        <section class="identity">
+            <div class="container">
+
+                <div class="identity-heading">
+                    <div class="eyebrow">Beyond one role</div>
+
+                    <h2>
+                        One identity.
+                        <em>Many frequencies.</em>
+                    </h2>
+
+                    <p>
+                        Rudravaax is an independent artist whose
+                        creative process extends beyond performing.
+                        From the first lyric to the final mix, each
+                        role offers another way to shape the sound
+                        and the world surrounding it.
+                    </p>
+                </div>
+
+                <div class="identity-grid">
+
+                    <div class="identity-item">
+                        <span class="item-index">01 / VOICE</span>
+                        <h3>Vocalist & Performer</h3>
+                        <p>Giving the words a voice and the music a presence.</p>
+                    </div>
+
+                    <div class="identity-item">
+                        <span class="item-index">02 / SOUND</span>
+                        <h3>Music Producer</h3>
+                        <p>Building the atmosphere, rhythm, and sonic direction.</p>
+                    </div>
+
+                    <div class="identity-item">
+                        <span class="item-index">03 / WORDS</span>
+                        <h3>Lyricist</h3>
+                        <p>Turning ideas and observations into written expression.</p>
+                    </div>
+
+                    <div class="identity-item">
+                        <span class="item-index">04 / MELODY</span>
+                        <h3>Composer</h3>
+                        <p>Exploring melodies, musical structure, and feeling.</p>
+                    </div>
+
+                    <div class="identity-item">
+                        <span class="item-index">05 / DETAIL</span>
+                        <h3>Mixing & Mastering</h3>
+                        <p>Working towards balance, clarity, and a cohesive sound.</p>
+                    </div>
+
+                    <div class="identity-item">
+                        <span class="item-index">06 / VISION</span>
+                        <h3>Graphic Designer</h3>
+                        <p>Developing the visual language around the music.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- THE PERSON BEHIND THE NAME -->
+        <section class="portrait-section">
+            <div class="container portrait-layout">
+
+                <div class="portrait-mark" aria-hidden="true">
+                    <span>R.</span>
+                </div>
+
+                <div class="portrait-copy">
+                    <div class="eyebrow">The person behind the name</div>
+
+                    <h2>
+                        Rudravaax.
+                        <em>Still becoming.</em>
+                    </h2>
+
+                    <p>
+                        Behind the artist name is Nishant Malik,
+                        an independent creator from Kurmali,
+                        in the Shamli district of Uttar Pradesh, India.
+                        His journey began in childhood, long before
+                        the tools, techniques, and plans became clearer.
+                    </p>
+
+                    <p>
+                        He learned by doing: singing, writing,
+                        producing, listening back, and trying to
+                        understand what could be better. The process
+                        remains ongoing. Experience has shaped his
+                        direction, but curiosity continues to shape
+                        his work.
+                    </p>
+
+                    <p class="small-note">
+                        The name is new.
+                        The journey behind it has been years in the making.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FINALE -->
+        <section class="finale">
+            <div class="container">
+
+                <div class="eyebrow">The story continues</div>
+
+                <h2>
+                    THIS IS NOT
+                    <span>THE END.</span>
+                </h2>
+
+                <p>
+                    There are still songs to make, lessons to learn,
+                    and chapters that have not found their titles.
+                    The future is not a finished script. It is a
+                    space to create, to grow, and to discover what
+                    the music can become.
+                </p>
+
+                <p>
+                    From a phone in 2018 to an independent identity
+                    in 2026, the journey has changed its sound more
+                    than once. But the reason to create remains.
+                </p>
+
+                <div class="final-line">
+                    This is Rudravaax
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- OFFICIAL BIO -->
+        <section class="official-bio">
+            <div class="container bio-layout">
+
+                <div class="bio-heading">
+                    <div class="section-label">The official note</div>
+                    <h2>About Rudravaax</h2>
+                </div>
+
+                <div class="bio-copy">
+                    <p>
+                        Rudravaax is the independent artist identity
+                        of Nishant Malik, a vocalist, music producer,
+                        composer, lyricist, mixing and mastering
+                        engineer, and graphic designer from Shamli,
+                        Uttar Pradesh, India. Beginning his musical
+                        journey in 2018, he developed his craft through
+                        years of experimentation, self-learning,
+                        and independent creation.
+                    </p>
+
+                    <p>
+                        After earlier work under the name Jaadugar,
+                        2026 marks a new creative chapter as Rudravaax.
+                        His ongoing direction brings together
+                        hip-hop, rap, electronic influences, vocals,
+                        and a developing visual identity. His focus
+                        remains on improving the craft, building an
+                        authentic audience connection, and creating
+                        work that reflects his evolving sound.
+                    </p>
+
+                    <p>
+                        This biography documents a journey in progress.
+                        The next chapter will be shaped by the work
+                        still to come.
+                    </p>
+
+                    <a class="bio-email" href="mailto:rudravaax@gmail.com">
+                        rudravaax@gmail.com
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+
+            <div class="footer-brand">RUDRAVAAX</div>
+
+            <div class="footer-copy">
+                An independent journey. Still in motion.
+            </div>
+
+            <a class="footer-top" href="#top">Back to beginning ↑</a>
+
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>

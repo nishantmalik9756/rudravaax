@@ -1,13 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Rudravaax | RudraVX</title>
-    <meta name="description" content="Explore Rudravaax, his music, upcoming projects, team and the RudraVX music ecosystem.">
+    <meta name="description"
+        content="Explore Rudravaax, his music, upcoming projects, team and the RudraVX music ecosystem.">
 
+
+    <link rel="manifest" href="./manifest.json">
+
+    <meta name="theme-color" content="#10141c">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="icon" href="./images/logo.jpeg">
+
+    <link rel="apple-touch-icon" href="./icons/icon-192.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,11 +45,13 @@
 
             <nav class="nav-links">
                 <a href="index.html" class="active">Home</a>
+                <a href="mystory.html">My Story</a>
                 <a href="latestrelease.html">Listen To The Rudravaax</a>
                 <a href="UpcomingProject.html">Upcoming Project</a>
                 <a href="#ecosystem">Our Services</a>
                 <a href="#team">Our Team</a>
                 <a href="contact.html" class="nav-contact">Contact</a>
+
             </nav>
 
         </div>
@@ -105,11 +118,7 @@
                             <span>THE ARTIST</span>
                         </div>
 
-                        <img
-                            src="images/logo.jpeg"
-                            alt="Rudravaax"
-                            class="hero-logo"
-                        >
+                        <img src="images/logo.jpeg" alt="Rudravaax" class="hero-logo">
 
                         <div class="hero-card-bottom">
                             <div>
@@ -350,7 +359,8 @@
                     <!-- 6. ANRX BEATS -->
                     <article class="member-row photo-left">
                         <div class="member-photo">
-                            <img src="images/team6.jpeg" alt="ANRX BEATS — Production and Mixing Manager" loading="lazy">
+                            <img src="images/team6.jpeg" alt="ANRX BEATS — Production and Mixing Manager"
+                                loading="lazy">
                         </div>
                         <div class="member-content">
                             <span class="member-number">06 / AUDIO</span>
@@ -414,7 +424,8 @@
                             </p>
                         </div>
                         <div class="member-photo">
-                            <img src="images/team9.jpeg" alt="Shalini Prajapati — Collaboration Coordinator" loading="lazy">
+                            <img src="images/team9.jpeg" alt="Shalini Prajapati — Collaboration Coordinator"
+                                loading="lazy">
                         </div>
                     </article>
 
@@ -609,7 +620,8 @@
 
             <div class="footer-column">
                 <h3>Connect</h3>
-                <a href="https://open.spotify.com/artist/3sgUsWlgqaJd4UVsHtQyso" target="_blank" rel="noopener noreferrer">Spotify</a>
+                <a href="https://open.spotify.com/artist/3sgUsWlgqaJd4UVsHtQyso" target="_blank"
+                    rel="noopener noreferrer">Spotify</a>
                 <a href="https://www.youtube.com/@rudravaax" target="_blank" rel="noopener noreferrer">YouTube</a>
                 <a href="https://www.instagram.com/rudravvaax/" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="mailto:rudravaax@gmail.com">Email Us</a>
@@ -631,12 +643,25 @@
             new Date().getFullYear();
 
         // Close the mobile navigation after selecting a link.
-        document.querySelectorAll(".nav-links a").forEach(function(link) {
-            link.addEventListener("click", function() {
+        document.querySelectorAll(".nav-links a").forEach(function (link) {
+            link.addEventListener("click", function () {
                 document.getElementById("menu-toggle").checked = false;
             });
         });
     </script>
 
+    <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("./sw.js")
+        .catch((error) => {
+          console.error("Service worker registration failed:", error);
+        });
+    });
+  }
+</script>
+
 </body>
+
 </html>
