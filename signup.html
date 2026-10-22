@@ -2,395 +2,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Account | RudraVX Music</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0a">
+  <title>Create Account | RudraVX Music</title>
 
-<style>* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-:root {
-    --bg: #000000;
-    --card: #121212;
-    --input: #121212;
-    --text: #ffffff;
-    --muted: #b3b3b3;
-    --border: #727272;
-    --accent: #1ed760;
-    --accent-hover: #3be477;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-html[data-theme="black"] {
-    --bg: #000000;
-    --card: #121212;
-    --input: #121212;
-    --text: #ffffff;
-    --muted: #b3b3b3;
-    --border: #727272;
-}
+    :root {
+      --bg: #090b0a;
+      --panel: #111512;
+      --input: #090c0a;
+      --border: #252c27;
+      --green: #20e678;
+      --text: #f5f7f5;
+      --muted: #929b94;
+    }
 
-html[data-theme="white"] {
-    --bg: #ffffff;
-    --card: #f5f5f5;
-    --input: #ffffff;
-    --text: #121212;
-    --muted: #535353;
-    --border: #777777;
-    --accent: #15803d;
-    --accent-hover: #166534;
-}
+    html[data-theme="white"] {
+      --bg: #f5f7f5;
+      --panel: #ffffff;
+      --input: #ffffff;
+      --border: #d4d9d5;
+      --green: #15803d;
+      --text: #111512;
+      --muted: #626b64;
+    }
 
-body {
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: background 0.25s ease, color 0.25s ease;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
 
-/* ===== HEADER ===== */
+    .signup-box {
+      width: 100%;
+      max-width: 360px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--panel);
+      box-shadow: 0 15px 45px #0002;
+    }
 
-.top {
-    width: 100%;
-    min-height: 85px;
-    padding: 18px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--bg);
-    border-bottom: 1px solid #222222;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 21px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.brand img {
-    width: 43px;
-    height: 43px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.theme {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-    padding: 9px 15px;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.theme:hover {
-    border-color: var(--text);
-    transform: scale(1.03);
-}
-
-/* ===== LOGIN CARD ===== */
-
-.card {
-    width: 100%;
-    max-width: 450px;
-    margin: 45px auto;
-    padding: 42px 38px;
-    background: var(--card);
-    border-radius: 10px;
-}
-
-.card h1 {
-    color: var(--text);
-    font-size: 34px;
-    font-weight: 800;
-    letter-spacing: -1.2px;
-    line-height: 1.2;
-    margin-bottom: 12px;
-}
-
-.sub {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 30px;
-}
-
-/* ===== FORM ===== */
-
-#form {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-#form label {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 700;
-}
-
-#form input {
-    width: 100%;
-    height: 50px;
-    padding: 0 14px;
-    background: var(--input);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    outline: none;
-    color: var(--text);
-    font-size: 15px;
-    transition: border 0.2s ease, box-shadow 0.2s ease;
-}
-
-#form input::placeholder {
-    color: var(--muted);
-    opacity: 0.8;
-}
-
-#form input:hover {
-    border-color: var(--text);
-}
-
-#form input:focus {
-    border: 2px solid var(--text);
-    box-shadow: 0 0 0 1px var(--text);
-}
-
-/* ===== LOGIN BUTTON ===== */
-
-.submit {
-    width: 100%;
-    min-height: 50px;
-    margin-top: 5px;
-    background: var(--accent);
-    color: #000000;
-    border: none;
-    border-radius: 30px;
-    font-size: 15px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.submit:hover {
-    background: var(--accent-hover);
-    transform: scale(1.02);
-}
-
-.submit:active {
-    transform: scale(0.99);
-}
-
-.submit:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* ===== STATUS MESSAGE ===== */
-
-.notice {
-    display: none;
-    margin-top: 22px;
-    padding: 13px 14px;
-    background: #242424;
-    color: #ffffff;
-    border: 1px solid #444444;
-    border-radius: 5px;
-    font-size: 13px;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-}
-
-.notice.show {
-    display: block;
-}
-
-/* ===== BOTTOM LINKS ===== */
-
-.bottom {
-    margin-top: 28px;
-    padding-top: 24px;
-    border-top: 1px solid #333333;
-    color: var(--muted);
-    font-size: 14px;
-    text-align: center;
-    line-height: 1.8;
-}
-
-.bottom a,
-.back {
-    color: var(--text);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: color 0.2s ease;
-}
-
-.bottom a {
-    font-weight: 700;
-}
-
-.bottom a:hover,
-.back:hover {
-    color: var(--accent);
-}
-
-.back {
-    display: block;
-    width: fit-content;
-    margin: 28px auto 0;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-
-@media (max-width: 600px) {
     .top {
-        min-height: 72px;
-        padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 24px;
     }
 
     .brand {
-        font-size: 17px;
-        gap: 9px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--text);
+      text-decoration: none;
+      min-width: 0;
     }
 
     .brand img {
-        width: 36px;
-        height: 36px;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+
+    .brand-name span {
+      color: var(--green);
     }
 
     .theme {
-        padding: 8px 12px;
-        font-size: 12px;
+      flex-shrink: 0;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--text);
+      font-size: 11px;
+      cursor: pointer;
     }
 
-    .card {
-        width: calc(100% - 28px);
-        max-width: 420px;
-        margin: 25px auto;
-        padding: 30px 23px;
-        border-radius: 8px;
+    h1 {
+      font-size: 23px;
+      text-align: center;
+      margin-bottom: 7px;
     }
 
-    .card h1 {
-        font-size: 29px;
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    .sub {
-        font-size: 13px;
+    label {
+      display: block;
+      font-size: 12px;
+      color: var(--text);
+      margin: 13px 0 7px;
     }
-}
 
-/* ===== ACCESSIBILITY ===== */
+    input {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      background: var(--input);
+      color: var(--text);
+      font-size: 13px;
+    }
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    input::placeholder {
+      color: var(--muted);
+      opacity: 0.85;
+    }
+
+    input:focus {
+      border-color: var(--green);
+    }
+
+    .submit {
+      width: 100%;
+      margin-top: 19px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: var(--green);
+      color: #061109;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .submit:hover {
+      opacity: 0.88;
+    }
+
+    .submit:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .notice {
+      display: none;
+      margin-top: 13px;
+      padding: 10px;
+      border-radius: 7px;
+      font-size: 12px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .notice.show {
+      display: block;
+    }
+
+    .notice.error {
+      color: #ffb7b7;
+      background: #351616;
+      border: 1px solid #672929;
+    }
+
+    .notice.success {
+      color: #aaffc9;
+      background: #10281a;
+      border: 1px solid #205b36;
+    }
+
+    .bottom {
+      text-align: center;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .bottom a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 3px;
+    }
+
+    .bottom a:hover {
+      text-decoration: underline;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: 11px;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: var(--green);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer span {
+      color: var(--green);
+    }
+
+    @media (max-width: 400px) {
+      .signup-box {
+        padding: 22px 18px;
+      }
+
+      .brand-name {
+        font-size: 16px;
+      }
+
+      .brand img {
+        width: 35px;
+        height: 35px;
+      }
+
+      h1 {
+        font-size: 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
         transition: none !important;
+      }
     }
-}</style>
+  </style>
 </head>
+
 <body>
-<header class="top">
-<a class="brand" href="index.html"><img src="images/logo.jpeg" alt="RudraVX"><span>RudraVX Music</span></a>
-<button class="theme" id="theme" type="button">◐ Black</button>
-</header>
+  <main class="signup-box">
 
-<main class="card">
-<h1>Create account.</h1>
-<p class="sub">Join RudraVX Music and create your account.</p>
-<form id="form">
-<label>Email address
-<input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-</label>
-<label>Password
-<input id="password" type="password" placeholder="At least 6 characters" autocomplete="new-password" minlength="6" required>
-</label>
-<label>Confirm password
-<input id="confirmPassword" type="password" placeholder="Enter password again" autocomplete="new-password" minlength="6" required>
-</label>
-<button class="submit" id="submit" type="submit">Create account</button>
-</form>
-<div class="notice" id="notice" role="status" aria-live="polite"></div>
-<div class="bottom">Already have an account? <a href="login.html">Log in</a></div>
-<a class="back" href="index.html">← Back to Home</a>
-</main>
+    <header class="top">
+      <a class="brand" href="index.html">
+        <img src="images/logo.jpeg" alt="RudraVX Logo">
+        <div class="brand-name">Rudra<span>VX</span> Music</div>
+      </a>
 
-<script>
-const SUPABASE_URL="https://mirxupauzfprafnestmq.supabase.co";
-const SUPABASE_PUBLIC_KEY="sb_publishable_37Z1dMQkgE9I2dOD-7aQjg_8t4rj9Vl";
-const $=id=>document.getElementById(id);
+      <button class="theme" id="theme" type="button">
+        ☼ White
+      </button>
+    </header>
 
-function setTheme(t){
-  t=t==="black"?"black":"white";
-  document.documentElement.dataset.theme=t;
-  $("theme").textContent=t==="black"?"☼ White":"◐ Black";
-  try{localStorage.setItem("rudravx-theme",t)}catch(e){}
-}
-let theme="white";
-try{theme=localStorage.getItem("rudravx-theme")||"white"}catch(e){}
-setTheme(theme);
-$("theme").onclick=()=>setTheme(document.documentElement.dataset.theme==="black"?"white":"black");
+    <h1>Create Account</h1>
+    <p class="subtitle">
+      Join RudraVX Music and create your account.
+    </p>
 
-function message(text){
-  $("notice").textContent=text;
-  $("notice").classList.add("show");
-}
-const configured=SUPABASE_PUBLIC_KEY!=="PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
-const client=configured?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLIC_KEY):null;
+    <form id="form">
+      <label for="email">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter your email"
+        autocomplete="email"
+        required
+      >
 
-$("form").addEventListener("submit",async e=>{
-  e.preventDefault();
-  const password=$("password").value;
-  const confirmPassword=$("confirmPassword").value;
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="At least 6 characters"
+        autocomplete="new-password"
+        minlength="6"
+        required
+      >
 
-  if(password.length<6){message("Password must contain at least 6 characters.");return}
-  if(password!==confirmPassword){message("Passwords do not match. Please confirm your password again.");$("confirmPassword").focus();return}
-  if(!client){message("Please add your Supabase publishable key in this file first.");return}
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        id="confirmPassword"
+        type="password"
+        placeholder="Enter password again"
+        autocomplete="new-password"
+        minlength="6"
+        required
+      >
 
-  const btn=$("submit");
-  btn.disabled=true;btn.textContent="Creating account…";
+      <button class="submit" id="submit" type="submit">
+        Create Account
+      </button>
+    </form>
 
-  try{
-    const {data,error}=await client.auth.signUp({
-      email:$("email").value.trim(),
-      password:password,
-      options:{emailRedirectTo:location.origin+"/index.html"}
-    });
-    if(error)throw error;
+    <div
+      class="notice"
+      id="notice"
+      role="status"
+      aria-live="polite"
+    ></div>
 
-    if(data.session){
-      message("Account created successfully! Redirecting to your account…");
-      setTimeout(()=>location.replace("index.html"),900);
-    }else{
-      message("Account created! Please check your email and click the confirmation link before logging in.");
+    <div class="bottom">
+      Already have an account?
+      <a href="login.html">Sign In</a>
+    </div>
+
+    <a class="back" href="index.html">
+      ← Back to Home
+    </a>
+
+    <p class="footer">
+      Powered by <span>RudraVX Music</span>
+    </p>
+
+  </main>
+
+  <script>
+    const SUPABASE_URL =
+      "https://mirxupauzfprafnestmq.supabase.co";
+
+    const SUPABASE_PUBLIC_KEY =
+      "sb_publishable_37Z1dMQkgE9I2dOD-7aQjg_8t4rj9Vl";
+
+    const $ = id => document.getElementById(id);
+
+    // Theme toggle
+    function setTheme(theme) {
+      theme = theme === "black" ? "black" : "white";
+
+      document.documentElement.dataset.theme = theme;
+
+      $("theme").textContent =
+        theme === "black" ? "☼ White" : "◐ Black";
+
+      try {
+        localStorage.setItem("rudravx-theme", theme);
+      } catch (error) {}
     }
-  }catch(err){message(err.message||"Signup failed. Please try again.")}
-  finally{btn.disabled=false;btn.textContent="Create account"}
-});
-</script>
+
+    let savedTheme = "black";
+
+    try {
+      savedTheme =
+        localStorage.getItem("rudravx-theme") || "black";
+    } catch (error) {}
+
+    setTheme(savedTheme);
+
+    $("theme").addEventListener("click", () => {
+      const current =
+        document.documentElement.dataset.theme;
+
+      setTheme(current === "black" ? "white" : "black");
+    });
+
+    // Supabase setup
+    const client = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLIC_KEY
+    );
+
+    function message(text, type = "error") {
+      $("notice").textContent = text;
+      $("notice").className = "notice show " + type;
+    }
+
+    // Create account
+    $("form").addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const email = $("email").value.trim();
+      const password = $("password").value;
+      const confirmPassword = $("confirmPassword").value;
+      const button = $("submit");
+
+      $("notice").className = "notice";
+
+      if (password.length < 6) {
+        message("Password must contain at least 6 characters.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        message("Passwords do not match. Please try again.");
+        $("confirmPassword").focus();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = "Creating account...";
+
+      try {
+        const { data, error } = await client.auth.signUp({
+          email: email,
+          password: password,
+          options: {
+            emailRedirectTo: window.location.origin + "/login.html"
+          }
+        });
+
+        if (error) {
+          throw error;
+        }
+
+        if (data.session) {
+          message(
+            "Account created successfully! Redirecting...",
+            "success"
+          );
+
+          window.setTimeout(() => {
+            window.location.replace("index.html");
+          }, 1200);
+
+        } else {
+          message(
+            "Account request successful! Check your email for a confirmation link. After confirming, sign in to continue.",
+            "success"
+          );
+        }
+
+      } catch (error) {
+        message(
+          error.message || "Signup failed. Please try again."
+        );
+
+      } finally {
+        button.disabled = false;
+        button.textContent = "Create Account";
+      }
+    });
+  </script>
 </body>
 </html>

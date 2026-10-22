@@ -150,6 +150,25 @@
       border: 1px solid #205b36;
     }
 
+    .signup-link {
+      text-align: center;
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .signup-link a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+      margin-left: 3px;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
     .footer {
       text-align: center;
       margin-top: 20px;
@@ -160,20 +179,34 @@
     .footer span {
       color: var(--green);
     }
+
+    @media (max-width: 400px) {
+      .login-box {
+        padding: 22px 18px;
+      }
+
+      h1 {
+        font-size: 21px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <main class="login-box">
+
     <div class="brand">
       <img src="images/logo.jpeg" alt="RudraVX Logo">
       <div class="brand-name">Rudra<span>VX</span> Music</div>
     </div>
 
     <h1>Welcome Back</h1>
-    <p class="subtitle">Sign in to access your music ecosystem.</p>
+    <p class="subtitle">
+      Sign in to access your music ecosystem.
+    </p>
 
     <form id="loginForm">
+
       <label for="email">Email Address</label>
       <input
         type="email"
@@ -194,16 +227,37 @@
         required
       >
 
-      <button type="submit" id="loginButton">Sign In</button>
-      <div id="message" class="message" role="status" aria-live="polite"></div>
+      <button type="submit" id="loginButton">
+        Sign In
+      </button>
+
+      <div
+        id="message"
+        class="message"
+        role="status"
+        aria-live="polite"
+      ></div>
+
     </form>
 
-    <p class="footer">Powered by <span>RudraVX Music</span></p>
+    <!-- Sign Up Link -->
+    <p class="signup-link">
+      Don't have an account?
+      <a href="signup.html">Create an Account</a>
+    </p>
+
+    <p class="footer">
+      Powered by <span>RudraVX Music</span>
+    </p>
+
   </main>
 
   <script>
-    const SUPABASE_URL = "https://mirxupauzfprafnestmq.supabase.co";
-    const SUPABASE_PUBLIC_KEY = "sb_publishable_37Z1dMQkgE9I2dOD-7aQjg_8t4rj9Vl";
+    const SUPABASE_URL =
+      "https://mirxupauzfprafnestmq.supabase.co";
+
+    const SUPABASE_PUBLIC_KEY =
+      "sb_publishable_37Z1dMQkgE9I2dOD-7aQjg_8t4rj9Vl";
 
     const supabaseClient = window.supabase.createClient(
       SUPABASE_URL,
@@ -219,34 +273,48 @@
       messageBox.className = "message " + type;
     }
 
-    // If the user already has a valid session, open the website.
     async function checkExistingSession() {
       loginButton.disabled = true;
       loginButton.textContent = "Checking session...";
 
-      const { data, error } = await supabaseClient.auth.getSession();
+      try {
+        const { data, error } =
+          await supabaseClient.auth.getSession();
 
-      if (error) {
-        showMessage("Could not check your session. Please try again.");
+        if (error) {
+          showMessage(
+            "Could not check your session. Please try again."
+          );
+          loginButton.disabled = false;
+          loginButton.textContent = "Sign In";
+          return;
+        }
+
+        if (data.session) {
+          window.location.replace("index.html");
+          return;
+        }
+
         loginButton.disabled = false;
         loginButton.textContent = "Sign In";
-        return;
-      }
 
-      if (data.session) {
-        window.location.replace("index.html");
-        return;
+      } catch (error) {
+        showMessage(
+          "Connection error. Please refresh and try again."
+        );
+        loginButton.disabled = false;
+        loginButton.textContent = "Sign In";
       }
-
-      loginButton.disabled = false;
-      loginButton.textContent = "Sign In";
     }
 
     loginForm.addEventListener("submit", async function (event) {
       event.preventDefault();
 
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value;
+      const email =
+        document.getElementById("email").value.trim();
+
+      const password =
+        document.getElementById("password").value;
 
       if (!email || !password) {
         showMessage("Please enter your email and password.");
@@ -258,29 +326,50 @@
       messageBox.className = "message";
 
       try {
-        const { data, error } = await supabaseClient.auth.signInWithPassword({
-          email: email,
-          password: password
-        });
+        const { data, error } =
+          await supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
+          });
 
         if (error) {
-          showMessage(error.message || "Login failed. Check your details.");
+          showMessage(
+            error.message || "Login failed. Check your details."
+          );
           loginButton.disabled = false;
           loginButton.textContent = "Sign In";
           return;
         }
 
         if (data.session) {
-          showMessage("Login successful. Opening your music...", "success");
-          window.location.replace("index.html");
+          showMessage(
+            "Login successful. Opening your music...",
+            "success"
+          );
+
+         const params = new URLSearchParams(window.location.search);
+const next = params.get("next");
+
+if (next === "exclusivecontent.html") {
+  window.location.replace("exclusivecontent.html");
+} else {
+  window.location.replace("index.html");
+}
           return;
         }
 
-        showMessage("Login could not be completed. Please try again.");
+        showMessage(
+          "Login could not be completed. Please try again."
+        );
+
         loginButton.disabled = false;
         loginButton.textContent = "Sign In";
+
       } catch (error) {
-        showMessage("Connection error. Check your internet and try again.");
+        showMessage(
+          "Connection error. Check your internet and try again."
+        );
+
         loginButton.disabled = false;
         loginButton.textContent = "Sign In";
       }

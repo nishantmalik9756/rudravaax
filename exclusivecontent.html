@@ -7,7 +7,44 @@
   <meta name="theme-color" content="#1769ff">
 
   <title>Exclusive Content | Rudravaax</title>
+<style>
+  body {
+    visibility: hidden;
+  }
+</style>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  (async function () {
+    const SUPABASE_URL = "https://mirxupauzfprafnestmq.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_37Z1dMQkgE9I2dOD-7aQjg_8t4rj9Vl";
+
+    try {
+      const supabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+      const { data, error } = await supabase.auth.getSession();
+
+      if (error) throw error;
+
+      if (!data.session) {
+        window.location.replace(
+          "login.html?next=exclusivecontent.html"
+        );
+        return;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.style.visibility = "visible";
+      });
+    } catch (error) {
+      window.location.replace("login.html?next=exclusivecontent.html");
+    }
+  })();
+</script>
   <style>
     :root {
       --mp-blue: #1769ff;
