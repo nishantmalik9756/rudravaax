@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account | RudraVX Music</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="style.css">
+
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #000000;
+    --card: #121212;
+    --input: #121212;
+    --text: #ffffff;
+    --muted: #b3b3b3;
+    --border: #727272;
+    --accent: #1ed760;
+    --accent-hover: #3be477;
+}
+
+html[data-theme="black"] {
+    --bg: #000000;
+    --card: #121212;
+    --input: #121212;
+    --text: #ffffff;
+    --muted: #b3b3b3;
+    --border: #727272;
+}
+
+html[data-theme="white"] {
+    --bg: #ffffff;
+    --card: #f5f5f5;
+    --input: #ffffff;
+    --text: #121212;
+    --muted: #535353;
+    --border: #777777;
+    --accent: #15803d;
+    --accent-hover: #166534;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* ===== HEADER ===== */
+
+.top {
+    width: 100%;
+    min-height: 85px;
+    padding: 18px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+    border-bottom: 1px solid #222222;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.brand img {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.theme {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 9px 15px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.theme:hover {
+    border-color: var(--text);
+    transform: scale(1.03);
+}
+
+/* ===== LOGIN CARD ===== */
+
+.card {
+    width: 100%;
+    max-width: 450px;
+    margin: 45px auto;
+    padding: 42px 38px;
+    background: var(--card);
+    border-radius: 10px;
+}
+
+.card h1 {
+    color: var(--text);
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.sub {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* ===== FORM ===== */
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+#form label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#form input {
+    width: 100%;
+    height: 50px;
+    padding: 0 14px;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    outline: none;
+    color: var(--text);
+    font-size: 15px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#form input::placeholder {
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+#form input:hover {
+    border-color: var(--text);
+}
+
+#form input:focus {
+    border: 2px solid var(--text);
+    box-shadow: 0 0 0 1px var(--text);
+}
+
+/* ===== LOGIN BUTTON ===== */
+
+.submit {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 5px;
+    background: var(--accent);
+    color: #000000;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.submit:hover {
+    background: var(--accent-hover);
+    transform: scale(1.02);
+}
+
+.submit:active {
+    transform: scale(0.99);
+}
+
+.submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== STATUS MESSAGE ===== */
+
+.notice {
+    display: none;
+    margin-top: 22px;
+    padding: 13px 14px;
+    background: #242424;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.notice.show {
+    display: block;
+}
+
+/* ===== BOTTOM LINKS ===== */
+
+.bottom {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid #333333;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.bottom a,
+.back {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.bottom a {
+    font-weight: 700;
+}
+
+.bottom a:hover,
+.back:hover {
+    color: var(--accent);
+}
+
+.back {
+    display: block;
+    width: fit-content;
+    margin: 28px auto 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 600px) {
+    .top {
+        min-height: 72px;
+        padding: 15px 20px;
+    }
+
+    .brand {
+        font-size: 17px;
+        gap: 9px;
+    }
+
+    .brand img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .theme {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .card {
+        width: calc(100% - 28px);
+        max-width: 420px;
+        margin: 25px auto;
+        padding: 30px 23px;
+        border-radius: 8px;
+    }
+
+    .card h1 {
+        font-size: 29px;
+    }
+
+    .sub {
+        font-size: 13px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}</style>
+</head>
+<body>
+<header class="top">
+<a class="brand" href="index.html"><img src="images/logo.jpeg" alt="RudraVX"><span>RudraVX Music</span></a>
+<button class="theme" id="theme" type="button">◐ Black</button>
+</header>
+
+<main class="card">
+<h1>Create account.</h1>
+<p class="sub">Join RudraVX Music and create your account.</p>
+<form id="form">
+<label>Email address
+<input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+</label>
+<label>Password
+<input id="password" type="password" placeholder="At least 6 characters" autocomplete="new-password" minlength="6" required>
+</label>
+<label>Confirm password
+<input id="confirmPassword" type="password" placeholder="Enter password again" autocomplete="new-password" minlength="6" required>
+</label>
+<button class="submit" id="submit" type="submit">Create account</button>
+</form>
+<div class="notice" id="notice" role="status" aria-live="polite"></div>
+<div class="bottom">Already have an account? <a href="login.html">Log in</a></div>
+<a class="back" href="index.html">← Back to Home</a>
+</main>
+
+<script>
+const SUPABASE_URL="https://mirxupauzfprafnestmq.supabase.co";
+const SUPABASE_PUBLIC_KEY="sb_publishable_37Z1dMQkgE9I2dOD-7aQjg_8t4rj9Vl";
+const $=id=>document.getElementById(id);
+
+function setTheme(t){
+  t=t==="black"?"black":"white";
+  document.documentElement.dataset.theme=t;
+  $("theme").textContent=t==="black"?"☼ White":"◐ Black";
+  try{localStorage.setItem("rudravx-theme",t)}catch(e){}
+}
+let theme="white";
+try{theme=localStorage.getItem("rudravx-theme")||"white"}catch(e){}
+setTheme(theme);
+$("theme").onclick=()=>setTheme(document.documentElement.dataset.theme==="black"?"white":"black");
+
+function message(text){
+  $("notice").textContent=text;
+  $("notice").classList.add("show");
+}
+const configured=SUPABASE_PUBLIC_KEY!=="PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+const client=configured?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLIC_KEY):null;
+
+$("form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const password=$("password").value;
+  const confirmPassword=$("confirmPassword").value;
+
+  if(password.length<6){message("Password must contain at least 6 characters.");return}
+  if(password!==confirmPassword){message("Passwords do not match. Please confirm your password again.");$("confirmPassword").focus();return}
+  if(!client){message("Please add your Supabase publishable key in this file first.");return}
+
+  const btn=$("submit");
+  btn.disabled=true;btn.textContent="Creating account…";
+
+  try{
+    const {data,error}=await client.auth.signUp({
+      email:$("email").value.trim(),
+      password:password,
+      options:{emailRedirectTo:location.origin+"/index.html"}
+    });
+    if(error)throw error;
+
+    if(data.session){
+      message("Account created successfully! Redirecting to your account…");
+      setTimeout(()=>location.replace("index.html"),900);
+    }else{
+      message("Account created! Please check your email and click the confirmation link before logging in.");
+    }
+  }catch(err){message(err.message||"Signup failed. Please try again.")}
+  finally{btn.disabled=false;btn.textContent="Create account"}
+});
+</script>
+</body>
+</html>
